@@ -31,6 +31,9 @@ jobs:
           set -euo pipefail
           test -f public/index.html
           test -f public/favicon.svg
+          test -f public/impressum.html
+          test -f public/datenschutz.html
+          test -f public/legal.css
 
       - name: Nur Website-Dateien hochladen
         shell: bash
@@ -45,7 +48,7 @@ jobs:
           : "${FTP_PASSWORD:?FTP_PASSWORD fehlt}"
           # WICHTIG: FTP-Benutzer muss als Startverzeichnis /wiedeck-de/ haben.
           # Dadurch landen index.html und favicon.svg direkt im Domain-Verzeichnis.
-          for file in public/favicon.svg public/index.html; do
+          for file in public/favicon.svg public/legal.css public/impressum.html public/datenschutz.html public/index.html; do
             remote="${file#public/}"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv \
               --user "${FTP_USER}:${FTP_PASSWORD}" \
