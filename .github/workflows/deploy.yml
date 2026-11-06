@@ -2,6 +2,10 @@ name: wiedeck.de manuell veröffentlichen
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/deploy.yml'
 
 permissions:
   contents: read
