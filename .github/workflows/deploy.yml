@@ -43,7 +43,8 @@ jobs:
           : "${FTP_HOST:?FTP_HOST fehlt}"
           : "${FTP_USER:?FTP_USER fehlt}"
           : "${FTP_PASSWORD:?FTP_PASSWORD fehlt}"
-          # WICHTIG: Der FTPS-Benutzer muss auf das separate wiedeck.de-Verzeichnis beschränkt sein.
+          # WICHTIG: FTP-Benutzer muss als Startverzeichnis /wiedeck-de/ haben.
+          # Dadurch landen index.html und favicon.svg direkt im Domain-Verzeichnis.
           for file in public/favicon.svg public/index.html; do
             remote="${file#public/}"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv \
