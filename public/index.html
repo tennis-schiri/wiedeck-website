@@ -59,6 +59,10 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
 .index-description strong{color:var(--ink);font-weight:700}
 .index-arrow{width:44px;height:44px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:21px;transition:transform .2s,background .2s,color .2s}
 .index-row:hover .index-arrow{transform:rotate(45deg);background:var(--violet);border-color:var(--violet);color:white}
+.index-row-soon{cursor:default}
+.index-row-soon:hover{background:transparent;padding-left:7px;padding-right:7px}
+.index-row-soon .index-arrow{border-color:var(--line);color:var(--muted);font-weight:700}
+.index-row-soon:hover .index-arrow{transform:none;background:transparent;border-color:var(--line);color:var(--muted)}
 .social{background:var(--dark);color:#f1f0ed;padding:75px 0 70px}
 .social-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:65px}
 .social-title{font-size:clamp(39px,4.5vw,60px);line-height:1.02;letter-spacing:-.06em;margin:18px 0;font-weight:800}
@@ -102,7 +106,7 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
     </div>
   </div></section>
   <section class="section" id="projekte" aria-labelledby="project-title"><div class="shell">
-    <div class="section-header"><div><div class="mini">01 / Projekte</div><h2 id="project-title">Was ich <em>mache.</em></h2></div><p class="section-note">Drei Projekte rund um Tennisturniere, Organisation und digitale Lösungen.</p></div>
+    <div class="section-header"><div><div class="mini">01 / Projekte</div><h2 id="project-title">Was ich <em>mache.</em></h2></div><p class="section-note">Vier Projekte – von Tennis und Turnierorganisation bis zur kleinen App für zwischendurch.</p></div>
     <div class="index">
       <a class="index-row" href="https://www.tennis-schiri.de/" target="_blank" rel="noopener noreferrer" aria-label="Tennis-Schiri – Website in neuem Tab öffnen">
         <span class="index-number">01</span>
@@ -122,6 +126,12 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
         <span class="index-description"><strong>Punkte zählen, ohne den Spielstand aus dem Blick zu verlieren.</strong> TENNILO Score entsteht als eigenständige Zähl-App für die Apple Watch und das Smartphone. Der Fokus liegt auf einer einfachen Bedienung direkt auf dem Platz, einschließlich Spiel-, Satz- und Aufschlaganzeige für Einzel und Doppel. Aktuell als interaktiver Prototyp.</span>
         <span class="index-arrow" aria-hidden="true">↗</span>
       </a>
+      <div class="index-row index-row-soon">
+        <span class="index-number">04</span>
+        <span class="index-heading"><span class="index-title">Wer muss?!</span><span class="index-category">Spaß-App · In Entwicklung</span></span>
+        <span class="index-description"><strong>Wer zahlt? Wer holt die Getränke? Wer ist diesmal dran?</strong> Mehrere Personen legen gleichzeitig einen Finger auf das Display. Nach einem kurzen Countdown entscheidet der Zufall, wen es trifft. Eine kleine, augenzwinkernde App für iPhone und Android – aktuell in Entwicklung.</span>
+        <span class="index-arrow" aria-hidden="true">…</span>
+      </div>
     </div>
   </div></section>
   <section class="social" id="social" aria-labelledby="social-title"><div class="shell social-grid">
