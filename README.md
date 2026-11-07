@@ -37,3 +37,7 @@ Die Domain `wiedeck.de` verwendet das separate Webspace-Verzeichnis **`/wiedeck-
 ## Farbwelt Michael Wiedeck
 
 Die Website nutzt die metallisch-graue MW-Markenwelt statt der früheren violetten Farbpalette: Perlweiß / Graphit / Silber. Der vorhandene nutzerseitig umschaltbare Darkmode bleibt erhalten. Original-Logos der vier Projekte werden nicht verändert.
+
+## Freigestelltes MW-Logo
+
+Das von Google Drive übernommene MW-Hauptlogo ist als Original-PNG mit eingebettetem Hintergrund gespeichert. In der Hero-Sektion werden die weißen und dunklen Hintergründe mittels lokal eingebetteter SVG-Farbmatten (`mw-cutout-light`, `mw-cutout-dark`) beim Rendern transparent gesetzt. Originaldateien bleiben unverändert. Der frühere Kartenrahmen, Kartenhintergrund, Innenabstand und Kartenschatten sind in beiden Darstellungsmodi entfernt.

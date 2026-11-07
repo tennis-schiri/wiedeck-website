@@ -37,11 +37,14 @@ a:focus-visible{outline:3px solid var(--violet);outline-offset:5px}
 .brand-symbol img{display:block;width:100%;height:100%;object-fit:cover}
 .brand-word{font-size:18px;font-weight:800;letter-spacing:-.055em}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(32px,5vw,75px);align-items:center;padding-block:clamp(56px,7vw,94px)}
-.hero-logo-card{position:relative;min-width:0;padding:14px;border:1px solid var(--hero-edge);border-radius:24px;background:var(--hero-card);box-shadow:0 20px 55px rgba(12,24,32,.10),0 1px 0 var(--metal-shine) inset;overflow:hidden}
-html[data-theme="dark"] .hero-logo-card{box-shadow:0 22px 55px rgba(0,0,0,.21),0 1px 0 var(--metal-shine) inset}
-.hero-logo-card img{display:block;width:100%;height:auto;object-fit:contain}
-.hero-logo-card img.logo-mode-dark,.brand-symbol img.logo-mode-dark{display:none}
-html[data-theme="dark"] .hero-logo-card img.logo-mode-dark,html[data-theme="dark"] .brand-symbol img.logo-mode-dark{display:block}
+/* Freigestellte Original-Logos: Hintergrundfarbe im Browser transparent maskieren.
+   Es gibt bewusst keinen Kasten, Rahmen, Schatten oder künstlichen Logo-Hintergrund. */
+.hero-mark{position:relative;min-width:0;width:100%;margin:0;padding:0;border:0;background:none;box-shadow:none;overflow:visible}
+.hero-mark img{display:block;width:100%;height:auto;object-fit:contain}
+.hero-mark img.logo-mode-light{filter:url("#mw-cutout-light")}
+.hero-mark img.logo-mode-dark{filter:url("#mw-cutout-dark");clip-path:inset(10px 33px 6px 33px)}
+.hero-mark img.logo-mode-dark,.brand-symbol img.logo-mode-dark{display:none}
+html[data-theme="dark"] .hero-mark img.logo-mode-dark,html[data-theme="dark"] .brand-symbol img.logo-mode-dark{display:block}
 .hero-copy{padding:0;max-width:560px;display:flex;flex-direction:column;align-items:flex-start}
 .hero-copy h1{font-size:clamp(42px,4.45vw,66px);line-height:1.08}
 
@@ -59,7 +62,7 @@ html[data-theme="dark"] .theme-when-dark{display:inline}
 html[data-theme="dark"] .theme-when-light{display:none}
 
 .hero{border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 25% 45%,var(--hero-glow-soft) 0,transparent 60%),linear-gradient(115deg,var(--paper),var(--hero-glow))}
-/* Hero-Raster und Bildkarte befinden sich bei den Branding-Regeln. */
+/* Hero-Raster und freigestelltes Markenzeichen befinden sich bei den Branding-Regeln. */
 .eyebrow{display:flex;align-items:center;gap:11px;color:var(--muted)}
 .eyebrow .dot{display:block;width:8px;height:8px;border-radius:50%;background:var(--violet)}
 h1{font-size:clamp(42px,5.3vw,68px);font-weight:800;line-height:1.08;letter-spacing:-.065em;margin:28px 0 22px}
@@ -120,7 +123,7 @@ html[data-theme="dark"] .project-logo--wm{box-shadow:0 0 0 1px #cbb9f5,0 0 22px 
 @media(max-width:750px){
  .header .shell{min-height:70px;gap:12px}.nav{gap:14px}.nav .nav-num{display:none}
  .hero-grid{grid-template-columns:1fr;gap:26px;padding-block:52px 65px}
- .hero-logo-card{max-width:540px;width:100%;margin-inline:auto}
+ .hero-mark{max-width:540px;width:100%;margin-inline:auto}
  .hero-copy{padding:0}
  .hero-copy h1{font-size:clamp(42px,8.1vw,57px)}
  h1{font-size:clamp(40px,8.1vw,56px)}
@@ -135,6 +138,18 @@ html[data-theme="dark"] .project-logo--wm{box-shadow:0 0 0 1px #cbb9f5,0 0 22px 
 </style>
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden;pointer-events:none">
+  <defs>
+    <!-- Transparenzmatte für das ursprünglich weiß hinterlegte Original -->
+    <filter id="mw-cutout-light" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -4.24 -8.32 -1.62 0 13.94"/>
+    </filter>
+    <!-- Transparenzmatte für das ursprünglich dunkel hinterlegte Original -->
+    <filter id="mw-cutout-dark" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  3.05 5.99 1.16 0 -1.20"/>
+    </filter>
+  </defs>
+</svg>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 <header class="header" id="oben"><div class="shell">
   <a class="brand" href="#oben" aria-label="wiedeck.de – zum Seitenanfang"><span class="brand-symbol"><img class="logo-mode-light" src="logos/mw-icon-hell.png" width="185" height="177" alt=""><img class="logo-mode-dark" src="logos/mw-icon-dunkel.png" width="191" height="177" alt=""></span><span class="brand-word">wiedeck.de</span></a>
@@ -142,7 +157,7 @@ html[data-theme="dark"] .project-logo--wm{box-shadow:0 0 0 1px #cbb9f5,0 0 22px 
 </div></header>
 <main id="inhalt">
   <section class="hero" aria-labelledby="headline"><div class="shell hero-grid">
-    <div class="hero-logo-card" aria-label="Michael Wiedeck – Markenlogo">
+    <div class="hero-mark" aria-label="Michael Wiedeck – Markenlogo">
       <img class="logo-mode-light" src="logos/mw-hauptlogo-hell.png" width="745" height="366" alt="Michael Wiedeck – silbernes MW-Monogramm und Wortmarke" fetchpriority="high" decoding="async">
       <img class="logo-mode-dark" src="logos/mw-hauptlogo-dunkel.png" width="666" height="371" alt="Michael Wiedeck – silbernes MW-Monogramm und Wortmarke" decoding="async">
     </div>
