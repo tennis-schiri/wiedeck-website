@@ -41,6 +41,10 @@ jobs:
           test -f public/logos/tennilo-score.png
           test -f public/logos/tennilo-score-dark-original.png
           test -f public/logos/wer-muss.webp
+          test -f public/logos/mw-hauptlogo-hell.png
+          test -f public/logos/mw-hauptlogo-dunkel.png
+          test -f public/logos/mw-icon-hell.png
+          test -f public/logos/mw-icon-dunkel.png
 
       - name: Nur Website-Dateien hochladen
         shell: bash
@@ -55,7 +59,7 @@ jobs:
           : "${FTP_PASSWORD:?FTP_PASSWORD fehlt}"
           # WICHTIG: FTP-Benutzer muss als Startverzeichnis /wiedeck-de/ haben.
           # Dadurch landen index.html und favicon.svg direkt im Domain-Verzeichnis.
-          for file in public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-score.png public/logos/tennilo-score-dark-original.png public/logos/wer-muss.webp public/index.html; do
+          for file in public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-score.png public/logos/tennilo-score-dark-original.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/index.html; do
             remote="${file#public/}"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \
               --user "${FTP_USER}:${FTP_PASSWORD}" \

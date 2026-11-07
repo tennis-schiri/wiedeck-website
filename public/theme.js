@@ -16,7 +16,9 @@
     root.setAttribute("data-theme", theme);
     root.style.colorScheme = theme;
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme === "dark" ? "#171820" : "#f5f2ed");
+    if (meta) meta.setAttribute("content", theme === "dark" ? "#111920" : "#f4f6f7");
+    var favicon = document.querySelector("link[data-theme-favicon]");
+    if (favicon) favicon.setAttribute("href", theme === "dark" ? "logos/mw-icon-dunkel.png" : "logos/mw-icon-hell.png");
     var button = document.getElementById("theme-toggle");
     if (button) {
       var isDark = theme === "dark";
