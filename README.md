@@ -45,3 +45,7 @@ Das von Google Drive übernommene MW-Hauptlogo ist als Original-PNG mit eingebet
 ## Header-Icon und Favicon ohne Hintergrund
 
 Das Header-Monogramm und die Favicons werden **wirklich transparent** erzeugt (RGBA mit Alphakanal); die bisherigen Icon-PNGs mit fest eingebranntem hellem oder schwarzem Hintergrund bleiben nur als historische Quellen erhalten. Ausgangspunkt ist die freigegebene MW-Monogramm-Datei `branding/mw-monogram-original.png`. Die Bilder werden durch `scripts/build_mw_transparent.py` vor dem FTPS-Upload erzeugt. Für die Generierung wird Pillow ausschließlich im CI-Workflow installiert. Die Website lädt die Bilddateien lokal und wechselt ohne Tracker automatisch zwischen den beiden transparenten Varianten. Nach einer Änderung des Favicons ggf. den Browser-Cache beachten.
+
+## Einheitliche MW-Logogröße
+
+Die freigestellten MW-Hauptlogos besitzen unterschiedliche Rastermaße (hell 745×366, dunkel 666×371). Die Hero-Fläche hat deshalb ein festes Seitenverhältnis, und nur die dunkle Variante wird um 8 % vergrößert. Dadurch bleibt die sichtbare Wortmarke beim Hell-/Dunkel-Wechsel gleich groß, ohne Rahmen oder Kartendesign.

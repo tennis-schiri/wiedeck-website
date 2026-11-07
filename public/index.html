@@ -39,10 +39,11 @@ a:focus-visible{outline:3px solid var(--violet);outline-offset:5px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(32px,5vw,75px);align-items:center;padding-block:clamp(56px,7vw,94px)}
 /* Freigestellte Original-Logos: Hintergrundfarbe im Browser transparent maskieren.
    Es gibt bewusst keinen Kasten, Rahmen, Schatten oder künstlichen Logo-Hintergrund. */
-.hero-mark{position:relative;min-width:0;width:100%;margin:0;padding:0;border:0;background:none;box-shadow:none;overflow:visible}
-.hero-mark img{display:block;width:100%;height:auto;object-fit:contain}
+.hero-mark{position:relative;min-width:0;width:100%;aspect-ratio:745 / 366;margin:0;padding:0;border:0;background:none;box-shadow:none;overflow:visible}
+.hero-mark img{position:absolute;top:50%;left:50%;display:block;width:100%;height:auto;object-fit:contain;transform:translate(-50%,-50%)}
 .hero-mark img.logo-mode-light{filter:url("#mw-cutout-light")}
-.hero-mark img.logo-mode-dark{filter:url("#mw-cutout-dark");clip-path:inset(10px 33px 6px 33px)}
+/* Das Darkmode-Original enthält breitere Ränder: +8 % gleicht die sichtbare Logogröße aus. */
+.hero-mark img.logo-mode-dark{width:108%;filter:url("#mw-cutout-dark");clip-path:inset(10px 33px 6px 33px)}
 .hero-mark img.logo-mode-dark,.brand-symbol img.logo-mode-dark{display:none}
 html[data-theme="dark"] .hero-mark img.logo-mode-dark,html[data-theme="dark"] .brand-symbol img.logo-mode-dark{display:block}
 .hero-copy{padding:0;max-width:560px;display:flex;flex-direction:column;align-items:flex-start}
