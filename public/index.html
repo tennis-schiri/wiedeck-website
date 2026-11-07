@@ -49,11 +49,14 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
 .section-header h2 em{font-family:Georgia,serif;font-weight:400;color:var(--violet)}
 .section-note{font-size:14px;line-height:1.7;max-width:350px;color:var(--muted);margin:0 0 3px auto}
 .index{border-top:1px solid var(--ink)}
-.index-row{display:grid;grid-template-columns:60px minmax(0,1.15fr) minmax(165px,.8fr) 48px;align-items:center;gap:22px;padding:25px 5px;border-bottom:1px solid var(--line);transition:padding .25s,background .25s}
-.index-row:hover{padding-left:17px;padding-right:17px;background:#ebe6ff}
-.index-number{font-family:Georgia,serif;font-style:italic;font-size:18px;color:var(--violet)}
-.index-title{font-size:clamp(29px,3.6vw,47px);line-height:1.1;letter-spacing:-.055em;font-weight:800}
-.index-description{color:var(--muted);font-size:13px;line-height:1.55;max-width:245px}
+.index-row{display:grid;grid-template-columns:48px minmax(190px,.8fr) minmax(0,1.35fr) 46px;align-items:start;gap:22px;padding:34px 7px 36px;border-bottom:1px solid var(--line);transition:padding .25s,background .25s}
+.index-row:hover{padding-left:18px;padding-right:18px;background:#ebe6ff}
+.index-number{font-family:Georgia,serif;font-style:italic;font-size:18px;color:var(--violet);padding-top:5px}
+.index-heading{display:flex;flex-direction:column;gap:11px}
+.index-title{font-size:clamp(29px,3.5vw,46px);line-height:1.1;letter-spacing:-.055em;font-weight:800}
+.index-category{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);font-weight:700}
+.index-description{color:#5d5a62;font-size:14px;line-height:1.75;max-width:500px;padding-top:2px}
+.index-description strong{color:var(--ink);font-weight:700}
 .index-arrow{width:44px;height:44px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:21px;transition:transform .2s,background .2s,color .2s}
 .index-row:hover .index-arrow{transform:rotate(45deg);background:var(--violet);border-color:var(--violet);color:white}
 .social{background:var(--dark);color:#f1f0ed;padding:75px 0 70px}
@@ -76,7 +79,7 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
  .hero-copy{padding:74px 0 80px}
  h1{font-size:clamp(40px,8.1vw,56px)}
  .section{padding:67px 0 75px}.section-header{display:block;margin-bottom:28px}.section-note{margin:20px 0 0}
- .index-row{grid-template-columns:35px 1fr 42px;gap:12px;padding:24px 0}.index-title{font-size:clamp(27px,6.2vw,40px)}.index-description{grid-column:2;grid-row:2;font-size:12px;margin-top:2px}.index-arrow{grid-column:3;grid-row:1/3;width:40px;height:40px;font-size:19px}.index-row:hover{padding-left:8px;padding-right:8px}
+ .index-row{grid-template-columns:35px minmax(0,1fr) 42px;gap:10px 12px;padding:28px 0}.index-heading{grid-column:2;grid-row:1}.index-title{font-size:clamp(27px,6.2vw,40px)}.index-description{grid-column:2;grid-row:2;font-size:13px;margin-top:1px;padding-top:0}.index-arrow{grid-column:3;grid-row:1;width:40px;height:40px;font-size:19px}.index-row:hover{padding-left:8px;padding-right:8px}
  .social{padding:67px 0 55px}.social-grid{display:block}.social-intro{margin-bottom:36px}
  .footer .shell{flex-wrap:wrap;gap:14px}
 }
@@ -99,10 +102,20 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
     </div>
   </div></section>
   <section class="section" id="projekte" aria-labelledby="project-title"><div class="shell">
-    <div class="section-header"><div><div class="mini">01 / Projekte</div><h2 id="project-title">Was ich <em>mache.</em></h2></div><p class="section-note">Zwei Projekte, eine gemeinsame Leidenschaft: Tennis einfacher, besser und zugänglicher machen.</p></div>
+    <div class="section-header"><div><div class="mini">01 / Projekte</div><h2 id="project-title">Was ich <em>mache.</em></h2></div><p class="section-note">Zwei Projekte rund um Tennisturniere, Organisation und digitale Lösungen.</p></div>
     <div class="index">
-      <a class="index-row" href="https://www.tennis-schiri.de/" target="_blank" rel="noopener noreferrer" aria-label="Tennis-Schiri – Website in neuem Tab öffnen"><span class="index-number">01</span><span class="index-title">Tennis-Schiri</span><span class="index-description">Turniere, Regelwissen &amp; mehr rund um den Tennissport.</span><span class="index-arrow" aria-hidden="true">↗</span></a>
-      <a class="index-row" href="https://tennilo.de/" target="_blank" rel="noopener noreferrer" aria-label="TENNILO – Website in neuem Tab öffnen"><span class="index-number">02</span><span class="index-title">TENNILO<span style="color:var(--violet)">.</span></span><span class="index-description">Die Turnier-App für Vereine. In Entwicklung für 2027.</span><span class="index-arrow" aria-hidden="true">↗</span></a>
+      <a class="index-row" href="https://www.tennis-schiri.de/" target="_blank" rel="noopener noreferrer" aria-label="Tennis-Schiri – Website in neuem Tab öffnen">
+        <span class="index-number">01</span>
+        <span class="index-heading"><span class="index-title">Tennis-Schiri</span><span class="index-category">Turniere &amp; Regelwissen</span></span>
+        <span class="index-description"><strong>Turniere organisieren, begleiten und sicher durchführen.</strong> Tennis-Schiri bündelt Turnierleitung, Oberschiedsrichter-Einsätze und Angebote für Tennisvereine. Dazu gehören Regelwissen, Regelworkshops und aktuelle Turniertermine.</span>
+        <span class="index-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="index-row" href="https://tennilo.de/" target="_blank" rel="noopener noreferrer" aria-label="TENNILO – Website in neuem Tab öffnen">
+        <span class="index-number">02</span>
+        <span class="index-heading"><span class="index-title">TENNILO<span style="color:var(--violet)">.</span></span><span class="index-category">Turnier-Software · In Entwicklung</span></span>
+        <span class="index-description"><strong>Weniger Verwaltungsaufwand bei Vereinsturnieren.</strong> TENNILO entsteht als Web-App für Auslosungen, Spielpläne, Ergebnisse und Live-Ansichten – unter anderem für Schleifchen- und Doppelturniere. Der Start ist für 2027 geplant.</span>
+        <span class="index-arrow" aria-hidden="true">↗</span>
+      </a>
     </div>
   </div></section>
   <section class="social" id="social" aria-labelledby="social-title"><div class="shell social-grid">
