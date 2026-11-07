@@ -1,12 +1,14 @@
 # wiedeck.de – persönliche Landingpage
 
-Statische, mobiloptimierte persönliche Startseite mit Links zu Tennis-Schiri, TENNILO und Social Media. Keine Build-Umgebung, kein JavaScript und keine Tracking-Skripte.
+Statische, mobiloptimierte persönliche Startseite mit vier Projektlogos und Links zu Tennis-Schiri, TENNILO, TENNILO Score und Social Media. Keine Build-Umgebung, kein JavaScript und keine Tracking-Skripte.
 
 ## Dateien
 
 - `public/index.html` – Landingpage mit eingebettetem CSS
 - `public/favicon.svg` – neutrales Favicon ohne Initialen
-- `.github/workflows/deploy.yml` – FTPS-Upload der beiden Website-Dateien
+- `public/logos/` – Original-Wortmarken von Tennis-Schiri, TENNILO und TENNILO Score sowie WM04b-App-Symbol
+- `public/impressum.html`, `public/datenschutz.html`, `public/legal.css` – Rechtliches
+- `.github/workflows/deploy.yml` – manueller FTPS-Upload aller Website-Dateien einschließlich Logos
 
 ## Veröffentlichung auf ALL-INKL
 
@@ -16,7 +18,7 @@ Die Domain `wiedeck.de` verwendet das separate Webspace-Verzeichnis **`/wiedeck-
 - Der FTP-Benutzer **muss mit dem Startverzeichnis `/wiedeck-de/` eingerichtet sein**, da der Workflow die Dateien relativ zum FTP-Startverzeichnis in dessen Wurzel ablegt.
 - Die Veröffentlichung kann unter **Actions → wiedeck.de manuell veröffentlichen → Run workflow** gestartet werden.
 - Nach Änderungen am Workflow selbst startet zusätzlich ein Upload bei einem Push nach `main`. Änderungen an der Website lösen keinen automatischen Upload aus.
-- Der Workflow überträgt ausschließlich `index.html` und `favicon.svg`; er löscht keine Serverdateien.
+- Der Workflow überträgt alle Website-Dateien einschließlich der Logos nach `/wiedeck-de/`; er löscht keine Serverdateien.
 
 ## Vor oder nach dem Livegang prüfen
 

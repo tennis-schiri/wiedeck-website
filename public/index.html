@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f3f0e9">
-<meta name="description" content="Michael Wiedeck. Ein persönlicher Wegweiser zu meinen Projekten und Profilen: Tennis-Schiri, TENNILO und Social Media.">
+<meta name="description" content="Michael Wiedeck. Ein Wegweiser zu meinen Projekten: Tennis-Schiri, TENNILO, TENNILO Score und Wer muss?! sowie meinen Online-Profilen.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://www.wiedeck.de/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -52,7 +52,14 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
 .index-row{display:grid;grid-template-columns:48px minmax(190px,.8fr) minmax(0,1.35fr) 46px;align-items:start;gap:22px;padding:34px 7px 36px;border-bottom:1px solid var(--line);transition:padding .25s,background .25s}
 .index-row:hover{padding-left:18px;padding-right:18px;background:#ebe6ff}
 .index-number{font-family:Georgia,serif;font-style:italic;font-size:18px;color:var(--violet);padding-top:5px}
-.index-heading{display:flex;flex-direction:column;gap:11px}
+.index-heading{display:flex;flex-direction:column;gap:12px;min-width:0}
+.project-logo{display:block;max-width:100%;height:auto;object-fit:contain;object-position:left center}
+.project-logo--ts{width:290px;padding:11px 12px;background:#142b29;border-radius:11px}
+.project-logo--tennilo{width:290px}
+.project-logo--score{width:290px;border-radius:7px}
+.project-wm-heading{display:flex;align-items:center;gap:12px;min-height:64px;max-width:100%}
+.project-logo--wm{width:64px;height:64px;flex:0 0 64px;border-radius:13px;object-fit:cover}
+.project-wm-heading .index-title{font-size:clamp(26px,3vw,36px)}
 .index-title{font-size:clamp(29px,3.5vw,46px);line-height:1.1;letter-spacing:-.055em;font-weight:800}
 .index-category{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);font-weight:700}
 .index-description{color:#5d5a62;font-size:14px;line-height:1.75;max-width:500px;padding-top:2px}
@@ -110,25 +117,25 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
     <div class="index">
       <a class="index-row" href="https://www.tennis-schiri.de/" target="_blank" rel="noopener noreferrer" aria-label="Tennis-Schiri – Website in neuem Tab öffnen">
         <span class="index-number">01</span>
-        <span class="index-heading"><span class="index-title">Tennis-Schiri</span><span class="index-category">Turniere &amp; Regelwissen</span></span>
+        <span class="index-heading"><img class="project-logo project-logo--ts" src="logos/tennis-schiri.png" alt="Tennis-Schiri" width="1080" height="205" loading="lazy" decoding="async"><span class="index-category">Turniere &amp; Regelwissen</span></span>
         <span class="index-description"><strong>Turniere organisieren, begleiten und sicher durchführen.</strong> Tennis-Schiri bündelt Turnierleitung, Oberschiedsrichter-Einsätze und Angebote für Tennisvereine. Dazu gehören Regelwissen, Regelworkshops und aktuelle Turniertermine.</span>
         <span class="index-arrow" aria-hidden="true">↗</span>
       </a>
       <a class="index-row" href="https://tennilo.de/" target="_blank" rel="noopener noreferrer" aria-label="TENNILO – Website in neuem Tab öffnen">
         <span class="index-number">02</span>
-        <span class="index-heading"><span class="index-title">TENNILO<span style="color:var(--violet)">.</span></span><span class="index-category">Turnier-Software · In Entwicklung</span></span>
+        <span class="index-heading"><img class="project-logo project-logo--tennilo" src="logos/tennilo.png" alt="TENNILO" width="4000" height="723" loading="lazy" decoding="async"><span class="index-category">Turnier-Software · In Entwicklung</span></span>
         <span class="index-description"><strong>Weniger Verwaltungsaufwand bei Vereinsturnieren.</strong> TENNILO entsteht als Web-App für Auslosungen, Spielpläne, Ergebnisse und Live-Ansichten – unter anderem für Schleifchen- und Doppelturniere. Der Start ist für 2027 geplant.</span>
         <span class="index-arrow" aria-hidden="true">↗</span>
       </a>
       <a class="index-row" href="https://score.tennilo.de/" target="_blank" rel="noopener noreferrer" aria-label="TENNILO Score – Website in neuem Tab öffnen">
         <span class="index-number">03</span>
-        <span class="index-heading"><span class="index-title">TENNILO Score</span><span class="index-category">Tennis-Zähl-App · In Entwicklung</span></span>
+        <span class="index-heading"><img class="project-logo project-logo--score" src="logos/tennilo-score.png" alt="TENNILO Score" width="863" height="121" loading="lazy" decoding="async"><span class="index-category">Tennis-Zähl-App · In Entwicklung</span></span>
         <span class="index-description"><strong>Punkte zählen, ohne den Spielstand aus dem Blick zu verlieren.</strong> TENNILO Score entsteht als eigenständige Zähl-App für die Apple Watch und das Smartphone. Der Fokus liegt auf einer einfachen Bedienung direkt auf dem Platz, einschließlich Spiel-, Satz- und Aufschlaganzeige für Einzel und Doppel. Aktuell als interaktiver Prototyp.</span>
         <span class="index-arrow" aria-hidden="true">↗</span>
       </a>
       <div class="index-row index-row-soon">
         <span class="index-number">04</span>
-        <span class="index-heading"><span class="index-title">Wer muss?!</span><span class="index-category">Spaß-App · In Entwicklung</span></span>
+        <span class="index-heading"><span class="project-wm-heading"><img class="project-logo project-logo--wm" src="logos/wer-muss.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span class="index-title">Wer muss?!</span></span><span class="index-category">Spaß-App · In Entwicklung</span></span>
         <span class="index-description"><strong>Wer zahlt? Wer holt die Getränke? Wer ist diesmal dran?</strong> Mehrere Personen legen gleichzeitig einen Finger auf das Display. Nach einem kurzen Countdown entscheidet der Zufall, wen es trifft. Eine kleine, augenzwinkernde App für iPhone und Android – aktuell in Entwicklung.</span>
         <span class="index-arrow" aria-hidden="true">…</span>
       </div>
