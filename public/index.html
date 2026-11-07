@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f3f0e9">
+<meta name="theme-color" content="#f5f2ed">
+<script src="theme.js"></script>
 <meta name="description" content="Michael Wiedeck. Ein Wegweiser zu meinen Projekten: Tennis-Schiri, TENNILO, TENNILO Score und Wer muss?! sowie meinen Online-Profilen.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://www.wiedeck.de/">
@@ -15,7 +16,9 @@
 <meta property="og:title" content="Michael Wiedeck — Persönlich. Digital.">
 <meta property="og:description" content="Ein Wegweiser zu meinen Projekten und Profilen.">
 <style>
-:root{--paper:#f5f2ed;--ink:#24242c;--muted:#66636a;--line:#d6d1d1;--violet:#594ce7;--lilac:#d8d0ff;--dark:#24232d}
+:root{--paper:#f5f2ed;--ink:#24242c;--muted:#66636a;--line:#d6d1d1;--violet:#594ce7;--lilac:#d8d0ff;--dark:#24232d;--row-hover:#ebe6ff;--description:#5d5a62;--intro:#48474f;--hero-glow:#ece7ff;--hero-glow-soft:rgba(236,231,255,.5);--toggle-bg:transparent}
+html[data-theme="dark"]{--paper:#171820;--ink:#f4f2fb;--muted:#beb9ca;--line:#43414d;--violet:#bdadff;--lilac:#ddd4ff;--dark:#12131b;--row-hover:#292735;--description:#c7c3d0;--intro:#d5d1df;--hero-glow:#393353;--hero-glow-soft:rgba(66,55,114,.3);--toggle-bg:#242331}
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;color:var(--ink);background:var(--paper);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
@@ -32,14 +35,24 @@ a:focus-visible{outline:3px solid var(--violet);outline-offset:5px}
 .nav{display:flex;align-items:center;gap:36px;font-size:12px;font-weight:700}
 .nav a{padding:12px 0;transition:color .2s}.nav a:hover{color:var(--violet)}
 .nav .nav-num{font-size:10px;vertical-align:top;color:var(--violet);margin-right:7px}
-.hero{border-bottom:1px solid var(--line);background:radial-gradient(circle at 90% 22%,#ece7ff 0,rgba(236,231,255,.5) 22%,transparent 48%)}
+
+/* Umschaltbarer Hell-/Dunkelmodus */
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 13px;background:var(--toggle-bg);border:1px solid var(--line);border-radius:999px;color:var(--ink);font:inherit;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s}
+.theme-toggle:hover{background:var(--row-hover);border-color:var(--violet)}
+.theme-toggle:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
+.theme-icon{font-size:18px;line-height:1}
+.theme-when-dark{display:none}
+html[data-theme="dark"] .theme-when-dark{display:inline}
+html[data-theme="dark"] .theme-when-light{display:none}
+
+.hero{border-bottom:1px solid var(--line);background:radial-gradient(circle at 90% 22%,var(--hero-glow) 0,var(--hero-glow-soft) 22%,transparent 48%)}
 .hero-grid{display:block}
 .hero-copy{padding:clamp(70px,8vw,108px) 0 clamp(72px,8.5vw,110px);max-width:860px;display:flex;flex-direction:column;align-items:flex-start}
 .eyebrow{display:flex;align-items:center;gap:11px;color:var(--muted)}
 .eyebrow .dot{display:block;width:8px;height:8px;border-radius:50%;background:var(--violet)}
 h1{font-size:clamp(42px,5.3vw,68px);font-weight:800;line-height:1.08;letter-spacing:-.065em;margin:28px 0 22px}
 h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:400;letter-spacing:-.065em;color:var(--violet)}
-.hero-desc{font-size:clamp(17px,1.5vw,19px);line-height:1.65;max-width:550px;letter-spacing:-.01em;margin:0 0 28px;color:#48474f}
+.hero-desc{font-size:clamp(17px,1.5vw,19px);line-height:1.65;max-width:550px;letter-spacing:-.01em;margin:0 0 28px;color:var(--intro)}
 .hero-desc strong{font-weight:700;color:var(--ink)}
 .jump{font-size:12px;font-weight:800;display:inline-flex;gap:14px;align-items:center;border-bottom:1px solid var(--ink);padding:10px 0 8px;transition:gap .2s,color .2s}
 .jump:hover{gap:22px;color:var(--violet)}
@@ -50,19 +63,20 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
 .section-note{font-size:14px;line-height:1.7;max-width:350px;color:var(--muted);margin:0 0 3px auto}
 .index{border-top:1px solid var(--ink)}
 .index-row{display:grid;grid-template-columns:48px minmax(190px,.8fr) minmax(0,1.35fr) 46px;align-items:start;gap:22px;padding:34px 7px 36px;border-bottom:1px solid var(--line);transition:padding .25s,background .25s}
-.index-row:hover{padding-left:18px;padding-right:18px;background:#ebe6ff}
+.index-row:hover{padding-left:18px;padding-right:18px;background:var(--row-hover)}
 .index-number{font-family:Georgia,serif;font-style:italic;font-size:18px;color:var(--violet);padding-top:5px}
 .index-heading{display:flex;flex-direction:column;gap:12px;min-width:0}
 .project-logo{display:block;max-width:100%;height:auto;object-fit:contain;object-position:left center}
 .project-logo--ts{width:290px;padding:11px 12px;background:#142b29;border-radius:11px}
 .project-logo--tennilo{width:290px}
 .project-logo--score{width:290px;border-radius:7px}
+html[data-theme="dark"] .project-logo--tennilo,html[data-theme="dark"] .project-logo--score{background:#f5f2ed;border-radius:10px;padding:10px 12px}
 .project-wm-heading{display:flex;align-items:center;gap:12px;min-height:64px;max-width:100%}
 .project-logo--wm{width:64px;height:64px;flex:0 0 64px;border-radius:13px;object-fit:cover}
 .project-wm-heading .index-title{font-size:clamp(26px,3vw,36px)}
 .index-title{font-size:clamp(29px,3.5vw,46px);line-height:1.1;letter-spacing:-.055em;font-weight:800}
 .index-category{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);font-weight:700}
-.index-description{color:#5d5a62;font-size:14px;line-height:1.75;max-width:500px;padding-top:2px}
+.index-description{color:var(--description);font-size:14px;line-height:1.75;max-width:500px;padding-top:2px}
 .index-description strong{color:var(--ink);font-weight:700}
 .index-arrow{width:44px;height:44px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:21px;transition:transform .2s,background .2s,color .2s}
 .index-row:hover .index-arrow{transform:rotate(45deg);background:var(--violet);border-color:var(--violet);color:white}
@@ -86,7 +100,7 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
 .footer .shell{border-top:1px solid #53515d;display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:24px;padding-bottom:28px;font-size:11px;letter-spacing:.035em}
 .footer a{color:#f3f0e9}.footer a:hover{color:var(--lilac)}
 @media(max-width:750px){
- .header .shell{min-height:70px}.nav{gap:16px}.nav .nav-num{display:none}
+ .header .shell{min-height:70px;gap:12px}.nav{gap:14px}.nav .nav-num{display:none}
  .hero-copy{padding:74px 0 80px}
  h1{font-size:clamp(40px,8.1vw,56px)}
  .section{padding:67px 0 75px}.section-header{display:block;margin-bottom:28px}.section-note{margin:20px 0 0}
@@ -94,7 +108,7 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
  .social{padding:67px 0 55px}.social-grid{display:block}.social-intro{margin-bottom:36px}
  .footer .shell{flex-wrap:wrap;gap:14px}
 }
-@media(max-width:420px){.shell{padding-inline:21px}.brand{font-size:18px}.nav{font-size:11px;gap:15px}h1{font-size:40px}.social-line{font-size:15px}.social-line small{display:block;margin:5px 0 0}}
+@media(max-width:420px){.shell{padding-inline:21px}.brand{font-size:18px}.nav{font-size:11px;gap:11px}.theme-toggle{width:37px;min-width:37px;padding:7px}.theme-label{display:none!important}h1{font-size:40px}.social-line{font-size:15px}.social-line small{display:block;margin:5px 0 0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
 </style>
 </head>
@@ -102,7 +116,7 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 <header class="header" id="oben"><div class="shell">
   <a class="brand" href="#oben" aria-label="wiedeck.de – zum Seitenanfang">wiedeck.de</a>
-  <nav class="nav" aria-label="Navigation"><a href="#projekte"><span class="nav-num">01</span> Projekte</a><a href="#social"><span class="nav-num">02</span> Anderswo</a></nav>
+  <nav class="nav" aria-label="Navigation"><a href="#projekte"><span class="nav-num">01</span> Projekte</a><a href="#social"><span class="nav-num">02</span> Anderswo</a><button class="theme-toggle" type="button" id="theme-toggle" aria-label="Dunklen Modus einschalten" aria-pressed="false" title="Darstellung wechseln"><span class="theme-icon theme-when-light" aria-hidden="true">☾</span><span class="theme-icon theme-when-dark" aria-hidden="true">☀</span><span class="theme-label theme-when-light">Dunkel</span><span class="theme-label theme-when-dark">Hell</span></button></nav>
 </div></header>
 <main id="inhalt">
   <section class="hero" aria-labelledby="headline"><div class="shell hero-grid">

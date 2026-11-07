@@ -34,6 +34,7 @@ jobs:
           test -f public/impressum.html
           test -f public/datenschutz.html
           test -f public/legal.css
+          test -f public/theme.js
           test -f public/logos/tennis-schiri.png
           test -f public/logos/tennilo.png
           test -f public/logos/tennilo-score.png
@@ -52,7 +53,7 @@ jobs:
           : "${FTP_PASSWORD:?FTP_PASSWORD fehlt}"
           # WICHTIG: FTP-Benutzer muss als Startverzeichnis /wiedeck-de/ haben.
           # Dadurch landen index.html und favicon.svg direkt im Domain-Verzeichnis.
-          for file in public/favicon.svg public/legal.css public/impressum.html public/datenschutz.html public/logos/tennis-schiri.png public/logos/tennilo.png public/logos/tennilo-score.png public/logos/wer-muss.webp public/index.html; do
+          for file in public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/logos/tennis-schiri.png public/logos/tennilo.png public/logos/tennilo-score.png public/logos/wer-muss.webp public/index.html; do
             remote="${file#public/}"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \
               --user "${FTP_USER}:${FTP_PASSWORD}" \
