@@ -40,6 +40,8 @@ a:focus-visible{outline:3px solid var(--violet);outline-offset:5px}
 .hero-logo-card{position:relative;min-width:0;padding:14px;border:1px solid var(--hero-edge);border-radius:24px;background:var(--hero-card);box-shadow:0 20px 55px rgba(12,24,32,.10),0 1px 0 var(--metal-shine) inset;overflow:hidden}
 html[data-theme="dark"] .hero-logo-card{box-shadow:0 22px 55px rgba(0,0,0,.21),0 1px 0 var(--metal-shine) inset}
 .hero-logo-card img{display:block;width:100%;height:auto;object-fit:contain}
+.hero-logo-card img.logo-mode-dark,.brand-symbol img.logo-mode-dark{display:none}
+html[data-theme="dark"] .hero-logo-card img.logo-mode-dark,html[data-theme="dark"] .brand-symbol img.logo-mode-dark{display:block}
 .hero-copy{padding:0;max-width:560px;display:flex;flex-direction:column;align-items:flex-start}
 .hero-copy h1{font-size:clamp(42px,4.45vw,66px);line-height:1.08}
 
