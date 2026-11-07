@@ -7,7 +7,7 @@ Statische, mobiloptimierte persönliche Startseite mit vier Projektlogos und Lin
 - `public/index.html` – Landingpage mit eingebettetem CSS
 - `public/favicon.svg` – neutrales Favicon ohne Initialen
 - `public/theme.js` – systemabhängiger und manuell umschaltbarer Darkmode; Wunsch via localStorage gespeichert
-- `public/logos/` – Original-Wortmarken von Tennis-Schiri, TENNILO und TENNILO Score sowie WM04b-App-Symbol
+- `public/logos/` – Original-Wortmarken von Tennis-Schiri, TENNILO und TENNILO Score sowie WM04b-App-Symbol. Die jeweils passenden hellen und dunklen Logo-Varianten werden über `html[data-theme]` automatisch angezeigt; bei TENNILO und Score sorgt ein CSS-Farbfilter für kontrastreiche Schrift bei unveränderten Formen.
 - `public/impressum.html`, `public/datenschutz.html`, `public/legal.css` – Rechtliches
 - `.github/workflows/deploy.yml` – manueller FTPS-Upload aller Website-Dateien einschließlich Logos
 

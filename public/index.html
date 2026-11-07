@@ -67,10 +67,15 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
 .index-number{font-family:Georgia,serif;font-style:italic;font-size:18px;color:var(--violet);padding-top:5px}
 .index-heading{display:flex;flex-direction:column;gap:12px;min-width:0}
 .project-logo{display:block;max-width:100%;height:auto;object-fit:contain;object-position:left center}
-.project-logo--ts{width:290px;padding:11px 12px;background:#142b29;border-radius:11px}
+.project-logo--ts{width:290px}
 .project-logo--tennilo{width:290px}
 .project-logo--score{width:290px;border-radius:7px}
-html[data-theme="dark"] .project-logo--tennilo,html[data-theme="dark"] .project-logo--score{background:#f5f2ed;border-radius:10px;padding:10px 12px}
+.logo-mode-dark{display:none}
+html[data-theme="dark"] .logo-mode-light{display:none}
+html[data-theme="dark"] .logo-mode-dark{display:block}
+html[data-theme="dark"] .project-logo--tennilo,html[data-theme="dark"] .project-logo--score{filter:invert(1) hue-rotate(180deg) brightness(1.12);background:transparent;padding:0}
+html[data-theme="dark"] .project-logo--ts{background:transparent;padding:0}
+html[data-theme="dark"] .project-logo--wm{box-shadow:0 0 0 1px #cbb9f5,0 0 22px rgba(170,114,255,.33);border-radius:13px}
 .project-wm-heading{display:flex;align-items:center;gap:12px;min-height:64px;max-width:100%}
 .project-logo--wm{width:64px;height:64px;flex:0 0 64px;border-radius:13px;object-fit:cover}
 .project-wm-heading .index-title{font-size:clamp(26px,3vw,36px)}
@@ -131,7 +136,7 @@ html[data-theme="dark"] .project-logo--tennilo,html[data-theme="dark"] .project-
     <div class="index">
       <a class="index-row" href="https://www.tennis-schiri.de/" target="_blank" rel="noopener noreferrer" aria-label="Tennis-Schiri – Website in neuem Tab öffnen">
         <span class="index-number">01</span>
-        <span class="index-heading"><img class="project-logo project-logo--ts" src="logos/tennis-schiri.png" alt="Tennis-Schiri" width="1080" height="205" loading="lazy" decoding="async"><span class="index-category">Turniere &amp; Regelwissen</span></span>
+        <span class="index-heading"><img class="project-logo project-logo--ts logo-mode-light" src="logos/tennis-schiri-on-light.png" alt="Tennis-Schiri" width="1080" height="205" loading="lazy" decoding="async"><img class="project-logo project-logo--ts logo-mode-dark" src="logos/tennis-schiri.png" alt="Tennis-Schiri" width="1080" height="205" loading="lazy" decoding="async"><span class="index-category">Turniere &amp; Regelwissen</span></span>
         <span class="index-description"><strong>Turniere organisieren, begleiten und sicher durchführen.</strong> Tennis-Schiri bündelt Turnierleitung, Oberschiedsrichter-Einsätze und Angebote für Tennisvereine. Dazu gehören Regelwissen, Regelworkshops und aktuelle Turniertermine.</span>
         <span class="index-arrow" aria-hidden="true">↗</span>
       </a>
@@ -143,7 +148,7 @@ html[data-theme="dark"] .project-logo--tennilo,html[data-theme="dark"] .project-
       </a>
       <a class="index-row" href="https://score.tennilo.de/" target="_blank" rel="noopener noreferrer" aria-label="TENNILO Score – Website in neuem Tab öffnen">
         <span class="index-number">03</span>
-        <span class="index-heading"><img class="project-logo project-logo--score" src="logos/tennilo-score.png" alt="TENNILO Score" width="863" height="121" loading="lazy" decoding="async"><span class="index-category">Tennis-Zähl-App · In Entwicklung</span></span>
+        <span class="index-heading"><img class="project-logo project-logo--score logo-mode-light" src="logos/tennilo-score.png" alt="TENNILO Score" width="863" height="121" loading="lazy" decoding="async"><img class="project-logo project-logo--score logo-mode-dark" src="logos/tennilo-score-transparent.png" alt="TENNILO Score" width="2600" height="520" loading="lazy" decoding="async"><span class="index-category">Tennis-Zähl-App · In Entwicklung</span></span>
         <span class="index-description"><strong>Punkte zählen, ohne den Spielstand aus dem Blick zu verlieren.</strong> TENNILO Score entsteht als eigenständige Zähl-App für die Apple Watch und das Smartphone. Der Fokus liegt auf einer einfachen Bedienung direkt auf dem Platz, einschließlich Spiel-, Satz- und Aufschlaganzeige für Einzel und Doppel. Aktuell als interaktiver Prototyp.</span>
         <span class="index-arrow" aria-hidden="true">↗</span>
       </a>
