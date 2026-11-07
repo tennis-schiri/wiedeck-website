@@ -25,11 +25,25 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Freigestellte MW-Symbole erzeugen
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m venv "$RUNNER_TEMP/mw-venv"
+          "$RUNNER_TEMP/mw-venv/bin/pip" install --disable-pip-version-check --quiet Pillow
+          "$RUNNER_TEMP/mw-venv/bin/python" scripts/build_mw_transparent.py
+
       - name: Prüfen
         shell: bash
         run: |
           set -euo pipefail
           test -f public/index.html
+          test -s branding/mw-monogram-original.png
+          test -f scripts/build_mw_transparent.py
+          test -s public/logos/mw-symbol-light.png
+          test -s public/logos/mw-symbol-dark.png
+          test -s public/logos/mw-favicon-light.png
+          test -s public/logos/mw-favicon-dark.png
           grep -q 'id="mw-cutout-light"' public/index.html
           grep -q 'id="mw-cutout-dark"' public/index.html
           ! grep -q 'hero-logo-card' public/index.html
@@ -62,7 +76,7 @@ jobs:
           : "${FTP_PASSWORD:?FTP_PASSWORD fehlt}"
           # WICHTIG: FTP-Benutzer muss als Startverzeichnis /wiedeck-de/ haben.
           # Dadurch landen index.html und favicon.svg direkt im Domain-Verzeichnis.
-          for file in public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-score.png public/logos/tennilo-score-dark-original.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/index.html; do
+          for file in public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-score.png public/logos/tennilo-score-dark-original.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
             remote="${file#public/}"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \
               --user "${FTP_USER}:${FTP_PASSWORD}" \

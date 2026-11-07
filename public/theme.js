@@ -18,7 +18,10 @@
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute("content", theme === "dark" ? "#111920" : "#f4f6f7");
     var favicon = document.querySelector("link[data-theme-favicon]");
-    if (favicon) favicon.setAttribute("href", theme === "dark" ? "logos/mw-icon-dunkel.png" : "logos/mw-icon-hell.png");
+    var selectedIcon = theme === "dark" ? "logos/mw-favicon-dark.png" : "logos/mw-favicon-light.png";
+    if (favicon) favicon.setAttribute("href", selectedIcon);
+    var appleIcon = document.querySelector('link[rel="apple-touch-icon"]');
+    if (appleIcon) appleIcon.setAttribute("href", selectedIcon);
     var button = document.getElementById("theme-toggle");
     if (button) {
       var isDark = theme === "dark";

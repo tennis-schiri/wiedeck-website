@@ -41,3 +41,7 @@ Die Website nutzt die metallisch-graue MW-Markenwelt statt der früheren violett
 ## Freigestelltes MW-Logo
 
 Das von Google Drive übernommene MW-Hauptlogo ist als Original-PNG mit eingebettetem Hintergrund gespeichert. In der Hero-Sektion werden die weißen und dunklen Hintergründe mittels lokal eingebetteter SVG-Farbmatten (`mw-cutout-light`, `mw-cutout-dark`) beim Rendern transparent gesetzt. Originaldateien bleiben unverändert. Der frühere Kartenrahmen, Kartenhintergrund, Innenabstand und Kartenschatten sind in beiden Darstellungsmodi entfernt.
+
+## Header-Icon und Favicon ohne Hintergrund
+
+Das Header-Monogramm und die Favicons werden **wirklich transparent** erzeugt (RGBA mit Alphakanal); die bisherigen Icon-PNGs mit fest eingebranntem hellem oder schwarzem Hintergrund bleiben nur als historische Quellen erhalten. Ausgangspunkt ist die freigegebene MW-Monogramm-Datei `branding/mw-monogram-original.png`. Die Bilder werden durch `scripts/build_mw_transparent.py` vor dem FTPS-Upload erzeugt. Für die Generierung wird Pillow ausschließlich im CI-Workflow installiert. Die Website lädt die Bilddateien lokal und wechselt ohne Tracker automatisch zwischen den beiden transparenten Varianten. Nach einer Änderung des Favicons ggf. den Browser-Cache beachten.
