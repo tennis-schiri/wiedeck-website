@@ -20,7 +20,7 @@ Die Domain `wiedeck.de` verwendet das separate Webspace-Verzeichnis **`/wiedeck-
 - GitHub-Secrets: `FTP_HOST`, `FTP_USER`, `FTP_PASSWORD`
 - Der FTP-Benutzer **muss mit dem Startverzeichnis `/wiedeck-de/` eingerichtet sein**, da der Workflow die Dateien relativ zum FTP-Startverzeichnis in dessen Wurzel ablegt.
 - Die Veröffentlichung kann unter **Actions → wiedeck.de manuell veröffentlichen → Run workflow** gestartet werden.
-- Nach Änderungen am Workflow selbst startet zusätzlich ein Upload bei einem Push nach `main`. Änderungen an der Website lösen keinen automatischen Upload aus.
+- Änderungen an den Website-Dateien unter `public/` oder am Workflow lösen nach einem Push auf `main` automatisch einen Live-Upload aus. Zusätzlich bleibt der manuelle Upload über GitHub Actions verfügbar.
 - Der Workflow überträgt alle Website-Dateien einschließlich der Logos nach `/wiedeck-de/`; er löscht keine Serverdateien.
 
 ## Vor oder nach dem Livegang prüfen
