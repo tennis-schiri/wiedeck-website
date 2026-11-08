@@ -49,3 +49,7 @@ Das Header-Monogramm und die Favicons werden **wirklich transparent** erzeugt (R
 ## Einheitliche MW-Logogröße
 
 Die freigestellten MW-Hauptlogos besitzen unterschiedliche Rastermaße (hell 745×366, dunkel 666×371). Die Hero-Fläche hat deshalb ein festes Seitenverhältnis, und nur die dunkle Variante wird um 8 % vergrößert. Dadurch bleibt die sichtbare Wortmarke beim Hell-/Dunkel-Wechsel gleich groß, ohne Rahmen oder Kartendesign.
+
+## TENNILO Umpire – Teaser
+
+Auf der Projektübersicht wird **TENNILO Umpire** bewusst ohne Funktionsdetails angekündigt. Das Original-Logo ist der in Google Drive freigegebene Hauptentwurf `00_TENNILO_Umpire_Favorit_4K.png` aus `TENNILO Umpire/Logo`, eingebunden als `public/logos/tennilo-umpire.png`. Der Teaser führt wie TENNILO Score zu tennilo.de.
