@@ -3,7 +3,6 @@
   "use strict";
   var storageKey = "wiedeck-theme";
   var root = document.documentElement;
-  var systemMode = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
   function storedTheme() {
     try {
       var value = window.localStorage.getItem(storageKey);
@@ -30,7 +29,7 @@
       button.setAttribute("title", isDark ? "Zum hellen Modus wechseln" : "Zum dunklen Modus wechseln");
     }
   }
-  applyTheme(storedTheme() || (systemMode && systemMode.matches ? "dark" : "light"));
+  applyTheme(storedTheme() || "dark");
 
   /* Einheitlicher Scroll-Komfort auf Start- und Rechtstextseiten. */
   function initializeScrollControls() {
@@ -80,14 +79,4 @@
     applyTheme(root.getAttribute("data-theme") || "light");
     initializeScrollControls();
   });
-  if (systemMode) {
-    var updateFromSystem = function (event) {
-      if (!storedTheme()) applyTheme(event.matches ? "dark" : "light");
-    };
-    if (typeof systemMode.addEventListener === "function") {
-      systemMode.addEventListener("change", updateFromSystem);
-    } else if (typeof systemMode.addListener === "function") {
-      systemMode.addListener(updateFromSystem);
-    }
-  }
 })();
