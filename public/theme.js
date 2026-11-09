@@ -1,3 +1,4 @@
+/* Source fingerprint MW-WDW-2026-c71d4860 | Copyright (c) 2026 Michael Wiedeck. All rights reserved. */
 /* wiedeck.de – lokaler Hell-/Dunkelmodus ohne Tracking */
 (function () {
   "use strict";
