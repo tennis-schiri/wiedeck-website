@@ -31,6 +31,39 @@
     }
   }
   applyTheme(storedTheme() || (systemMode && systemMode.matches ? "dark" : "light"));
+
+  /* Einheitlicher Scroll-Komfort auf Start- und Rechtstextseiten. */
+  function initializeScrollControls() {
+    var header = document.querySelector(".header, .top");
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "back-to-top";
+    button.textContent = "↑";
+    button.setAttribute("aria-label", "Nach oben scrollen");
+    button.setAttribute("title", "Nach oben");
+    document.body.appendChild(button);
+
+    var pending = false;
+    function refresh() {
+      var position = window.scrollY || window.pageYOffset || 0;
+      if (header) header.classList.toggle("is-scrolled", position > 12);
+      button.classList.toggle("is-visible", position > 320);
+      pending = false;
+    }
+    window.addEventListener("scroll", function () {
+      if (!pending) {
+        pending = true;
+        window.requestAnimationFrame(refresh);
+      }
+    }, { passive: true });
+
+    button.addEventListener("click", function () {
+      var reduceMotion = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+    refresh();
+  }
   document.addEventListener("DOMContentLoaded", function () {
     var button = document.getElementById("theme-toggle");
     if (button) {
@@ -45,6 +78,7 @@
       });
     }
     applyTheme(root.getAttribute("data-theme") || "light");
+    initializeScrollControls();
   });
   if (systemMode) {
     var updateFromSystem = function (event) {

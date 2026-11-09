@@ -28,7 +28,8 @@ a:focus-visible{outline:3px solid var(--violet);outline-offset:5px}
 .skip{position:absolute;z-index:50;left:10px;top:-80px;background:#fff;padding:12px}.skip:focus{top:10px}
 .shell{max-width:1220px;margin:0 auto;padding:0 clamp(24px,5.6vw,76px)}
 .mini{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700}
-.header{border-bottom:1px solid var(--line)}
+.header{position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line);background:var(--paper);transition:box-shadow .2s}
+.header.is-scrolled{box-shadow:0 6px 22px rgba(0,0,0,.10)}
 .header .shell{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:26px}
 .brand:hover{color:var(--violet)}
 /* Michael Wiedeck · Original-Branding mit automatischer Modusvariante */
@@ -73,6 +74,7 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
 .jump{font-size:12px;font-weight:800;display:inline-flex;gap:14px;align-items:center;border-bottom:1px solid var(--ink);padding:10px 0 8px;transition:gap .2s,color .2s}
 .jump:hover{gap:22px;color:var(--violet)}
 .section{padding:76px 0 93px}
+.section[id],.social[id]{scroll-margin-top:94px}
 .section-header{display:grid;grid-template-columns:1fr .85fr;gap:25px;align-items:end;margin-bottom:33px}
 .section-header h2{font-size:clamp(39px,4vw,55px);line-height:1.03;letter-spacing:-.065em;margin:14px 0 0;font-weight:800}
 .section-header h2 em{font-family:Georgia,serif;font-weight:400;color:var(--violet)}
@@ -122,6 +124,12 @@ html[data-theme="dark"] .project-logo--wm{box-shadow:0 0 0 1px #cbb9f5,0 0 22px 
 .footer{background:var(--dark);color:#adbec8}
 .footer .shell{border-top:1px solid #53515d;display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:24px;padding-bottom:28px;font-size:11px;letter-spacing:.035em}
 .footer a{color:#f3f6f7}.footer a:hover{color:var(--lilac)}
+
+/* Schwebender Zurück-nach-oben-Button für lange Seiten */
+.back-to-top{position:fixed;right:clamp(18px,3vw,36px);bottom:max(18px,env(safe-area-inset-bottom));z-index:110;display:grid;place-items:center;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:var(--ink);color:var(--paper);font:700 26px/1 Arial,Helvetica,sans-serif;cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.18);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(12px);transition:opacity .22s,transform .22s,visibility .22s,background .22s}
+.back-to-top.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.back-to-top:hover{background:var(--violet);color:var(--paper)}
+.back-to-top:focus-visible{outline:3px solid var(--violet);outline-offset:4px}
 @media(max-width:750px){
  .header .shell{min-height:70px;gap:12px}.nav{gap:14px}.nav .nav-num{display:none}
  .hero-grid{grid-template-columns:1fr;gap:26px;padding-block:52px 65px}
