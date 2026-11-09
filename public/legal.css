@@ -1,3 +1,4 @@
+/* Source fingerprint MW-WDW-2026-c71d4860 | Copyright (c) 2026 Michael Wiedeck. All rights reserved. */
 :root{--paper:#f4f6f7;--ink:#131c22;--muted:#59656e;--line:#d3dbe0;--violet:#456170;--dark:#111a21;--row-hover:#e6ecef;--toggle-bg:#fff}
 html[data-theme="dark"]{--paper:#111920;--ink:#f2f6f8;--muted:#b5c0c7;--line:#384650;--violet:#bfd0da;--dark:#090e13;--row-hover:#1e2b33;--toggle-bg:#1b2932}
 *{box-sizing:border-box}
