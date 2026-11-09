@@ -40,7 +40,7 @@
     var button = document.createElement("button");
     button.type = "button";
     button.className = "back-to-top";
-    button.textContent = "↑";
+    button.innerHTML = '<span class="back-to-top-arrow" aria-hidden="true">↑</span>';
     var english = root.lang === "en";
     button.setAttribute("aria-label", english ? "Scroll to top" : "Nach oben scrollen");
     button.setAttribute("title", english ? "Back to top" : "Nach oben");
@@ -63,7 +63,16 @@
     button.addEventListener("click", function () {
       var reduceMotion = window.matchMedia &&
         window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!reduceMotion) {
+        button.classList.remove("is-launching");
+        window.requestAnimationFrame(function () { button.classList.add("is-launching"); });
+      }
       window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+    button.addEventListener("animationend", function (event) {
+      if (event.animationName === "mw-arrow-launch") {
+        button.classList.remove("is-launching");
+      }
     });
     refresh();
   }
