@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111920">
+<script src="../theme.js"></script>
+<meta name="description" content="Michael Wiedeck. A guide to my projects: Tennis-Schiri, TENNILO Score, TENNILO Tournament, TENNILO Umpire and Wer muss?!, plus my online profiles.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.wiedeck.de/en/">
+<link rel="alternate" hreflang="de" href="https://www.wiedeck.de/">
+<link rel="alternate" hreflang="en" href="https://www.wiedeck.de/en/">
+<link rel="alternate" hreflang="x-default" href="https://www.wiedeck.de/">
+<link rel="icon" href="../logos/mw-favicon-dark.png" type="image/png" data-theme-favicon><link rel="apple-touch-icon" href="../logos/mw-favicon-dark.png">
+<title>Michael Wiedeck — Personal. Digital.</title>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://www.wiedeck.de/">
+<meta property="og:title" content="Michael Wiedeck — Personal. Digital.">
+<meta property="og:description" content="A guide to my projects and online profiles.">
+<style>
+:root{--paper:#f4f6f7;--ink:#131c22;--muted:#59656e;--line:#d3dbe0;--violet:#456170;--lilac:#bacbd5;--dark:#111a21;--row-hover:#e6ecef;--description:#515f68;--intro:#44535c;--hero-glow:#f3f6f7;--hero-glow-soft:rgba(207,219,226,.60);--toggle-bg:#ffffff;--hero-card:#ffffff;--hero-edge:#dce1e4;--metal-shine:rgba(255,255,255,.96)}
+html[data-theme="dark"]{--paper:#111920;--ink:#f2f6f8;--muted:#b5c0c7;--line:#384650;--violet:#bfd0da;--lilac:#d9e2e7;--dark:#090e13;--row-hover:#1e2b33;--description:#c3cfd5;--intro:#c7d3d9;--hero-glow:#192832;--hero-glow-soft:rgba(44,65,79,.38);--toggle-bg:#1b2932;--hero-card:#10191f;--hero-edge:#303d45;--metal-shine:rgba(183,202,212,.32)}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:3px solid var(--violet);outline-offset:5px}
+::selection{background:var(--lilac);color:var(--ink)}
+.skip{position:absolute;z-index:50;left:10px;top:-80px;background:#fff;padding:12px}.skip:focus{top:10px}
+.shell{max-width:1220px;margin:0 auto;padding:0 clamp(24px,5.6vw,76px)}
+.mini{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700}
+.header{position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line);background:var(--paper);transition:box-shadow .2s}
+.header.is-scrolled{box-shadow:0 6px 22px rgba(0,0,0,.10)}
+.header .shell{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:26px}
+.brand:hover{color:var(--violet)}
+/* Michael Wiedeck · Original-Branding mit automatischer Modusvariante */
+.brand{display:inline-flex;align-items:center;gap:11px;white-space:nowrap}
+.brand-symbol{width:76px;height:38px;flex:none;display:block}
+.brand-symbol img{display:block;width:100%;height:100%;object-fit:contain}
+.brand-word{font-size:18px;font-weight:800;letter-spacing:-.055em}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(32px,5vw,75px);align-items:center;padding-block:clamp(56px,7vw,94px)}
+/* Freigestellte Original-Logos: Hintergrundfarbe im Browser transparent maskieren.
+   Es gibt bewusst keinen Kasten, Rahmen, Schatten oder künstlichen Logo-Hintergrund. */
+.hero-mark{position:relative;min-width:0;width:100%;aspect-ratio:745 / 366;margin:0;padding:0;border:0;background:none;box-shadow:none;overflow:visible}
+.hero-mark img{position:absolute;top:50%;left:50%;display:block;width:100%;height:auto;object-fit:contain;transform:translate(-50%,-50%)}
+.hero-mark img.logo-mode-light{filter:url("#mw-cutout-light")}
+/* Das Darkmode-Original enthält breitere Ränder: +8 % gleicht die sichtbare Logogröße aus. */
+.hero-mark img.logo-mode-dark{width:108%;filter:url("#mw-cutout-dark");clip-path:inset(10px 33px 6px 33px)}
+.hero-mark img.logo-mode-dark,.brand-symbol img.logo-mode-dark{display:none}
+html[data-theme="dark"] .hero-mark img.logo-mode-dark,html[data-theme="dark"] .brand-symbol img.logo-mode-dark{display:block}
+.hero-copy{padding:0;max-width:560px;display:flex;flex-direction:column;align-items:flex-start}
+.hero-copy h1{font-size:clamp(42px,4.45vw,66px);line-height:1.08}
+
+.nav{display:flex;align-items:center;gap:36px;font-size:12px;font-weight:700}
+.nav a{padding:12px 0;transition:color .2s}.nav a:hover{color:var(--violet)}
+.nav .nav-num{font-size:10px;vertical-align:top;color:var(--violet);margin-right:7px}
+
+
+.language-switch{display:inline-flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap;font-size:11px;font-weight:800;letter-spacing:.025em;flex:none}
+.language-switch a{color:var(--muted);text-decoration:none;border-radius:4px;padding:6px 3px;min-width:23px;text-align:center}
+.language-switch a[aria-current="page"]{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+.language-switch a:hover{color:var(--violet)}
+.language-switch a:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
+/* Umschaltbarer Hell-/Dunkelmodus */
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 13px;background:var(--toggle-bg);border:1px solid var(--line);border-radius:999px;color:var(--ink);font:inherit;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s}
+.theme-toggle:hover{background:var(--row-hover);border-color:var(--violet)}
+.theme-toggle:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
+.theme-icon{font-size:18px;line-height:1}
+.theme-when-dark{display:none}
+html[data-theme="dark"] .theme-when-dark{display:inline}
+html[data-theme="dark"] .theme-when-light{display:none}
+
+.hero{border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 25% 45%,var(--hero-glow-soft) 0,transparent 60%),linear-gradient(115deg,var(--paper),var(--hero-glow))}
+/* Hero-Raster und freigestelltes Markenzeichen befinden sich bei den Branding-Regeln. */
+.eyebrow{display:flex;align-items:center;gap:11px;color:var(--muted)}
+.eyebrow .dot{display:block;width:8px;height:8px;border-radius:50%;background:var(--violet)}
+h1{font-size:clamp(42px,5.3vw,68px);font-weight:800;line-height:1.08;letter-spacing:-.065em;margin:28px 0 22px}
+h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:400;letter-spacing:-.065em;color:var(--violet)}
+.hero-desc{font-size:clamp(17px,1.5vw,19px);line-height:1.65;max-width:550px;letter-spacing:-.01em;margin:0 0 28px;color:var(--intro)}
+.hero-desc strong{font-weight:700;color:var(--ink)}
+.jump{font-size:12px;font-weight:800;display:inline-flex;gap:14px;align-items:center;border-bottom:1px solid var(--ink);padding:10px 0 8px;transition:gap .2s,color .2s}
+.jump:hover{gap:22px;color:var(--violet)}
+.section{padding:76px 0 93px}
+.section[id],.social[id]{scroll-margin-top:94px}
+.section-header{display:grid;grid-template-columns:1fr .85fr;gap:25px;align-items:end;margin-bottom:33px}
+.section-header h2{font-size:clamp(39px,4vw,55px);line-height:1.03;letter-spacing:-.065em;margin:14px 0 0;font-weight:800}
+.section-header h2 em{font-family:Georgia,serif;font-weight:400;color:var(--violet)}
+.section-note{font-size:14px;line-height:1.7;max-width:350px;color:var(--muted);margin:0 0 3px auto}
+.index{border-top:1px solid var(--ink)}
+.index-row{display:grid;grid-template-columns:48px minmax(190px,.8fr) minmax(0,1.35fr) 46px;align-items:start;gap:22px;padding:34px 7px 36px;border-bottom:1px solid var(--line);transition:padding .25s,background .25s}
+.index-row:hover{padding-left:18px;padding-right:18px;background:var(--row-hover)}
+.index-number{font-family:Georgia,serif;font-style:italic;font-size:18px;color:var(--violet);padding-top:5px}
+.index-heading{display:flex;flex-direction:column;gap:12px;min-width:0}
+.project-logo{display:block;max-width:100%;height:auto;object-fit:contain;object-position:left center}
+.project-logo--ts{width:290px}
+.project-logo--tennilo{width:290px}
+.project-logo--score{width:290px;border-radius:7px}
+.project-logo--umpire{width:290px}
+.logo-mode-dark{display:none}
+html[data-theme="dark"] .logo-mode-light{display:none}
+html[data-theme="dark"] .logo-mode-dark{display:block}
+html[data-theme="dark"] .project-logo--tennilo{filter:none;background:transparent;padding:0}
+html[data-theme="dark"] .project-logo--score{filter:none;background:transparent;padding:0}
+html[data-theme="dark"] .project-logo--ts{background:transparent;padding:0}
+html[data-theme="dark"] .project-logo--wm{box-shadow:0 0 0 1px #cbb9f5,0 0 22px rgba(170,114,255,.33);border-radius:13px}
+.project-wm-heading{display:flex;align-items:center;gap:12px;min-height:64px;max-width:100%}
+.project-logo--wm{width:64px;height:64px;flex:0 0 64px;border-radius:13px;object-fit:cover}
+.project-wm-heading .index-title{font-size:clamp(26px,3vw,36px)}
+.index-title{font-size:clamp(29px,3.5vw,46px);line-height:1.1;letter-spacing:-.055em;font-weight:800}
+.index-category{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);font-weight:700}
+.index-description{color:var(--description);font-size:14px;line-height:1.75;max-width:500px;padding-top:2px}
+.index-description strong{color:var(--ink);font-weight:700}
+.index-arrow{width:44px;height:44px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:21px;transition:transform .2s,background .2s,color .2s}
+.index-row:hover .index-arrow{transform:rotate(45deg);background:var(--violet);border-color:var(--violet);color:white}
+.index-row-soon{cursor:default}
+.index-row-soon:hover{background:transparent;padding-left:7px;padding-right:7px}
+.index-row-soon .index-arrow{border-color:var(--line);color:var(--muted);font-weight:700}
+.index-row-soon:hover .index-arrow{transform:none;background:transparent;border-color:var(--line);color:var(--muted)}
+.social{background:var(--dark);color:#f1f0ed;padding:75px 0 70px}
+.social-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:65px}
+.social-title{font-size:clamp(39px,4.5vw,60px);line-height:1.02;letter-spacing:-.06em;margin:18px 0;font-weight:800}
+.social-title em{font-family:Georgia,serif;color:var(--lilac);font-weight:400}
+.social-intro{font-size:14px;line-height:1.7;color:#bbc8d0;max-width:290px}
+.social-list{border-top:1px solid #62606b}
+.social-line{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 5px;border-bottom:1px solid #53515d;font-size:16px;font-weight:700;transition:color .2s,padding .2s}
+.social-line:hover{color:var(--lilac);padding-left:16px}
+.social-line small{font-size:12px;color:#adbcc5;font-weight:400;margin-left:13px}
+.social-line .external{font-size:20px;font-weight:400}
+.project-social{display:flex;flex-wrap:wrap;gap:12px 27px;margin-top:26px}
+.project-social a{font-size:12px;color:#cbd8df;text-decoration:underline;text-decoration-color:#738793;text-underline-offset:5px}.project-social a:hover{color:white}
+.footer{background:var(--dark);color:#adbec8}
+.footer .shell{border-top:1px solid #53515d;display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:24px;padding-bottom:28px;font-size:11px;letter-spacing:.035em}
+.footer a{color:#f3f6f7}.footer a:hover{color:var(--lilac)}
+
+/* Schwebender Zurück-nach-oben-Button für lange Seiten */
+.back-to-top{position:fixed;right:clamp(18px,3vw,36px);bottom:max(18px,env(safe-area-inset-bottom));z-index:110;display:grid;place-items:center;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:var(--ink);color:var(--paper);font:700 26px/1 Arial,Helvetica,sans-serif;cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.18);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(12px);transition:opacity .22s,transform .22s,visibility .22s,background .22s}
+.back-to-top.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.back-to-top:hover{background:var(--violet);color:var(--paper)}
+.back-to-top:focus-visible{outline:3px solid var(--violet);outline-offset:4px}
+@media(max-width:750px){
+ .header .shell{flex-wrap:wrap;padding-top:8px;padding-bottom:8px;gap:4px 12px}
+ .nav{width:100%;justify-content:space-between;gap:10px;min-height:38px}
+ .section[id],.social[id]{scroll-margin-top:136px}
+ .header .shell{min-height:70px;gap:12px}.nav{gap:14px}.nav .nav-num{display:none}
+ .hero-grid{grid-template-columns:1fr;gap:26px;padding-block:52px 65px}
+ .hero-mark{max-width:540px;width:100%;margin-inline:auto}
+ .hero-copy{padding:0}
+ .hero-copy h1{font-size:clamp(42px,8.1vw,57px)}
+ h1{font-size:clamp(40px,8.1vw,56px)}
+ .section{padding:67px 0 75px}.section-header{display:block;margin-bottom:28px}.section-note{margin:20px 0 0}
+ .index-row{grid-template-columns:35px minmax(0,1fr) 42px;gap:10px 12px;padding:28px 0}.index-heading{grid-column:2;grid-row:1}.index-title{font-size:clamp(27px,6.2vw,40px)}.index-description{grid-column:2;grid-row:2;font-size:13px;margin-top:1px;padding-top:0}.index-arrow{grid-column:3;grid-row:1;width:40px;height:40px;font-size:19px}.index-row:hover{padding-left:8px;padding-right:8px}
+ .social{padding:67px 0 55px}.social-grid{display:block}.social-intro{margin-bottom:36px}
+ .footer .shell{flex-wrap:wrap;gap:14px}
+}
+@media(max-width:420px){.shell{padding-inline:19px}.brand-word{font-size:16px}.brand-symbol{width:58px;height:32px}.nav{font-size:11px;gap:10px}.theme-toggle{width:37px;min-width:37px;padding:7px}.theme-label{display:none!important}.hero-copy h1{font-size:41px}.social-line{font-size:15px}.social-line small{display:block;margin:5px 0 0}}
+@media(max-width:360px){.nav a[href="#social"]{display:none}.brand-word{font-size:15px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden;pointer-events:none">
+  <defs>
+    <!-- Transparenzmatte für das ursprünglich weiß hinterlegte Original -->
+    <filter id="mw-cutout-light" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -4.24 -8.32 -1.62 0 13.94"/>
+    </filter>
+    <!-- Transparenzmatte für das ursprünglich dunkel hinterlegte Original -->
+    <filter id="mw-cutout-dark" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  3.05 5.99 1.16 0 -1.20"/>
+    </filter>
+  </defs>
+</svg>
+<a class="skip" href="#content">Skip to content</a>
+<header class="header" id="top"><div class="shell">
+  <a class="brand" href="#top" aria-label="wiedeck.de – back to top"><span class="brand-symbol"><img class="logo-mode-light" src="../logos/mw-symbol-light.png" width="650" height="246" alt=""><img class="logo-mode-dark" src="../logos/mw-symbol-dark.png" width="650" height="246" alt=""></span><span class="brand-word">wiedeck.de</span></a>
+  <nav class="nav" aria-label="Navigation"><a href="#projects"><span class="nav-num">01</span> Projects</a><a href="#social"><span class="nav-num">02</span> Elsewhere</a><span class="language-switch" role="group" aria-label="Choose language"><a href="../" lang="de" title="Deutsch">DE</a><span aria-hidden="true">/</span><a href="./" lang="en" aria-current="page" title="English">EN</a></span><button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false" title="Change appearance"><span class="theme-icon theme-when-light" aria-hidden="true">☾</span><span class="theme-icon theme-when-dark" aria-hidden="true">☀</span><span class="theme-label theme-when-light">Dark</span><span class="theme-label theme-when-dark">Light</span></button></nav>
+</div></header>
+<main id="content">
+  <section class="hero" aria-labelledby="headline"><div class="shell hero-grid">
+    <div class="hero-mark" aria-label="Michael Wiedeck – brand logo">
+      <img class="logo-mode-light" src="../logos/mw-hauptlogo-hell.png" width="745" height="366" alt="Michael Wiedeck – silver MW monogram and wordmark" fetchpriority="high" decoding="async">
+      <img class="logo-mode-dark" src="../logos/mw-hauptlogo-dunkel.png" width="666" height="371" alt="Michael Wiedeck – silver MW monogram and wordmark" decoding="async">
+    </div>
+    <div class="hero-copy"><div class="eyebrow mini"><span class="dot" aria-hidden="true"></span> A personal website</div>
+      <h1 id="headline">Personal.<br><span class="last">Digital.</span></h1>
+      <p class="hero-desc"><strong>Not a big portfolio.</strong> Just a quick guide to the things I'm working on – and the places you can find me online.</p>
+      <a class="jump" href="#projects">EXPLORE MY PROJECTS <span aria-hidden="true">↘</span></a>
+    </div>
+  </div></section>
+  <section class="section" id="projects" aria-labelledby="project-title"><div class="shell">
+    <div class="section-header"><div><div class="mini">01 / Projects</div><h2 id="project-title">What I <em>do.</em></h2></div><p class="section-note">Five projects – including TENNILO Score as my current focus, with Tournament and Umpire under the same brand.</p></div>
+    <div class="index">
+      <a class="index-row" href="https://www.tennis-schiri.de/" target="_blank" rel="noopener noreferrer" aria-label="Tennis-Schiri – open website in a new tab">
+        <span class="index-number">01</span>
+        <span class="index-heading"><img class="project-logo project-logo--ts logo-mode-light" src="../logos/tennis-schiri-on-light.png" alt="Tennis-Schiri" width="1080" height="205" loading="lazy" decoding="async"><img class="project-logo project-logo--ts logo-mode-dark" src="../logos/tennis-schiri.png" alt="Tennis-Schiri" width="1080" height="205" loading="lazy" decoding="async"><span class="index-category">Tournaments &amp; rules</span></span>
+        <span class="index-description"><strong>Organising and running tennis tournaments with confidence.</strong> Tennis-Schiri brings together tournament management, referee assignments and services for tennis clubs – including rules advice, workshops and upcoming events.</span>
+        <span class="index-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="index-row" href="https://tennilo.de/#score" target="_blank" rel="noopener noreferrer" aria-label="TENNILO Score – open TENNILO website in a new tab">
+        <span class="index-number">02</span>
+        <span class="index-heading"><img class="project-logo project-logo--score logo-mode-light" src="../logos/tennilo-score.png" alt="TENNILO Score" width="863" height="121" loading="lazy" decoding="async"><img class="project-logo project-logo--score logo-mode-dark" src="../logos/tennilo-score-dark-original.png" alt="TENNILO Score" width="476" height="103" loading="lazy" decoding="async"><span class="index-category">Scorekeeping app · Apple Watch · In development</span></span>
+        <span class="index-description"><strong>TENNILO Score – keep score right from your wrist.</strong> A tennis scorekeeping app for Apple Watch, with an accompanying iPhone app. Planned beta test: 27 December 2026 at a ranking tournament in Bad Saarow; targeted launch in spring 2027.</span>
+        <span class="index-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="index-row" href="https://tennilo.de/#projekte" target="_blank" rel="noopener noreferrer" aria-label="TENNILO Tournament – open product website in a new tab">
+        <span class="index-number">03</span>
+        <span class="index-heading"><img class="project-logo project-logo--tennilo" src="../logos/tennilo-tournament.png" alt="TENNILO Tournament" width="1361" height="390" loading="lazy" decoding="async"><span class="index-category">Tournament management · In development</span></span>
+        <span class="index-description"><strong>TENNILO Tournament – organise tournaments digitally.</strong> A web app under the TENNILO brand for club and organiser events: formats, draws, schedules, results and live score displays.</span>
+        <span class="index-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="index-row" href="https://tennilo.de/#projekte" target="_blank" rel="noopener noreferrer" aria-label="TENNILO Umpire – open TENNILO website in a new tab">
+        <span class="index-number">04</span>
+        <span class="index-heading"><img class="project-logo project-logo--umpire" src="../logos/tennilo-umpire.png" alt="TENNILO Umpire" width="4096" height="1360" loading="lazy" decoding="async"><span class="index-category">Umpire app · In planning</span></span>
+        <span class="index-description"><strong>TENNILO Umpire – digital tools for tennis officials.</strong> Planned features include a modular interface for officiating matches and sending scores to external scoreboards.</span>
+        <span class="index-arrow" aria-hidden="true">↗</span>
+      </a>
+      <div class="index-row index-row-soon">
+        <span class="index-number">05</span>
+        <span class="index-heading"><span class="project-wm-heading"><img class="project-logo project-logo--wm" src="../logos/wer-muss.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span class="index-title">Wer muss?!</span></span><span class="index-category">Fun apps · In development</span></span>
+        <span class="index-description"><strong>Something completely different. ;-)</strong> Beyond tennis, I'm also developing a few small apps that are all about having fun. They're still taking shape – more to come.</span>
+        <span class="index-arrow" aria-hidden="true">…</span>
+      </div>
+    </div>
+  </div></section>
+  <section class="social" id="social" aria-labelledby="social-title"><div class="shell social-grid">
+    <div><div class="mini">02 / Social & contact</div><h2 class="social-title" id="social-title">Find me<br><em>elsewhere.</em></h2><p class="social-intro">Quick links, not long introductions. Find my profiles and project channels here.</p></div>
+    <div><div class="social-list">
+      <a class="social-line" href="https://www.instagram.com/michaelwiedeck/" target="_blank" rel="noopener noreferrer"><span>Instagram <small>@michaelwiedeck</small></span><span class="external" aria-hidden="true">↗</span></a>
+      <a class="social-line" href="https://www.facebook.com/michael.wiedeck" target="_blank" rel="noopener noreferrer"><span>Facebook <small>Michael Wiedeck</small></span><span class="external" aria-hidden="true">↗</span></a>
+      <a class="social-line" href="https://x.com/mwiedeck" target="_blank" rel="noopener noreferrer"><span>X <small>@mwiedeck</small></span><span class="external" aria-hidden="true">↗</span></a>
+      <a class="social-line" href="mailto:michael@wiedeck.de"><span>Email <small>michael@wiedeck.de</small></span><span class="external" aria-hidden="true">↗</span></a>
+    </div><div class="project-social"><a href="https://www.instagram.com/tennis.schiri/" target="_blank" rel="noopener noreferrer">Tennis-Schiri on Instagram ↗</a><a href="https://www.instagram.com/tennilo.app/" target="_blank" rel="noopener noreferrer">TENNILO on Instagram ↗</a></div></div>
+  </div></section>
+</main>
+<footer class="footer"><div class="shell"><span>© 2026 Michael Wiedeck</span><nav aria-label="Legal information" style="display:flex;gap:20px;align-items:center"><a href="impressum.html">Legal notice</a><a href="datenschutz.html">Privacy policy</a></nav><a href="#top">Back to top ↑</a></div></footer>
+</body>
+</html>
