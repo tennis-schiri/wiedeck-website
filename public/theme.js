@@ -17,7 +17,8 @@
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute("content", theme === "dark" ? "#111920" : "#f4f6f7");
     var favicon = document.querySelector("link[data-theme-favicon]");
-    var selectedIcon = theme === "dark" ? "logos/mw-favicon-dark.png" : "logos/mw-favicon-light.png";
+    var prefix = root.lang === "en" ? "../" : "";
+    var selectedIcon = prefix + (theme === "dark" ? "logos/mw-favicon-dark.png" : "logos/mw-favicon-light.png");
     if (favicon) favicon.setAttribute("href", selectedIcon);
     var appleIcon = document.querySelector('link[rel="apple-touch-icon"]');
     if (appleIcon) appleIcon.setAttribute("href", selectedIcon);
@@ -25,8 +26,9 @@
     if (button) {
       var isDark = theme === "dark";
       button.setAttribute("aria-pressed", String(isDark));
-      button.setAttribute("aria-label", isDark ? "Hellen Modus einschalten" : "Dunklen Modus einschalten");
-      button.setAttribute("title", isDark ? "Zum hellen Modus wechseln" : "Zum dunklen Modus wechseln");
+      var english = root.lang === "en";
+      button.setAttribute("aria-label", isDark ? (english ? "Switch to light mode" : "Hellen Modus einschalten") : (english ? "Switch to dark mode" : "Dunklen Modus einschalten"));
+      button.setAttribute("title", isDark ? (english ? "Switch to light mode" : "Zum hellen Modus wechseln") : (english ? "Switch to dark mode" : "Zum dunklen Modus wechseln"));
     }
   }
   applyTheme(storedTheme() || "dark");
@@ -38,8 +40,9 @@
     button.type = "button";
     button.className = "back-to-top";
     button.textContent = "↑";
-    button.setAttribute("aria-label", "Nach oben scrollen");
-    button.setAttribute("title", "Nach oben");
+    var english = root.lang === "en";
+    button.setAttribute("aria-label", english ? "Scroll to top" : "Nach oben scrollen");
+    button.setAttribute("title", english ? "Back to top" : "Nach oben");
     document.body.appendChild(button);
 
     var pending = false;
