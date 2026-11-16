@@ -49,7 +49,8 @@ jobs:
           grep -q 'id="mw-cutout-dark"' public/index.html
           ! grep -q 'hero-logo-card' public/index.html
           grep -q 'aspect-ratio:745 / 366' public/index.html
-          grep -q 'img.logo-mode-dark{width:108%' public/index.html
+          grep -Fq '.hero-mark img.logo-mode-dark{width:100%;filter:url("#mw-cutout-dark");clip-path:inset(10px 0 6px 0)}' public/index.html
+          grep -Fq '.hero-mark img.logo-mode-dark{width:100%;filter:url("#mw-cutout-dark");clip-path:inset(10px 0 6px 0)}' public/en/index.html
           test -f public/favicon.svg
           test -f public/impressum.html
           test -f public/datenschutz.html
