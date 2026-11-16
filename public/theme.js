@@ -40,7 +40,7 @@
     var button = document.createElement("button");
     button.type = "button";
     button.className = "back-to-top";
-    button.innerHTML = '<span class="back-to-top-arrow" aria-hidden="true">↑</span>';
+    button.innerHTML = '<span class="back-to-top-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6.2 13.6 5.8-5.8 5.8 5.8"/><path d="m6.2 19.3 5.8-5.8 5.8 5.8"/></svg></span>';
     var english = root.lang === "en";
     button.setAttribute("aria-label", english ? "Scroll to top" : "Nach oben scrollen");
     button.setAttribute("title", english ? "Back to top" : "Nach oben");
@@ -50,7 +50,9 @@
     function refresh() {
       var position = window.scrollY || window.pageYOffset || 0;
       if (header) header.classList.toggle("is-scrolled", position > 12);
-      button.classList.toggle("is-visible", position > 320);
+      var visible = position > 280;
+      button.classList.toggle("is-visible", visible);
+      button.tabIndex = visible ? 0 : -1;
       pending = false;
     }
     window.addEventListener("scroll", function () {
