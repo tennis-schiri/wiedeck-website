@@ -65,6 +65,8 @@ jobs:
           grep -q 'id="now"' public/en/index.html
           grep -q 'id="einblicke"' public/index.html
           grep -q 'id="glimpses"' public/en/index.html
+          ! grep -Fq 'score.tennilo.de' public/index.html
+          ! grep -Fq 'score.tennilo.de' public/en/index.html
           grep -q 'class="manifesto-logo-light logo-mode-light"' public/index.html
           grep -q 'class="manifesto-logo-dark logo-mode-dark"' public/index.html
           grep -q 'class="manifesto-logo-light logo-mode-light"' public/en/index.html
