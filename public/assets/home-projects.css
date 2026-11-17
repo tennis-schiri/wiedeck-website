@@ -76,13 +76,14 @@ html[data-theme="dark"] .manifesto p{color:#bacbd2}
 .manifesto-art::before{content:"";position:absolute;inset:6% 12%;border-radius:50%;border:1px solid var(--line);box-shadow:0 0 0 45px rgba(156,198,209,.055),0 0 0 92px rgba(156,198,209,.035)}
 html[data-theme="dark"] .manifesto-art::before{border-color:rgba(195,215,224,.26);box-shadow:0 0 0 45px rgba(156,198,209,.025),0 0 0 92px rgba(156,198,209,.018)}
 .manifesto-art::after{content:"";position:absolute;left:6%;right:6%;height:1px;background:linear-gradient(90deg,transparent,var(--violet),transparent);transform:rotate(-17deg)}
-.manifesto-art img{position:relative;z-index:1;width:min(100%,410px);height:auto;max-width:100%;transform:none;transition:transform .4s}
-.manifesto-art img.manifesto-logo-light{filter:url("#mw-cutout-light")}
-.manifesto-art img.manifesto-logo-dark{filter:url("#mw-cutout-dark")}
+.manifesto-logo-viewport{position:relative;z-index:1;display:block;overflow:hidden;width:min(100%,410px);aspect-ratio:41 / 13;transition:transform .4s}
+.manifesto-logo-viewport img{position:absolute;height:auto;max-width:none;transform:none}
+.manifesto-logo-viewport img.manifesto-logo-light{top:0;left:3.5%;width:93%;filter:url("#mw-cutout-light")}
+.manifesto-logo-viewport img.manifesto-logo-dark{top:-24%;left:0;width:100%;filter:url("#mw-cutout-dark")}
 .manifesto-art .manifesto-logo-dark{display:none}
 html[data-theme="dark"] .manifesto-art .manifesto-logo-light{display:none}
 html[data-theme="dark"] .manifesto-art .manifesto-logo-dark{display:block}
-.manifesto-art:hover img{transform:translateY(-6px)}
+.manifesto-art:hover .manifesto-logo-viewport{transform:translateY(-6px)}
 .manifesto-tag{position:absolute;bottom:6px;right:0;color:var(--muted);font-size:10px;letter-spacing:.17em;font-weight:800}
 html[data-theme="dark"] .manifesto-tag{color:#86a3b2}
 .social{position:relative;overflow:hidden}
@@ -125,7 +126,7 @@ html[data-theme="dark"] .manifesto-tag{color:#86a3b2}
  .manifesto{padding:67px 0 74px}
  .manifesto-grid{grid-template-columns:1fr;gap:14px}
  .manifesto-art{min-height:225px;order:-1}
- .manifesto-art img{max-width:300px}
+ .manifesto-logo-viewport{max-width:300px}
  .manifesto-tag{right:10%}
  .social-watermark{width:500px;max-width:none;opacity:.04;right:-240px;top:-35px}
  .section[id],.social[id],.pulse-section[id],.showcase-section[id]{scroll-margin-top:136px}
@@ -141,5 +142,5 @@ html[data-theme="dark"] .manifesto-tag{color:#86a3b2}
 }
 @media(prefers-reduced-motion:reduce){
  .pulse-signal{animation:none!important}
- .pulse-feature,.pulse-feature-watch,.showcase-card,.showcase-stage img,.manifesto-art img,.pulse-mini{transition:none!important}
+ .pulse-feature,.pulse-feature-watch,.showcase-card,.showcase-stage img,.manifesto-logo-viewport,.pulse-mini{transition:none!important}
 }
