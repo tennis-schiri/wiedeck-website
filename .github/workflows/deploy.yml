@@ -65,6 +65,11 @@ jobs:
           grep -q 'id="now"' public/en/index.html
           grep -q 'id="einblicke"' public/index.html
           grep -q 'id="glimpses"' public/en/index.html
+          grep -q 'class="manifesto-logo-light logo-mode-light"' public/index.html
+          grep -q 'class="manifesto-logo-dark logo-mode-dark"' public/index.html
+          grep -q 'class="manifesto-logo-light logo-mode-light"' public/en/index.html
+          grep -q 'class="manifesto-logo-dark logo-mode-dark"' public/en/index.html
+          grep -Fq 'html[data-theme="dark"] .manifesto' public/assets/home-projects.css
           test -s public/logos/tennilo-tournament-transparent.png
           test -f public/legal.css
           test -f public/theme.js
