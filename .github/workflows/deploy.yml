@@ -148,6 +148,15 @@ jobs:
           grep -Fq 'hrc-collector.css' public/en/index.html
           # Inline venue drawings avoid fragile external SVG <use> loading.
           test "$(grep -o 'class="hrc-venue-drawing"' public/index.html | wc -l)" -eq 23
+          test "$(grep -o 'class="hrc-venue-drawing hrc-venue-drawing--illustrated"' public/index.html | wc -l)" -eq 23
+          test "$(grep -o 'class="hrc-venue-drawing hrc-venue-drawing--illustrated"' public/en/index.html | wc -l)" -eq 23
+          test "$(grep -o 'class="hrc-pin-plate"' public/index.html | wc -l)" -eq 23
+          test "$(grep -o 'class="hrc-pin-plate"' public/en/index.html | wc -l)" -eq 23
+          grep -Fq 'hrc-pin-phonebox' public/index.html
+          grep -Fq 'hrc-pin-phonebox' public/en/index.html
+          ! grep -Fq '../?' public/index.html
+          ! grep -Fq '../?' public/en/index.html
+          grep -Fq 'HRC04e' public/assets/hrc-collector.css
           test "$(grep -o 'class="hrc-venue-drawing"' public/en/index.html | wc -l)" -eq 23
           test "$(grep -o 'class="hrc-flag-ribbon" style=' public/index.html | wc -l)" -eq 23
           test "$(grep -o 'class="hrc-flag-ribbon" style=' public/en/index.html | wc -l)" -eq 23
