@@ -128,3 +128,7 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
  .hrc-collection .hrc-enamel-pin{right:-15px;top:0;width:128px;height:170px}
  .hrc-collection .hrc-cafe-name em{font-size:12px}
 }
+
+/* HRC09: only compact street labels beneath city names. */
+.hrc-collection .hrc-street{display:block;font:normal 500 clamp(10px,.86vw,12px)/1.3 Arial,Helvetica,sans-serif;letter-spacing:.005em;color:#493728;max-width:100%;overflow-wrap:break-word}
+@media(max-width:720px){.hrc-collection .hrc-street{font-size:11px;line-height:1.25}}
