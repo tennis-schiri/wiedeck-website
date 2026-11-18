@@ -87,13 +87,23 @@ jobs:
           grep -q 'FAMILY' public/en/index.html
           grep -q 'id="unterwegs"' public/index.html
           grep -q 'id="unterwegs"' public/en/index.html
-          test "$(grep -o 'class="travel-card' public/index.html | wc -l)" -eq 26
-          test "$(grep -o 'class="travel-card' public/en/index.html | wc -l)" -eq 26
+          test "$(grep -o '<article class="travel-card' public/index.html | wc -l)" -eq 26
+          test "$(grep -o '<article class="travel-card' public/en/index.html | wc -l)" -eq 26
           test "$(grep -o 'travel-card--repeat' public/index.html | wc -l)" -eq 5
           test "$(grep -o 'travel-card--repeat' public/en/index.html | wc -l)" -eq 5
           grep -q 'Schottland' public/index.html
           grep -q 'Scotland' public/en/index.html
           grep -Fq 'travel-grid' public/assets/home-projects.css
+          grep -Fq 'Eisbären' public/index.html
+          grep -Fq 'Eisbären' public/en/index.html
+          grep -Fq 'id="hobbys"' public/index.html
+          grep -Fq 'id="hobbys"' public/en/index.html
+          grep -Fq 'id="genuss"' public/index.html
+          grep -Fq 'id="genuss"' public/en/index.html
+          test "$(grep -o 'class="hrc-stop"' public/index.html | wc -l)" -eq 23
+          test "$(grep -o 'class="hrc-stop"' public/en/index.html | wc -l)" -eq 23
+          grep -Fq 'London (Piccadilly Circus)' public/index.html
+          grep -Fq 'London (Original)' public/en/index.html
           ! grep -q 'id="story-title"' public/index.html
           grep -Fq 'personal-grid' public/assets/home-projects.css
           grep -Fq 'html[data-theme="dark"]{' public/assets/home-projects.css

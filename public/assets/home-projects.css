@@ -536,3 +536,43 @@ html[data-theme="dark"]{
 }
 @media(max-width:370px){.travel-card-bottom strong{font-size:16px}.travel-flag{font-size:18px}}
 @media(prefers-reduced-motion:reduce){.travel-card,.travel-card::before,.life-card--reisen .life-travel-link{transition:none!important}}
+
+
+/* Personal spotlights: Eisbären since 1998, Berlin comedy and HRC diary */
+.interest-section,.food-section{border-top:1px solid var(--personal-edge);padding-top:32px;scroll-margin-top:104px}
+.interest-section{margin-top:clamp(62px,7vw,88px)}
+.food-section{margin-top:clamp(62px,7vw,88px)}
+.interest-heading,.food-heading{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:27px}
+.interest-heading .mini,.food-heading .mini{color:var(--personal-accent)}
+.interest-heading h3,.food-heading h3{font-size:clamp(38px,4.2vw,59px);letter-spacing:-.065em;line-height:1.06;margin:14px 0 0}
+.interest-heading h3 em,.food-heading h3 em{font-family:Georgia,'Times New Roman',serif;font-weight:400;color:var(--personal-accent)}
+.interest-heading>p,.food-heading>p{max-width:410px;font-size:14px;line-height:1.7;color:var(--personal-muted);margin:0}
+.interest-spotlights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.interest-spotlight{padding:29px 30px 31px;min-height:275px;border-radius:19px;position:relative;overflow:hidden;border:1px solid var(--personal-edge);background:var(--personal-surface);color:var(--personal-text)}
+.interest-spotlight::before{content:"";position:absolute;inset:auto -120px -220px auto;width:360px;height:360px;border-radius:50%;border:1px solid var(--personal-edge);opacity:.7;pointer-events:none}
+.interest-top{display:flex;justify-content:space-between;align-items:start;gap:12px;min-height:73px}
+.interest-top>span{font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--personal-accent)}
+.interest-art{width:100px;height:auto;max-width:30%;opacity:.66;color:var(--personal-accent);margin-top:-14px;flex:none}
+.interest-spotlight h4{font-size:clamp(29px,3.1vw,41px);line-height:1.06;letter-spacing:-.065em;margin:0 0 10px}
+.interest-spotlight>strong{font-size:14px;display:block;margin-bottom:12px;color:var(--personal-text)}
+.interest-spotlight>p{font-size:13px;line-height:1.72;margin:0;color:var(--personal-muted);max-width:465px}
+.interest-spotlight--ice{background:linear-gradient(135deg,var(--personal-surface),var(--personal-focus))}
+.interest-spotlight--comedy{background:var(--personal-surface)}
+.life-feature-link{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:10px;letter-spacing:.075em;font-weight:800;color:var(--personal-accent);border-bottom:1px solid var(--personal-accent);padding-bottom:5px;align-self:flex-start}
+.life-feature-link:focus-visible{outline:2px solid var(--personal-accent);outline-offset:4px}
+.hrc-collection{background:var(--personal-surface);border:1px solid var(--personal-edge);border-radius:20px;padding:clamp(19px,3vw,31px)}
+.hrc-intro{display:flex;justify-content:space-between;align-items:start;gap:20px;margin-bottom:23px}
+.hrc-eyebrow{font-size:10px;font-weight:800;letter-spacing:.16em;color:var(--personal-accent)}
+.hrc-intro h4{font-size:clamp(23px,2.65vw,34px);letter-spacing:-.055em;margin:9px 0 8px}
+.hrc-intro p{max-width:690px;color:var(--personal-muted);font-size:13px;line-height:1.65;margin:0}
+.hrc-total{display:inline-flex;align-items:center;justify-content:center;flex:none;padding:9px 12px;border:1px solid var(--personal-edge);border-radius:99px;font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--personal-accent);background:var(--personal-focus)}
+.hrc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;list-style:none;padding:0;margin:0}
+.hrc-stop{display:flex;align-items:center;gap:9px;min-width:0;padding:11px 12px;border:1px solid var(--personal-edge);border-radius:9px;background:var(--personal-bg);color:var(--personal-text);font-size:12px;font-weight:700;line-height:1.35}
+.hrc-flag{font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-size:19px;line-height:1;flex:none}
+.hrc-footnote{font-size:11px;line-height:1.6;color:var(--personal-muted);margin:18px 0 0}
+@media(max-width:1080px){.hrc-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:800px){.interest-heading,.food-heading{display:block}.interest-heading>p,.food-heading>p{margin-top:15px;max-width:630px}}
+@media(max-width:750px){.interest-section,.food-section{scroll-margin-top:138px}}
+@media(max-width:620px){.interest-spotlights{grid-template-columns:1fr;gap:12px}.interest-spotlight{min-height:0;padding:23px}.interest-top{min-height:60px}.hrc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hrc-intro{display:block}.hrc-total{margin-top:13px}.hrc-stop{padding:10px 9px;font-size:11px}}
+@media(max-width:370px){.hrc-grid{grid-template-columns:1fr}.interest-heading h3,.food-heading h3{font-size:38px}}
+@media(prefers-reduced-motion:reduce){.life-feature-link{transition:none!important}}
