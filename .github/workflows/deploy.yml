@@ -143,26 +143,24 @@ jobs:
           grep -Fq 'id="genuss"' public/index.html
           grep -Fq 'id="genuss"' public/en/index.html
           test -s public/assets/hrc-collector.css
-          grep -Fq 'HRC05' public/assets/hrc-collector.css
+          grep -Fq 'HRC06' public/assets/hrc-collector.css
           grep -Fq 'html[data-theme="light"] .hrc-collection' public/assets/hrc-collector.css
-          grep -Fq 'html[data-theme="dark"] .hrc-collection' public/assets/hrc-collector.css
-          grep -Fq 'hrc-collector.css?v=20261118-hrc05-pins' public/index.html
-          grep -Fq 'hrc-collector.css?v=20261118-hrc05-pins' public/en/index.html
+          grep -Fq 'hrc-collector.css?v=20261118-hrc06-all23' public/index.html
+          grep -Fq 'hrc-collector.css?v=20261118-hrc06-all23' public/en/index.html
+          python3 -c 'import glob,xml.etree.ElementTree as ET; a=glob.glob("public/media/hrc-city-pins/*.svg"); assert len(a)==23, len(a); [ET.parse(p) for p in a]'
           for page in public/index.html public/en/index.html; do
             test "$(grep -o 'class="hrc-stop"' "$page" | wc -l)" -eq 23
-            test "$(grep -o 'class="hrc-enamel-pin' "$page" | wc -l)" -eq 23
             test "$(grep -o 'class="hrc-flag hrc-flag-image"' "$page" | wc -l)" -eq 23
-            test "$(grep -o 'class="hrc-pin-plate"' "$page" | wc -l)" -eq 19
-            test "$(grep -o 'class="hrc-pin-image"' "$page" | wc -l)" -eq 4
-            ! grep -Fq 'class="hrc-venue-' "$page"
-            ! grep -Fq 'facade.svg' "$page"
-            ! grep -Fq 'data-hrc-reference=' "$page"
-            ! grep -Fq '<use href=' "$page"
+            test "$(grep -o 'class="hrc-pin-image"' "$page" | wc -l)" -eq 23
+            test "$(grep -o 'class="hrc-vinyl"' "$page" | wc -l)" -eq 23
+            grep -Fq 'MY HARD ROCK CAFÉ COLLECTION' "$page"
+            grep -Fq '23 STOPS COLLECTED ON THE ROAD' "$page"
             grep -Fq 'LONDON <small>ORIGINAL</small>' "$page"
             grep -Fq 'LONDON <small>PICCADILLY</small>' "$page"
-          done
-          for name in rome london-original london-piccadilly dublin; do
-            test -s "public/media/hrc-reference/$name-pin.svg"
+            ! grep -Fq 'hrc-venue-' "$page"
+            ! grep -Fq 'hrc-pin-plate' "$page"
+            ! grep -Fq 'hrc-pagination' "$page"
+            ! grep -Fq 'hrc-pager' "$page"
           done
           ! grep -q 'id="story-title"' public/index.html
           grep -Fq 'personal-grid' public/assets/home-projects.css
@@ -224,7 +222,7 @@ jobs:
           # Dadurch landen index.html und favicon.svg direkt im Domain-Verzeichnis.
           # Einzelne FTPS-Verbindungen können vorübergehend blockiert sein.
           # curl versucht bei Netzwerk- und Timeoutfehlern kontrolliert erneut.
-          for file in public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/hrc-reference/*-pin.svg public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mini-apps/wm04b-logo.svg public/logos/mini-apps/pl05-icon.webp public/logos/mini-apps/fc05-icon.webp public/logos/mini-apps/nk05-icon.webp public/logos/mini-apps/ne05-icon.webp public/logos/mini-apps/vd05-icon.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
+          for file in public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/hrc-city-pins/*.svg public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mini-apps/wm04b-logo.svg public/logos/mini-apps/pl05-icon.webp public/logos/mini-apps/fc05-icon.webp public/logos/mini-apps/nk05-icon.webp public/logos/mini-apps/ne05-icon.webp public/logos/mini-apps/vd05-icon.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
             remote="${file#public/}"
             printf 'FTPS: %s\n' "$remote"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \

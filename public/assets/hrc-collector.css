@@ -1,207 +1,61 @@
-/* HRC05 — compact City Pins collection. No buildings, one souvenir pin per city. */
+/* HRC06 – Backstage Vinyl: all 23 cards, no pagination, city-enamel pins. */
 .hrc-collection{
-  --hc-accent:#d6ac70;--hc-accent-bright:#eed0a0;--hc-muted:#b9c1bd;
-  position:relative;isolation:isolate;overflow:hidden;
-  padding:clamp(19px,3vw,33px)!important;border-radius:20px!important;
-  border:1px solid #485055!important;
-  color:#f6eee3!important;
-  background:radial-gradient(ellipse at 91% 0%,#303f42 0%,transparent 48%),#10181d!important;
-  box-shadow:0 16px 35px #12151926;scroll-margin-top:110px;
+ --hc-ink:#24190f;--hc-gold:#e5b76e;--hc-cream:#f7e5c5;
+ position:relative;isolation:isolate;overflow:hidden;scroll-margin-top:110px;
+ color:var(--hc-cream)!important;padding:clamp(19px,3.4vw,40px)!important;
+ border:1px solid #63503a!important;border-radius:18px!important;
+ background:radial-gradient(ellipse at 3% 8%,#5d402a25,transparent 35%),
+ repeating-radial-gradient(circle at 24% 16%,#ffffff04 0 1px,#06060608 2px 4px),
+ linear-gradient(130deg,#121111,#242222 55%,#111212)!important;
+ box-shadow:0 18px 45px #05050530,inset 0 1px 12px #ffffff0a;
 }
+.hrc-collection::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.25;background:repeating-linear-gradient(15deg,transparent 0 7px,#ffffff08 8px 8.5px,transparent 10px 18px)}
 .hrc-collection *{box-sizing:border-box}
-.hrc-collection .hrc-intro{
-  display:grid;grid-template-columns:auto minmax(0,1fr) auto;
-  align-items:center;gap:clamp(12px,2.1vw,25px);
-  padding:0 0 22px;margin:0 0 19px;border-bottom:1px solid #a18b694f;
-}
-.hrc-collection .hrc-brand{
-  display:flex;align-items:center;justify-content:center;align-self:stretch;
-  width:clamp(87px,11vw,127px);padding:3px 13px 3px 0;
-  border-right:1px solid #a18b6977;
-}
-.hrc-collection .hrc-official-logo{
-  display:block;width:100%;height:auto;max-height:96px;object-fit:contain;
-  filter:drop-shadow(0 3px 5px #0005);
-}
-.hrc-collection .hrc-eyebrow{font-size:10px;font-weight:900;letter-spacing:.17em;color:var(--hc-accent)}
-.hrc-collection .hrc-intro h4{
-  margin:6px 0 7px;font-family:Georgia,'Times New Roman',serif;
-  font-size:clamp(24px,2.8vw,36px);font-weight:900;line-height:1.05;letter-spacing:-.055em;color:#f7efe6;
-}
-.hrc-collection .hrc-intro h4 em{font-style:normal;color:var(--hc-accent-bright)}
-.hrc-collection .hrc-intro p{
-  max-width:530px;margin:0;font-size:12px;line-height:1.6;color:var(--hc-muted);
-}
-.hrc-collection .hrc-total{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none;
-  gap:1px;padding:7px 0 7px 18px;border:0;border-left:1px solid #a18b6977;
-  background:none;border-radius:0;color:var(--hc-accent-bright);font-size:9px;font-weight:900;letter-spacing:.11em;
-}
-.hrc-collection .hrc-total strong{font-size:clamp(32px,3.6vw,48px);font-weight:900;line-height:1;letter-spacing:-.07em}
-.hrc-collection .hrc-series-tag{
-  display:flex;justify-content:space-between;gap:12px;
-  margin:0 1px 12px;font-size:9px;letter-spacing:.11em;font-weight:800;color:var(--hc-accent-bright);
-}
-.hrc-collection .hrc-grid{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px 16px;
-  list-style:none;margin:0;padding:0;
-}
-.hrc-collection .hrc-stop{
-  display:block;position:relative;min-width:0;min-height:0;height:179px;
-  padding:0;border:0;border-radius:0;background:transparent!important;color:#382a22;
-}
-.hrc-collection .hrc-vinyl{
-  position:absolute;right:1px;top:37px;z-index:0;
-  width:112px;height:112px;border-radius:50%;aspect-ratio:1;
-  background:repeating-radial-gradient(circle at 50% 50%,#161a1d 0 2px,#2d3237 2.5px 3px,#161a1d 4px 7px);
-  border:1px solid #3a3c3f;box-shadow:3px 5px 12px #0009;
-  display:flex;align-items:center;justify-content:center;
-  transition:transform .28s ease;
-}
-.hrc-collection .hrc-vinyl::after{
-  content:"";position:absolute;width:62%;height:62%;border-radius:50%;
-  border-left:1px solid #ffffff3d;transform:rotate(32deg);
-}
-.hrc-collection .hrc-vinyl-label{
-  width:43px;height:43px;border-radius:50%;border:2px solid #292a28;
-  background:radial-gradient(circle,#252521 0 3px,#e2b87b 4px 18px,#775133 19px);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:1px;font-size:6px;font-weight:900;letter-spacing:.02em;color:#34251a;text-align:center;line-height:1.1;
-}
-.hrc-collection .hrc-vinyl-label span{font-size:5px}
-.hrc-collection .hrc-ticket{
-  display:block;position:relative;z-index:1;width:calc(100% - 21px);height:172px;min-height:0;
-  overflow:visible;border:2px solid #bd925c;border-radius:12px;color:#35281f;
-  background:linear-gradient(132deg,#f8eedc 0%,#ead8bc 71%,#d7bb95 100%);
-  box-shadow:3px 4px 12px #0006,inset 0 0 0 2px #fff5dd;
-  transition:transform .22s ease;
-}
-.hrc-collection .hrc-ticket::before{
-  content:"";pointer-events:none;position:absolute;inset:5px;
-  border:1px dashed #ab825a75;border-radius:8px;
-}
-.hrc-collection .hrc-flag-ribbon{
-  display:block;position:absolute;left:0;top:0;bottom:0;width:35px;
-  overflow:hidden;border-radius:10px 0 0 10px;border-right:2px solid #b7884f;
-  background:linear-gradient(90deg,var(--flag1,#8d614b) 0 33.33%,var(--flag2,#eddfbe) 33.33% 66.67%,var(--flag3,#876747) 66.67%);
-  box-shadow:inset -3px 0 7px #27160936;
-}
-.hrc-collection .hrc-flag-ribbon::after{content:"";position:absolute;inset:0;border-right:1px dotted #fff9;pointer-events:none}
-.hrc-collection .hrc-flag-ribbon .hrc-flag-image{
-  display:block!important;width:100%!important;min-width:0!important;
-  height:25px!important;min-height:0!important;object-fit:contain!important;
-  background:#fff9e9!important;border-radius:0!important;
-  border-bottom:2px solid #ac7d49;filter:none!important;box-shadow:0 2px 4px #20150e44!important;
-}
-.hrc-collection .hrc-pass-inner{
-  display:flex;flex-direction:column;min-height:168px;height:168px;
-  padding:13px 96px 11px 45px;
-}
-.hrc-collection .hrc-pass-number{
-  display:block;white-space:nowrap;color:#866347;font-size:9px;font-weight:900;letter-spacing:.08em;line-height:1.2;
-  padding:0 0 7px;border-bottom:1px solid #a78c6b78;
-}
-.hrc-collection .hrc-city{
-  display:block;min-width:0;max-width:none;white-space:normal;overflow-wrap:normal;
-  margin:13px 0 0;font-family:Georgia,'Times New Roman',serif;
-  font-weight:900;font-size:clamp(18px,1.85vw,24px);line-height:1.02;letter-spacing:-.05em;
-  text-transform:uppercase;color:#30251e;
-}
-.hrc-collection .hrc-city--long{font-size:clamp(16px,1.6vw,20px)}
-.hrc-collection .hrc-city--london small{display:block;font-size:.62em;letter-spacing:0;line-height:1.35}
-.hrc-collection .hrc-location{
-  display:block;min-width:0;max-width:none;margin:5px 0 0;color:#79583f;
-  font-size:10px;font-style:italic;font-family:Georgia,'Times New Roman',serif;line-height:1.25;
-  overflow-wrap:break-word;
-}
-.hrc-collection .hrc-ticket-foot{
-  display:flex;align-items:center;justify-content:space-between;gap:4px;white-space:nowrap;
-  margin-top:auto;padding-top:7px;border-top:1px solid #af977c99;
-  color:#795f47;font-size:7.5px;font-weight:900;letter-spacing:.04em;
-}
-.hrc-collection .hrc-enamel-pin{
-  display:block;position:absolute;z-index:5;right:-21px;top:23px;
-  width:93px;height:113px;padding:0;overflow:visible;border:0;border-radius:0;
-  background:none!important;box-shadow:none!important;
-  transform:rotate(7deg);transform-origin:50% 45%;
-  filter:drop-shadow(1px 4px 3px #24170a9e);
-  transition:transform .22s ease;
-}
+.hrc-collection .hrc-intro{display:grid;grid-template-columns:clamp(104px,14vw,175px) minmax(0,1fr);align-items:center;gap:clamp(17px,3vw,35px);margin:0 0 24px;border:0;padding:0}
+.hrc-collection .hrc-brand{display:flex;align-items:center;justify-content:center;width:auto;align-self:stretch;min-width:0;padding:2px 20px 2px 0;border:0;border-right:2px solid #dbaa63}
+.hrc-collection .hrc-official-logo{display:block;width:100%;height:auto;max-height:121px;object-fit:contain;filter:drop-shadow(1px 3px 3px #0009)}
+.hrc-collection .hrc-intro-copy{min-width:0}
+.hrc-collection .hrc-intro h4{margin:0 0 10px;font:900 clamp(27px,3.3vw,49px)/1.09 Georgia,'Times New Roman',serif;letter-spacing:-.045em;text-transform:uppercase;color:#f4e1bf!important;text-shadow:0 2px 2px #0008}
+.hrc-collection .hrc-collector-subtitle{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0!important;font-size:clamp(9px,1.45vw,18px)!important;line-height:1.4!important;color:#e9b961!important;letter-spacing:.17em;font-weight:900}
+.hrc-collection .hrc-collector-subtitle strong{font-weight:900;text-align:center}
+.hrc-collection .hrc-star{font-size:1.15em;flex:none}
+.hrc-collection .hrc-divider-line{height:1px;flex:1 1 10px;max-width:80px;background:linear-gradient(90deg,#dfb263,#765032)}
+.hrc-collection .hrc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(17px,2.2vw,33px);row-gap:18px;list-style:none;margin:0;padding:10px 3px 7px}
+.hrc-collection .hrc-stop{display:block;position:relative;min-width:0;height:169px;min-height:0;padding:0;border:0;border-radius:0;background:transparent!important;color:var(--hc-ink)}
+.hrc-collection .hrc-vinyl{position:absolute;z-index:0;right:-9px;top:18px;width:128px;height:128px;display:flex;align-items:center;justify-content:center;border:2px solid #3d3c40;border-radius:50%;background:repeating-radial-gradient(circle,#121314 0 2px,#353638 2.5px 3px,#101113 4px 7px);box-shadow:3px 6px 12px #000b;transition:transform .25s ease}
+.hrc-collection .hrc-vinyl::after{content:"";position:absolute;width:58%;height:58%;border-left:1px solid #ffffff3a;border-radius:50%;transform:rotate(23deg)}
+.hrc-collection .hrc-vinyl-label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;width:45px;height:45px;border:3px solid #282829;border-radius:50%;background:radial-gradient(circle,#25231d 0 3px,#e5be7a 4px 18px,#8c572c 19px);font:bold 8px Georgia,serif;color:#3b2417;text-align:center}
+.hrc-collection .hrc-vinyl-label span{font-size:6px}
+.hrc-collection .hrc-ticket{position:relative;z-index:1;overflow:visible;width:calc(100% - 19px);height:162px;min-height:0;border:2px solid #b4803d;border-radius:11px;color:#281c13;background:
+ radial-gradient(circle at calc(100% - 11px) 11px,#fff7c0 0 2px,#dbac5e 3px,#855022 7px,transparent 8px),
+ radial-gradient(circle at calc(100% - 11px) calc(100% - 11px),#fff7c0 0 2px,#dbac5e 3px,#855022 7px,transparent 8px),
+ repeating-linear-gradient(-7deg,transparent 0 3px,#a47f4c09 4px 5px,transparent 6px 8px),
+ radial-gradient(ellipse at 49% 20%,#fff9e8,transparent 79%),
+ linear-gradient(130deg,#fff0d7,#efdab9 65%,#dbba91);
+ box-shadow:0 0 0 1px #f4d393,3px 6px 10px #0008,inset 0 0 0 3px #ffeac1bb;transition:transform .22s ease}
+.hrc-collection .hrc-ticket::before,.hrc-collection .hrc-ticket::after{content:"";position:absolute;z-index:7;left:5px;width:16px;height:16px;border:1px solid #865026;border-radius:50%;background:radial-gradient(circle at 33% 25%,#fff8d0 0 12%,#f0c67b 26%,#c88b32 57%,#794321 82%,#e6c17c 95%);box-shadow:1px 2px 2px #0006}
+.hrc-collection .hrc-ticket::before{top:5px}.hrc-collection .hrc-ticket::after{bottom:5px}
+.hrc-collection .hrc-flag-ribbon{position:absolute;inset:-1px auto -1px -1px;width:clamp(38px,3.6vw,49px);overflow:hidden;border-radius:9px 0 0 9px;border-right:2px solid #bc8c4d;background:#cead7e}
+.hrc-collection .hrc-flag-ribbon .hrc-flag-image{display:block!important;width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;object-fit:fill!important;object-position:center!important;border:0!important;border-radius:0!important;filter:saturate(.9)!important;box-shadow:none!important;background:none!important}
+.hrc-collection .hrc-pass-inner{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;position:relative;height:100%;min-height:0;padding:12px clamp(89px,9vw,123px) 12px clamp(50px,5.2vw,69px)}
+.hrc-collection .hrc-city{display:block;max-width:none;white-space:normal;margin:0!important;font:900 clamp(21px,2vw,29px)/1.03 Georgia,'Times New Roman',serif;letter-spacing:-.065em;text-transform:uppercase;color:#23180f;text-shadow:0 1px #fff2d7}
+.hrc-collection .hrc-city--long{font-size:clamp(18px,1.75vw,24px)}
+.hrc-collection .hrc-city--london small{display:block;font-size:.8em;font-weight:900;letter-spacing:-.055em}
+.hrc-collection .hrc-city-line{display:block;width:100%;max-width:150px;flex:none;height:1px;background:#7b593b;margin:10px 0 8px}
+.hrc-collection .hrc-cafe-name{display:flex;flex-direction:column;line-height:1.16;color:#261b14}
+.hrc-collection .hrc-cafe-name em{font:italic 700 clamp(12px,1.17vw,17px)/1.17 Georgia,'Times New Roman',serif}
+.hrc-collection .hrc-enamel-pin{position:absolute;z-index:5;right:-22px;top:-12px;width:clamp(127px,13vw,168px);height:clamp(150px,15.1vw,190px);padding:0;border:0!important;border-radius:0!important;overflow:visible;background:none!important;box-shadow:none!important;transform:rotate(3deg);transform-origin:50% 45%;transition:transform .22s ease}
 .hrc-collection .hrc-enamel-pin::after{display:none}
-.hrc-collection .hrc-enamel-pin .hrc-pin-plate{display:block;width:100%;height:100%;overflow:visible}
-.hrc-collection .hrc-enamel-pin .hrc-pin-landmark{
-  position:absolute;left:23%;top:30%;width:55%;height:36%;margin:0;padding:0;
-  object-fit:contain;background:none!important;border:0;
-  opacity:1;filter:brightness(0) invert(.91) sepia(.14) saturate(.65)!important;
-}
-.hrc-collection .hrc-enamel-pin--guitar .hrc-pin-landmark{left:26%;top:43%;width:48%;height:26%}
-.hrc-collection .hrc-enamel-pin--pick .hrc-pin-landmark{top:29%;height:35%}
-.hrc-collection .hrc-enamel-pin--shield .hrc-pin-landmark{top:29%;height:38%}
-.hrc-collection .hrc-enamel-pin--plaque .hrc-pin-landmark{top:27%;height:40%}
-.hrc-collection .hrc-enamel-pin--reference{top:15px;right:-19px;width:99px;height:129px;filter:none!important}
-.hrc-collection .hrc-enamel-pin--reference .hrc-pin-image{
-  display:block;width:100%!important;height:100%!important;object-fit:contain!important;
-  background:none!important;border:0!important;border-radius:0!important;
-  filter:drop-shadow(1px 4px 3px #24170a95)!important;opacity:1!important;
-}
-.hrc-collection .hrc-enamel-pin--rome{width:117px;height:78px;right:-25px;top:35px;transform:rotate(-6deg)}
-.hrc-collection .hrc-stop:hover .hrc-ticket{transform:translateY(-3px)}
-.hrc-collection .hrc-stop:hover .hrc-vinyl{transform:translateX(7px) rotate(19deg)}
-.hrc-collection .hrc-stop:hover .hrc-enamel-pin{transform:translateY(-3px) rotate(-2deg)}
-.hrc-collection .hrc-footnote{
-  font-size:10px;line-height:1.65;color:var(--hc-muted);
-  margin:21px 0 0;padding-top:14px;border-top:1px solid #9c87694c;
-}
-.hrc-collection .hrc-footnote a{color:var(--hc-accent-bright);text-decoration:underline;text-underline-offset:3px}
-html[data-theme="dark"] .hrc-collection{
-  --hc-accent:#d6ac70;--hc-accent-bright:#eed0a0;--hc-muted:#b9c1bd;
-  color:#f6eee3!important;
-  background:radial-gradient(ellipse at 91% 0%,#303f42 0%,transparent 48%),#10181d!important;
-}
-html[data-theme="light"] .hrc-collection{
-  --hc-accent:#90602c;--hc-accent-bright:#8a5526;--hc-muted:#67584b;
-  background:radial-gradient(ellipse at 90% 0%,#ead3b1 0%,transparent 50%),#f5ebdc!important;
-  border-color:#c3a782!important;color:#352923!important;box-shadow:0 12px 30px #5e49351a;
-}
-html[data-theme="light"] .hrc-collection .hrc-intro,
-html[data-theme="light"] .hrc-collection .hrc-brand,
-html[data-theme="light"] .hrc-collection .hrc-total{border-color:#b59a7870}
-html[data-theme="light"] .hrc-collection .hrc-intro h4{color:#38291e}
-html[data-theme="light"] .hrc-collection .hrc-ticket{
-  background:linear-gradient(132deg,#fff9ef 0%,#f3e4cb 74%,#e7d1ae);
-  box-shadow:2px 4px 9px #6c543534,inset 0 0 0 2px #fffaf0;
-}
-html[data-theme="light"] .hrc-collection .hrc-vinyl{box-shadow:3px 5px 10px #483c3455}
-html[data-theme="light"] .hrc-collection .hrc-footnote{border-color:#b69b756e}
-@media(max-width:1080px){
-  .hrc-collection .hrc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .hrc-collection .hrc-city{font-size:clamp(19px,2.4vw,24px)}
-  .hrc-collection .hrc-city--long{font-size:clamp(18px,2vw,22px)}
-}
-@media(max-width:680px){
-  .hrc-collection .hrc-grid{grid-template-columns:minmax(0,1fr);gap:12px}
-  .hrc-collection .hrc-stop{width:100%;max-width:460px;margin-inline:auto;height:178px}
-  .hrc-collection .hrc-city{font-size:clamp(20px,4.3vw,25px)}
-  .hrc-collection .hrc-city--long{font-size:clamp(18px,3.9vw,22px)}
-  .hrc-collection .hrc-intro{grid-template-columns:78px minmax(0,1fr)}
-  .hrc-collection .hrc-brand{width:78px;padding-right:8px}
-  .hrc-collection .hrc-intro h4{font-size:clamp(23px,5.5vw,30px)}
-  .hrc-collection .hrc-total{grid-column:2;flex-direction:row;justify-content:flex-start;border:0;padding:0}
-  .hrc-collection .hrc-total strong{font-size:28px}
-}
-@media(max-width:390px){
-  .hrc-collection{padding:17px 12px!important}
-  .hrc-collection .hrc-ticket{width:calc(100% - 15px)}
-  .hrc-collection .hrc-pass-inner{padding-left:43px;padding-right:82px}
-  .hrc-collection .hrc-flag-ribbon{width:33px}
-  .hrc-collection .hrc-enamel-pin{right:-16px;width:80px;height:102px}
-  .hrc-collection .hrc-enamel-pin--reference{right:-15px;width:86px;height:113px}
-  .hrc-collection .hrc-enamel-pin--rome{width:103px;height:73px;right:-19px;top:35px}
-  .hrc-collection .hrc-city{font-size:20px}
-  .hrc-collection .hrc-city--long{font-size:17px}
-  .hrc-collection .hrc-ticket-foot{font-size:7px}
-}
-@media(prefers-reduced-motion:reduce){
-  .hrc-collection .hrc-vinyl,.hrc-collection .hrc-ticket,.hrc-collection .hrc-enamel-pin{transition:none}
-  .hrc-collection .hrc-stop:hover .hrc-vinyl,.hrc-collection .hrc-stop:hover .hrc-ticket,.hrc-collection .hrc-stop:hover .hrc-enamel-pin{transform:none}
-}
+.hrc-collection .hrc-pin-image{display:block;width:100%!important;height:100%!important;min-height:0!important;max-width:none!important;object-fit:contain!important;background:transparent!important;border:0!important;border-radius:0!important;opacity:1!important;box-shadow:none!important;filter:drop-shadow(1px 4px 2px #281907a5)!important}
+.hrc-collection .hrc-stop:hover .hrc-enamel-pin{transform:translateY(-4px) rotate(-2deg)}
+.hrc-collection .hrc-stop:hover .hrc-ticket{transform:translateY(-2px)}
+.hrc-collection .hrc-stop:hover .hrc-vinyl{transform:translateX(7px) rotate(14deg)}
+.hrc-collection .hrc-footnote{margin:24px 0 0;padding-top:13px;border-top:1px solid #916c3e77;color:#c8baa7;font-size:10px;line-height:1.6}
+html[data-theme="light"] .hrc-collection{color:#4c3524!important;background:repeating-radial-gradient(circle at 14% 65%,#795b1708 0 1px,transparent 2px 4px),linear-gradient(130deg,#f4e9da,#e5d6c2)!important;border-color:#bb996c!important}
+html[data-theme="light"] .hrc-collection .hrc-intro h4{color:#51351f!important;text-shadow:0 1px #fff8e8}
+html[data-theme="light"] .hrc-collection .hrc-collector-subtitle{color:#976628!important}
+html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-color:#b99a75}
+@media(max-width:1160px){.hrc-collection .hrc-grid{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:23px}.hrc-collection .hrc-city{font-size:clamp(22px,2.65vw,29px)}.hrc-collection .hrc-city--long{font-size:clamp(19px,2.2vw,25px)}.hrc-collection .hrc-pass-inner{padding-right:clamp(111px,13vw,140px)}.hrc-collection .hrc-enamel-pin{width:clamp(143px,17vw,183px);height:clamp(162px,19vw,196px)}}
+@media(max-width:730px){.hrc-collection{padding:19px 14px!important}.hrc-collection .hrc-intro{grid-template-columns:89px 1fr;gap:13px;margin-bottom:20px}.hrc-collection .hrc-brand{padding-right:9px}.hrc-collection .hrc-intro h4{font-size:clamp(21px,4.1vw,32px)}.hrc-collection .hrc-collector-subtitle{font-size:clamp(9px,1.9vw,12px)!important;gap:4px;letter-spacing:.1em}.hrc-collection .hrc-grid{grid-template-columns:1fr;gap:18px;padding:7px 8px}.hrc-collection .hrc-stop{width:100%;max-width:485px;margin-inline:auto}.hrc-collection .hrc-city{font-size:clamp(22px,5.1vw,30px)}.hrc-collection .hrc-city--long{font-size:clamp(18px,4.3vw,25px)}.hrc-collection .hrc-pass-inner{padding-left:clamp(52px,10vw,67px);padding-right:clamp(108px,27vw,147px)}.hrc-collection .hrc-cafe-name em{font-size:clamp(12px,3vw,16px)}.hrc-collection .hrc-enamel-pin{right:-16px;width:clamp(142px,33vw,180px);height:clamp(159px,38vw,194px)}}
+@media(max-width:440px){.hrc-collection{padding:17px 10px!important}.hrc-collection .hrc-intro{grid-template-columns:76px 1fr}.hrc-collection .hrc-intro h4{font-size:clamp(18px,4.2vw,24px)}.hrc-collection .hrc-collector-subtitle{font-size:8px!important;letter-spacing:.04em}.hrc-collection .hrc-divider-line{max-width:14px}.hrc-collection .hrc-ticket{width:calc(100% - 10px)}.hrc-collection .hrc-flag-ribbon{width:38px}.hrc-collection .hrc-pass-inner{padding-left:51px;padding-right:106px}.hrc-collection .hrc-city{font-size:clamp(19px,5vw,24px)}.hrc-collection .hrc-city--long{font-size:clamp(16px,4.35vw,21px)}.hrc-collection .hrc-city-line{margin:7px 0 5px}.hrc-collection .hrc-cafe-name em{font-size:12px}.hrc-collection .hrc-enamel-pin{right:-14px;top:-4px;width:125px;height:167px}}
+@media(prefers-reduced-motion:reduce){.hrc-collection .hrc-ticket,.hrc-collection .hrc-vinyl,.hrc-collection .hrc-enamel-pin{transition:none}.hrc-collection .hrc-stop:hover .hrc-ticket,.hrc-collection .hrc-stop:hover .hrc-vinyl,.hrc-collection .hrc-stop:hover .hrc-enamel-pin{transform:none}}
