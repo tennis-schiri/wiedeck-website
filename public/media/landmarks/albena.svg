@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140"><title>Albena: Sandstrand, Sonnenschirm und Schwarzes Meer</title><circle cx="192" cy="27" r="18" fill="#f2cd65"/><path d="M8 106c24-11 40-11 64 0s41 11 65 0 42-11 65 0 31 10 38 7v27H8z" fill="#6fb7cf"/><path d="M7 126c25-9 49-9 71 0s49 9 74 0 56-9 81 0v14H7z" fill="#d7b878"/><path d="M30 76Q104 6 176 76H30z" fill="#e5a75e" stroke="#426a80" stroke-width="5" stroke-linejoin="round"/><path d="M104 76v47 M104 31c-23 10-37 23-46 44M104 31c23 10 36 24 46 44" fill="none" stroke="#426a80" stroke-width="5" stroke-linecap="round"/><path d="M98 124h29" stroke="#426a80" stroke-width="6" stroke-linecap="round"/><path d="M14 97q25-11 49 0t49 0t49 0t49 0" stroke="#426a80" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none" style="color:#426a80">
+<title>Albena – Sonnenschirm am Strand des Schwarzen Meeres</title>
+<g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 114c17-3 29 1 43 0s25-1 37 0 19-1 28 0" stroke-width="3"/>
+<circle cx="94" cy="26" r="10" stroke-width="2.8"/>
+<path d="M94 9V5m0 42v-4m17-17h4m-39 0h-4m10-12-3-3m30 30-3-3m-24 0-3 3m30-30-3 3" stroke-width="2.2"/>
+<path d="M15 72Q46 19 80 72H15zM47 72v38m-1-38c-2-19-5-29-9-38m9 38c8-21 13-30 19-36" stroke-width="3.2"/>
+<path d="M41 109h26M24 85q8-4 16 0t16 0t16 0t16 0t16 0M9 95q10-5 20 0t20 0t20 0t20 0t20 0" stroke-width="2.5"/>
+<path d="M12 104q8-4 16 0m55 0q8-4 16 0" stroke-width="2"/>
+</g>
+<path d="M17 72q29-50 61 0H17z" stroke="currentColor" stroke-width="2.2" fill="none"/>
+</svg>
