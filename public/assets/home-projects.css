@@ -644,3 +644,13 @@ html[data-theme="dark"] .travel-landmark-icon{filter:brightness(1.2) saturate(.8
 @media(max-width:800px){.comedy-club-heading{display:block}.comedy-club-heading .comedy-club-side{max-width:590px;margin-top:13px}}
 @media(max-width:750px){.comedy-club-section{scroll-margin-top:146px}}
 @media(max-width:500px){.comedy-club-section{padding:20px 17px}.comedy-club-list{gap:7px}.comedy-club-list li{font-size:11px;padding:10px 10px}.comedy-club-heading h4{font-size:31px}}
+
+
+/* Verified hand-drawn city landmarks (Studio Partdirector, CC BY 4.0) */
+.travel-landmark-icon{max-width:174px;height:130px;object-fit:contain;filter:none}
+html[data-theme="dark"] .travel-landmark-icon{filter:brightness(0) invert(.85)}
+.travel-closing{flex-wrap:wrap;gap:8px 13px}
+.travel-credit{margin-left:auto;font-size:10px;line-height:1.6;color:var(--travel-muted)}
+.travel-credit a{color:var(--travel-text);text-decoration:underline;text-underline-offset:2px}
+.travel-credit a:focus-visible{outline:2px solid var(--travel-accent);outline-offset:3px}
+@media(max-width:560px){.travel-landmark-icon{height:109px;max-width:151px}.travel-credit{margin-left:0;width:100%}}
