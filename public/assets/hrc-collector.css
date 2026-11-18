@@ -153,6 +153,11 @@
   margin:21px 0 0;padding-top:14px;border-top:1px solid #9c87694c;
 }
 .hrc-collection .hrc-footnote a{color:var(--hc-accent-bright);text-decoration:underline;text-underline-offset:3px}
+html[data-theme="dark"] .hrc-collection{
+  --hc-accent:#d6ac70;--hc-accent-bright:#eed0a0;--hc-muted:#b9c1bd;
+  color:#f6eee3!important;
+  background:radial-gradient(ellipse at 91% 0%,#303f42 0%,transparent 48%),#10181d!important;
+}
 html[data-theme="light"] .hrc-collection{
   --hc-accent:#90602c;--hc-accent-bright:#8a5526;--hc-muted:#67584b;
   background:radial-gradient(ellipse at 90% 0%,#ead3b1 0%,transparent 50%),#f5ebdc!important;
