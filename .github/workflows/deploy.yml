@@ -153,8 +153,8 @@ jobs:
           test -s public/assets/hrc-collector.css
           grep -Fq '.hrc-collection .hrc-flag-ribbon' public/assets/hrc-collector.css
           grep -Fq 'html[data-theme="light"] .hrc-collection' public/assets/hrc-collector.css
-          grep -Fq 'hrc-collector.css?v=20261118-hrc09-street-only' public/index.html
-          grep -Fq 'hrc-collector.css?v=20261118-hrc09-street-only' public/en/index.html
+          grep -Fq 'hrc-collector.css?v=20261118-hrc10-flag-ribbon' public/index.html
+          grep -Fq 'hrc-collector.css?v=20261118-hrc10-flag-ribbon' public/en/index.html
           test -s scripts/build_hrc_pins.py
           test "$(find public/media/hrc-real-pins -maxdepth 1 -name '*.webp' -type f | wc -l)" -eq 23
           test -s public/media/hrc-real-pins/rome.webp
@@ -162,7 +162,7 @@ jobs:
           test -s public/media/hrc-real-pins/dublin.webp
           for page in public/index.html public/en/index.html; do
             test "$(grep -o 'class="hrc-stop"' "$page" | wc -l)" -eq 23
-            test "$(grep -o 'class="hrc-flag hrc-flag-image"' "$page" | wc -l)" -eq 23
+            test "$(grep -o 'class="hrc-flag-ribbon"' "$page" | wc -l)" -eq 23
             test "$(grep -o 'class="hrc-pin-image"' "$page" | wc -l)" -eq 23
             test "$(grep -o 'media/hrc-real-pins/[a-z-]*.webp?v=hrc07' "$page" | wc -l)" -eq 23
             test "$(grep -o 'class="hrc-vinyl"' "$page" | wc -l)" -eq 23
