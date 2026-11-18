@@ -79,9 +79,15 @@ jobs:
           test -s public/media/michael-wiedeck-persoenlich.jpg
           grep -q 'id="micha"' public/index.html
           grep -q 'id="micha"' public/en/index.html
-          test "$(grep -o 'class="story-card"' public/index.html | wc -l)" -eq 3
-          test "$(grep -o 'class="story-card"' public/en/index.html | wc -l)" -eq 3
+          test "$(grep -o 'class="life-card life-card--' public/index.html | wc -l)" -eq 6
+          test "$(grep -o 'class="life-card life-card--' public/en/index.html | wc -l)" -eq 6
+          grep -q 'REISEN' public/index.html
+          grep -q 'TRAVEL' public/en/index.html
+          grep -q 'FAMILIE' public/index.html
+          grep -q 'FAMILY' public/en/index.html
+          ! grep -q 'id="story-title"' public/index.html
           grep -Fq 'personal-grid' public/assets/home-projects.css
+          grep -Fq 'html[data-theme="dark"]{' public/assets/home-projects.css
           grep -q 'watch-silhouette' public/media/score-demo-watch-cutout.svg
           test -s public/media/score-demo-phone.png
           test -s public/media/score-demo-scoreboard.png
