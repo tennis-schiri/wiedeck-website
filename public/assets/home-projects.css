@@ -514,6 +514,7 @@ html[data-theme="dark"]{
 .travel-skyline{display:block;width:100%;height:auto;max-height:78px;aspect-ratio:3 / 1;margin:13px auto 9px;color:var(--travel-line);opacity:.9}
 .travel-card-bottom{display:flex;justify-content:space-between;align-items:end;gap:5px;margin-top:auto;min-height:30px}
 .travel-card-bottom strong{font-size:clamp(16px,1.55vw,19px);letter-spacing:-.045em;line-height:1.08;font-weight:800;overflow-wrap:anywhere}
+.travel-card--repeat .travel-card-bottom strong{white-space:nowrap;overflow-wrap:normal}
 .travel-repeat{display:inline-flex;align-items:center;white-space:nowrap;background:var(--travel-repeat-bg);color:var(--travel-repeat-ink);border:1px solid var(--travel-edge);border-radius:99px;padding:5px 6px;font-size:8px;line-height:1;font-weight:800;letter-spacing:.045em}
 .travel-card--repeat .travel-number{color:var(--travel-accent)}
 .travel-closing{display:flex;align-items:center;gap:9px;margin-top:22px;padding-top:17px;border-top:1px solid var(--travel-edge);font-size:11px;color:var(--travel-muted);letter-spacing:.025em}
