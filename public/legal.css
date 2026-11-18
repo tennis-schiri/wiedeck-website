@@ -92,3 +92,11 @@ footer nav{display:flex;gap:22px}
 @media(prefers-reduced-motion:reduce){.theme-toggle,.top,.back-to-top{transition:none!important}}
 
 @media(max-width:370px){.back{font-size:0}.back::before{content:"← Zurück";font-size:12px}html[lang="en"] .back::before{content:"← Back"}}
+
+
+/* Theme continuity: legal footer matches the homepage in both themes. */
+:root{--legal-footer-bg:#dce6ec;--legal-footer-ink:#425a68;--legal-footer-edge:#becdd6;--legal-footer-link:#1e3544}
+html[data-theme="dark"]{--legal-footer-bg:#090e13;--legal-footer-ink:#adbec8;--legal-footer-edge:#495661;--legal-footer-link:#f3f6f7}
+footer{background:var(--legal-footer-bg);color:var(--legal-footer-ink);border-top:1px solid var(--legal-footer-edge)}
+footer a{color:var(--legal-footer-link)}
+footer a:hover{color:var(--violet)}
