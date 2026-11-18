@@ -593,3 +593,10 @@ html[data-theme="dark"]{
  .travel-card{min-height:162px}
 }
 @media(prefers-reduced-motion:reduce){.travel-card:hover .travel-skyline{transition:none!important}}
+
+/* HRC flags: reusable local SVG artwork, independent of platform emoji rendering */
+.hrc-flag-image{
+ display:block;width:27px;height:18px;min-width:27px;min-height:18px;
+ object-fit:cover;border-radius:2px;background:#fff;font-size:0;
+ box-shadow:0 0 0 1px rgba(20,36,48,.18);flex:none
+}
