@@ -142,3 +142,29 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
  background-repeat:repeat-y!important;
  box-shadow:inset -3px 0 4px #432a1d44,inset 2px 0 2px #fff8!important;
 }
+
+/* HRC11: one properly proportioned country flag per ticket, no vertical stripes or tiling. */
+.hrc-collection .hrc-flag-ribbon{
+  background:none!important;
+  border-right:0!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+}
+.hrc-collection .hrc-flag-ribbon::before{
+  content:"";
+  position:absolute;
+  display:block;
+  width:calc(100% - 8px);
+  aspect-ratio:3 / 2;
+  height:auto;
+  top:50%;
+  left:4px;
+  transform:translateY(-50%);
+  background-image:var(--hrc-flag);
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+  border:1px solid #856c4d;
+  border-radius:2px;
+  box-shadow:0 2px 4px #53351c55;
+}
