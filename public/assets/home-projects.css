@@ -144,3 +144,43 @@ html[data-theme="dark"] .manifesto-tag{color:#86a3b2}
  .pulse-signal{animation:none!important}
  .pulse-feature,.pulse-feature-watch,.showcase-card,.showcase-stage img,.manifesto-logo-viewport,.pulse-mini{transition:none!important}
 }
+
+
+/* Wer muss?! und fünf weitere Mini-Apps – Teaser auf wiedeck.de */
+:root{--minis-bg:#ecf0f5;--minis-card:#fff;--minis-ink:#192035;--minis-secondary:#526076;--minis-edge:#cdd5e1;--minis-meta:#647188}
+html[data-theme="dark"]{--minis-bg:#111224;--minis-card:#1c2038;--minis-ink:#f7f7fc;--minis-secondary:#c0c9de;--minis-edge:#343b5d;--minis-meta:#a7b4d2}
+.minis-section{background:var(--minis-bg);color:var(--minis-ink);padding:clamp(65px,8vw,110px) 0;border-top:1px solid var(--minis-edge);scroll-margin-top:96px}
+.minis-kicker-row{display:flex;justify-content:space-between;gap:20px;align-items:center;color:var(--minis-secondary)}
+.minis-kicker-extra{font-size:10px;letter-spacing:.18em;font-weight:800;color:var(--minis-meta);text-align:right}
+.minis-heading{display:grid;grid-template-columns:1.2fr .8fr;align-items:end;gap:35px;margin:21px 0 37px}
+.minis-heading h2{font-size:clamp(44px,5.4vw,74px);line-height:1.02;letter-spacing:-.07em;margin:0}
+.minis-heading h2 em{font-weight:400;font-family:Georgia,'Times New Roman',serif;color:#7765b0}
+html[data-theme="dark"] .minis-heading h2 em{color:#c2b3f4}
+.minis-intro{justify-self:end;max-width:370px}
+.minis-intro p{font-size:14px;line-height:1.8;color:var(--minis-secondary);margin:18px 0 0}
+.minis-status{display:inline-block;padding:8px 11px;border:1px solid var(--minis-edge);border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.105em;color:var(--minis-ink)}
+.minis-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.minis-card{min-width:0;position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:295px;padding:24px;border:1px solid var(--minis-edge);background:var(--minis-card);border-radius:21px;isolation:isolate;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.minis-card::before{content:"";position:absolute;width:155px;height:155px;right:-80px;top:-80px;border:1px solid var(--mini-accent);border-radius:50%;opacity:.5;pointer-events:none;z-index:-1}
+.minis-card::after{content:"";position:absolute;left:24px;right:24px;bottom:0;height:3px;background:var(--mini-accent);opacity:.85;transform:scaleX(.32);transform-origin:left;transition:transform .25s ease}
+.minis-card:hover{transform:translateY(-5px);border-color:var(--mini-accent);box-shadow:0 18px 32px rgba(0,0,0,.09)}
+.minis-card:hover::after{transform:scaleX(1)}
+.minis-card--original{background:linear-gradient(145deg,#1d1c37,#272342);color:#f7f7fc;border-color:#585171}
+.minis-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
+.minis-icon{width:72px;height:72px;border-radius:18px;object-fit:contain;display:block;flex:none}
+.minis-card-index{font-family:Georgia,serif;font-style:italic;font-size:16px;letter-spacing:.03em;color:var(--minis-meta)}
+.minis-card--original .minis-card-index{color:#dbd4f5}
+.minis-card-body{margin:20px 0 auto}
+.minis-card-kind{font-size:10px;letter-spacing:.15em;font-weight:800;color:var(--minis-meta)}
+.minis-card--original .minis-card-kind{color:#f5f36d}
+.minis-card h3{font-size:clamp(23px,2.25vw,30px);letter-spacing:-.055em;line-height:1.06;margin:10px 0 13px}
+.minis-card p{font-size:13px;line-height:1.7;color:var(--minis-secondary);margin:0;max-width:300px}
+.minis-card--original p{color:#d5d2e7}
+.minis-card-end{display:flex;justify-content:space-between;gap:12px;align-items:center;border-top:1px solid var(--minis-edge);margin-top:25px;padding-top:13px;color:var(--minis-meta);font-size:9px;letter-spacing:.13em;font-weight:800}
+.minis-card--original .minis-card-end{border-color:#514b70;color:#d9d3e9}
+.minis-card-end span:last-child{font-size:17px;color:var(--mini-accent);line-height:1}
+.minis-note{display:flex;gap:14px;align-items:baseline;margin-top:24px;padding:15px 0 0;border-top:1px solid var(--minis-edge);font-size:11px;line-height:1.7;color:var(--minis-secondary)}
+.minis-note strong{flex:none;color:var(--minis-ink)}
+@media(max-width:900px){.minis-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.minis-heading{grid-template-columns:1fr}.minis-intro{justify-self:start;max-width:590px}}
+@media(max-width:600px){.minis-section{padding:62px 0}.minis-kicker-extra{display:none}.minis-heading{gap:16px;margin-bottom:27px}.minis-heading h2{font-size:clamp(40px,10vw,55px)}.minis-grid{grid-template-columns:1fr;gap:11px}.minis-card{min-height:0;padding:21px}.minis-card-body{margin-top:14px}.minis-card h3{font-size:26px}.minis-card-end{margin-top:19px}.minis-note{display:block}.minis-note strong{display:block;margin-bottom:3px}.minis-icon{width:66px;height:66px}}
+@media(prefers-reduced-motion:reduce){.minis-card,.minis-card::after{transition:none!important}}
