@@ -144,13 +144,21 @@ jobs:
           grep -Fq 'id="genuss"' public/en/index.html
           test -s public/assets/hrc-collector.css
           test -s public/media/hrc-facades.svg
+          python3 -c 'import glob,xml.etree.ElementTree as ET; f=glob.glob("public/media/hrc-reference/*.svg"); assert len(f)==8, f; [ET.parse(p) for p in f]'
+          test "$(grep -o 'data-hrc-reference=' public/index.html | wc -l)" -eq 4
+          test "$(grep -o 'data-hrc-reference=' public/en/index.html | wc -l)" -eq 4
+          test "$(grep -o 'class="hrc-venue-photoillustration"' public/index.html | wc -l)" -eq 4
+          test "$(grep -o 'class="hrc-venue-photoillustration"' public/en/index.html | wc -l)" -eq 4
+          test "$(grep -o 'class="hrc-pin-image"' public/index.html | wc -l)" -eq 4
+          test "$(grep -o 'class="hrc-pin-image"' public/en/index.html | wc -l)" -eq 4
+          grep -Fq 'HRC04f' public/assets/hrc-collector.css
           grep -Fq 'hrc-collector.css' public/index.html
           grep -Fq 'hrc-collector.css' public/en/index.html
           # Inline venue drawings avoid fragile external SVG <use> loading.
-          test "$(grep -o 'class="hrc-venue-drawing hrc-venue-drawing--illustrated"' public/index.html | wc -l)" -eq 23
-          test "$(grep -o 'class="hrc-venue-drawing hrc-venue-drawing--illustrated"' public/en/index.html | wc -l)" -eq 23
-          test "$(grep -o 'class="hrc-pin-plate"' public/index.html | wc -l)" -eq 23
-          test "$(grep -o 'class="hrc-pin-plate"' public/en/index.html | wc -l)" -eq 23
+          test "$(grep -o 'class="hrc-venue-drawing hrc-venue-drawing--illustrated"' public/index.html | wc -l)" -eq 19
+          test "$(grep -o 'class="hrc-venue-drawing hrc-venue-drawing--illustrated"' public/en/index.html | wc -l)" -eq 19
+          test "$(grep -o 'class="hrc-pin-plate"' public/index.html | wc -l)" -eq 19
+          test "$(grep -o 'class="hrc-pin-plate"' public/en/index.html | wc -l)" -eq 19
           grep -Fq 'hrc-pin-phonebox' public/index.html
           grep -Fq 'hrc-pin-phonebox' public/en/index.html
           ! grep -Fq '../?' public/index.html
@@ -230,7 +238,7 @@ jobs:
           # Dadurch landen index.html und favicon.svg direkt im Domain-Verzeichnis.
           # Einzelne FTPS-Verbindungen können vorübergehend blockiert sein.
           # curl versucht bei Netzwerk- und Timeoutfehlern kontrolliert erneut.
-          for file in public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/hrc-facades.svg public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mini-apps/wm04b-logo.svg public/logos/mini-apps/pl05-icon.webp public/logos/mini-apps/fc05-icon.webp public/logos/mini-apps/nk05-icon.webp public/logos/mini-apps/ne05-icon.webp public/logos/mini-apps/vd05-icon.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
+          for file in public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/hrc-facades.svg public/media/hrc-reference/*.svg public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mini-apps/wm04b-logo.svg public/logos/mini-apps/pl05-icon.webp public/logos/mini-apps/fc05-icon.webp public/logos/mini-apps/nk05-icon.webp public/logos/mini-apps/ne05-icon.webp public/logos/mini-apps/vd05-icon.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
             remote="${file#public/}"
             printf 'FTPS: %s\n' "$remote"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \

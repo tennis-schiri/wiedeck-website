@@ -29,3 +29,13 @@ Each architecture motif is an intentionally simplified, original line drawing ba
 | 23 | Dublin | Brick Temple Bar street corner, double-height entrance zone | https://cafe.hardrock.com/dublin/ |
 
 Logo appears only in the heading: Wikimedia Commons, `File:Hard Rock Cafe Logo.svg`, identified as PD-textlogo there but still subject to trade mark rights. Do not imply sponsorship or affiliation. The collector passes are the site's own artwork, not merchandise.
+
+## HRC04f reference pilot (four cards, November 2026)
+The four prior generic sketches and geometric badge pins have been replaced by individually authored, photograph-guided SVG illustrations and metal-rimmed enamel-style city pins. **The other 19 cards intentionally remain unchanged pending visual approval.** Source photo files are not embedded or copied.
+
+- Rome: two side-by-side charcoal half-round entrance awnings, wall display between entries, yellow-cream masonry, 62 plaque. Reference: https://www.reisroutes.nl/blog/rome/hard-rock-cafe-rome-bezoeken/
+- London Original, 150 Old Park Lane: pale stone building, intricate upper wrought iron railing, central curved brown branded canopy and two side awnings, floral planter boxes and red rope. Reference: https://attractions.prioritypass.com/productDetail/71764
+- London Piccadilly, Criterion Building: towering pale stone facade and broad rounded glass entrance with red cafe name on the dark curved band. Reference: https://www.tiqets.com/en/hard-rock-cafe-london-piccadilly-tickets-l174665/
+- Dublin, 11–12 Fleet Street: brick corner building with large glass corner arch above a yellow DUBLIN sign and central logo, retail signage on either side. Reference: https://cafe.hardrock.com/dublin/
+
+The city pins are newly drawn designs inspired by enamel collectible construction, not reproductions of real commercial Hard Rock pins. There is no claim that any of the city pins shown were actually manufactured.

@@ -201,3 +201,58 @@ html[data-theme="light"] .hrc-collection .hrc-ticket{background:
  .hrc-collection .hrc-vinyl{top:80px;width:55%}
 }
 @media(prefers-reduced-motion:reduce){.hrc-collection .hrc-enamel-pin{transition:none}.hrc-collection .hrc-stop:hover .hrc-enamel-pin{transform:rotate(7deg)}}
+
+
+/* HRC04f — four approved-photo-based reference cards: actual cafe front + independent enamel city pin.
+   The other 19 stops stay on the previous design until reference approval. */
+.hrc-collection .hrc-stop[data-hrc-reference] .hrc-venue-photoillustration{
+  display:block;width:calc(100% + 34px);height:clamp(143px,16vw,178px);
+  min-height:143px;max-height:178px;object-fit:cover;object-position:center bottom;
+  margin:8px -13px 8px -18px;flex:none;
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 5%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent,#000 5%,#000 93%,transparent 100%);
+  mix-blend-mode:multiply;filter:saturate(.88) contrast(1.04);
+}
+.hrc-collection .hrc-stop[data-hrc-reference] .hrc-enamel-pin--reference{
+  display:block;position:absolute;z-index:7;top:0;right:-32px;
+  width:clamp(108px,11vw,145px);height:clamp(125px,13vw,168px);
+  padding:0;border:0!important;background:none!important;border-radius:0!important;box-shadow:none!important;
+  transform:rotate(5deg);overflow:visible;filter:none!important;transition:transform .26s ease;
+}
+.hrc-collection .hrc-stop[data-hrc-reference] .hrc-enamel-pin--reference::after{display:none}
+.hrc-collection .hrc-stop[data-hrc-reference] .hrc-enamel-pin--reference .hrc-pin-image{
+  display:block;width:100%!important;height:100%!important;max-width:none!important;
+  object-fit:contain;object-position:center;
+  background:transparent!important;border:0!important;border-radius:0!important;
+  opacity:1!important;transform:none!important;
+  filter:drop-shadow(2px 5px 3px #20160d94)!important;
+}
+.hrc-collection .hrc-stop[data-hrc-reference] .hrc-enamel-pin--rome{
+  top:9px;right:-39px;width:clamp(133px,15vw,185px);height:clamp(95px,11vw,131px);
+  transform:rotate(-5deg);
+}
+.hrc-collection .hrc-stop[data-hrc-reference]:hover .hrc-enamel-pin--reference{transform:translateY(-5px) rotate(0deg)}
+.hrc-collection .hrc-stop[data-hrc-reference] .hrc-pass-inner{justify-content:initial}
+.hrc-collection .hrc-stop[data-hrc-reference] .hrc-city{max-width:calc(100% - 85px)}
+.hrc-collection .hrc-stop[data-hrc-reference] .hrc-location{max-width:calc(100% - 65px)}
+html[data-theme="light"] .hrc-collection .hrc-stop[data-hrc-reference] .hrc-venue-photoillustration{filter:saturate(.9) contrast(1.02)}
+html[data-theme="dark"] .hrc-collection .hrc-stop[data-hrc-reference] .hrc-venue-photoillustration{filter:saturate(.8) sepia(.12) contrast(1.04)}
+@media(max-width:750px){
+  .hrc-collection .hrc-stop[data-hrc-reference] .hrc-venue-photoillustration{
+    height:clamp(145px,29vw,183px);max-height:183px;
+  }
+}
+@media(max-width:490px){
+  .hrc-collection .hrc-stop[data-hrc-reference] .hrc-venue-photoillustration{
+    width:calc(100% + 20px);height:clamp(110px,38vw,151px);min-height:110px;max-height:151px;
+    margin:5px -9px 4px -11px;
+  }
+  .hrc-collection .hrc-stop[data-hrc-reference] .hrc-enamel-pin--reference{
+    right:-22px;top:10px;width:100px;height:126px;
+  }
+  .hrc-collection .hrc-stop[data-hrc-reference] .hrc-enamel-pin--rome{
+    width:130px;height:93px;right:-27px;top:17px;
+  }
+  .hrc-collection .hrc-stop[data-hrc-reference] .hrc-city{max-width:calc(100% - 74px)}
+}
+@media(prefers-reduced-motion:reduce){.hrc-collection .hrc-stop[data-hrc-reference] .hrc-enamel-pin--reference{transition:none}}
