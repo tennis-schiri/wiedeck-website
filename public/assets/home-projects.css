@@ -576,3 +576,20 @@ html[data-theme="dark"]{
 @media(max-width:620px){.interest-spotlights{grid-template-columns:1fr;gap:12px}.interest-spotlight{min-height:0;padding:23px}.interest-top{min-height:60px}.hrc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hrc-intro{display:block}.hrc-total{margin-top:13px}.hrc-stop{padding:10px 9px;font-size:11px}}
 @media(max-width:370px){.hrc-grid{grid-template-columns:1fr}.interest-heading h3,.food-heading h3{font-size:38px}}
 @media(prefers-reduced-motion:reduce){.life-feature-link{transition:none!important}}
+
+
+/* Consistent local SVG flags and refined landmark line art – independent of emoji fonts */
+.travel-flag-image{
+ display:block;width:30px;height:20px;min-width:30px;min-height:20px;
+ object-fit:cover;border-radius:2px;background:#fff;
+ box-shadow:0 0 0 1px rgba(20,36,48,.19),0 1px 3px rgba(0,0,0,.09);
+ font-size:0
+}
+.travel-skyline{color:var(--travel-line);opacity:1;overflow:visible}
+.travel-card:hover .travel-skyline{color:var(--travel-accent)}
+.travel-card{min-height:187px}
+@media(max-width:560px){
+ .travel-flag-image{width:28px;height:19px;min-width:28px;min-height:19px}
+ .travel-card{min-height:162px}
+}
+@media(prefers-reduced-motion:reduce){.travel-card:hover .travel-skyline{transition:none!important}}
