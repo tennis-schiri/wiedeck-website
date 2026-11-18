@@ -162,9 +162,14 @@ jobs:
           : "${FTP_PASSWORD:?FTP_PASSWORD fehlt}"
           # WICHTIG: FTP-Benutzer muss als Startverzeichnis /wiedeck-de/ haben.
           # Dadurch landen index.html und favicon.svg direkt im Domain-Verzeichnis.
+          # Einzelne FTPS-Verbindungen können vorübergehend blockiert sein.
+          # curl versucht bei Netzwerk- und Timeoutfehlern kontrolliert erneut.
           for file in public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mini-apps/wm04b-logo.svg public/logos/mini-apps/pl05-icon.webp public/logos/mini-apps/fc05-icon.webp public/logos/mini-apps/nk05-icon.webp public/logos/mini-apps/ne05-icon.webp public/logos/mini-apps/vd05-icon.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
             remote="${file#public/}"
+            printf 'FTPS: %s\n' "$remote"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \
+              --connect-timeout 20 --max-time 120 \
+              --retry 4 --retry-delay 10 --retry-all-errors \
               --user "${FTP_USER}:${FTP_PASSWORD}" \
               --upload-file "$file" \
               "ftp://${FTP_HOST}:21/$remote"
