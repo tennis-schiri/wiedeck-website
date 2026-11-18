@@ -111,6 +111,13 @@ jobs:
           grep -Fq 'media/flags/' public/index.html
           grep -Fq 'media/flags/' public/en/index.html
           grep -Fq 'Eisbären' public/index.html
+          grep -Fq 'class="brand" data-scroll-top' public/index.html
+          grep -Fq 'class="brand" data-scroll-top' public/en/index.html
+          grep -Fq 'id="comedy-locations"' public/index.html
+          grep -Fq 'id="comedy-locations"' public/en/index.html
+          grep -Fq 'Quatsch Comedy Club' public/index.html
+          grep -Fq 'Mad Monkey Room' public/en/index.html
+          ! grep -Fq 'Bar92 = 15' public/index.html
           grep -Fq 'Eisbären' public/en/index.html
           grep -Fq 'id="hobbys"' public/index.html
           grep -Fq 'id="hobbys"' public/en/index.html
