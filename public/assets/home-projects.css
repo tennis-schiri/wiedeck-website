@@ -88,7 +88,12 @@ html[data-theme="dark"] .manifesto-art .manifesto-logo-dark{display:block}
 html[data-theme="dark"] .manifesto-tag{color:#86a3b2}
 .social{position:relative;overflow:hidden}
 .social>.shell{position:relative;z-index:1}
-.social-watermark{position:absolute;right:-7%;top:-110px;max-width:60%;width:670px;height:auto;opacity:.06;transform:rotate(-14deg);pointer-events:none}
+.social-watermark{
+  position:absolute;right:clamp(24px,7vw,105px);top:50%;
+  width:min(27vw,315px);max-width:35%;height:auto;
+  transform:translateY(-50%) rotate(-3deg);
+  pointer-events:none;user-select:none;
+}
 .section[id],.social[id],.pulse-section[id],.showcase-section[id]{scroll-margin-top:100px}
 @keyframes mw-signal{0%,100%{box-shadow:0 0 0 4px rgba(104,222,202,.1)}50%{box-shadow:0 0 0 10px rgba(104,222,202,0)}}
 @media(max-width:980px){
@@ -128,7 +133,7 @@ html[data-theme="dark"] .manifesto-tag{color:#86a3b2}
  .manifesto-art{min-height:225px;order:-1}
  .manifesto-logo-viewport{max-width:300px}
  .manifesto-tag{right:10%}
- .social-watermark{width:500px;max-width:none;opacity:.04;right:-240px;top:-35px}
+ .social-watermark{width:clamp(148px,43vw,220px);max-width:48%;right:5%;top:52%;transform:translateY(-50%) rotate(-3deg)}
  .section[id],.social[id],.pulse-section[id],.showcase-section[id]{scroll-margin-top:136px}
 }
 @media(max-width:440px){
@@ -223,7 +228,7 @@ html[data-theme="dark"] .minis-heading h2 em{color:#c2b3f4}
   --mw-footer-bg:#dce6ec;
   --mw-footer-ink:#425a68;
   --mw-footer-link:#1e3544;
-  --mw-watermark-opacity:.11
+  --mw-watermark-opacity:.065
 }
 html[data-theme="dark"]{
   --mw-feature-bg:radial-gradient(ellipse at 76% 32%,rgba(115,220,234,.23),transparent 42%),linear-gradient(135deg,#0c1925,#172c3b 75%);
@@ -259,7 +264,7 @@ html[data-theme="dark"]{
   --mw-footer-bg:#090e13;
   --mw-footer-ink:#adbec8;
   --mw-footer-link:#f3f6f7;
-  --mw-watermark-opacity:.06
+  --mw-watermark-opacity:.045
 }
 .pulse-feature{
   background:var(--mw-feature-bg);
@@ -328,3 +333,11 @@ html[data-theme="dark"]{
   .pulse-section,.showcase-section,.minis-section,.social,.footer,
   .showcase-stage,.minis-card--original{transition:none!important}
 }
+
+/* Discreet MW mark fully inside the contact area. */
+.social-watermark{object-fit:contain;object-position:center;z-index:0}
+.social>.shell{isolation:isolate}
+@media(max-width:600px){.social-watermark{width:165px;max-width:45%;right:4%;top:48%}}
+.footer a[data-scroll-top]{cursor:pointer;text-decoration:none;white-space:nowrap}
+.footer a[data-scroll-top]:hover{text-decoration:underline;text-underline-offset:4px}
+.footer a[data-scroll-top]:focus-visible{outline:2px solid var(--violet);outline-offset:5px}

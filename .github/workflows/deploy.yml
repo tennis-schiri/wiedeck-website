@@ -68,6 +68,10 @@ jobs:
           grep -q 'social-watermark logo-mode-dark' public/index.html
           grep -q 'social-watermark logo-mode-light' public/en/index.html
           grep -q 'social-watermark logo-mode-dark' public/en/index.html
+          grep -Fq 'width:min(27vw,315px)' public/assets/home-projects.css
+          grep -Fq 'data-scroll-top' public/index.html
+          grep -Fq 'data-scroll-top' public/en/index.html
+          grep -Fq 'scrollToPageStart(false)' public/theme.js
           test -s public/media/score-demo-watch.png
           test -s public/media/score-demo-watch-cutout.svg
           grep -q 'watch-silhouette' public/media/score-demo-watch-cutout.svg

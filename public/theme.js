@@ -62,14 +62,23 @@
       }
     }, { passive: true });
 
-    button.addEventListener("click", function () {
+    function scrollToPageStart(animateButton) {
       var reduceMotion = window.matchMedia &&
         window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (!reduceMotion) {
+      if (animateButton && !reduceMotion) {
         button.classList.remove("is-launching");
         window.requestAnimationFrame(function () { button.classList.add("is-launching"); });
       }
       window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    }
+    button.addEventListener("click", function () {
+      scrollToPageStart(true);
+    });
+    document.querySelectorAll("[data-scroll-top]").forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        scrollToPageStart(false);
+      });
     });
     button.addEventListener("animationend", function (event) {
       if (event.animationName === "mw-arrow-launch") {
