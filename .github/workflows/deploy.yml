@@ -151,9 +151,9 @@ jobs:
           grep -Fq 'id="genuss"' public/index.html
           grep -Fq 'id="genuss"' public/en/index.html
           test -s public/assets/hrc-collector.css
-          grep -Fq 'HRC07' public/assets/hrc-collector.css
+          grep -Fq '.hrc-collection .hrc-flag-ribbon' public/assets/hrc-collector.css
           grep -Fq 'html[data-theme="light"] .hrc-collection' public/assets/hrc-collector.css
-          grep -Fq 'hrc-collector.css?v=20261118-hrc07-real-pins' public/index.html
+          grep -Fq 'hrc-collector.css?v=20261118-hrc08-flags-streets' public/index.html
           grep -Fq 'hrc-collector.css?v=20261118-hrc07-real-pins' public/en/index.html
           test -s scripts/build_hrc_pins.py
           test "$(find public/media/hrc-real-pins -maxdepth 1 -name '*.webp' -type f | wc -l)" -eq 23
