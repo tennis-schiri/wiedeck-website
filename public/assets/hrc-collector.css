@@ -48,3 +48,54 @@
 @media(max-width:620px){.hrc-collection .hrc-grid{grid-template-columns:minmax(0,1fr);gap:19px}.hrc-collection .hrc-stop{max-width:440px;width:100%;margin-inline:auto;min-height:235px}.hrc-collection .hrc-ticket{min-height:226px}.hrc-collection .hrc-city{font-size:clamp(27px,7vw,36px)}.hrc-collection .hrc-city--long{font-size:clamp(21px,5.6vw,29px)}}
 @media(max-width:420px){.hrc-collection{padding:18px 15px!important}.hrc-collection .hrc-intro{grid-template-columns:70px 1fr}.hrc-collection .hrc-intro h4{font-size:26px}.hrc-collection .hrc-official-logo{min-height:59px}.hrc-collection .hrc-pass-inner{padding-left:49px;padding-right:12px}.hrc-collection .hrc-enamel-pin{width:51px;height:51px;right:-19px}}
 @media(prefers-reduced-motion:reduce){.hrc-collection .hrc-ticket,.hrc-collection .hrc-vinyl{transition:none}.hrc-collection .hrc-stop:hover .hrc-ticket,.hrc-collection .hrc-stop:hover .hrc-vinyl{transform:none}}
+
+/* HRC04d — reliable inline building sketches and full, recognizable flags. */
+.hrc-collection .hrc-venue-drawing{display:block;width:100%;height:83px;min-height:83px;flex:none;overflow:visible;opacity:1;visibility:visible;filter:none}
+.hrc-collection .hrc-venue-drawing .s{fill:none;stroke:#694f3b;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round}
+.hrc-collection .hrc-venue-drawing .fine{fill:none;stroke:#96765a;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
+.hrc-collection .hrc-venue-drawing .shade{fill:#b8997a35;stroke:#725640;stroke-width:1.5;stroke-linejoin:round}
+.hrc-collection .hrc-flag-ribbon{
+  width:41px;
+  background:linear-gradient(90deg,var(--flag1,#9e8062) 0 33.333%,var(--flag2,#eadcc3) 33.333% 66.666%,var(--flag3,#a5764a) 66.666% 100%);
+  border-right:2px solid #b98b53;
+}
+.hrc-collection .hrc-flag-ribbon .hrc-flag-image{
+  display:block!important;width:100%!important;height:28px!important;min-width:0!important;min-height:0!important;
+  object-fit:contain!important;object-position:center top!important;
+  background:#f8f4e8!important;border-radius:0!important;
+  border-bottom:2px solid #b8894e;filter:none!important;
+  box-shadow:0 2px 4px #251e174d!important
+}
+.hrc-collection .hrc-flag-ribbon::after{border-right:1px dashed #fff7;box-shadow:inset 0 0 7px #281a1750}
+
+/* Light mode is intentionally warm and paper-like; dark mode remains a concert backstage atmosphere. */
+html[data-theme="light"] .hrc-collection{
+  --hc-gold:#95622f;--hc-gold-light:#865422;
+  background:radial-gradient(ellipse at 95% 5%,#ead5b7 0%,transparent 53%),#f5ecdf!important;
+  border-color:#c6a97c!important;color:#392c25!important;
+  box-shadow:0 18px 45px #6e563322;
+}
+html[data-theme="light"] .hrc-collection::before{opacity:.16;background-image:repeating-linear-gradient(0deg,transparent 0 3px,#4d342408 4px 5px)}
+html[data-theme="light"] .hrc-collection .hrc-intro,
+html[data-theme="light"] .hrc-collection .hrc-brand,
+html[data-theme="light"] .hrc-collection .hrc-total{border-color:#b7935e77}
+html[data-theme="light"] .hrc-collection .hrc-intro h4{color:#352820}
+html[data-theme="light"] .hrc-collection .hrc-intro p{color:#67584a}
+html[data-theme="light"] .hrc-collection .hrc-eyebrow,
+html[data-theme="light"] .hrc-collection .hrc-intro h4 em,
+html[data-theme="light"] .hrc-collection .hrc-series-tag,
+html[data-theme="light"] .hrc-collection .hrc-total{color:#94602b}
+html[data-theme="light"] .hrc-collection .hrc-ticket{
+  background:linear-gradient(130deg,#fff9ee 0%,#f1e5d1 70%,#e7d4b7 100%);
+  border-color:#c49b65;box-shadow:4px 7px 17px #62492c40,inset 0 0 0 3px #7c614b23
+}
+html[data-theme="light"] .hrc-collection .hrc-vinyl{box-shadow:6px 8px 18px #36271f4d,0 0 0 1px #3b3c3f}
+html[data-theme="light"] .hrc-collection .hrc-footnote{color:#6b5d51;border-color:#ae8d6477}
+html[data-theme="light"] .hrc-collection .hrc-footnote a{color:#71451f}
+html[data-theme="dark"] .hrc-collection .hrc-ticket{
+  background:linear-gradient(128deg,#ebddc5 0%,#ddc9a7 65%,#c9aa82 100%)
+}
+@media(max-width:720px){
+  .hrc-collection .hrc-flag-ribbon{width:39px}
+  .hrc-collection .hrc-venue-drawing{height:78px;min-height:78px}
+}
