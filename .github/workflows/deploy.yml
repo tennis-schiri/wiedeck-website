@@ -159,8 +159,10 @@ jobs:
           test "$(grep -o 'class="hrc-venue-drawing hrc-venue-drawing--illustrated"' public/en/index.html | wc -l)" -eq 19
           test "$(grep -o 'class="hrc-pin-plate"' public/index.html | wc -l)" -eq 19
           test "$(grep -o 'class="hrc-pin-plate"' public/en/index.html | wc -l)" -eq 19
-          grep -Fq 'hrc-pin-phonebox' public/index.html
-          grep -Fq 'hrc-pin-phonebox' public/en/index.html
+          # Piccadilly uses a standalone collectible telephone-booth SVG in HRC04f.
+          test -s public/media/hrc-reference/london-piccadilly-pin.svg
+          grep -Fq 'media/hrc-reference/london-piccadilly-pin.svg' public/index.html
+          grep -Fq 'media/hrc-reference/london-piccadilly-pin.svg' public/en/index.html
           ! grep -Fq '../?' public/index.html
           ! grep -Fq '../?' public/en/index.html
           grep -Fq 'HRC04e' public/assets/hrc-collector.css
