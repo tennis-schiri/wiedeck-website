@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="STOCKHOLM city enamel collector pin">
+<defs>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff6d3"/><stop offset=".16" stop-color="#b67d2a"/><stop offset=".31" stop-color="#f8dc91"/><stop offset=".53" stop-color="#ab6c24"/><stop offset=".70" stop-color="#f5d48b"/><stop offset=".9" stop-color="#ae6e29"/><stop offset="1" stop-color="#fff0b9"/></linearGradient>
+ <linearGradient id="sky" x1="0" y1="0" x2=".65" y2="1"><stop stop-color="#3e7a9f"/><stop offset=".55" stop-color="#234e75"/><stop offset="1" stop-color="#142d3e"/></linearGradient>
+ <linearGradient id="shine" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#fff" stop-opacity=".38"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#050505" stop-opacity=".18"/></linearGradient>
+ <radialGradient id="steel"><stop stop-color="#f8f8e9"/><stop offset=".37" stop-color="#ccd7dc"/><stop offset=".86" stop-color="#647788"/><stop offset="1" stop-color="#d6d8c9"/></radialGradient>
+ <radialGradient id="logo"><stop stop-color="#fff4a8"/><stop offset=".72" stop-color="#ffcc4b"/><stop offset="1" stop-color="#bd7a29"/></radialGradient>
+ <filter id="shade" x="-35%" y="-35%" width="170%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.4"/><feOffset dx="1.4" dy="4"/><feComponentTransfer><feFuncA type="linear" slope=".45"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <clipPath id="clip"><path d="M28 86Q29 48 69 42Q120 0 171 42Q211 52 212 90L211 170Q195 206 120 211Q45 207 29 169Z"/></clipPath>
+</defs>
+<g filter="url(#shade)">
+<path d="M28 86Q29 48 69 42Q120 0 171 42Q211 52 212 90L211 170Q195 206 120 211Q45 207 29 169Z" fill="url(#sky)" stroke="#37261c" stroke-width="11" stroke-linejoin="round"/>
+<path d="M28 86Q29 48 69 42Q120 0 171 42Q211 52 212 90L211 170Q195 206 120 211Q45 207 29 169Z" fill="url(#sky)" stroke="url(#gold)" stroke-width="8" stroke-linejoin="round"/>
+<path d="M28 86Q29 48 69 42Q120 0 171 42Q211 52 212 90L211 170Q195 206 120 211Q45 207 29 169Z" fill="none" stroke="#fff6c8" stroke-width="1.8"/>
+<g clip-path="url(#clip)"><path d="M30 141q80-19 180 0v42q-87 23-180 0Z" fill="#295f62" opacity=".43"/><circle cx="174" cy="56" r="13" fill="#ffe9a6" opacity=".65"/></g>
+<g><path d="M57 158V69h125v89z" fill="#b77c5c" stroke="#7e533d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M84 69V42h52v27z" fill="#aa654f" stroke="#80503d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M96 42V22l12-10 12 10v20Z" fill="#8f6154" stroke="#7a4c3b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M106 13V3h5v10" fill="#e9ce97" stroke="#d6a34d" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M125 30l28 15v20h-28z" fill="#cc9a6d" stroke="#806147" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><rect x="87" y="78" width="47" height="31" rx="0" fill="#ead4a3" stroke="#8f694d" stroke-width="2"/><circle cx="110" cy="94" r="12" fill="#f4ddad" stroke="#8f754b" stroke-width="2"/><rect x="67" y="119" width="16" height="14" rx="2" fill="#34404c" stroke="#e8c685" stroke-width="1.3"/><rect x="67" y="138" width="16" height="14" rx="2" fill="#34404c" stroke="#e8c685" stroke-width="1.3"/><rect x="145" y="119" width="16" height="14" rx="2" fill="#34404c" stroke="#e8c685" stroke-width="1.3"/><rect x="145" y="138" width="16" height="14" rx="2" fill="#34404c" stroke="#e8c685" stroke-width="1.3"/><path d="M37 163h175" fill="#4c96b2" stroke="#8dbac2" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></g>
+<path d="M26 174Q75 184 120 181Q168 184 215 174L206 210Q166 222 120 226Q73 222 34 210Z" fill="#234e75" stroke="#3b261d" stroke-width="9" stroke-linejoin="round"/>
+<path d="M26 174Q75 184 120 181Q168 184 215 174L206 210Q166 222 120 226Q73 222 34 210Z" fill="#234e75" stroke="url(#gold)" stroke-width="5" stroke-linejoin="round"/>
+<path d="M33 185q85 24 173 0" fill="none" stroke="#fff2b1" stroke-width="1.3" opacity=".8"/>
+<circle cx="120" cy="171" r="30" fill="#d69b31" stroke="#352820" stroke-width="7"/>
+<circle cx="120" cy="171" r="30" fill="url(#logo)" stroke="url(#gold)" stroke-width="4"/>
+<circle cx="120" cy="171" r="25.5" fill="none" stroke="#b9452c" stroke-width="2.4"/>
+<path d="M92 163h56" stroke="#a03a2c" stroke-width="1.1"/>
+<text x="120" y="170" font-size="12.5" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-weight="900" fill="#913026" stroke="#fff2c3" stroke-width=".33" paint-order="stroke">Hard Rock</text>
+<text x="120" y="184" font-size="9" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" fill="#422a22">CAFÉ</text>
+<text x="120" y="211" text-anchor="middle" font-family="Georgia,serif" font-size="15.2" font-weight="900" fill="#fff2c8" stroke="#281e19" stroke-width=".9" paint-order="stroke" letter-spacing=".55">STOCKHOLM</text>
+<path d="M30 86Q60 34 171 42" fill="none" stroke="#fff8d3" stroke-width="3" opacity=".6"/>
+</g>
+</svg>
