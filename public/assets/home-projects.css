@@ -89,10 +89,22 @@ html[data-theme="dark"] .manifesto-tag{color:#86a3b2}
 .social{position:relative;overflow:hidden}
 .social>.shell{position:relative;z-index:1}
 .social-watermark{
-  position:absolute;right:clamp(24px,7vw,105px);top:50%;
-  width:min(27vw,315px);max-width:35%;height:auto;
-  transform:translateY(-50%) rotate(-3deg);
-  pointer-events:none;user-select:none;
+  position:absolute;
+  right:clamp(28px,7vw,112px);
+  top:54%;
+  display:block;
+  width:min(22vw,255px);
+  max-width:29%;
+  height:auto;
+  transform:translateY(-50%);
+  object-fit:contain;
+  pointer-events:none;
+  user-select:none;
+  z-index:0;
+  filter:brightness(0) blur(.3px);
+}
+html[data-theme="dark"] .social-watermark{
+  filter:brightness(0) invert(1) blur(.3px);
 }
 .section[id],.social[id],.pulse-section[id],.showcase-section[id]{scroll-margin-top:100px}
 @keyframes mw-signal{0%,100%{box-shadow:0 0 0 4px rgba(104,222,202,.1)}50%{box-shadow:0 0 0 10px rgba(104,222,202,0)}}
@@ -133,7 +145,7 @@ html[data-theme="dark"] .manifesto-tag{color:#86a3b2}
  .manifesto-art{min-height:225px;order:-1}
  .manifesto-logo-viewport{max-width:300px}
  .manifesto-tag{right:10%}
- .social-watermark{width:clamp(148px,43vw,220px);max-width:48%;right:5%;top:52%;transform:translateY(-50%) rotate(-3deg)}
+ .social-watermark{width:min(32vw,185px);max-width:38%;right:5%;top:57%;transform:translateY(-50%)}
  .section[id],.social[id],.pulse-section[id],.showcase-section[id]{scroll-margin-top:136px}
 }
 @media(max-width:440px){
@@ -228,7 +240,7 @@ html[data-theme="dark"] .minis-heading h2 em{color:#c2b3f4}
   --mw-footer-bg:#dce6ec;
   --mw-footer-ink:#425a68;
   --mw-footer-link:#1e3544;
-  --mw-watermark-opacity:.065
+  --mw-watermark-opacity:.10
 }
 html[data-theme="dark"]{
   --mw-feature-bg:radial-gradient(ellipse at 76% 32%,rgba(115,220,234,.23),transparent 42%),linear-gradient(135deg,#0c1925,#172c3b 75%);
@@ -264,7 +276,7 @@ html[data-theme="dark"]{
   --mw-footer-bg:#090e13;
   --mw-footer-ink:#adbec8;
   --mw-footer-link:#f3f6f7;
-  --mw-watermark-opacity:.045
+  --mw-watermark-opacity:.075
 }
 .pulse-feature{
   background:var(--mw-feature-bg);
@@ -334,10 +346,9 @@ html[data-theme="dark"]{
   .showcase-stage,.minis-card--original{transition:none!important}
 }
 
-/* Discreet MW mark fully inside the contact area. */
-.social-watermark{object-fit:contain;object-position:center;z-index:0}
+/* Original transparent MW band is rendered as a discreet monochrome watermark. */
 .social>.shell{isolation:isolate}
-@media(max-width:600px){.social-watermark{width:165px;max-width:45%;right:4%;top:48%}}
+@media(max-width:600px){.social-watermark{width:145px;max-width:40%;right:5%;top:auto;bottom:18px;transform:none}}
 .footer a[data-scroll-top]{cursor:pointer;text-decoration:none;white-space:nowrap}
 .footer a[data-scroll-top]:hover{text-decoration:underline;text-underline-offset:4px}
 .footer a[data-scroll-top]:focus-visible{outline:2px solid var(--violet);outline-offset:5px}
