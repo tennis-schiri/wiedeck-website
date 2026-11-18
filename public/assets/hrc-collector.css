@@ -1,258 +1,202 @@
-/* HRC04c — Backstage Vinyl. Self-contained collector display. */
+/* HRC05 — compact City Pins collection. No buildings, one souvenir pin per city. */
 .hrc-collection{
-  --hc-bg:#10171c;--hc-panel:#172127;--hc-gold:#d8af71;--hc-gold-light:#f1d39d;
-  --hc-paper:#ede1ca;--hc-paper-deep:#dbcaab;--hc-ink:#30271f;
-  position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 90% 0%,#2c3a3f 0%,transparent 51%),#10171c!important;
-  border:1px solid #425056!important;border-radius:22px!important;padding:clamp(19px,3.6vw,39px)!important;color:#f6ede0!important;
-  box-shadow:0 25px 65px rgba(6,13,19,.13);scroll-margin-top:110px;
+  --hc-accent:#d6ac70;--hc-accent-bright:#eed0a0;--hc-muted:#b9c1bd;
+  position:relative;isolation:isolate;overflow:hidden;
+  padding:clamp(19px,3vw,33px)!important;border-radius:20px!important;
+  border:1px solid #485055!important;
+  color:#f6eee3!important;
+  background:radial-gradient(ellipse at 91% 0%,#303f42 0%,transparent 48%),#10181d!important;
+  box-shadow:0 16px 35px #12151926;scroll-margin-top:110px;
 }
-.hrc-collection::before{content:"";pointer-events:none;position:absolute;inset:0;z-index:-1;opacity:.28;background-image:repeating-linear-gradient(0deg,transparent 0 3px,#ffffff05 4px 5px)}
 .hrc-collection *{box-sizing:border-box}
-.hrc-collection .hrc-intro{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(14px,2vw,27px);align-items:center;padding:0 0 29px;margin:0 0 27px;border-bottom:1px solid #d9b87c4d}
-.hrc-collection .hrc-brand{width:clamp(88px,12vw,135px);padding:6px 12px 6px 0;border-right:1px solid #ddbf8255;align-self:stretch;display:flex;align-items:center}
-.hrc-collection .hrc-official-logo{width:100%;height:auto;min-height:76px;max-height:97px;object-fit:contain;filter:drop-shadow(0 3px 6px #0005)}
-.hrc-collection .hrc-eyebrow{color:var(--hc-gold);font-size:10px;letter-spacing:.18em;font-weight:900}
-.hrc-collection .hrc-intro h4{font-size:clamp(27px,3.3vw,47px);line-height:1.07;letter-spacing:-.055em;margin:8px 0 12px;color:#f6ede2;font-weight:900}
-.hrc-collection .hrc-intro h4 em{font-style:normal;color:var(--hc-gold-light)}
-.hrc-collection .hrc-intro p{font-size:12px;line-height:1.7;color:#c2c7c7;margin:0;max-width:540px}
-.hrc-collection .hrc-total{display:flex;align-items:center;gap:7px;flex-direction:column;flex:none;border:0;border-left:1px solid #ddbf8255;border-radius:0;background:none;padding:9px 0 9px 22px;color:var(--hc-gold-light);font-size:10px;letter-spacing:.13em;white-space:nowrap}
-.hrc-collection .hrc-total strong{font-weight:900;font-size:clamp(35px,4vw,56px);line-height:1;letter-spacing:-.075em}
-.hrc-collection .hrc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px 17px;list-style:none;margin:0;padding:4px 0}
-.hrc-collection .hrc-stop{position:relative;min-width:0;min-height:228px;display:block;padding:0;border:0;border-radius:0;background:transparent!important;color:var(--hc-ink);font-size:12px;line-height:normal}
-.hrc-collection .hrc-vinyl{position:absolute;right:2px;top:29px;width:168px;height:168px;border-radius:50%;z-index:0;box-shadow:7px 9px 19px #0009,0 0 0 1px #495057;background:repeating-radial-gradient(circle,#11161a 0 2px,#252b30 2.5px 3px,#11161a 4px 7px);display:flex;align-items:center;justify-content:center;transition:transform .35s ease}
-.hrc-collection .hrc-vinyl::after{content:"";position:absolute;width:57%;height:57%;border-radius:50%;border-left:1px solid #ffffff30;transform:rotate(30deg)}
-.hrc-collection .hrc-vinyl-label{width:61px;height:61px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;color:#1d2021;border:3px solid #232529;background:radial-gradient(circle,#272a2b 0 4px,var(--hc-gold) 5px 27px,#8c613a 28px);font-weight:900;letter-spacing:.055em;font-size:8px;line-height:1.15}
-.hrc-collection .hrc-vinyl-label span{font-size:7px}
-.hrc-collection .hrc-ticket{display:block;position:relative;z-index:1;width:calc(100% - 49px);min-height:226px;background:linear-gradient(128deg,#f7ead4 0%,#e6d4b6 65%,#d7bd98 100%);color:var(--hc-ink);border:2px solid #d4aa70;border-radius:13px;box-shadow:5px 7px 13px #0007,inset 0 0 0 3px #7c614b39;overflow:visible;transition:transform .22s ease}
-.hrc-collection .hrc-ticket::before{content:"";position:absolute;inset:6px;border:1px dashed #9b7454a0;border-radius:8px;pointer-events:none}
-.hrc-collection .hrc-flag-ribbon{position:absolute;left:0;top:0;bottom:0;width:39px;overflow:hidden;border-radius:10px 0 0 10px;box-shadow:inset -3px 0 5px #1d171640;border-right:2px solid #705037a8;background:#857d6d}
-.hrc-collection .hrc-flag-image{display:block;width:100%;height:100%;min-width:0;min-height:0;object-fit:cover;border-radius:0;background:transparent;box-shadow:none;filter:saturate(.83) contrast(1.05)}
-.hrc-collection .hrc-flag-ribbon::after{content:"";position:absolute;inset:0;border-right:2px dotted #fff9;box-shadow:inset 0 0 16px #26180f54;pointer-events:none}
-.hrc-collection .hrc-pass-inner{min-height:226px;display:flex;flex-direction:column;padding:16px 17px 13px 51px}
-.hrc-collection .hrc-pass-number{font-family:Georgia,serif;font-weight:800;letter-spacing:.085em;color:#73543d;font-size:10px;padding-bottom:8px;border-bottom:1px solid #97765870}
-.hrc-collection .hrc-city{display:block;font-family:Georgia,'Times New Roman',serif;font-size:clamp(20px,2.45vw,31px);font-weight:900;letter-spacing:-.055em;line-height:1.07;white-space:nowrap;overflow:visible;margin:12px 0 2px}
-.hrc-collection .hrc-city--long{font-size:clamp(17px,2vw,25px)}
-.hrc-collection .hrc-location{display:block;color:#73563e;font-weight:900;font-size:9px;letter-spacing:.02em;min-height:16px;line-height:1.25;white-space:normal}
-.hrc-collection .hrc-venue-drawing{height:78px;width:100%;margin-top:auto;flex:none;display:block;overflow:visible;filter:sepia(.23)}
-.hrc-collection .hrc-ticket-foot{display:flex;gap:5px;justify-content:space-between;align-items:center;border-top:1px solid #9e84657c;padding-top:7px;font-weight:900;color:#765f49;font-size:8px;letter-spacing:.08em;white-space:nowrap}
-.hrc-collection .hrc-enamel-pin{position:absolute;z-index:3;right:-21px;top:15px;width:61px;height:61px;padding:7px;border-radius:50%;background:radial-gradient(circle at 34% 26%,#53727f,#1b3744 78%);border:3px solid var(--hc-gold);box-shadow:1px 3px 10px #0008,inset 0 0 0 2px #f5d59a8a;transform:rotate(7deg)}
-.hrc-collection .hrc-enamel-pin::after{content:"";position:absolute;left:50%;top:-5px;width:9px;height:7px;background:#9d713e;border-radius:5px 5px 0 0;transform:translateX(-50%);z-index:-1}
-.hrc-collection .hrc-enamel-pin img{display:block;width:100%;height:100%;object-fit:contain;filter:brightness(0) invert(.92) sepia(.13);opacity:.96}
-.hrc-collection .hrc-stop:hover .hrc-vinyl,.hrc-collection .hrc-stop:focus-within .hrc-vinyl{transform:translateX(12px) rotate(20deg)}
-.hrc-collection .hrc-stop:hover .hrc-ticket,.hrc-collection .hrc-stop:focus-within .hrc-ticket{transform:translateY(-4px)}
-.hrc-collection .hrc-footnote{margin:30px 0 0;border-top:1px solid #d1b18347;padding-top:17px;font-size:10px;line-height:1.7;color:#b7c0be}
-.hrc-collection .hrc-footnote a{color:var(--hc-gold-light);text-decoration:underline;text-underline-offset:3px}
-.hrc-collection .hrc-series-tag{font-size:9px;color:var(--hc-gold-light);letter-spacing:.13em;font-weight:900;display:flex;justify-content:space-between;gap:8px;margin-bottom:15px}
-@media(max-width:1100px){.hrc-collection .hrc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px}.hrc-collection .hrc-city{font-size:clamp(22px,3vw,31px)}}
-@media(max-width:720px){.hrc-collection .hrc-intro{grid-template-columns:82px 1fr;gap:13px}.hrc-collection .hrc-total{grid-column:2;border:0;padding:0;flex-direction:row;justify-content:flex-start}.hrc-collection .hrc-total strong{font-size:29px}.hrc-collection .hrc-intro h4{font-size:30px}}
-@media(max-width:620px){.hrc-collection .hrc-grid{grid-template-columns:minmax(0,1fr);gap:19px}.hrc-collection .hrc-stop{max-width:440px;width:100%;margin-inline:auto;min-height:235px}.hrc-collection .hrc-ticket{min-height:226px}.hrc-collection .hrc-city{font-size:clamp(27px,7vw,36px)}.hrc-collection .hrc-city--long{font-size:clamp(21px,5.6vw,29px)}}
-@media(max-width:420px){.hrc-collection{padding:18px 15px!important}.hrc-collection .hrc-intro{grid-template-columns:70px 1fr}.hrc-collection .hrc-intro h4{font-size:26px}.hrc-collection .hrc-official-logo{min-height:59px}.hrc-collection .hrc-pass-inner{padding-left:49px;padding-right:12px}.hrc-collection .hrc-enamel-pin{width:51px;height:51px;right:-19px}}
-@media(prefers-reduced-motion:reduce){.hrc-collection .hrc-ticket,.hrc-collection .hrc-vinyl{transition:none}.hrc-collection .hrc-stop:hover .hrc-ticket,.hrc-collection .hrc-stop:hover .hrc-vinyl{transform:none}}
-
-/* HRC04d — reliable inline building sketches and full, recognizable flags. */
-.hrc-collection .hrc-venue-drawing{display:block;width:100%;height:83px;min-height:83px;flex:none;overflow:visible;opacity:1;visibility:visible;filter:none}
-.hrc-collection .hrc-venue-drawing .s{fill:none;stroke:#694f3b;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round}
-.hrc-collection .hrc-venue-drawing .fine{fill:none;stroke:#96765a;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
-.hrc-collection .hrc-venue-drawing .shade{fill:#b8997a35;stroke:#725640;stroke-width:1.5;stroke-linejoin:round}
+.hrc-collection .hrc-intro{
+  display:grid;grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;gap:clamp(12px,2.1vw,25px);
+  padding:0 0 22px;margin:0 0 19px;border-bottom:1px solid #a18b694f;
+}
+.hrc-collection .hrc-brand{
+  display:flex;align-items:center;justify-content:center;align-self:stretch;
+  width:clamp(87px,11vw,127px);padding:3px 13px 3px 0;
+  border-right:1px solid #a18b6977;
+}
+.hrc-collection .hrc-official-logo{
+  display:block;width:100%;height:auto;max-height:96px;object-fit:contain;
+  filter:drop-shadow(0 3px 5px #0005);
+}
+.hrc-collection .hrc-eyebrow{font-size:10px;font-weight:900;letter-spacing:.17em;color:var(--hc-accent)}
+.hrc-collection .hrc-intro h4{
+  margin:6px 0 7px;font-family:Georgia,'Times New Roman',serif;
+  font-size:clamp(24px,2.8vw,36px);font-weight:900;line-height:1.05;letter-spacing:-.055em;color:#f7efe6;
+}
+.hrc-collection .hrc-intro h4 em{font-style:normal;color:var(--hc-accent-bright)}
+.hrc-collection .hrc-intro p{
+  max-width:530px;margin:0;font-size:12px;line-height:1.6;color:var(--hc-muted);
+}
+.hrc-collection .hrc-total{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none;
+  gap:1px;padding:7px 0 7px 18px;border:0;border-left:1px solid #a18b6977;
+  background:none;border-radius:0;color:var(--hc-accent-bright);font-size:9px;font-weight:900;letter-spacing:.11em;
+}
+.hrc-collection .hrc-total strong{font-size:clamp(32px,3.6vw,48px);font-weight:900;line-height:1;letter-spacing:-.07em}
+.hrc-collection .hrc-series-tag{
+  display:flex;justify-content:space-between;gap:12px;
+  margin:0 1px 12px;font-size:9px;letter-spacing:.11em;font-weight:800;color:var(--hc-accent-bright);
+}
+.hrc-collection .hrc-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px 16px;
+  list-style:none;margin:0;padding:0;
+}
+.hrc-collection .hrc-stop{
+  display:block;position:relative;min-width:0;min-height:0;height:179px;
+  padding:0;border:0;border-radius:0;background:transparent!important;color:#382a22;
+}
+.hrc-collection .hrc-vinyl{
+  position:absolute;right:1px;top:37px;z-index:0;
+  width:112px;height:112px;border-radius:50%;aspect-ratio:1;
+  background:repeating-radial-gradient(circle at 50% 50%,#161a1d 0 2px,#2d3237 2.5px 3px,#161a1d 4px 7px);
+  border:1px solid #3a3c3f;box-shadow:3px 5px 12px #0009;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .28s ease;
+}
+.hrc-collection .hrc-vinyl::after{
+  content:"";position:absolute;width:62%;height:62%;border-radius:50%;
+  border-left:1px solid #ffffff3d;transform:rotate(32deg);
+}
+.hrc-collection .hrc-vinyl-label{
+  width:43px;height:43px;border-radius:50%;border:2px solid #292a28;
+  background:radial-gradient(circle,#252521 0 3px,#e2b87b 4px 18px,#775133 19px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1px;font-size:6px;font-weight:900;letter-spacing:.02em;color:#34251a;text-align:center;line-height:1.1;
+}
+.hrc-collection .hrc-vinyl-label span{font-size:5px}
+.hrc-collection .hrc-ticket{
+  display:block;position:relative;z-index:1;width:calc(100% - 21px);height:172px;min-height:0;
+  overflow:visible;border:2px solid #bd925c;border-radius:12px;color:#35281f;
+  background:linear-gradient(132deg,#f8eedc 0%,#ead8bc 71%,#d7bb95 100%);
+  box-shadow:3px 4px 12px #0006,inset 0 0 0 2px #fff5dd;
+  transition:transform .22s ease;
+}
+.hrc-collection .hrc-ticket::before{
+  content:"";pointer-events:none;position:absolute;inset:5px;
+  border:1px dashed #ab825a75;border-radius:8px;
+}
 .hrc-collection .hrc-flag-ribbon{
-  width:41px;
-  background:linear-gradient(90deg,var(--flag1,#9e8062) 0 33.333%,var(--flag2,#eadcc3) 33.333% 66.666%,var(--flag3,#a5764a) 66.666% 100%);
-  border-right:2px solid #b98b53;
+  display:block;position:absolute;left:0;top:0;bottom:0;width:35px;
+  overflow:hidden;border-radius:10px 0 0 10px;border-right:2px solid #b7884f;
+  background:linear-gradient(90deg,var(--flag1,#8d614b) 0 33.33%,var(--flag2,#eddfbe) 33.33% 66.67%,var(--flag3,#876747) 66.67%);
+  box-shadow:inset -3px 0 7px #27160936;
 }
+.hrc-collection .hrc-flag-ribbon::after{content:"";position:absolute;inset:0;border-right:1px dotted #fff9;pointer-events:none}
 .hrc-collection .hrc-flag-ribbon .hrc-flag-image{
-  display:block!important;width:100%!important;height:28px!important;min-width:0!important;min-height:0!important;
-  object-fit:contain!important;object-position:center top!important;
-  background:#f8f4e8!important;border-radius:0!important;
-  border-bottom:2px solid #b8894e;filter:none!important;
-  box-shadow:0 2px 4px #251e174d!important
+  display:block!important;width:100%!important;min-width:0!important;
+  height:25px!important;min-height:0!important;object-fit:contain!important;
+  background:#fff9e9!important;border-radius:0!important;
+  border-bottom:2px solid #ac7d49;filter:none!important;box-shadow:0 2px 4px #20150e44!important;
 }
-.hrc-collection .hrc-flag-ribbon::after{border-right:1px dashed #fff7;box-shadow:inset 0 0 7px #281a1750}
-
-/* Light mode is intentionally warm and paper-like; dark mode remains a concert backstage atmosphere. */
-html[data-theme="light"] .hrc-collection{
-  --hc-gold:#95622f;--hc-gold-light:#865422;
-  background:radial-gradient(ellipse at 95% 5%,#ead5b7 0%,transparent 53%),#f5ecdf!important;
-  border-color:#c6a97c!important;color:#392c25!important;
-  box-shadow:0 18px 45px #6e563322;
+.hrc-collection .hrc-pass-inner{
+  display:flex;flex-direction:column;min-height:168px;height:168px;
+  padding:13px 96px 11px 45px;
 }
-html[data-theme="light"] .hrc-collection::before{opacity:.16;background-image:repeating-linear-gradient(0deg,transparent 0 3px,#4d342408 4px 5px)}
-html[data-theme="light"] .hrc-collection .hrc-intro,
-html[data-theme="light"] .hrc-collection .hrc-brand,
-html[data-theme="light"] .hrc-collection .hrc-total{border-color:#b7935e77}
-html[data-theme="light"] .hrc-collection .hrc-intro h4{color:#352820}
-html[data-theme="light"] .hrc-collection .hrc-intro p{color:#67584a}
-html[data-theme="light"] .hrc-collection .hrc-eyebrow,
-html[data-theme="light"] .hrc-collection .hrc-intro h4 em,
-html[data-theme="light"] .hrc-collection .hrc-series-tag,
-html[data-theme="light"] .hrc-collection .hrc-total{color:#94602b}
-html[data-theme="light"] .hrc-collection .hrc-ticket{
-  background:linear-gradient(130deg,#fff9ee 0%,#f1e5d1 70%,#e7d4b7 100%);
-  border-color:#c49b65;box-shadow:4px 7px 17px #62492c40,inset 0 0 0 3px #7c614b23
+.hrc-collection .hrc-pass-number{
+  display:block;white-space:nowrap;color:#866347;font-size:9px;font-weight:900;letter-spacing:.08em;line-height:1.2;
+  padding:0 0 7px;border-bottom:1px solid #a78c6b78;
 }
-html[data-theme="light"] .hrc-collection .hrc-vinyl{box-shadow:6px 8px 18px #36271f4d,0 0 0 1px #3b3c3f}
-html[data-theme="light"] .hrc-collection .hrc-footnote{color:#6b5d51;border-color:#ae8d6477}
-html[data-theme="light"] .hrc-collection .hrc-footnote a{color:#71451f}
-html[data-theme="dark"] .hrc-collection .hrc-ticket{
-  background:linear-gradient(128deg,#ebddc5 0%,#ddc9a7 65%,#c9aa82 100%)
+.hrc-collection .hrc-city{
+  display:block;min-width:0;max-width:none;white-space:normal;overflow-wrap:normal;
+  margin:13px 0 0;font-family:Georgia,'Times New Roman',serif;
+  font-weight:900;font-size:clamp(18px,1.85vw,24px);line-height:1.02;letter-spacing:-.05em;
+  text-transform:uppercase;color:#30251e;
 }
-@media(max-width:720px){
-  .hrc-collection .hrc-flag-ribbon{width:39px}
-  .hrc-collection .hrc-venue-drawing{height:78px;min-height:78px}
+.hrc-collection .hrc-city--long{font-size:clamp(16px,1.6vw,20px)}
+.hrc-collection .hrc-city--london small{display:block;font-size:.62em;letter-spacing:0;line-height:1.35}
+.hrc-collection .hrc-location{
+  display:block;min-width:0;max-width:none;margin:5px 0 0;color:#79583f;
+  font-size:10px;font-style:italic;font-family:Georgia,'Times New Roman',serif;line-height:1.25;
+  overflow-wrap:break-word;
 }
-
-
-/* HRC04e — collector-gallery layout based on the approved Backstage Vinyl mockup.
-   Detailed venue facades are drawn directly inside each card, while the city motif is an enamel pin. */
-.hrc-collection{--hc-gallery-ink:#ecd8b8;padding:clamp(20px,4vw,46px)!important}
-.hrc-collection .hrc-intro{padding-bottom:clamp(22px,3vw,32px);margin-bottom:clamp(24px,3vw,34px)}
-.hrc-collection .hrc-brand{width:clamp(110px,15vw,169px);padding-right:clamp(10px,2vw,24px)}
-.hrc-collection .hrc-official-logo{max-height:117px}
-.hrc-collection .hrc-intro h4{font-family:Georgia,'Times New Roman',serif;font-size:clamp(30px,3.6vw,51px);line-height:1.03;letter-spacing:-.04em}
-.hrc-collection .hrc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(21px,3.3vw,39px) clamp(15px,2.3vw,27px);align-items:start}
-.hrc-collection .hrc-stop{min-height:357px}
-.hrc-collection .hrc-vinyl{right:0;top:76px;width:min(57%,248px);height:auto;aspect-ratio:1;box-shadow:9px 10px 22px #0008,0 0 0 2px #373b3a}
-.hrc-collection .hrc-vinyl-label{width:35%;height:35%;border-width:4px;font-size:clamp(8px,.85vw,12px);background:radial-gradient(circle,#1c1c1f 0 5%,#daa95c 7%,#e4c18c 80%,#80502e 95%);text-shadow:0 1px #f5d59a}
-.hrc-collection .hrc-vinyl-label span{font-size:clamp(6px,.7vw,10px)}
-.hrc-collection .hrc-ticket{width:calc(100% - 52px);min-height:350px;border:2px solid #a97343;border-radius:15px;background:
-  radial-gradient(circle at 30% 16%,#ffffff4d 0%,transparent 40%),
-  repeating-linear-gradient(10deg,#bc87520a 0 2px,#fff7eb07 2px 4px),
-  linear-gradient(132deg,#f8ead3 0%,#efdec3 52%,#dfc59f 100%);
-  box-shadow:3px 3px 0 #9c734b,8px 14px 22px #0006,inset 0 0 0 3px #fff4de;
+.hrc-collection .hrc-ticket-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:4px;white-space:nowrap;
+  margin-top:auto;padding-top:7px;border-top:1px solid #af977c99;
+  color:#795f47;font-size:7.5px;font-weight:900;letter-spacing:.04em;
 }
-.hrc-collection .hrc-ticket::before{inset:6px;border:1px dashed #9d6e45ad;border-radius:9px}
-.hrc-collection .hrc-pass-inner{min-height:347px;padding:20px 18px 16px 56px}
-.hrc-collection .hrc-pass-number{font-size:11px;letter-spacing:.065em;padding-right:90px}
-.hrc-collection .hrc-city{margin-top:15px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(27px,3.05vw,43px);letter-spacing:-.055em;text-transform:uppercase;color:#35271f;line-height:1.02;max-width:calc(100% - 73px)}
-.hrc-collection .hrc-city--long{font-size:clamp(22px,2.35vw,34px)}
-.hrc-collection .hrc-city--london{line-height:1.02}
-.hrc-collection .hrc-city--london small{display:block;font-size:.69em;font-weight:900;letter-spacing:-.03em}
-.hrc-collection .hrc-location{font-family:Georgia,serif;font-size:clamp(10px,1.06vw,13px);font-style:italic;color:#704b36;min-height:19px;max-width:calc(100% - 63px)}
-.hrc-collection .hrc-venue-drawing--illustrated{
-  display:block;width:calc(100% + 40px);height:clamp(145px,16vw,178px);min-height:145px;max-height:178px;
-  flex:none;margin:10px 0 6px -18px;overflow:visible;opacity:1;visibility:visible;filter:sepia(.09) saturate(.84) contrast(1.06);
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 8%,#000 91%,transparent 100%);
-  mask-image:linear-gradient(to bottom,transparent 0%,#000 8%,#000 91%,transparent 100%);
-}
-.hrc-collection .hrc-ticket-foot{font-family:Georgia,serif;font-size:9px;letter-spacing:.12em;color:#65442d;padding-top:10px}
 .hrc-collection .hrc-enamel-pin{
-  display:block;position:absolute;right:-35px;top:6px;width:clamp(105px,11.5vw,143px);height:clamp(126px,13.6vw,166px);
-  z-index:5;overflow:visible;padding:0;border:0;border-radius:0;background:none!important;box-shadow:none!important;
-  transform:rotate(7deg);transform-origin:50% 40%;filter:drop-shadow(1px 6px 3px #26170da1);
-  transition:transform .25s ease;
+  display:block;position:absolute;z-index:5;right:-21px;top:23px;
+  width:93px;height:113px;padding:0;overflow:visible;border:0;border-radius:0;
+  background:none!important;box-shadow:none!important;
+  transform:rotate(7deg);transform-origin:50% 45%;
+  filter:drop-shadow(1px 4px 3px #24170a9e);
+  transition:transform .22s ease;
 }
 .hrc-collection .hrc-enamel-pin::after{display:none}
 .hrc-collection .hrc-enamel-pin .hrc-pin-plate{display:block;width:100%;height:100%;overflow:visible}
 .hrc-collection .hrc-enamel-pin .hrc-pin-landmark{
-  position:absolute;left:23%;top:30%;width:55%;height:36%;padding:0;margin:0;border:0;background:none!important;
-  object-fit:contain;opacity:1;filter:brightness(0) invert(.91) sepia(.15) saturate(.55)!important;
-  transform:none;
+  position:absolute;left:23%;top:30%;width:55%;height:36%;margin:0;padding:0;
+  object-fit:contain;background:none!important;border:0;
+  opacity:1;filter:brightness(0) invert(.91) sepia(.14) saturate(.65)!important;
 }
 .hrc-collection .hrc-enamel-pin--guitar .hrc-pin-landmark{left:26%;top:43%;width:48%;height:26%}
 .hrc-collection .hrc-enamel-pin--pick .hrc-pin-landmark{top:29%;height:35%}
 .hrc-collection .hrc-enamel-pin--shield .hrc-pin-landmark{top:29%;height:38%}
 .hrc-collection .hrc-enamel-pin--plaque .hrc-pin-landmark{top:27%;height:40%}
-.hrc-collection .hrc-enamel-pin .hrc-pin-phonebox{left:30%;top:28%;width:42%;height:53%;filter:none!important}
+.hrc-collection .hrc-enamel-pin--reference{top:15px;right:-19px;width:99px;height:129px;filter:none!important}
+.hrc-collection .hrc-enamel-pin--reference .hrc-pin-image{
+  display:block;width:100%!important;height:100%!important;object-fit:contain!important;
+  background:none!important;border:0!important;border-radius:0!important;
+  filter:drop-shadow(1px 4px 3px #24170a95)!important;opacity:1!important;
+}
+.hrc-collection .hrc-enamel-pin--rome{width:117px;height:78px;right:-25px;top:35px;transform:rotate(-6deg)}
+.hrc-collection .hrc-stop:hover .hrc-ticket{transform:translateY(-3px)}
+.hrc-collection .hrc-stop:hover .hrc-vinyl{transform:translateX(7px) rotate(19deg)}
 .hrc-collection .hrc-stop:hover .hrc-enamel-pin{transform:translateY(-3px) rotate(-2deg)}
-.hrc-collection .hrc-flag-ribbon{width:47px;border-right:3px double #b78a4a}
-.hrc-collection .hrc-flag-ribbon .hrc-flag-image{
-  height:36px!important;width:100%!important;object-fit:contain!important;background:#fff9e9!important;border-bottom:3px solid #a87841;
+.hrc-collection .hrc-footnote{
+  font-size:10px;line-height:1.65;color:var(--hc-muted);
+  margin:21px 0 0;padding-top:14px;border-top:1px solid #9c87694c;
 }
-.hrc-collection .hrc-footnote{margin-top:clamp(22px,4vw,38px)}
-html[data-theme="light"] .hrc-collection .hrc-ticket{background:
- radial-gradient(circle at 30% 16%,#ffffff85 0%,transparent 40%),
- repeating-linear-gradient(10deg,#bc875209 0 2px,#fff7eb0a 2px 4px),
- linear-gradient(132deg,#fff8e9 0%,#f5e7cf 52%,#e3cbaa 100%);
+.hrc-collection .hrc-footnote a{color:var(--hc-accent-bright);text-decoration:underline;text-underline-offset:3px}
+html[data-theme="light"] .hrc-collection{
+  --hc-accent:#90602c;--hc-accent-bright:#8a5526;--hc-muted:#67584b;
+  background:radial-gradient(ellipse at 90% 0%,#ead3b1 0%,transparent 50%),#f5ebdc!important;
+  border-color:#c3a782!important;color:#352923!important;box-shadow:0 12px 30px #5e49351a;
 }
+html[data-theme="light"] .hrc-collection .hrc-intro,
+html[data-theme="light"] .hrc-collection .hrc-brand,
+html[data-theme="light"] .hrc-collection .hrc-total{border-color:#b59a7870}
+html[data-theme="light"] .hrc-collection .hrc-intro h4{color:#38291e}
+html[data-theme="light"] .hrc-collection .hrc-ticket{
+  background:linear-gradient(132deg,#fff9ef 0%,#f3e4cb 74%,#e7d1ae);
+  box-shadow:2px 4px 9px #6c543534,inset 0 0 0 2px #fffaf0;
+}
+html[data-theme="light"] .hrc-collection .hrc-vinyl{box-shadow:3px 5px 10px #483c3455}
+html[data-theme="light"] .hrc-collection .hrc-footnote{border-color:#b69b756e}
 @media(max-width:1080px){
- .hrc-collection .hrc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 16px}
- .hrc-collection .hrc-city{font-size:clamp(24px,2.7vw,36px)}
- .hrc-collection .hrc-city--long{font-size:clamp(20px,2.2vw,29px)}
- .hrc-collection .hrc-pin-plate{width:100%}
- .hrc-collection .hrc-venue-drawing--illustrated{height:clamp(125px,15vw,158px);min-height:125px}
+  .hrc-collection .hrc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hrc-collection .hrc-city{font-size:clamp(19px,2.4vw,24px)}
+  .hrc-collection .hrc-city--long{font-size:clamp(18px,2vw,22px)}
 }
-@media(max-width:750px){
- .hrc-collection .hrc-grid{grid-template-columns:minmax(0,1fr);gap:24px}
- .hrc-collection .hrc-stop{max-width:550px;width:100%;margin-inline:auto}
- .hrc-collection .hrc-ticket{min-height:350px}
- .hrc-collection .hrc-pass-inner{min-height:347px}
- .hrc-collection .hrc-vinyl{max-width:240px}
- .hrc-collection .hrc-city{font-size:clamp(27px,5.9vw,42px)}
- .hrc-collection .hrc-city--long{font-size:clamp(23px,5vw,32px)}
- .hrc-collection .hrc-venue-drawing--illustrated{height:clamp(150px,23vw,178px);min-height:150px}
- .hrc-collection .hrc-enamel-pin{width:clamp(108px,21vw,140px);height:clamp(130px,24vw,160px)}
+@media(max-width:680px){
+  .hrc-collection .hrc-grid{grid-template-columns:minmax(0,1fr);gap:12px}
+  .hrc-collection .hrc-stop{width:100%;max-width:460px;margin-inline:auto;height:178px}
+  .hrc-collection .hrc-city{font-size:clamp(20px,4.3vw,25px)}
+  .hrc-collection .hrc-city--long{font-size:clamp(18px,3.9vw,22px)}
+  .hrc-collection .hrc-intro{grid-template-columns:78px minmax(0,1fr)}
+  .hrc-collection .hrc-brand{width:78px;padding-right:8px}
+  .hrc-collection .hrc-intro h4{font-size:clamp(23px,5.5vw,30px)}
+  .hrc-collection .hrc-total{grid-column:2;flex-direction:row;justify-content:flex-start;border:0;padding:0}
+  .hrc-collection .hrc-total strong{font-size:28px}
 }
-@media(max-width:490px){
- .hrc-collection{padding:16px 12px!important}
- .hrc-collection .hrc-intro{grid-template-columns:84px 1fr;gap:13px}
- .hrc-collection .hrc-brand{width:84px;padding-right:11px}
- .hrc-collection .hrc-intro h4{font-size:clamp(22px,6vw,32px)}
- .hrc-collection .hrc-intro p{font-size:11px}
- .hrc-collection .hrc-ticket{width:calc(100% - 32px);min-height:310px}
- .hrc-collection .hrc-pass-inner{min-height:306px;padding:17px 10px 11px 46px}
- .hrc-collection .hrc-flag-ribbon{width:39px}
- .hrc-collection .hrc-stop{min-height:320px}
- .hrc-collection .hrc-city{font-size:clamp(24px,7vw,31px);max-width:calc(100% - 78px)}
- .hrc-collection .hrc-city--long{font-size:clamp(19px,5.7vw,26px)}
- .hrc-collection .hrc-location{font-size:10px;max-width:calc(100% - 57px)}
- .hrc-collection .hrc-enamel-pin{right:-22px;top:13px;width:99px;height:119px}
- .hrc-collection .hrc-pass-number{font-size:9px;padding-right:67px}
- .hrc-collection .hrc-venue-drawing--illustrated{height:132px;min-height:132px;margin-left:-12px;width:calc(100% + 28px)}
- .hrc-collection .hrc-ticket-foot{font-size:8px}
- .hrc-collection .hrc-vinyl{top:80px;width:55%}
+@media(max-width:390px){
+  .hrc-collection{padding:17px 12px!important}
+  .hrc-collection .hrc-ticket{width:calc(100% - 15px)}
+  .hrc-collection .hrc-pass-inner{padding-left:43px;padding-right:82px}
+  .hrc-collection .hrc-flag-ribbon{width:33px}
+  .hrc-collection .hrc-enamel-pin{right:-16px;width:80px;height:102px}
+  .hrc-collection .hrc-enamel-pin--reference{right:-15px;width:86px;height:113px}
+  .hrc-collection .hrc-enamel-pin--rome{width:103px;height:73px;right:-19px;top:35px}
+  .hrc-collection .hrc-city{font-size:20px}
+  .hrc-collection .hrc-city--long{font-size:17px}
+  .hrc-collection .hrc-ticket-foot{font-size:7px}
 }
-@media(prefers-reduced-motion:reduce){.hrc-collection .hrc-enamel-pin{transition:none}.hrc-collection .hrc-stop:hover .hrc-enamel-pin{transform:rotate(7deg)}}
-
-
-/* HRC04f — four approved-photo-based reference cards: actual cafe front + independent enamel city pin.
-   The other 19 stops stay on the previous design until reference approval. */
-.hrc-collection .hrc-stop[data-hrc-reference] .hrc-venue-photoillustration{
-  display:block;width:calc(100% + 34px);height:clamp(143px,16vw,178px);
-  min-height:143px;max-height:178px;object-fit:cover;object-position:center bottom;
-  margin:8px -13px 8px -18px;flex:none;
-  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 5%,#000 93%,transparent 100%);
-  mask-image:linear-gradient(to bottom,transparent,#000 5%,#000 93%,transparent 100%);
-  mix-blend-mode:multiply;filter:saturate(.88) contrast(1.04);
+@media(prefers-reduced-motion:reduce){
+  .hrc-collection .hrc-vinyl,.hrc-collection .hrc-ticket,.hrc-collection .hrc-enamel-pin{transition:none}
+  .hrc-collection .hrc-stop:hover .hrc-vinyl,.hrc-collection .hrc-stop:hover .hrc-ticket,.hrc-collection .hrc-stop:hover .hrc-enamel-pin{transform:none}
 }
-.hrc-collection .hrc-stop[data-hrc-reference] .hrc-enamel-pin--reference{
-  display:block;position:absolute;z-index:7;top:0;right:-32px;
-  width:clamp(108px,11vw,145px);height:clamp(125px,13vw,168px);
-  padding:0;border:0!important;background:none!important;border-radius:0!important;box-shadow:none!important;
-  transform:rotate(5deg);overflow:visible;filter:none!important;transition:transform .26s ease;
-}
-.hrc-collection .hrc-stop[data-hrc-reference] .hrc-enamel-pin--reference::after{display:none}
-.hrc-collection .hrc-stop[data-hrc-reference] .hrc-enamel-pin--reference .hrc-pin-image{
-  display:block;width:100%!important;height:100%!important;max-width:none!important;
-  object-fit:contain;object-position:center;
-  background:transparent!important;border:0!important;border-radius:0!important;
-  opacity:1!important;transform:none!important;
-  filter:drop-shadow(2px 5px 3px #20160d94)!important;
-}
-.hrc-collection .hrc-stop[data-hrc-reference] .hrc-enamel-pin--rome{
-  top:9px;right:-39px;width:clamp(133px,15vw,185px);height:clamp(95px,11vw,131px);
-  transform:rotate(-5deg);
-}
-.hrc-collection .hrc-stop[data-hrc-reference]:hover .hrc-enamel-pin--reference{transform:translateY(-5px) rotate(0deg)}
-.hrc-collection .hrc-stop[data-hrc-reference] .hrc-pass-inner{justify-content:initial}
-.hrc-collection .hrc-stop[data-hrc-reference] .hrc-city{max-width:calc(100% - 85px)}
-.hrc-collection .hrc-stop[data-hrc-reference] .hrc-location{max-width:calc(100% - 65px)}
-html[data-theme="light"] .hrc-collection .hrc-stop[data-hrc-reference] .hrc-venue-photoillustration{filter:saturate(.9) contrast(1.02)}
-html[data-theme="dark"] .hrc-collection .hrc-stop[data-hrc-reference] .hrc-venue-photoillustration{filter:saturate(.8) sepia(.12) contrast(1.04)}
-@media(max-width:750px){
-  .hrc-collection .hrc-stop[data-hrc-reference] .hrc-venue-photoillustration{
-    height:clamp(145px,29vw,183px);max-height:183px;
-  }
-}
-@media(max-width:490px){
-  .hrc-collection .hrc-stop[data-hrc-reference] .hrc-venue-photoillustration{
-    width:calc(100% + 20px);height:clamp(110px,38vw,151px);min-height:110px;max-height:151px;
-    margin:5px -9px 4px -11px;
-  }
-  .hrc-collection .hrc-stop[data-hrc-reference] .hrc-enamel-pin--reference{
-    right:-22px;top:10px;width:100px;height:126px;
-  }
-  .hrc-collection .hrc-stop[data-hrc-reference] .hrc-enamel-pin--rome{
-    width:130px;height:93px;right:-27px;top:17px;
-  }
-  .hrc-collection .hrc-stop[data-hrc-reference] .hrc-city{max-width:calc(100% - 74px)}
-}
-@media(prefers-reduced-motion:reduce){.hrc-collection .hrc-stop[data-hrc-reference] .hrc-enamel-pin--reference{transition:none}}

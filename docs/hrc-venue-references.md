@@ -1,41 +1,7 @@
-# HRC04c: photographic reference sheet for the 23 collector sketches
+# HRC design archive
 
-Each architecture motif is an intentionally simplified, original line drawing based on a photograph or documented physical characteristics of the *actual Hard Rock Cafe venue*. The source photographs themselves are **not** republished in the website. Architectural features can change over time; when new material becomes available, revise only the matching symbol in `public/media/hrc-facades.svg`. City pins (separate decoration) use distinct city landmarks.
+HRC05 (18 November 2026): The previous building and facade illustrations have been **removed from the website**. Only the 23 city-themed collector pins remain. The four standalone SVG pins for Rome, London Original, London Piccadilly Circus and Dublin are retained; the other 19 are displayed as inline enamel-pin illustrations.
 
-| # | Cafe | Identifying architectural feature | Visual reference |
-|---|------|-----------------------------------|-----------------|
-| 01 | Rome | Two adjoining dark awnings on Via Veneto | https://www.reisroutes.nl/blog/rome/hard-rock-cafe-rome-bezoeken/ |
-| 02 | Budapest | Tall, ornate stone corner façade at Váci1 | https://cafe.hardrock.com/budapest/ |
-| 03 | Hamburg | Heavy carved stone arches at the Landungsbrücken | https://www.selected.de/highlights/?tx_selected_cardlisting%5Bcard%5D=552 |
-| 04 | Brussels | Decorative stone Grand-Place façade with tall windows | https://www.waymarking.com/waymarks/WMZT08_Hard_Rock_Caf_Bruxelles_Belgique |
-| 05 | Warsaw | Giant vertical guitar on Złote Tarasy shopping complex | https://completecityguides.com/blog/weekend-in-warsaw |
-| 06 | London Original | Brown entrance awnings and pale-stone upper façade, Old Park Lane | https://www.tiqets.com/en/hard-rock-cafe-london-old-park-lane-tickets-l146851/ |
-| 07 | Paris | Ground-floor brown/red awning, red-lit upper windows | https://www.parisgourmand.com/restaurant-paris/hard-rock-cafe-paris.html |
-| 08 | Barcelona | Tall fluted columns, broad plate-glass frontage | https://www.waug.com/en/activities/122509 |
-| 09 | London Piccadilly Circus | Huge glazed semicircular entrance in the Criterion Building | https://www.tiqets.com/en/hard-rock-cafe-london-piccadilly-tickets-l174665/ |
-| 10 | Cologne | Double-height glazing and conspicuous vertical guitar sign | https://www.citytour.de/sehenswuerdigkeiten-koeln |
-| 11 | Prague | Fresco-rich V. J. Rott building on the Old Town Square | https://funinprague.eu/en/hard-rock-cafe-prague-dinner-skip-the-line |
-| 12 | Athens | White classical townhouse with rectangular street windows | https://cafe.hardrock.com/athens/ |
-| 13 | Valencia | Modern colonnaded glass and patterned metal storefront | https://valenciaplaza.com/galerias/hard-rock-cafe-valencia-fotos/fotografia/73/ |
-| 14 | Amsterdam | Wide brick building with water-facing windows, Max Euweplein | https://www.iamsterdam.com/en/whats-on/calendar/eating-and-drinking/restaurants/hard-rock-cafe-amsterdam |
-| 15 | Munich | Yellow/cream arcade and illuminated arched Rock Shop | https://cafe.hardrock.com/munich/ |
-| 16 | Innsbruck | Historic projecting bay window containing gold-armored statues | https://www.traveltyrol.com/hard-rock-cafe-innsbruck/ |
-| 17 | Wrocław | Carved old-town stone frontage, broad display windows and sign | https://hard-rock-cafe-wroc-aw.wheree.com/ |
-| 18 | Berlin | Curved corner façade and illuminated entrance on Kurfürstendamm | https://www.tiqets.com/en/berlin-attractions-c65144/tickets-for-hard-rock-berlin-p1008530/ |
-| 19 | Porto | Historic street façade with balcony railings and colorful uplighting | https://www.tur4all.com/resources/hard-rock-cafe-porto |
-| 20 | Lisbon | Former Cinema Condes with rounded red corner, relief and vertical windows | https://maps.adac.de/poi/hard-rock-cafe-lissabon |
-| 21 | Vienna | Illuminated stone corner building with ground-level awnings | https://book.tourdesk.com/Tour/Item/2096/36/vienna-hard-rock-cafe |
-| 22 | Stockholm | Teal arched windows and projecting red glazed entrance vestibule | https://www.tripadvisor.se/Attraction_Review-g189852-d607975-Reviews-Hard_Rock_Cafe-Stockholm.html |
-| 23 | Dublin | Brick Temple Bar street corner, double-height entrance zone | https://cafe.hardrock.com/dublin/ |
+The historic facade drawings remain in Git source history but are no longer referenced by the website or included in the deployment upload list. The city pins are independently designed artwork, not reproductions of official Hard Rock merchandise.
 
-Logo appears only in the heading: Wikimedia Commons, `File:Hard Rock Cafe Logo.svg`, identified as PD-textlogo there but still subject to trade mark rights. Do not imply sponsorship or affiliation. The collector passes are the site's own artwork, not merchandise.
-
-## HRC04f reference pilot (four cards, November 2026)
-The four prior generic sketches and geometric badge pins have been replaced by individually authored, photograph-guided SVG illustrations and metal-rimmed enamel-style city pins. **The other 19 cards intentionally remain unchanged pending visual approval.** Source photo files are not embedded or copied.
-
-- Rome: two side-by-side charcoal half-round entrance awnings, wall display between entries, yellow-cream masonry, 62 plaque. Reference: https://www.reisroutes.nl/blog/rome/hard-rock-cafe-rome-bezoeken/
-- London Original, 150 Old Park Lane: pale stone building, intricate upper wrought iron railing, central curved brown branded canopy and two side awnings, floral planter boxes and red rope. Reference: https://attractions.prioritypass.com/productDetail/71764
-- London Piccadilly, Criterion Building: towering pale stone facade and broad rounded glass entrance with red cafe name on the dark curved band. Reference: https://www.tiqets.com/en/hard-rock-cafe-london-piccadilly-tickets-l174665/
-- Dublin, 11–12 Fleet Street: brick corner building with large glass corner arch above a yellow DUBLIN sign and central logo, retail signage on either side. Reference: https://cafe.hardrock.com/dublin/
-
-The city pins are newly drawn designs inspired by enamel collectible construction, not reproductions of real commercial Hard Rock pins. There is no claim that any of the city pins shown were actually manufactured.
+The cards use a compact three-column desktop / two-column tablet / single-column mobile layout. Flag ribbons and a small vinyl backdrop remain; the collection adapts to light and dark themes.
