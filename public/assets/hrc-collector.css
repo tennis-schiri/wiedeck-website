@@ -59,3 +59,72 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
 @media(max-width:730px){.hrc-collection{padding:19px 14px!important}.hrc-collection .hrc-intro{grid-template-columns:89px 1fr;gap:13px;margin-bottom:20px}.hrc-collection .hrc-brand{padding-right:9px}.hrc-collection .hrc-intro h4{font-size:clamp(21px,4.1vw,32px)}.hrc-collection .hrc-collector-subtitle{font-size:clamp(9px,1.9vw,12px)!important;gap:4px;letter-spacing:.1em}.hrc-collection .hrc-grid{grid-template-columns:1fr;gap:18px;padding:7px 8px}.hrc-collection .hrc-stop{width:100%;max-width:485px;margin-inline:auto}.hrc-collection .hrc-city{font-size:clamp(22px,5.1vw,30px)}.hrc-collection .hrc-city--long{font-size:clamp(18px,4.3vw,25px)}.hrc-collection .hrc-pass-inner{padding-left:clamp(52px,10vw,67px);padding-right:clamp(108px,27vw,147px)}.hrc-collection .hrc-cafe-name em{font-size:clamp(12px,3vw,16px)}.hrc-collection .hrc-enamel-pin{right:-16px;width:clamp(142px,33vw,180px);height:clamp(159px,38vw,194px)}}
 @media(max-width:440px){.hrc-collection{padding:17px 10px!important}.hrc-collection .hrc-intro{grid-template-columns:76px 1fr}.hrc-collection .hrc-intro h4{font-size:clamp(18px,4.2vw,24px)}.hrc-collection .hrc-collector-subtitle{font-size:8px!important;letter-spacing:.04em}.hrc-collection .hrc-divider-line{max-width:14px}.hrc-collection .hrc-ticket{width:calc(100% - 10px)}.hrc-collection .hrc-flag-ribbon{width:38px}.hrc-collection .hrc-pass-inner{padding-left:51px;padding-right:106px}.hrc-collection .hrc-city{font-size:clamp(19px,5vw,24px)}.hrc-collection .hrc-city--long{font-size:clamp(16px,4.35vw,21px)}.hrc-collection .hrc-city-line{margin:7px 0 5px}.hrc-collection .hrc-cafe-name em{font-size:12px}.hrc-collection .hrc-enamel-pin{right:-14px;top:-4px;width:125px;height:167px}}
 @media(prefers-reduced-motion:reduce){.hrc-collection .hrc-ticket,.hrc-collection .hrc-vinyl,.hrc-collection .hrc-enamel-pin{transition:none}.hrc-collection .hrc-stop:hover .hrc-ticket,.hrc-collection .hrc-stop:hover .hrc-vinyl,.hrc-collection .hrc-stop:hover .hrc-enamel-pin{transform:none}}
+
+/* HRC07 — photographic enamel artwork, wider layout & clean typography from reference. */
+.hrc-collection{
+ width:min(1490px,calc(100vw - 32px))!important;max-width:none!important;
+ left:50%;transform:translateX(-50%);
+ padding:clamp(22px,3vw,37px)!important;
+}
+.hrc-collection .hrc-grid{
+ column-gap:clamp(17px,2.6vw,35px);
+ row-gap:clamp(17px,2.4vw,25px);
+}
+.hrc-collection .hrc-stop{height:175px}
+.hrc-collection .hrc-ticket{height:168px}
+.hrc-collection .hrc-pass-inner{
+ padding-left:clamp(49px,4.3vw,61px);
+ padding-right:clamp(115px,11.8vw,155px);
+}
+.hrc-collection .hrc-city{
+ font-size:clamp(22px,2.08vw,32px);
+ letter-spacing:-.048em;line-height:1.04;
+ max-width:none;
+}
+.hrc-collection .hrc-city--long{font-size:clamp(18px,1.75vw,26px)}
+.hrc-collection .hrc-city--london small{font-size:.77em;letter-spacing:-.025em}
+.hrc-collection .hrc-cafe-name em{font-size:clamp(13px,1.2vw,17px);line-height:1.13}
+.hrc-collection .hrc-enamel-pin{
+ width:clamp(142px,15vw,194px);
+ height:clamp(150px,15.8vw,200px);
+ right:-22px;top:-15px;transform:rotate(0deg);
+ filter:none!important;
+}
+.hrc-collection .hrc-pin-image{
+ width:100%!important;height:100%!important;max-width:none!important;
+ object-fit:contain!important;object-position:center!important;
+ filter:drop-shadow(1px 4px 2px #0009)!important;
+}
+.hrc-collection .hrc-flag-ribbon{width:clamp(42px,4.2vw,55px)}
+.hrc-collection .hrc-city-line{margin:8px 0 6px}
+.hrc-collection .hrc-ticket{
+ background:
+   radial-gradient(circle at 12px 11px,#fbe6a3 0 2px,#c38939 3px,transparent 8px),
+   repeating-linear-gradient(9deg,#9c67360a 0 1px,transparent 1px 6px),
+   linear-gradient(140deg,#fff0d6,#edd4ae 63%,#dfbc8e);
+}
+@media(max-width:1160px){
+ .hrc-collection .hrc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .hrc-collection .hrc-pass-inner{padding-right:clamp(132px,16vw,170px)}
+ .hrc-collection .hrc-enamel-pin{width:clamp(160px,18vw,202px);height:clamp(164px,19.5vw,208px)}
+ .hrc-collection .hrc-city{font-size:clamp(24px,2.8vw,32px)}
+}
+@media(max-width:730px){
+ .hrc-collection{width:calc(100vw - 22px)!important;padding:18px 13px!important}
+ .hrc-collection .hrc-grid{grid-template-columns:1fr;gap:18px}
+ .hrc-collection .hrc-stop{max-width:470px;width:100%;margin-inline:auto}
+ .hrc-collection .hrc-ticket{height:168px}
+ .hrc-collection .hrc-pass-inner{padding-left:clamp(53px,10vw,66px);padding-right:clamp(122px,29vw,166px)}
+ .hrc-collection .hrc-city{font-size:clamp(22px,5.5vw,31px)}
+ .hrc-collection .hrc-city--long{font-size:clamp(19px,4.7vw,27px)}
+ .hrc-collection .hrc-enamel-pin{width:clamp(145px,38vw,194px);height:clamp(158px,40vw,204px)}
+}
+@media(max-width:430px){
+ .hrc-collection .hrc-ticket{width:calc(100% - 9px)}
+ .hrc-collection .hrc-pass-inner{padding-left:50px;padding-right:111px}
+ .hrc-collection .hrc-flag-ribbon{width:38px}
+ .hrc-collection .hrc-city{font-size:clamp(19px,5.15vw,24px)}
+ .hrc-collection .hrc-city--long{font-size:clamp(17px,4.35vw,20px)}
+ .hrc-collection .hrc-enamel-pin{right:-15px;top:0;width:128px;height:170px}
+ .hrc-collection .hrc-cafe-name em{font-size:12px}
+}
