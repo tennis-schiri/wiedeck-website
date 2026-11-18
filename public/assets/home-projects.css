@@ -184,3 +184,147 @@ html[data-theme="dark"] .minis-heading h2 em{color:#c2b3f4}
 @media(max-width:900px){.minis-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.minis-heading{grid-template-columns:1fr}.minis-intro{justify-self:start;max-width:590px}}
 @media(max-width:600px){.minis-section{padding:62px 0}.minis-kicker-extra{display:none}.minis-heading{gap:16px;margin-bottom:27px}.minis-heading h2{font-size:clamp(40px,10vw,55px)}.minis-grid{grid-template-columns:1fr;gap:11px}.minis-card{min-height:0;padding:21px}.minis-card-body{margin-top:14px}.minis-card h3{font-size:26px}.minis-card-end{margin-top:19px}.minis-note{display:block}.minis-note strong{display:block;margin-bottom:3px}.minis-icon{width:66px;height:66px}}
 @media(prefers-reduced-motion:reduce){.minis-card,.minis-card::after{transition:none!important}}
+
+
+/* Theme continuity / MW 2026
+   All sections follow the same light/dark selection. Only screenshots
+   retain their authentic in-app UI colors. */
+:root{
+  --mw-feature-bg:radial-gradient(ellipse at 79% 30%,rgba(165,205,219,.50),transparent 47%),linear-gradient(130deg,#fdfefe,#deebf0 85%);
+  --mw-feature-border:#b4cbd5;
+  --mw-feature-text:#172b36;
+  --mw-feature-secondary:#455f70;
+  --mw-feature-em:#35687c;
+  --mw-feature-accent:#276146;
+  --mw-feature-ring:rgba(38,94,115,.20);
+  --mw-feature-status-border:rgba(49,120,78,.36);
+  --mw-feature-status-text:#255e3e;
+  --mw-feature-status-bg:rgba(57,130,80,.10);
+  --mw-feature-status-dot:#348655;
+  --mw-feature-underline:#668c9c;
+  --mw-feature-hover:#7097ab;
+  --mw-showcase-bg:#f6f9fa;
+  --mw-stage-bg:radial-gradient(circle at 50% 36%,#f4f9fb,#d6e4eb 77%);
+  --mw-stage-ring:rgba(53,93,112,.18);
+  --mw-minis-feature-bg:linear-gradient(145deg,#fbfaff,#e5e0f3);
+  --mw-minis-feature-ink:#1d253a;
+  --mw-minis-feature-edge:#c8bbdf;
+  --mw-minis-feature-meta:#5e5878;
+  --mw-minis-feature-kind:#695895;
+  --mw-minis-feature-desc:#46526d;
+  --mw-minis-feature-divider:#ccc0e0;
+  --mw-minis-feature-mark:#6c6097;
+  --mw-social-bg:#e8eef2;
+  --mw-social-ink:#182b37;
+  --mw-social-muted:#4b6070;
+  --mw-social-edge:#becdd6;
+  --mw-social-accent:#3a6175;
+  --mw-social-link:#29475b;
+  --mw-footer-bg:#dce6ec;
+  --mw-footer-ink:#425a68;
+  --mw-footer-link:#1e3544;
+  --mw-watermark-opacity:.11
+}
+html[data-theme="dark"]{
+  --mw-feature-bg:radial-gradient(ellipse at 76% 32%,rgba(115,220,234,.23),transparent 42%),linear-gradient(135deg,#0c1925,#172c3b 75%);
+  --mw-feature-border:#385667;
+  --mw-feature-text:#f4f8fb;
+  --mw-feature-secondary:#c4d3dc;
+  --mw-feature-em:#bef9d5;
+  --mw-feature-accent:#b9ff5c;
+  --mw-feature-ring:rgba(149,239,236,.22);
+  --mw-feature-status-border:rgba(179,245,140,.42);
+  --mw-feature-status-text:#caffac;
+  --mw-feature-status-bg:rgba(107,160,81,.14);
+  --mw-feature-status-dot:#aefc77;
+  --mw-feature-underline:#b5d5df;
+  --mw-feature-hover:#80dce7;
+  --mw-showcase-bg:#101c25;
+  --mw-stage-bg:radial-gradient(circle at 50% 44%,#27495a,#0b1723 69%);
+  --mw-stage-ring:rgba(255,255,255,.08);
+  --mw-minis-feature-bg:linear-gradient(145deg,#1d1c37,#272342);
+  --mw-minis-feature-ink:#f7f7fc;
+  --mw-minis-feature-edge:#585171;
+  --mw-minis-feature-meta:#dbd4f5;
+  --mw-minis-feature-kind:#f5f36d;
+  --mw-minis-feature-desc:#d5d2e7;
+  --mw-minis-feature-divider:#514b70;
+  --mw-minis-feature-mark:#f5f36d;
+  --mw-social-bg:#111a21;
+  --mw-social-ink:#f1f0ed;
+  --mw-social-muted:#bbc8d0;
+  --mw-social-edge:#495661;
+  --mw-social-accent:#d9e2e7;
+  --mw-social-link:#cbd8df;
+  --mw-footer-bg:#090e13;
+  --mw-footer-ink:#adbec8;
+  --mw-footer-link:#f3f6f7;
+  --mw-watermark-opacity:.06
+}
+.pulse-feature{
+  background:var(--mw-feature-bg);
+  border-color:var(--mw-feature-border);
+  color:var(--mw-feature-text)
+}
+.pulse-feature::before{border-color:var(--mw-feature-ring)}
+.pulse-feature:hover{border-color:var(--mw-feature-hover)}
+.pulse-feature-no{color:var(--mw-feature-secondary)}
+.pulse-feature-no strong{color:var(--mw-feature-accent)}
+.pulse-feature h3 em{color:var(--mw-feature-em)}
+.pulse-feature-copy>p{color:var(--mw-feature-secondary)}
+.pulse-state{
+  border-color:var(--mw-feature-status-border);
+  color:var(--mw-feature-status-text);
+  background:var(--mw-feature-status-bg)
+}
+.pulse-state::before{background:var(--mw-feature-status-dot)}
+.pulse-open{border-bottom-color:var(--mw-feature-underline)}
+.showcase-section{background:var(--mw-showcase-bg)}
+.showcase-stage{background:var(--mw-stage-bg)}
+.showcase-stage::before{border-color:var(--mw-stage-ring)}
+.minis-card--original{
+  background:var(--mw-minis-feature-bg);
+  color:var(--mw-minis-feature-ink);
+  border-color:var(--mw-minis-feature-edge)
+}
+.minis-card--original .minis-card-index{color:var(--mw-minis-feature-meta)}
+.minis-card--original .minis-card-kind{color:var(--mw-minis-feature-kind)}
+.minis-card--original p{color:var(--mw-minis-feature-desc)}
+.minis-card--original .minis-card-end{
+  color:var(--mw-minis-feature-meta);
+  border-color:var(--mw-minis-feature-divider)
+}
+.minis-card--original .minis-card-end span:last-child{color:var(--mw-minis-feature-mark)}
+.manifesto::before{border-color:var(--line)}
+.social{
+  background:var(--mw-social-bg);
+  color:var(--mw-social-ink)
+}
+.social-title em{color:var(--mw-social-accent)}
+.social-intro{color:var(--mw-social-muted)}
+.social-list{border-top-color:var(--mw-social-edge)}
+.social-line{border-bottom-color:var(--mw-social-edge)}
+.social-line:hover{color:var(--mw-social-accent)}
+.social-line small{color:var(--mw-social-muted)}
+.project-social a{
+  color:var(--mw-social-link);
+  text-decoration-color:var(--mw-social-edge)
+}
+.project-social a:hover{color:var(--mw-social-ink)}
+.social-watermark{opacity:var(--mw-watermark-opacity)}
+.footer{
+  background:var(--mw-footer-bg);
+  color:var(--mw-footer-ink)
+}
+.footer .shell{border-top-color:var(--mw-social-edge)}
+.footer a{color:var(--mw-footer-link)}
+.footer a:hover{color:var(--mw-social-accent)}
+/* Transitions respect reduced-motion preferences without altering scroll UI. */
+.pulse-section,.showcase-section,.minis-section,.social,.footer,
+.showcase-stage,.minis-card--original{
+  transition:background-color .22s ease,color .22s ease,border-color .22s ease
+}
+@media(prefers-reduced-motion:reduce){
+  .pulse-section,.showcase-section,.minis-section,.social,.footer,
+  .showcase-stage,.minis-card--original{transition:none!important}
+}
