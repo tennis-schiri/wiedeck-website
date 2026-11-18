@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140" role="img" aria-labelledby="title" preserveAspectRatio="xMidYMid meet">
+<title id="title">Bolzano Cathedral</title>
+<style>.solid{fill:#557b90}.soft{fill:#b9d3dc}.outline{fill:none;stroke:#557b90;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#dceaf0;stroke-width:2.3;stroke-linejoin:round;stroke-linecap:round}</style>
+<path class="soft" d="M9 65l34-40 26 29 28-48 31 47 23-29 32 31 26-22 23 31z"/><path class="solid" d="M58 126V73h109v53z M74 73l47-28 46 28z M159 126V24h31v102z M161 24l14-21 14 21z"/><path class="soft" d="M85 87h15v24H85z M112 87h15v24h-15z M169 43h11v23h-11z M169 78h11v23h-11z"/><path class="solid" d="M108 126V106q12-17 24 0v20z"/><path class="outline" stroke-width="4" d="M174 3V1"/>
+</svg>

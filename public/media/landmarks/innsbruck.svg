@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140" role="img" aria-labelledby="title" preserveAspectRatio="xMidYMid meet">
+<title id="title">Golden Roof</title>
+<style>.solid{fill:#557b90}.soft{fill:#b9d3dc}.outline{fill:none;stroke:#557b90;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#dceaf0;stroke-width:2.3;stroke-linejoin:round;stroke-linecap:round}</style>
+<path class="soft" d="M10 58l42-42 25 28 26-33 28 33 26-23 41 40 31-23-2 24H10z"/><path class="solid" d="M55 126V75h134v51z M62 75l60-27 62 27z"/><path class="soft" d="M70 82h104v19H70z"/><rect class="soft" x="88" y="103" width="18" height="23" rx="0"/><rect class="soft" x="134" y="103" width="18" height="23" rx="0"/><path class="outline" stroke-width="4" d="M60 75h125 M76 84h94 M81 91h83"/><rect class="solid" x="116" y="105" width="14" height="21" rx="0"/>
+</svg>

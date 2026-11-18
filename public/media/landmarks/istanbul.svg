@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140" role="img" aria-labelledby="title" preserveAspectRatio="xMidYMid meet">
+<title id="title">Hagia Sophia</title>
+<style>.solid{fill:#557b90}.soft{fill:#b9d3dc}.outline{fill:none;stroke:#557b90;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#dceaf0;stroke-width:2.3;stroke-linejoin:round;stroke-linecap:round}</style>
+<path class="solid" d="M49 126V72h142v54z M65 72q0-48 55-54 55 6 55 54z M89 31q-2-14 31-22 33 8 31 22z"/><path class="solid" d="M22 126V31h15v95z M25 31l4-25 5 25z M203 126V31h15v95z M206 31l4-25 5 25z"/><path class="soft" d="M99 126V79q21-31 42 0v47z M69 99h18v27H69z M152 99h18v27h-18z"/><path class="outline" stroke-width="3" d="M54 72h132 M120 9V2"/>
+</svg>

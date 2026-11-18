@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140" role="img" aria-labelledby="title" preserveAspectRatio="xMidYMid meet">
+<title id="title">Elizabeth Tower / Big Ben</title>
+<style>.solid{fill:#557b90}.soft{fill:#b9d3dc}.outline{fill:none;stroke:#557b90;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#dceaf0;stroke-width:2.3;stroke-linejoin:round;stroke-linecap:round}</style>
+<path class="solid" d="M91 126V44h58v82z M86 44V29h68v15z M95 29V16h50v13z M99 16l21-12 21 12z"/><path class="soft" d="M102 72h36v49h-36z"/><rect class="solid" x="113" y="80" width="14" height="35" rx="0"/><rect class="soft" x="107" y="20" width="26" height="5" rx="0"/><circle class="soft" cx="120" cy="50" r="23"/><circle class="solid" cx="120" cy="50" r="17"/><circle class="soft" cx="120" cy="50" r="13"/><path class="outline" stroke-width="3" d="M120 50V39 M120 50l8 4"/><path class="outline" stroke-width="3" d="M91 76H81 M149 76h10"/>
+</svg>

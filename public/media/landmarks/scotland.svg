@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140" role="img" aria-labelledby="title" preserveAspectRatio="xMidYMid meet">
+<title id="title">Edinburgh Castle</title>
+<style>.solid{fill:#557b90}.soft{fill:#b9d3dc}.outline{fill:none;stroke:#557b90;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#dceaf0;stroke-width:2.3;stroke-linejoin:round;stroke-linecap:round}</style>
+<path class="soft" d="M22 125l34-38 34 6 25-23 34 15 34-8 35 48z"/><path class="solid" d="M53 106V58h31v48 M86 106V44h63v62 M151 106V54h35v52 M92 44l14-13h29l14 13 M59 58V44h9v14 M77 58V44h9v14 M156 54V39h9v15 M177 54V39h9v15"/><rect class="soft" x="113" y="73" width="14" height="33" rx="0"/><rect class="soft" x="65" y="75" width="9" height="15" rx="0"/><rect class="soft" x="162" y="70" width="10" height="19" rx="0"/><path class="outline" stroke-width="5" d="M30 126h185"/>
+</svg>

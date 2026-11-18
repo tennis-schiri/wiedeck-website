@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140" role="img" aria-labelledby="title" preserveAspectRatio="xMidYMid meet">
+<title id="title">Stockholm City Hall</title>
+<style>.solid{fill:#557b90}.soft{fill:#b9d3dc}.outline{fill:none;stroke:#557b90;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#dceaf0;stroke-width:2.3;stroke-linejoin:round;stroke-linecap:round}</style>
+<path class="solid" d="M46 125V58h119v67z M93 58V18h46v107H93z M90 18V9h52v9z M107 9V3h18v6z"/><path class="soft" d="M57 76h20v24H57z M144 76h12v24h-12z M105 37h21v27h-21z M67 107h70v18H67z"/><path class="solid" d="M177 63l11-12 11 12 11-12 11 12v7h-44z"/><circle class="solid" cx="183" cy="47" r="5"/><circle class="solid" cx="198" cy="47" r="5"/><circle class="solid" cx="213" cy="47" r="5"/><rect class="soft" x="88" y="120" width="52" height="5" rx="0"/>
+</svg>

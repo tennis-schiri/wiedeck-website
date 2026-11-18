@@ -600,3 +600,27 @@ html[data-theme="dark"]{
  object-fit:cover;border-radius:2px;background:#fff;font-size:0;
  box-shadow:0 0 0 1px rgba(20,36,48,.18);flex:none
 }
+
+
+/* Travel 2.0: one bold, recognizable landmark per card (not busy miniature skylines). */
+.travel-grid{grid-template-columns:repeat(auto-fit,minmax(183px,1fr));gap:13px}
+.travel-card{min-height:247px;padding:14px 15px 16px;border-radius:16px}
+.travel-card-top{min-height:23px}
+.travel-landmark{display:flex;flex:1;min-width:0;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:8px 0 7px}
+.travel-landmark-icon{display:block;width:100%;max-width:176px;height:125px;object-fit:contain;object-position:center;filter:drop-shadow(0 3px 0 rgba(37,75,94,.08))}
+.travel-landmark-label{display:block;max-width:100%;font-size:10px;line-height:1.35;letter-spacing:.035em;font-weight:700;color:var(--travel-muted);text-align:center;min-height:27px}
+.travel-card-bottom{margin-top:0;min-height:29px;border-top:1px solid var(--travel-edge);padding-top:11px;align-items:center}
+.travel-card-bottom strong{font-size:clamp(17px,1.62vw,21px)}
+html[data-theme="dark"] .travel-landmark-icon{filter:brightness(1.2) saturate(.84) drop-shadow(0 3px 0 rgba(0,0,0,.08))}
+@media(max-width:850px){.travel-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){
+ .travel-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .travel-card{min-height:209px;padding:11px 10px 12px}
+ .travel-landmark{padding:4px 0 7px}
+ .travel-landmark-icon{max-width:155px;height:104px}
+ .travel-landmark-label{font-size:9px;min-height:26px}
+ .travel-card-bottom{min-height:36px;padding-top:8px;display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+ .travel-card-bottom strong{font-size:17px}
+ .travel-repeat{margin-top:0}
+}
+@media(max-width:360px){.travel-card{min-height:205px}.travel-landmark-icon{height:91px}}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140" role="img" aria-labelledby="title" preserveAspectRatio="xMidYMid meet">
+<title id="title">Palace of Culture and Science</title>
+<style>.solid{fill:#557b90}.soft{fill:#b9d3dc}.outline{fill:none;stroke:#557b90;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#dceaf0;stroke-width:2.3;stroke-linejoin:round;stroke-linecap:round}</style>
+<path class="solid" d="M87 125V51h66v74z M82 51V35h76v16z M94 35V22h52v13z M106 22V11h28v11z M116 11V2h8v9z"/><path class="soft" d="M101 63h38v48h-38z"/><rect class="solid" x="115" y="73" width="10" height="37" rx="0"/><rect class="solid" x="71" y="96" width="16" height="29" rx="0"/><rect class="solid" x="160" y="96" width="16" height="29" rx="0"/><path class="outline" stroke-width="4" d="M91 79h58 M99 96h41 M106 49h29"/>
+</svg>

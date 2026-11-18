@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140" role="img" aria-labelledby="title" preserveAspectRatio="xMidYMid meet">
+<title id="title">St. Stephen’s Cathedral</title>
+<style>.solid{fill:#557b90}.soft{fill:#b9d3dc}.outline{fill:none;stroke:#557b90;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#dceaf0;stroke-width:2.3;stroke-linejoin:round;stroke-linecap:round}</style>
+<path class="solid" d="M56 126V65h114v61z M65 65l55-29 50 29z M153 65V27l20-24 19 24v99h-39z"/><path class="solid" d="M160 27l12-22 12 22 M167 9V1h10v8"/><path class="soft" d="M68 74l11-6 11 6 11-6 11 6 11-6 11 6 11-6 11 6 10-6 10 6v13l-10-6-11 6-11-6-11 6-11-6-11 6-11-6-11 6-11-6z"/><rect class="soft" x="74" y="98" width="10" height="28" rx="0"/><rect class="soft" x="96" y="98" width="10" height="28" rx="0"/><rect class="soft" x="118" y="98" width="10" height="28" rx="0"/><path class="soft" d="M165 43h14v25h-14z M165 81h14v22h-14z"/>
+</svg>

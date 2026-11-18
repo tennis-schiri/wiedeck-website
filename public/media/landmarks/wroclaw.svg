@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140" role="img" aria-labelledby="title" preserveAspectRatio="xMidYMid meet">
+<title id="title">Wrocław Town Hall</title>
+<style>.solid{fill:#557b90}.soft{fill:#b9d3dc}.outline{fill:none;stroke:#557b90;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#dceaf0;stroke-width:2.3;stroke-linejoin:round;stroke-linecap:round}</style>
+<path class="solid" d="M38 126V59h145v67z M49 59l18-32 18 32 M90 59l18-32 18 32 M131 59l18-32 18 32"/><path class="solid" d="M175 126V34h24v92z M177 34l10-28 10 28z M183 7V2h7v5"/><path class="soft" d="M51 74h21v24H51z M87 74h21v24H87z M123 74h21v24h-21z M56 110h81v16H56z M181 49h12v22h-12z M181 83h12v22h-12z"/><path class="outline" stroke-width="4" d="M32 126h177"/>
+</svg>

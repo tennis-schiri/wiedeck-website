@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140" role="img" aria-labelledby="title" preserveAspectRatio="xMidYMid meet">
+<title id="title">Cologne Cathedral</title>
+<style>.solid{fill:#557b90}.soft{fill:#b9d3dc}.outline{fill:none;stroke:#557b90;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#dceaf0;stroke-width:2.3;stroke-linejoin:round;stroke-linecap:round}</style>
+<path class="solid" d="M61 126V42l21-33 21 33v84z M137 126V42l21-33 21 33v84z M101 126V65l19-24 19 24v61z"/><path class="solid" d="M78 15V2h7v13 M155 15V2h7v13 M113 46V29h14v17"/><path class="soft" d="M72 123V54h19v69z M148 123V54h19v69z M110 123V82q10-17 20 0v41z"/><path class="solid" d="M78 123V78h7v45z M155 123V78h7v45z"/><path class="outline" stroke-width="3" d="M82 9l-17 37 M82 9l17 37 M158 9l-17 37 M158 9l17 37"/><path class="outline" stroke-width="3" d="M104 65h32"/>
+</svg>

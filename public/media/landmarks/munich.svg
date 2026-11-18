@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140" role="img" aria-labelledby="title" preserveAspectRatio="xMidYMid meet">
+<title id="title">Frauenkirche</title>
+<style>.solid{fill:#557b90}.soft{fill:#b9d3dc}.outline{fill:none;stroke:#557b90;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#dceaf0;stroke-width:2.3;stroke-linejoin:round;stroke-linecap:round}</style>
+<path class="solid" d="M54 126V40h55v86z M131 126V40h55v86z M108 126V66h23v60z"/><path class="solid" d="M55 40q-12-18-3-28 12-16 29-6 18-10 30 6 9 10-3 28z M132 40q-12-18-3-28 12-16 29-6 18-10 30 6 9 10-3 28z"/><path class="soft" d="M69 61h12v25H69z M88 61h12v25H88z M144 61h12v25h-12z M164 61h12v25h-12z"/><rect class="soft" x="76" y="104" width="11" height="22" rx="0"/><rect class="soft" x="153" y="104" width="11" height="22" rx="0"/><path class="outline" stroke-width="4" d="M54 44h55 M131 44h55"/>
+</svg>

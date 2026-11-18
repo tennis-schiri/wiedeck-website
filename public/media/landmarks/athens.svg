@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140" role="img" aria-labelledby="title" preserveAspectRatio="xMidYMid meet">
+<title id="title">Parthenon</title>
+<style>.solid{fill:#557b90}.soft{fill:#b9d3dc}.outline{fill:none;stroke:#557b90;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#dceaf0;stroke-width:2.3;stroke-linejoin:round;stroke-linecap:round}</style>
+<path class="solid" d="M30 43L120 8l90 35z M36 47h168v9H36z M32 114h176v10H32z M23 124h194v6H23z"/><rect class="solid" x="49" y="55" width="13" height="59" rx="0"/><rect class="solid" x="75" y="55" width="13" height="59" rx="0"/><rect class="solid" x="101" y="55" width="13" height="59" rx="0"/><rect class="solid" x="127" y="55" width="13" height="59" rx="0"/><rect class="solid" x="153" y="55" width="13" height="59" rx="0"/><rect class="solid" x="179" y="55" width="13" height="59" rx="0"/><path class="soft" d="M47 62h17v8H47z M73 62h17v8H73z M99 62h17v8H99z M125 62h17v8h-17z M151 62h17v8h-17z M177 62h17v8h-17z"/><path class="outline" stroke-width="3" d="M41 48h158"/>
+</svg>

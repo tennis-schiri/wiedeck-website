@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140" role="img" aria-labelledby="title" preserveAspectRatio="xMidYMid meet">
+<title id="title">Eiffel Tower</title>
+<style>.solid{fill:#557b90}.soft{fill:#b9d3dc}.outline{fill:none;stroke:#557b90;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#dceaf0;stroke-width:2.3;stroke-linejoin:round;stroke-linecap:round}</style>
+<path class="outline" stroke-width="12" d="M120 8L73 125 M120 8l47 117"/><path class="outline" stroke-width="9" d="M83 105h74 M99 70h42 M109 43h22 M120 8V2"/><path class="outline" stroke-width="4" d="M91 92l57-32 M149 92L92 60 M103 69l36-20"/><path class="outline" stroke-width="9" d="M62 125h116"/><path class="soft" d="M104 125q16-42 32 0z"/>
+</svg>
