@@ -1,17 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140">
-<title>Hagia Sophia, Istanbul – Hauptkuppel, Halbkuppeln und Minarette</title>
-<path fill="#a6c5d1" d="M18 125h204v5H18z"/>
-<path fill="#54798c" d="M13 126V44h10v82z M16 44l2-30 3 30z M45 126V63h9v63z M47 63l2-22 3 22z M186 126V64h9v62z M188 64l2-23 3 23z M215 126V44h10v82z M218 44l2-30 3 30z"/>
-<path fill="#d7a77f" d="M10 78h16v4H10z M42 92h15v4H42z M183 92h15v4h-15z M212 78h16v4h-16z"/>
-<path fill="#a8c7d3" d="M28 111V84q10-24 30 0v27z M180 111V84q14-24 30 0v27z"/>
-<path fill="#54798c" d="M24 126V99h44v27z M172 126V99h44v27z"/>
-<path fill="#d9b18d" d="M50 126V84h140v42z"/>
-<path fill="#54798c" d="M53 85q13-29 39 0z M148 85q14-29 39 0z"/>
-<path fill="#b6d0dc" d="M67 85V62q7-38 53-41 47 3 53 41v23z"/>
-<path fill="#54798c" d="M72 69q6-38 48-41 41 3 48 41V78H72z"/>
-<path fill="#b6d0dc" d="M79 67q7-33 41-35 34 2 41 35z"/>
-<path fill="#54798c" d="M106 25V16h28v9z M115 16V6h10v10z"/>
-<path fill="#d9b18d" d="M58 100h124v26H58z"/>
-<path fill="#54798c" d="M66 126v-18q9-13 18 0v18z M91 126v-19q9-13 18 0v19z M116 126v-21q10-13 20 0v21z M144 126v-19q9-13 18 0v19z M169 126v-18q6-12 12 0v18z"/>
-<path stroke="#54798c" stroke-width="3" fill="none" stroke-linejoin="round" d="M53 84h134 M60 100h120 M25 125h192 M70 69h100"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none" style="color:#426a80">
+<title>Hagia Sophia – Kuppeln und vier Minarette</title>
+<g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 114c9-1 17 1 26 0s18-1 28 0 19-1 29 0 17-1 25 0" stroke-width="3"/>
+<path d="M11 108V37m-3 71h8M8 46h7M7 41h9L12 13zM11 13V8M9 52h5M9 100h5M104 108V37m-3 71h8m-8-62h7m-8-5h9l-4-28zM105 13V8m-2 44h5m-5 48h5" stroke-width="2.9"/>
+<path d="M26 109V58m-3 0h7l-3-20zM27 38V33m-3 35h6m-6 33h6M91 109V58m-3 0h7l-3-20zM91 38V33m-3 35h6m-6 33h6" stroke-width="2.8"/>
+<path d="M30 108V81h60v27M37 81V66h46v15" stroke-width="3.1"/>
+<path d="M42 66V51a18 18 0 0 1 36 0v15M37 55h46M60 30v-5m-5 0h10" stroke-width="3.2"/>
+<path d="M39 81V70m42 11V70M33 81v-7q5-12 10 0m35 0q5-12 10 0" stroke-width="2.5"/>
+<path d="M42 66q-9-18-18 0m54 0q9-18 18 0" stroke-width="2.8"/>
+<path d="M44 108V94q5-9 10 0v14m12 0V94q5-9 10 0v14M55 108V91q5-10 10 0v17" stroke-width="2.7"/>
+<path d="M34 84h52M38 89h44M35 73h8m34 0h8" stroke-width="2"/>
+<path d="M47 66V59m7 7V57m12 9V57m7 9v-7" stroke-width="1.9"/>
+</g>
+<path d="M11 9l-4 29h8L11 9Zm94 0-4 29h8L105 9ZM27 34l-4 23h8l-4-23Zm64 0-4 23h8l-4-23Z" fill="currentColor"/>
 </svg>
