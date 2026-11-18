@@ -1,17 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140">
-<title>Goldenes Dachl in Innsbruck – vergoldetes Erkerdach und verzierte Fassade</title>
-<path fill="#d7e2e8" stroke="#55798c" stroke-width="2.5" d="M18 23h204v107H18z"/>
-<path fill="#55798c" d="M27 39h20v31H27z M193 39h20v31h-20z M27 88h20v31H27z M193 88h20v31h-20z"/>
-<path fill="#eff4f6" d="M33 43h8v22h-8z M199 43h8v22h-8z M33 92h8v22h-8z M199 92h8v22h-8z"/>
-<path fill="#55798c" d="M79 19h82v11H79z"/>
-<path fill="#d39e32" stroke="#55798c" stroke-width="4" stroke-linejoin="round" d="M78 21h82l23 42H56z"/>
-<path stroke="#fae4a4" stroke-width="2" d="M65 56h112 M71 47h101 M75 38h93 M79 29h82 M88 24 68 61 M102 24 91 61 M116 24 114 61 M130 24 136 61 M145 24 159 61 M157 24 174 61"/>
-<path fill="#e5b972" stroke="#55798c" stroke-width="3" d="M68 63h104v35H68z"/>
-<path fill="#55798c" d="M79 67h4v31h-4z M100 67h4v31h-4z M120 67h4v31h-4z M140 67h4v31h-4z M159 67h4v31h-4z"/>
-<path fill="#8f644f" d="M83 74h17v19H83z M104 74h16v19h-16z M124 74h16v19h-16z M144 74h15v19h-15z"/>
-<path fill="#d0a15a" d="M85 77h13v14H85z M106 77h12v14h-12z M126 77h12v14h-12z M146 77h11v14h-11z"/>
-<path fill="#a5c2ce" stroke="#55798c" stroke-width="2.5" d="M73 98h94v31H73z"/>
-<path fill="#54798c" d="M79 105h16v21H79z M101 105h16v21h-16z M123 105h16v21h-16z M145 105h16v21h-16z"/>
-<path fill="#d7ae65" d="M77 98h86v5H77z"/>
-<path stroke="#55798c" stroke-width="3" d="M12 130h216"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none" style="color:#426a80">
+<title>Innsbruck – Goldenes Dachl mit charakteristischem Erker und Ziegeldach</title>
+<g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 114c15-1 28 1 42 0 16-1 27-1 41 0s17-1 25 0" stroke-width="3"/>
+<path d="M11 112V27h98v85M9 27h102M12 69h27m43 0h27" stroke-width="2.8"/>
+<path d="M17 35h16v23H17zM87 35h16v23H87zM17 77h16v25H17zM87 77h16v25H87z" stroke-width="2.8"/>
+<path d="M24 35v23m70-23v23m-70 19v25m70-25v25M17 47h16m54 0h16M17 90h16m54 0h16" stroke-width="1.9"/>
+<path d="M37 56 48 25h24l11 31z" stroke-width="3.4"/>
+<path d="M42 49h36M45 41h30M47 33h26M40 56h40" stroke-width="1.85"/>
+<path d="m48 25-8 31m17-31-7 31m16-31-1 31m7-27 7 27" stroke-width="1.6"/>
+<path d="M39 58h42v34H39zM36 92h48M39 96h42" stroke-width="2.8"/>
+<path d="M43 88V65m11 23V65m12 23V65m11 23V65" stroke-width="2.1"/>
+<path d="M42 71q5-8 11 0m2 0q5-8 10 0m2 0q5-8 10 0" stroke-width="1.8"/>
+<path d="M44 81h8m4 0h8m4 0h8M38 101h44" stroke-width="2"/>
+<path d="M44 105v7m32-7v7M38 104h44" stroke-width="2.4"/>
+<path d="M45 113V98h30v15M51 112V99m18 13V99" stroke-width="1.9"/>
+</g>
+<path fill="currentColor" d="M48 22h24l3 4H45zM36 56h48v4H36zM37 90h46v3H37z"/>
 </svg>
