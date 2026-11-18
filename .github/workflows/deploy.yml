@@ -117,6 +117,16 @@ jobs:
           grep -Fq 'id="comedy-locations"' public/en/index.html
           grep -Fq 'Quatsch Comedy Club' public/index.html
           grep -Fq 'Atelier Theater Köln' public/index.html
+          grep -Fq '<span class="travel-landmark-label">Manneken Pis</span>' public/index.html
+          grep -Fq '<span class="travel-landmark-label">Manneken Pis</span>' public/en/index.html
+          grep -Fq '<span class="travel-landmark-label">Hagia Sophia</span>' public/index.html
+          grep -Fq '<span class="travel-landmark-label">Hagia Sophia</span>' public/en/index.html
+          grep -Fq '<span class="travel-landmark-label">Goldenes Dachl</span>' public/index.html
+          grep -Fq '<span class="travel-landmark-label">Golden Roof</span>' public/en/index.html
+          grep -Fq '<span class="travel-landmark-label">Bozner Dom</span>' public/index.html
+          grep -Fq '<span class="travel-landmark-label">Bolzano Cathedral</span>' public/en/index.html
+          grep -Fq 'media/landmarks/istanbul.svg?v=20261118-revised' public/index.html
+          grep -Fq 'media/landmarks/innsbruck.svg?v=20261118-revised' public/en/index.html
           grep -Fq 'Atelier Theater Köln' public/en/index.html
           grep -Fq 'KERB Foodhall / Pink Room' public/index.html
           grep -Fq 'KERB Foodhall / Pink Room' public/en/index.html

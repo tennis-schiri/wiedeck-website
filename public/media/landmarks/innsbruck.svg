@@ -1,1 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140"><title>Innsbruck: Nordkette und Goldenes Dachl</title><path fill="#a8c9d6" d="M6 70 46 22l30 33 20-36 23 35 26-42 40 44 23-28 24 31v62H6z"/><path fill="#426a80" d="m12 66 34-44 31 34 18-37 24 37 27-44 39 44 23-28 24 34-45-12-20 15-26-25-22 26-24-19-19 17-29-12z"/><path fill="#628da1" d="M48 76 120 44 196 76v52H48z"/><path fill="#ecd294" d="M65 79 120 55l58 24-10 13H74z"/><path fill="#426a80" d="M62 92h116v36H62z"/><path fill="#d5e6ec" d="M76 97h20v24H76z M108 97h25v31h-25z M145 97h20v24h-20z"/><path stroke="#426a80" stroke-width="3" fill="none" d="M68 87h105M70 80l50-20 52 20M50 128h140"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" width="240" height="140">
+<title>Goldenes Dachl in Innsbruck – vergoldetes Erkerdach und verzierte Fassade</title>
+<path fill="#d7e2e8" stroke="#55798c" stroke-width="2.5" d="M18 23h204v107H18z"/>
+<path fill="#55798c" d="M27 39h20v31H27z M193 39h20v31h-20z M27 88h20v31H27z M193 88h20v31h-20z"/>
+<path fill="#eff4f6" d="M33 43h8v22h-8z M199 43h8v22h-8z M33 92h8v22h-8z M199 92h8v22h-8z"/>
+<path fill="#55798c" d="M79 19h82v11H79z"/>
+<path fill="#d39e32" stroke="#55798c" stroke-width="4" stroke-linejoin="round" d="M78 21h82l23 42H56z"/>
+<path stroke="#fae4a4" stroke-width="2" d="M65 56h112 M71 47h101 M75 38h93 M79 29h82 M88 24 68 61 M102 24 91 61 M116 24 114 61 M130 24 136 61 M145 24 159 61 M157 24 174 61"/>
+<path fill="#e5b972" stroke="#55798c" stroke-width="3" d="M68 63h104v35H68z"/>
+<path fill="#55798c" d="M79 67h4v31h-4z M100 67h4v31h-4z M120 67h4v31h-4z M140 67h4v31h-4z M159 67h4v31h-4z"/>
+<path fill="#8f644f" d="M83 74h17v19H83z M104 74h16v19h-16z M124 74h16v19h-16z M144 74h15v19h-15z"/>
+<path fill="#d0a15a" d="M85 77h13v14H85z M106 77h12v14h-12z M126 77h12v14h-12z M146 77h11v14h-11z"/>
+<path fill="#a5c2ce" stroke="#55798c" stroke-width="2.5" d="M73 98h94v31H73z"/>
+<path fill="#54798c" d="M79 105h16v21H79z M101 105h16v21h-16z M123 105h16v21h-16z M145 105h16v21h-16z"/>
+<path fill="#d7ae65" d="M77 98h86v5H77z"/>
+<path stroke="#55798c" stroke-width="3" d="M12 130h216"/>
+</svg>
