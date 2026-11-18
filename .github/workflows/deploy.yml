@@ -164,8 +164,8 @@ jobs:
           grep -Fq 'html[data-theme="dark"] .hrc-collection' public/assets/hrc-collector.css
           test "$(grep -o 'class="hrc-stop"' public/index.html | wc -l)" -eq 23
           test "$(grep -o 'class="hrc-stop"' public/en/index.html | wc -l)" -eq 23
-          grep -Fq 'London (Piccadilly Circus)' public/index.html
-          grep -Fq 'London (Original)' public/en/index.html
+          grep -Fq 'LONDON <small>PICCADILLY</small>' public/index.html
+          grep -Fq 'LONDON <small>ORIGINAL</small>' public/en/index.html
           test "$(grep -o 'class="hrc-flag hrc-flag-image"' public/index.html | wc -l)" -eq 23
           test "$(grep -o 'class="hrc-flag hrc-flag-image"' public/en/index.html | wc -l)" -eq 23
           ! grep -Fq '<span class="hrc-flag"' public/index.html
