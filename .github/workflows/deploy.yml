@@ -153,8 +153,8 @@ jobs:
           test -s public/assets/hrc-collector.css
           grep -Fq '.hrc-collection .hrc-flag-ribbon' public/assets/hrc-collector.css
           grep -Fq 'html[data-theme="light"] .hrc-collection' public/assets/hrc-collector.css
-          grep -Fq 'hrc-collector.css?v=20261118-hrc10-flag-ribbon' public/index.html
-          grep -Fq 'hrc-collector.css?v=20261118-hrc10-flag-ribbon' public/en/index.html
+          grep -Fq 'hrc-collector.css?v=20261118-hrc11-single-flag' public/index.html
+          grep -Fq 'hrc-collector.css?v=20261118-hrc11-single-flag' public/en/index.html
           test -s scripts/build_hrc_pins.py
           test "$(find public/media/hrc-real-pins -maxdepth 1 -name '*.webp' -type f | wc -l)" -eq 23
           test -s public/media/hrc-real-pins/rome.webp
