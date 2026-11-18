@@ -97,7 +97,7 @@ jobs:
           test "$(find public/media/flags -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 19
           test "$(grep -o 'class="travel-flag travel-flag-image"' public/index.html | wc -l)" -eq 26
           test "$(grep -o 'class="travel-flag travel-flag-image"' public/en/index.html | wc -l)" -eq 26
-          test "$(find public/media/landmarks -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 26
+          test "$(find public/media/landmarks -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 28
           test "$(grep -o 'class="travel-landmark-icon"' public/index.html | wc -l)" -eq 26
           test "$(grep -o 'class="travel-landmark-icon"' public/en/index.html | wc -l)" -eq 26
           test "$(grep -o 'class="travel-landmark-label"' public/index.html | wc -l)" -eq 26
