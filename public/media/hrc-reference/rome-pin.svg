@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 205" role="img" aria-label="Emaille-Sammlerpin Rom: Gitarrensilhouette, Kolosseum, italienische Farben und goldene Konturen"><defs>
+<linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fcf4d5"/><stop offset=".13" stop-color="#bc8d43"/><stop offset=".30" stop-color="#f9df98"/><stop offset=".54" stop-color="#a06c32"/><stop offset=".82" stop-color="#f5d28a"/><stop offset="1" stop-color="#81552d"/></linearGradient>
+<linearGradient id="gloss" x1="0" y1="0" x2=".6" y2="1"><stop stop-color="#ffffff" stop-opacity=".38"/><stop offset=".38" stop-color="#ffffff" stop-opacity=".03"/><stop offset="1" stop-color="#241c18" stop-opacity=".18"/></linearGradient>
+<filter id="shadow" x="-25%" y="-25%" width="150%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="3"/><feOffset dx="2" dy="4"/><feComponentTransfer><feFuncA type="linear" slope=".37"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<path d="M26 43Q36 29 53 39L98 54Q143 28 169 62L220 90L270 90L279 80L314 79L333 89L334 116L313 126L270 124L257 116L219 117L171 153Q143 185 94 158L48 147Q29 140 17 114Q8 87 26 43Z" fill="#a43d3b" stroke="#4b3428" stroke-width="12" stroke-linejoin="round" filter="url(#shadow)"/><path d="M26 43Q36 29 53 39L98 54Q143 28 169 62L220 90L270 90L279 80L314 79L333 89L334 116L313 126L270 124L257 116L219 117L171 153Q143 185 94 158L48 147Q29 140 17 114Q8 87 26 43Z" fill="#a43d3b" stroke="url(#metal)" stroke-width="8" stroke-linejoin="round"/><path d="M26 43Q36 29 53 39L98 54Q143 28 169 62L220 90L270 90L279 80L314 79L333 89L334 116L313 126L270 124L257 116L219 117L171 153Q143 185 94 158L48 147Q29 140 17 114Q8 87 26 43Z" fill="none" stroke="#fff5c8" stroke-width="1.6" stroke-linejoin="round" opacity=".85"/>
+<path d="M23 90Q23 54 58 46L94 59v89l-45-10Q21 122 23 90Z" fill="#25864c"/>
+<path d="M58 47l42 12v97l-42-15z" fill="#efe9ce"/>
+<path d="M99 59Q150 42 178 72l-2 78q-30 29-77 6z" fill="#cf493d"/>
+<path d="M174 100h137" stroke="#eac27b" stroke-width="8"/><path d="M174 102h139" stroke="#363235" stroke-width="3"/>
+<path d="M192 97v11" stroke="#ecdcaf" stroke-width="1.2"/><path d="M212 97v11" stroke="#ecdcaf" stroke-width="1.2"/><path d="M232 97v11" stroke="#ecdcaf" stroke-width="1.2"/><path d="M252 97v11" stroke="#ecdcaf" stroke-width="1.2"/><path d="M272 97v11" stroke="#ecdcaf" stroke-width="1.2"/>
+<path d="M304 85q17-7 24 4v28q-16 9-25 2" fill="#313439" stroke="url(#metal)" stroke-width="4"/>
+<circle cx="322" cy="87" r="2.7" fill="#f1d599"/><circle cx="322" cy="96" r="2.7" fill="#f1d599"/><circle cx="322" cy="109" r="2.7" fill="#f1d599"/><circle cx="322" cy="119" r="2.7" fill="#f1d599"/>
+<path d="M29 113q57-11 116 8l32 32q-52 33-108 0z" fill="#e9c590" stroke="#845936" stroke-width="2"/>
+<path d="M48 124Q71 94 100 87q30-5 48 32l3 34q-41 21-86 2z" fill="#d7ad76" stroke="#754c36" stroke-width="3"/>
+<path d="M57 125q17-23 44-26 25 0 34 20v30q-35 14-71 2z" fill="#d9b98b" stroke="#f3dbab" stroke-width="1.6"/>
+<path d="M60 117q8-14 16 0v15h-16z" fill="#54453c" stroke="#6c4d35" stroke-width="1.1"/><path d="M77 117q8-14 16 0v15h-16z" fill="#54453c" stroke="#6c4d35" stroke-width="1.1"/><path d="M94 117q8-14 16 0v15h-16z" fill="#54453c" stroke="#6c4d35" stroke-width="1.1"/><path d="M111 117q8-14 16 0v15h-16z" fill="#54453c" stroke="#6c4d35" stroke-width="1.1"/><path d="M128 117q8-14 16 0v15h-16z" fill="#54453c" stroke="#6c4d35" stroke-width="1.1"/>
+<path d="M51 138h99M50 145h97" stroke="#86634b" stroke-width="3"/>
+<path d="M20 83q69-39 135-9" stroke="#fff8d4" opacity=".54" stroke-width="4" fill="none"/>
+<path d="M35 45Q115 5 177 55" stroke="#f2d498" stroke-width="2" fill="none"/>
+<path d="M90 166q39 12 80-10" stroke="url(#metal)" stroke-width="5" fill="none"/>
+<path d="M74 166q48 15 89-8" stroke="#66422c" stroke-width="2" fill="none"/>
+<text x="111" y="172" font-size="17" fill="#f9e4ab" stroke="#613b2e" stroke-width=".3" text-anchor="middle" font-family="Georgia,serif" font-weight="900">ROME</text>
+<path d="M26 43Q36 29 53 39L98 54Q143 28 169 62L220 90L270 90L279 80L314 79L333 89L334 116L313 126L270 124L257 116L219 117L171 153Q143 185 94 158L48 147Q29 140 17 114Q8 87 26 43Z" fill="url(#gloss)"/></svg>
