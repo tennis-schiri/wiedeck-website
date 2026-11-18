@@ -654,3 +654,10 @@ html[data-theme="dark"] .travel-landmark-icon{filter:brightness(0) invert(.85)}
 .travel-credit a{color:var(--travel-text);text-decoration:underline;text-underline-offset:2px}
 .travel-credit a:focus-visible{outline:2px solid var(--travel-accent);outline-offset:3px}
 @media(max-width:560px){.travel-landmark-icon{height:109px;max-width:151px}.travel-credit{margin-left:0;width:100%}}
+
+/* Preserve the actual gold roof, turquoise tiles and dome details in the three custom illustrations. */
+html[data-theme="dark"] .travel-landmark-icon[src*="/istanbul.svg"],
+html[data-theme="dark"] .travel-landmark-icon[src*="/innsbruck.svg"],
+html[data-theme="dark"] .travel-landmark-icon[src*="/bolzano.svg"]{
+  filter:brightness(1.55) saturate(.9);
+}
