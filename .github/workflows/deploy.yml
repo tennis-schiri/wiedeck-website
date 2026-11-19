@@ -219,8 +219,12 @@ jobs:
           test -s public/logos/juxilo-jx04-dark.svg
           test -s public/logos/juxilo-jx04-horizontal.svg
           test -s public/logos/juxilo-jx04-icon.svg
-          grep -Fq 'logos/juxilo-jx04-light.svg' public/index.html
-          grep -Fq 'logos/juxilo-jx04-dark.svg' public/en/index.html
+          # Both language variants use the approved horizontal JX04 artwork.
+          for page in public/index.html public/en/index.html; do
+            test "$(grep -o 'logos/juxilo-jx04-horizontal.svg' "$page" | wc -l)" -eq 2
+            grep -Fq 'class="project-logo project-logo--juxilo juxilo-logo-horizontal"' "$page"
+            grep -Fq 'class="juxilo-logo-horizontal"' "$page"
+          done
           test -s public/logos/mini-apps/wm04b-logo.svg
           test -s public/logos/mini-apps/pl05-icon.webp
           test -s public/logos/mini-apps/fc05-icon.webp
