@@ -3,7 +3,7 @@
 The source sheets stay in Git, but only cropped transparent pin assets are deployed.
 """
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 import base64, io
 
 SHEET12 = [
@@ -34,6 +34,38 @@ def canvas(im, size=350):
     result.alpha_composite(im,((size-im.width)//2,(size-im.height)//2))
     return result
 
+def correct_london_original_label(pin):
+    """Keep the original Old Park Lane/Big Ben pin motif; replace only its incorrect lower inscription.
+
+    The source collage renders the lower ribbon lettering incorrectly. Work on the
+    already scaled, transparent 350px pin to keep the rest of the artwork unchanged.
+    """
+    ribbon = Image.new('RGBA', pin.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(ribbon)
+    shape = [(78, 282), (110, 292), (175, 301), (240, 292),
+             (272, 282), (264, 324), (230, 335), (175, 341),
+             (120, 335), (86, 324)]
+    draw.polygon(shape, fill=(15, 35, 61, 255))
+    draw.line(shape + [shape[0]], fill=(227, 181, 89, 255), width=5, joint='curve')
+    draw.line([(99, 297), (175, 308), (251, 297)],
+              fill=(248, 220, 152, 200), width=2, joint='curve')
+    try:
+        font = ImageFont.truetype('DejaVuSerif-Bold.ttf', 27)
+    except OSError:
+        font = ImageFont.load_default()
+    text = 'LONDON'
+    left, top, right, bottom = draw.textbbox((0, 0), text, font=font)
+    draw.text((175 - (right - left) / 2, 309 - top), text, font=font,
+              fill=(255, 235, 174, 255), stroke_width=1, stroke_fill=(69, 38, 17, 255))
+    # Never paint outside the already transparent pin silhouette.
+    original_alpha = pin.getchannel('A')
+    corrected_alpha = Image.new('L', ribbon.size, 0)
+    corrected_alpha.paste(ribbon.getchannel('A'))
+    from PIL import ImageChops
+    ribbon.putalpha(ImageChops.multiply(corrected_alpha, original_alpha))
+    return Image.alpha_composite(pin, ribbon)
+
+
 def main():
     root=Path(__file__).resolve().parent.parent
     store=root/'assets/hrc-art'
@@ -59,6 +91,8 @@ def main():
         ImageDraw.Draw(mask).polygon([(x-x0,y-y0) for x,y in poly],fill=255)
         im.putalpha(mask.filter(ImageFilter.GaussianBlur(.75)))
         pin=canvas(im)
+        if slug == 'london-original':
+            pin=correct_london_original_label(pin)
         pin.save(target/(slug+'.webp'),'WEBP',quality=93,method=2)
     files=list(target.glob('*.webp'))
     assert len(files)==23,('Expected 23 rendered pins',files)
