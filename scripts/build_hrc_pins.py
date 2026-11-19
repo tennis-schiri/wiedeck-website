@@ -82,14 +82,25 @@ def main():
     poster=Image.open(io.BytesIO(raw)).convert('RGBA')
     assert poster.size==(1536,1024),poster.size
     for slug,poly in TRACES.items():
-        x0=min(x for x,y in poly)-3
-        y0=min(y for x,y in poly)-3
-        x1=max(x for x,y in poly)+3
-        y1=max(y for x,y in poly)+3
+        # The traced contour used to sit right against the enamel border.
+        # Retain the original artwork and a safe 7 px halo around pointed details.
+        # Expanding the alpha silhouette (not the rectangular image) avoids
+        # chopping off the tips and keeps the original card background transparent.
+        margin=12
+        x0=max(0,min(x for x,y in poly)-margin)
+        y0=max(0,min(y for x,y in poly)-margin)
+        x1=min(poster.width,max(x for x,y in poly)+margin)
+        y1=min(poster.height,max(y for x,y in poly)+margin)
         im=poster.crop((x0,y0,x1,y1))
         mask=Image.new('L',im.size,0)
         ImageDraw.Draw(mask).polygon([(x-x0,y-y0) for x,y in poly],fill=255)
-        im.putalpha(mask.filter(ImageFilter.GaussianBlur(.75)))
+        mask=mask.filter(ImageFilter.MaxFilter(11))
+        mask=mask.filter(ImageFilter.GaussianBlur(.8))
+        im.putalpha(mask)
+        # Trim only transparent padding; canvas() adds uniform breathing room.
+        bounds=im.getbbox()
+        if bounds:
+            im=im.crop(bounds)
         pin=canvas(im)
         if slug == 'london-original':
             pin=correct_london_original_label(pin)
