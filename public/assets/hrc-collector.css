@@ -558,3 +558,95 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
   .hrc-collection .hrc-city,
   .hrc-collection .hrc-city--long{font-size:14px!important}
 }
+
+
+/* HRC20: vinyl on top, country flag at its center, full-record hover rotation. */
+.hrc-collection .hrc-stop{isolation:isolate!important}
+.hrc-collection .hrc-vinyl,
+.hrc-collection .hrc-stop--traced .hrc-vinyl{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  z-index:5!important;
+  top:18px!important;
+  left:50%!important;
+  right:auto!important;
+  width:min(72%,132px)!important;
+  max-width:none!important;
+  height:auto!important;
+  aspect-ratio:1!important;
+  transform:translateX(-50%) rotate(0deg)!important;
+  transform-origin:center center!important;
+  border:3px solid #252528!important;
+  background:
+    radial-gradient(circle at 31% 24%,#ffffff20 0,transparent 31%),
+    repeating-radial-gradient(circle,#171719 0 3px,#3a3b3e 3.6px 4.1px,#111214 4.7px 8px)!important;
+  box-shadow:0 3px 9px #0008,inset 0 1px 3px #ffffff24!important;
+  will-change:transform;
+}
+.hrc-collection .hrc-vinyl::after{
+  pointer-events:none!important;
+  z-index:1!important;
+}
+.hrc-collection .hrc-vinyl-label{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:45%!important;
+  height:45%!important;
+  min-width:0!important;
+  border:3px solid #b48a51!important;
+  border-radius:50%!important;
+  background:radial-gradient(circle,#f9e9c8,#b88950)!important;
+  overflow:hidden!important;
+  box-shadow:0 0 0 2px #252528!important;
+}
+.hrc-collection .hrc-vinyl .hrc-flag-ribbon{
+  position:static!important;
+  inset:auto!important;
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+  transform:none!important;
+  width:100%!important;
+  height:100%!important;
+  background:transparent!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:50%!important;
+}
+.hrc-collection .hrc-vinyl .hrc-flag-image{
+  position:static!important;
+  display:block!important;
+  width:85%!important;
+  height:auto!important;
+  max-height:none!important;
+  aspect-ratio:3/2!important;
+  transform:none!important;
+  object-fit:contain!important;
+  border:0!important;
+  border-radius:1px!important;
+  box-shadow:0 1px 2px #0006!important;
+}
+.hrc-collection .hrc-ticket{z-index:1!important}
+.hrc-collection .hrc-pass-inner{padding:156px 8px 12px!important}
+.hrc-collection .hrc-stop:hover .hrc-vinyl,
+.hrc-collection .hrc-stop:focus-within .hrc-vinyl{
+  animation:hrc-vinyl-turn .95s ease-in-out both!important;
+}
+@keyframes hrc-vinyl-turn{
+  from{transform:translateX(-50%) rotate(0deg)}
+  to{transform:translateX(-50%) rotate(360deg)}
+}
+@media(max-width:600px){
+  .hrc-collection .hrc-vinyl,
+  .hrc-collection .hrc-stop--traced .hrc-vinyl{
+    top:13px!important;
+    width:min(64%,105px)!important;
+  }
+  .hrc-collection .hrc-pass-inner{padding:119px 7px 11px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .hrc-collection .hrc-stop:hover .hrc-vinyl,
+  .hrc-collection .hrc-stop:focus-within .hrc-vinyl{animation:none!important}
+}
