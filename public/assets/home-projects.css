@@ -683,3 +683,26 @@ html[data-theme="dark"] .travel-landmark-icon{filter:brightness(0) invert(.85)}
   .travel-card-top .travel-top-badges{gap:4px}
   .travel-card-top .travel-hrc-logo{width:17px;height:17px;min-width:17px}
 }
+
+
+/* Tennis trip badge: crisp illustrated ball aligned with flag and HRC marker. */
+.travel-card-top .travel-tennis-ball{
+  display:block;
+  width:20px;
+  height:20px;
+  min-width:20px;
+  flex:0 0 20px;
+  object-fit:contain;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  filter:drop-shadow(0 1px 1px #0003);
+}
+@media(max-width:560px){
+  .travel-card-top .travel-tennis-ball{
+    width:17px;
+    height:17px;
+    min-width:17px;
+    flex-basis:17px;
+  }
+}
