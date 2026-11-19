@@ -133,38 +133,55 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
 .hrc-collection .hrc-street{display:block;font:normal 500 clamp(10px,.86vw,12px)/1.3 Arial,Helvetica,sans-serif;letter-spacing:.005em;color:#493728;max-width:100%;overflow-wrap:break-word}
 @media(max-width:720px){.hrc-collection .hrc-street{font-size:11px;line-height:1.25}}
 
-/* HRC10: real flag ribbon, full height, undistorted repeated national flags. */
-.hrc-collection .hrc-flag-ribbon{
- background-color:#c9a779!important;
- background-image:var(--hrc-flag)!important;
- background-position:center center!important;
- background-size:100% auto!important;
- background-repeat:repeat-y!important;
- box-shadow:inset -3px 0 4px #432a1d44,inset 2px 0 2px #fff8!important;
-}
 
-/* HRC11: one properly proportioned country flag per ticket, no vertical stripes or tiling. */
+/* HRC12: Real SVG flags, once per ticket. No CSS background URLs or repeated patterns. */
 .hrc-collection .hrc-flag-ribbon{
-  background:none!important;
-  border-right:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
   box-shadow:none!important;
   overflow:visible!important;
 }
-.hrc-collection .hrc-flag-ribbon::before{
-  content:"";
-  position:absolute;
-  display:block;
-  width:calc(100% - 8px);
-  aspect-ratio:3 / 2;
-  height:auto;
-  top:50%;
-  left:4px;
-  transform:translateY(-50%);
-  background-image:var(--hrc-flag);
-  background-size:contain;
-  background-repeat:no-repeat;
-  background-position:center;
-  border:1px solid #856c4d;
-  border-radius:2px;
-  box-shadow:0 2px 4px #53351c55;
+.hrc-collection .hrc-flag-ribbon::before{content:none!important;display:none!important}
+.hrc-collection .hrc-flag-ribbon .hrc-flag-image{
+  display:block!important;
+  position:static!important;
+  width:calc(100% - 8px)!important;
+  height:auto!important;
+  aspect-ratio:3 / 2!important;
+  max-height:46px!important;
+  min-width:0!important;
+  min-height:0!important;
+  transform:none!important;
+  object-fit:contain!important;
+  background:transparent!important;
+  border:1px solid #98754b!important;
+  border-radius:2px!important;
+  box-shadow:0 2px 4px #48301952!important;
+  filter:none!important;
+}
+
+/* Give every enamel pin its own space; don't let the next card cover the artwork. */
+.hrc-collection .hrc-grid{row-gap:8px!important;padding-top:16px;padding-bottom:16px}
+.hrc-collection .hrc-stop{height:202px!important;overflow:visible!important}
+.hrc-collection .hrc-ticket{height:168px!important;overflow:visible!important}
+.hrc-collection .hrc-enamel-pin{
+  top:-5px!important;
+  right:-20px!important;
+  width:clamp(140px,14.8vw,194px)!important;
+  height:196px!important;
+  overflow:visible!important;
+}
+.hrc-collection .hrc-pin-image{display:block!important;object-fit:contain!important;object-position:center center!important}
+@media(max-width:730px){
+  .hrc-collection .hrc-grid{row-gap:7px!important}
+  .hrc-collection .hrc-stop{height:198px!important}
+  .hrc-collection .hrc-enamel-pin{top:-2px!important;right:-16px!important;width:clamp(143px,38vw,185px)!important;height:188px!important}
+}
+@media(max-width:430px){
+  .hrc-collection .hrc-stop{height:186px!important}
+  .hrc-collection .hrc-enamel-pin{top:-2px!important;right:-12px!important;width:132px!important;height:177px!important}
 }
