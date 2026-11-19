@@ -840,3 +840,23 @@ html[data-theme="dark"] .travel-landmark-icon{filter:brightness(0) invert(.85)}
   .travel-card .travel-top-badges{gap:3px}
   .travel-card .travel-football-icon{width:17px;height:17px;min-width:17px;flex-basis:17px}
 }
+
+
+/* JUXILO JX04 — approved vector brand, with dedicated day/night assets. */
+.index-row--juxilo .project-juxilo-heading{display:inline-flex;align-items:center;position:relative;width:160px;height:86px;max-width:100%}
+.index-row--juxilo .project-logo--juxilo{width:160px;height:86px;max-width:100%;object-fit:contain;object-position:left center}
+.index-row--juxilo .project-logo--juxilo.logo-mode-dark{display:none}
+html[data-theme="dark"] .index-row--juxilo .project-logo--juxilo.logo-mode-light{display:none}
+html[data-theme="dark"] .index-row--juxilo .project-logo--juxilo.logo-mode-dark{display:block}
+.pulse-mini--juxilo .pulse-mini-juxilo-icon{object-fit:contain!important;border-radius:0!important}
+.minis-brand{min-width:0}
+.minis-brand-logo{width:min(100%,270px);height:160px;display:flex;align-items:center;justify-content:flex-start;margin:-18px 0 1px}
+.minis-brand-logo img{display:block;width:100%;height:100%;object-fit:contain;object-position:left center}
+.minis-brand-logo .juxilo-logo--dark{display:none}
+html[data-theme="dark"] .minis-brand-logo .juxilo-logo--light{display:none}
+html[data-theme="dark"] .minis-brand-logo .juxilo-logo--dark{display:block}
+@media(max-width:600px){
+  .index-row--juxilo .project-juxilo-heading{width:118px;height:70px}
+  .index-row--juxilo .project-logo--juxilo{width:118px;height:70px}
+  .minis-brand-logo{width:195px;height:116px;margin:-8px 0 3px}
+}
