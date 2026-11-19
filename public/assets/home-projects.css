@@ -860,3 +860,39 @@ html[data-theme="dark"] .minis-brand-logo .juxilo-logo--dark{display:block}
   .index-row--juxilo .project-logo--juxilo{width:118px;height:70px}
   .minis-brand-logo{width:195px;height:116px;margin:-8px 0 3px}
 }
+
+
+/* Dark mode: preserve the original colours of collector and tournament logos.
+   Neutral, contained light surfaces keep tiny full-colour marks legible. */
+html[data-theme="dark"] .travel-card .travel-top-badges :is(
+  .travel-hrc-logo,
+  .travel-tennis-ball,
+  .travel-hockey-icon,
+  .travel-football-icon
+){
+  box-sizing:border-box;
+  padding:2px;
+  background:#f9faf7;
+  border:1px solid rgba(17,28,36,.12);
+  border-radius:50%;
+  box-shadow:0 1px 4px rgba(0,0,0,.22);
+  filter:none;
+  opacity:1;
+  mix-blend-mode:normal;
+}
+html[data-theme="dark"] .travel-card .travel-event-logo--atp,
+html[data-theme="dark"] .travel-card .travel-event-logo--fedcup{
+  box-sizing:border-box;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:6px;
+  padding:3px 5px;
+  box-shadow:0 2px 5px rgba(0,0,0,.16);
+  filter:none;
+  opacity:1;
+  mix-blend-mode:normal;
+}
+html[data-theme="dark"] .travel-card--prague .travel-prague-final-label{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.22);
+}
