@@ -700,3 +700,47 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
   .hrc-collection .hrc-stop:hover .hrc-vinyl,
   .hrc-collection .hrc-stop:focus-within .hrc-vinyl{rotate:0deg!important}
 }
+
+
+/* HRC22 — record-player rotation and four corner rivets. */
+.hrc-collection .hrc-stop .hrc-vinyl{
+  transform:translateX(-50%)!important;
+  rotate:0deg!important;
+  transform-origin:center center!important;
+  transition:none!important;
+  animation:none!important;
+}
+.hrc-collection .hrc-stop:hover .hrc-vinyl,
+.hrc-collection .hrc-stop:focus-within .hrc-vinyl{
+  transform:translateX(-50%)!important;
+  transition:none!important;
+  animation:hrc-record-player 2.4s linear infinite!important;
+}
+@keyframes hrc-record-player{
+  from{rotate:0deg}
+  to{rotate:360deg}
+}
+/* Each pseudo-element paints two real-looking brass rivets, one at either side. */
+.hrc-collection .hrc-ticket::before,
+.hrc-collection .hrc-ticket::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:7!important;
+  left:7px!important;
+  right:7px!important;
+  width:auto!important;
+  height:15px!important;
+  border:none!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  background:
+    radial-gradient(circle 7px at 7.5px 7.5px,#fff8d0 0 14%,#f0c67b 24%,#c88b32 55%,#794321 79%,transparent 98%),
+    radial-gradient(circle 7px at calc(100% - 7.5px) 7.5px,#fff8d0 0 14%,#f0c67b 24%,#c88b32 55%,#794321 79%,transparent 98%)!important;
+  pointer-events:none!important;
+}
+.hrc-collection .hrc-ticket::before{top:7px!important;bottom:auto!important}
+.hrc-collection .hrc-ticket::after{bottom:7px!important;top:auto!important}
+@media(prefers-reduced-motion:reduce){
+  .hrc-collection .hrc-stop:hover .hrc-vinyl,
+  .hrc-collection .hrc-stop:focus-within .hrc-vinyl{animation:none!important}
+}
