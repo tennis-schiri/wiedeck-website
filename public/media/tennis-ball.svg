@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="title">
+<title id="title">Tennisball</title>
+<defs><radialGradient id="felt" cx="32%" cy="24%" r="80%"><stop offset="0" stop-color="#e6ff8e"/><stop offset=".55" stop-color="#badd3e"/><stop offset="1" stop-color="#759c16"/></radialGradient><clipPath id="ball"><circle cx="32" cy="32" r="27"/></clipPath></defs>
+<circle cx="32" cy="32" r="29" fill="#39500f" opacity=".18"/>
+<circle cx="32" cy="31" r="27" fill="url(#felt)" stroke="#6a8f19" stroke-width="1.5"/>
+<g clip-path="url(#ball)" fill="none" stroke="#f8ffe8" stroke-linecap="round" stroke-width="4.8"><path d="M11 5C31 13 31 49 11 57"/><path d="M53 5C33 13 33 49 53 57"/></g>
+<circle cx="32" cy="31" r="27" fill="none" stroke="#f6ffb1" stroke-width="1" opacity=".65"/>
+</svg>
