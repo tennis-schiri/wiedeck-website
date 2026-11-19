@@ -745,3 +745,49 @@ html[data-theme="dark"] .travel-landmark-icon{filter:brightness(0) invert(.85)}
   .travel-card--london .travel-event-logo--atp{width:53px;height:27px}
   .travel-card--london .travel-event-logo--olympics{width:43px;height:23px}
 }
+
+
+/* Hockey: small illustrated stick and puck alongside the country flags. */
+.travel-card-top .travel-hockey-icon{
+  display:block;
+  width:20px;
+  height:20px;
+  min-width:20px;
+  flex:0 0 20px;
+  object-fit:contain;
+  background:transparent;
+  filter:drop-shadow(0 1px 1px #0003);
+}
+/* Prague: Fed Cup final marker below the landmark. */
+.travel-card--prague .travel-prague-events{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:7px;
+  min-width:0;
+  margin:0 0 5px;
+  padding:2px 0 0;
+}
+.travel-card--prague .travel-event-logo--fedcup{
+  display:block;
+  width:80px;
+  height:34px;
+  max-width:70%;
+  object-fit:contain;
+}
+.travel-card--prague .travel-prague-final-label{
+  display:inline-block;
+  padding:3px 5px;
+  border:1px solid var(--travel-edge);
+  border-radius:4px;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.08em;
+  color:var(--travel-text);
+}
+@media(max-width:560px){
+  .travel-card-top .travel-hockey-icon{width:17px;height:17px;min-width:17px;flex-basis:17px}
+  .travel-card--prague .travel-prague-events{gap:4px;margin-bottom:3px}
+  .travel-card--prague .travel-event-logo--fedcup{height:26px;width:65px}
+  .travel-card--prague .travel-prague-final-label{font-size:8px;padding:2px 4px}
+}
