@@ -130,7 +130,7 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
 }
 
 /* HRC09: only compact street labels beneath city names. */
-.hrc-collection .hrc-street{display:block;font:normal 500 clamp(10px,.86vw,12px)/1.3 Arial,Helvetica,sans-serif;letter-spacing:.005em;color:#493728;max-width:100%;overflow-wrap:break-word}
+.hrc-collection .hrc-street{display:block;font:italic 500 clamp(10px,.86vw,12px)/1.3 Arial,Helvetica,sans-serif;letter-spacing:.005em;color:#493728;max-width:100%;overflow-wrap:break-word}
 @media(max-width:720px){.hrc-collection .hrc-street{font-size:11px;line-height:1.25}}
 
 
@@ -203,7 +203,7 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
   white-space:nowrap;
   box-shadow:inset 0 0 0 1px #fff7e5;
 }
-.hrc-collection .hrc-status--relocated{
+.hrc-collection .hrc-status--former{
   color:#674b29;
   border-color:#9d7844;
   background:#f6e8c8;
@@ -215,3 +215,6 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
     padding:2px 5px;
   }
 }
+
+/* HRC14: consistent italic street names across both languages. */
+.hrc-collection .hrc-street{font-style:italic!important}
