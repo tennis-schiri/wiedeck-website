@@ -91,8 +91,8 @@ jobs:
           grep -q 'id="unterwegs"' public/en/index.html
           test "$(grep -o '<article class="travel-card' public/index.html | wc -l)" -eq 26
           test "$(grep -o '<article class="travel-card' public/en/index.html | wc -l)" -eq 26
-          test "$(grep -o 'travel-card--repeat' public/index.html | wc -l)" -eq 5
-          test "$(grep -o 'travel-card--repeat' public/en/index.html | wc -l)" -eq 5
+          test "$(grep -o 'travel-card--repeat' public/index.html | wc -l)" -eq 6
+          test "$(grep -o 'travel-card--repeat' public/en/index.html | wc -l)" -eq 6
           grep -q 'Schottland' public/index.html
           grep -q 'Scotland' public/en/index.html
           grep -Fq 'travel-grid' public/assets/home-projects.css
