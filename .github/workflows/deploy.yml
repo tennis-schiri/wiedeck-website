@@ -116,8 +116,8 @@ jobs:
           test "$(grep -o 'class="travel-flag-slot"' public/en/index.html | wc -l)" -eq 27
           ! grep -Fq 'class="travel-number"' public/index.html
           ! grep -Fq 'class="travel-number"' public/en/index.html
-          test "$(grep -o 'class="travel-football-icon"' public/index.html | wc -l)" -eq 3
-          test "$(grep -o 'class="travel-football-icon"' public/en/index.html | wc -l)" -eq 3
+          test "$(grep -o 'class="travel-football-icon"' public/index.html | wc -l)" -eq 4
+          test "$(grep -o 'class="travel-football-icon"' public/en/index.html | wc -l)" -eq 4
           test "$(find public/media/landmarks -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 29
           test "$(grep -o 'class="travel-landmark-icon"' public/index.html | wc -l)" -eq 27
           test "$(grep -o 'class="travel-landmark-icon"' public/en/index.html | wc -l)" -eq 27
