@@ -896,3 +896,21 @@ html[data-theme="dark"] .travel-card--prague .travel-prague-final-label{
   background:rgba(255,255,255,.08);
   border-color:rgba(255,255,255,.22);
 }
+
+/* Horizontal JUXILO JX04 brand mark — no square-logo cropping. */
+.index-row--juxilo .project-juxilo-heading{width:min(100%,250px);height:76px}
+.index-row--juxilo .project-logo--juxilo.juxilo-logo-horizontal{
+  display:block;width:100%;height:100%;max-width:100%;object-fit:contain;object-position:left center
+}
+.minis-brand-logo{width:min(100%,360px);height:116px;margin:-9px 0 6px}
+.minis-brand-logo .juxilo-logo-horizontal{
+  display:block;width:100%;height:100%;object-fit:contain;object-position:left center
+}
+html[data-theme="dark"] .index-row--juxilo .juxilo-logo-horizontal,
+html[data-theme="dark"] .minis-brand-logo .juxilo-logo-horizontal{
+  filter:drop-shadow(0 1px 1px rgba(255,255,255,.35));
+}
+@media(max-width:600px){
+  .index-row--juxilo .project-juxilo-heading{width:min(100%,175px);height:60px}
+  .minis-brand-logo{width:min(100%,275px);height:85px;margin:-5px 0 8px}
+}
