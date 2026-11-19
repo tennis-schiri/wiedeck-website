@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 350" width="350" height="350" role="img" aria-labelledby="title">
+<title id="title">London Original 1971 – Old Park Lane enamel-style collector pin</title>
+<defs>
+ <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8dc88"/><stop offset=".24" stop-color="#ac6927"/><stop offset=".52" stop-color="#ffe6a0"/><stop offset=".74" stop-color="#9b5825"/><stop offset="1" stop-color="#efc46b"/></linearGradient>
+ <linearGradient id="sky" x1=".1" y1="0" x2=".9" y2="1"><stop stop-color="#274663"/><stop offset=".55" stop-color="#122a42"/><stop offset="1" stop-color="#081c32"/></linearGradient>
+ <linearGradient id="cream" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e9e0cb"/><stop offset="1" stop-color="#9e957e"/></linearGradient>
+ <linearGradient id="maroon" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a52d32"/><stop offset="1" stop-color="#541b27"/></linearGradient>
+ <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur in="SourceAlpha" stdDeviation="4"/><feOffset dx="2" dy="4"/><feComponentTransfer><feFuncA type="linear" slope=".45"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<g filter="url(#shadow)">
+ <path d="M175 10 C237 11 291 54 304 120 L312 218 C313 262 284 310 228 330 Q175 348 122 330 C66 310 37 262 38 218 L46 120 C59 54 113 11 175 10Z" fill="url(#g)" stroke="#5b3416" stroke-width="5"/>
+ <path d="M175 22 C232 23 279 60 291 123 L297 218 C299 260 270 299 224 318 Q175 337 126 318 C80 299 51 260 53 218 L59 123 C71 60 118 23 175 22Z" fill="url(#sky)" stroke="#fbe6a7" stroke-width="4"/>
+ <path d="M78 104 H272 V232 H78Z" fill="#bcb4a6" stroke="#3f3126" stroke-width="3"/>
+ <path d="M87 97 H263 V115 H87Z" fill="url(#cream)" stroke="#fff0bd" stroke-width="2"/>
+ <path d="M82 116 H268 V126 H82Z" fill="#73664f"/>
+ <g fill="#e3d8bd" stroke="#4f4435" stroke-width="2">
+  <rect x="94" y="127" width="45" height="93"/><rect x="152" y="127" width="46" height="93"/><rect x="211" y="127" width="45" height="93"/>
+ </g>
+ <g fill="#2a3940" stroke="#6b543b" stroke-width="3">
+  <rect x="103" y="138" width="27" height="50" rx="13"/>
+  <rect x="161" y="138" width="28" height="50" rx="13"/>
+  <rect x="220" y="138" width="27" height="50" rx="13"/>
+ </g>
+ <g fill="none" stroke="#dbc08f" stroke-width="2">
+  <path d="M116 140V188 M103 163H130 M175 140V188 M161 163H189 M233 140V188 M220 163H247"/>
+ </g>
+ <path d="M87 180 Q175 164 263 180 L259 207 Q175 199 91 207Z" fill="#4b292a" stroke="#c7a365" stroke-width="2"/>
+ <path d="M94 200 H256 V220 H94Z" fill="#563633" stroke="#d2aa5e" stroke-width="2"/>
+ <path d="M102 215 H248 V227 H102Z" fill="#493428"/>
+ <g stroke="#f3d78c" stroke-width="2" fill="#965b30"><rect x="90" y="220" width="34" height="16"/><rect x="226" y="220" width="34" height="16"/></g>
+ <path d="M71 42 Q175 21 279 42 L269 79 Q175 61 81 79Z" fill="url(#maroon)" stroke="url(#g)" stroke-width="5"/>
+ <text x="175" y="53" text-anchor="middle" fill="#fff2cf" font-size="16" font-family="Georgia,serif" font-weight="bold" letter-spacing="1.6">THE ORIGINAL</text>
+ <text x="175" y="72" text-anchor="middle" fill="#f5cf80" font-size="15" font-family="Georgia,serif" font-weight="bold" letter-spacing="2">EST. 1971</text>
+ <circle cx="175" cy="221" r="45" fill="url(#g)" stroke="#532b1e" stroke-width="5"/>
+ <circle cx="175" cy="221" r="37" fill="#eedb9e" stroke="#ffedb9" stroke-width="2"/>
+ <text x="175" y="217" text-anchor="middle" fill="#6f2723" font-size="24" font-family="Georgia,serif" font-weight="bold" font-style="italic" letter-spacing="-1.2">Hard Rock</text>
+ <text x="175" y="237" text-anchor="middle" fill="#6f2723" font-size="15" font-family="Georgia,serif" font-weight="bold" letter-spacing="1">CAFE</text>
+ <path d="M59 267 Q175 290 291 267 L279 311 Q175 347 71 311Z" fill="url(#maroon)" stroke="url(#g)" stroke-width="6"/>
+ <path d="M77 300 Q175 326 273 300" fill="none" stroke="#f4ce7b" stroke-width="2" opacity=".75"/>
+ <text x="175" y="306" text-anchor="middle" fill="#fff1ca" font-size="34" font-family="Georgia,serif" font-weight="bold" letter-spacing="2">LONDON</text>
+</g>
+</svg>
