@@ -161,7 +161,7 @@ jobs:
           test -s public/media/hrc-real-pins/london-original.webp
           test -s public/media/hrc-real-pins/dublin.webp
           for page in public/index.html public/en/index.html; do
-            test "$(grep -o 'class="hrc-stop"' "$page" | wc -l)" -eq 23
+            test "$(grep -o 'class="hrc-stop' "$page" | wc -l)" -eq 23
             test "$(grep -o 'class="hrc-flag-ribbon"' "$page" | wc -l)" -eq 23
             test "$(grep -o 'class="hrc-pin-image"' "$page" | wc -l)" -eq 23
             test "$(grep -o 'hrc-status--closed' "$page" | wc -l)" -eq 3
