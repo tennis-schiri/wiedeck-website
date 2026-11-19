@@ -490,3 +490,71 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
   .hrc-collection .hrc-grid{grid-template-columns:1fr!important;max-width:235px;margin-inline:auto!important}
   .hrc-collection .hrc-city,.hrc-collection .hrc-city--long{font-size:21px!important}
 }
+
+
+/* HRC19 — match the compact dimensions of the city travel cards.
+   Keep five portrait cards in each desktop row and preserve the vintage design. */
+.hrc-collection{
+  width:min(1120px,calc(100vw - 32px))!important;
+}
+.hrc-collection .hrc-grid{
+  grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  gap:13px!important;
+  padding:12px 2px 8px!important;
+}
+.hrc-collection .hrc-stop{
+  height:247px!important;
+  min-height:247px!important;
+  aspect-ratio:auto!important;
+}
+.hrc-collection .hrc-ticket{
+  top:13px!important;
+  height:calc(100% - 19px)!important;
+  width:calc(100% - 11px)!important;
+}
+.hrc-collection .hrc-vinyl,
+.hrc-collection .hrc-stop--traced .hrc-vinyl{
+  top:2px!important;
+  right:-1px!important;
+  width:58%!important;
+  max-width:115px!important;
+}
+.hrc-collection .hrc-pass-inner{
+  padding:63px 8px 14px!important;
+}
+.hrc-collection .hrc-flag-ribbon{top:19px!important}
+.hrc-collection .hrc-city,
+.hrc-collection .hrc-city--long{
+  font-size:clamp(15px,1.35vw,20px)!important;
+}
+.hrc-collection .hrc-city-line{margin:8px auto 7px!important}
+.hrc-collection .hrc-street{font-size:11px!important}
+.hrc-collection .hrc-status{margin-top:8px!important}
+@media(max-width:1199px){
+  .hrc-collection .hrc-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+@media(max-width:850px){
+  .hrc-collection .hrc-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(max-width:600px){
+  .hrc-collection .hrc-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+  }
+  .hrc-collection .hrc-stop{
+    height:209px!important;
+    min-height:209px!important;
+  }
+  .hrc-collection .hrc-ticket{top:10px!important;height:calc(100% - 15px)!important}
+  .hrc-collection .hrc-pass-inner{padding:49px 7px 12px!important}
+  .hrc-collection .hrc-flag-ribbon{top:12px!important;width:37px!important}
+  .hrc-collection .hrc-city,
+  .hrc-collection .hrc-city--long{font-size:clamp(14px,3.7vw,19px)!important}
+  .hrc-collection .hrc-street{font-size:10px!important}
+}
+@media(max-width:360px){
+  .hrc-collection .hrc-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-width:none!important}
+  .hrc-collection .hrc-stop{height:209px!important;min-height:209px!important}
+  .hrc-collection .hrc-city,
+  .hrc-collection .hrc-city--long{font-size:14px!important}
+}
