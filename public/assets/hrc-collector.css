@@ -251,3 +251,90 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
     height:170px!important;
   }
 }
+
+/* HRC16: keep the record visible but inside its own card's stacking context.
+   Each pin owns an independent compositing layer; neighboring cards never cover it. */
+.hrc-collection .hrc-grid{
+  column-gap:clamp(24px,2.6vw,40px)!important;
+  row-gap:18px!important;
+}
+.hrc-collection .hrc-stop{
+  isolation:isolate!important;
+  height:206px!important;
+}
+.hrc-collection .hrc-ticket{
+  height:171px!important;
+  isolation:isolate!important;
+}
+.hrc-collection .hrc-vinyl,
+.hrc-collection .hrc-stop--traced .hrc-vinyl{
+  display:flex!important;
+  z-index:0!important;
+  right:0!important;
+  top:20px!important;
+  width:112px!important;
+  height:112px!important;
+}
+.hrc-collection .hrc-enamel-pin,
+.hrc-collection .hrc-stop--traced .hrc-enamel-pin{
+  z-index:8!important;
+  top:-11px!important;
+  right:-11px!important;
+  width:clamp(138px,14.4vw,184px)!important;
+  height:194px!important;
+  overflow:visible!important;
+  transform:none!important;
+}
+.hrc-collection .hrc-pin-image,
+.hrc-collection .hrc-stop--traced .hrc-pin-image{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  overflow:visible!important;
+  max-width:none!important;
+  max-height:none!important;
+  clip-path:none!important;
+}
+@media(max-width:1160px){
+  .hrc-collection .hrc-grid{column-gap:25px!important}
+  .hrc-collection .hrc-enamel-pin,
+  .hrc-collection .hrc-stop--traced .hrc-enamel-pin{
+    width:clamp(144px,18vw,185px)!important;
+  }
+}
+@media(max-width:730px){
+  .hrc-collection .hrc-grid{row-gap:15px!important}
+  .hrc-collection .hrc-stop{height:202px!important}
+  .hrc-collection .hrc-vinyl,
+  .hrc-collection .hrc-stop--traced .hrc-vinyl{
+    top:23px!important;
+    right:0!important;
+    width:106px!important;
+    height:106px!important;
+  }
+  .hrc-collection .hrc-enamel-pin,
+  .hrc-collection .hrc-stop--traced .hrc-enamel-pin{
+    top:-7px!important;
+    right:-9px!important;
+    width:clamp(139px,37vw,182px)!important;
+    height:187px!important;
+  }
+}
+@media(max-width:430px){
+  .hrc-collection .hrc-stop{height:192px!important}
+  .hrc-collection .hrc-vinyl,
+  .hrc-collection .hrc-stop--traced .hrc-vinyl{
+    right:0!important;
+    width:97px!important;
+    height:97px!important;
+  }
+  .hrc-collection .hrc-enamel-pin,
+  .hrc-collection .hrc-stop--traced .hrc-enamel-pin{
+    top:-6px!important;
+    right:-5px!important;
+    width:130px!important;
+    height:178px!important;
+  }
+}
