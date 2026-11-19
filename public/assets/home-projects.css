@@ -657,3 +657,29 @@ html[data-theme="dark"] .travel-landmark-icon{filter:brightness(0) invert(.85)}
 @media(max-width:560px){.travel-landmark-icon{height:109px;max-width:151px}.travel-credit{margin-left:0;width:100%}}
 
 /* All landmark illustrations share the same single-color treatment in light and dark mode. */
+
+
+/* Small HRC collector marker beside the country's travel flag. */
+.travel-card-top .travel-top-badges{
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:6px;
+  min-width:0;
+  flex:0 0 auto;
+}
+.travel-card-top .travel-hrc-logo{
+  display:block;
+  width:20px;
+  height:20px;
+  min-width:20px;
+  object-fit:contain;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  filter:drop-shadow(0 1px 2px #0003);
+}
+@media(max-width:560px){
+  .travel-card-top .travel-top-badges{gap:4px}
+  .travel-card-top .travel-hrc-logo{width:17px;height:17px;min-width:17px}
+}
