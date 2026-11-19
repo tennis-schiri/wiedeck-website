@@ -89,21 +89,21 @@ jobs:
           grep -q 'FAMILY' public/en/index.html
           grep -q 'id="unterwegs"' public/index.html
           grep -q 'id="unterwegs"' public/en/index.html
-          test "$(grep -o '<article class="travel-card' public/index.html | wc -l)" -eq 26
-          test "$(grep -o '<article class="travel-card' public/en/index.html | wc -l)" -eq 26
-          test "$(grep -o 'travel-card--repeat' public/index.html | wc -l)" -eq 6
-          test "$(grep -o 'travel-card--repeat' public/en/index.html | wc -l)" -eq 6
+          test "$(grep -o '<article class="travel-card' public/index.html | wc -l)" -eq 27
+          test "$(grep -o '<article class="travel-card' public/en/index.html | wc -l)" -eq 27
+          test "$(grep -o 'travel-card--repeat' public/index.html | wc -l)" -eq 7
+          test "$(grep -o 'travel-card--repeat' public/en/index.html | wc -l)" -eq 7
           grep -q 'Schottland' public/index.html
           grep -q 'Scotland' public/en/index.html
           grep -Fq 'travel-grid' public/assets/home-projects.css
           test "$(find public/media/flags -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 19
-          test "$(grep -o 'class="travel-flag travel-flag-image"' public/index.html | wc -l)" -eq 26
-          test "$(grep -o 'class="travel-flag travel-flag-image"' public/en/index.html | wc -l)" -eq 26
-          test "$(find public/media/landmarks -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 28
-          test "$(grep -o 'class="travel-landmark-icon"' public/index.html | wc -l)" -eq 26
-          test "$(grep -o 'class="travel-landmark-icon"' public/en/index.html | wc -l)" -eq 26
-          test "$(grep -o 'class="travel-landmark-label"' public/index.html | wc -l)" -eq 26
-          test "$(grep -o 'class="travel-landmark-label"' public/en/index.html | wc -l)" -eq 26
+          test "$(grep -o 'class="travel-flag travel-flag-image"' public/index.html | wc -l)" -eq 27
+          test "$(grep -o 'class="travel-flag travel-flag-image"' public/en/index.html | wc -l)" -eq 27
+          test "$(find public/media/landmarks -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 29
+          test "$(grep -o 'class="travel-landmark-icon"' public/index.html | wc -l)" -eq 27
+          test "$(grep -o 'class="travel-landmark-icon"' public/en/index.html | wc -l)" -eq 27
+          test "$(grep -o 'class="travel-landmark-label"' public/index.html | wc -l)" -eq 27
+          test "$(grep -o 'class="travel-landmark-label"' public/en/index.html | wc -l)" -eq 27
           ! grep -Fq 'travel-skyline' public/index.html
           ! grep -Fq 'travel-skyline' public/en/index.html
           test -s public/media/landmarks/cologne.svg
