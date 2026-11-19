@@ -338,3 +338,155 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
     height:178px!important;
   }
 }
+
+
+/* HRC18 — portrait collector tickets: five across, no enamel pins.
+   Keep the existing parchment / gold / vinyl visual language. */
+.hrc-collection .hrc-grid{
+  display:grid!important;
+  grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  gap:clamp(15px,1.6vw,23px)!important;
+  padding:16px 4px 12px!important;
+  align-items:stretch!important;
+}
+.hrc-collection .hrc-stop{
+  isolation:isolate!important;
+  display:block!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  min-height:0!important;
+  aspect-ratio:0.72!important;
+  overflow:visible!important;
+  margin:0!important;
+}
+.hrc-collection .hrc-vinyl,
+.hrc-collection .hrc-stop--traced .hrc-vinyl{
+  display:flex!important;
+  position:absolute!important;
+  top:0!important;
+  right:-2px!important;
+  width:62%!important;
+  height:auto!important;
+  aspect-ratio:1!important;
+  z-index:0!important;
+  box-shadow:2px 4px 8px #0008!important;
+}
+.hrc-collection .hrc-ticket{
+  position:absolute!important;
+  top:24px!important;
+  left:0!important;
+  width:calc(100% - 16px)!important;
+  height:calc(100% - 30px)!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  z-index:1!important;
+  border-radius:10px!important;
+  background:
+    repeating-linear-gradient(-7deg,transparent 0 3px,#a47f4c09 4px 5px,transparent 6px 8px),
+    radial-gradient(ellipse at 49% 20%,#fff9e8,transparent 79%),
+    linear-gradient(130deg,#fff0d7,#efdab9 65%,#dbba91)!important;
+}
+.hrc-collection .hrc-ticket::before,
+.hrc-collection .hrc-ticket::after{left:7px!important;width:13px!important;height:13px!important}
+.hrc-collection .hrc-flag-ribbon{
+  position:absolute!important;
+  inset:26px auto auto 50%!important;
+  transform:translateX(-50%)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:clamp(35px,4vw,53px)!important;
+  height:38px!important;
+  border:0!important;
+  border-radius:2px!important;
+  background:transparent!important;
+  overflow:visible!important;
+  z-index:3!important;
+}
+.hrc-collection .hrc-flag-ribbon .hrc-flag-image{
+  display:block!important;
+  position:static!important;
+  transform:none!important;
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:3/2!important;
+  max-height:40px!important;
+  object-fit:contain!important;
+  border:1px solid #9b7952!important;
+  background:transparent!important;
+}
+.hrc-collection .hrc-pass-inner{
+  position:relative!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:center!important;
+  width:100%!important;
+  height:100%!important;
+  padding:70px 10px 26px!important;
+  text-align:center!important;
+  gap:0!important;
+}
+.hrc-collection .hrc-city,
+.hrc-collection .hrc-city--long{
+  width:100%!important;
+  max-width:100%!important;
+  font-size:clamp(14px,1.38vw,22px)!important;
+  line-height:1.12!important;
+  letter-spacing:-.035em!important;
+  overflow-wrap:anywhere!important;
+}
+.hrc-collection .hrc-city--london small{
+  display:block!important;
+  margin-top:3px!important;
+  font-size:.67em!important;
+  letter-spacing:.04em!important;
+}
+.hrc-collection .hrc-city-line{
+  width:76%!important;
+  max-width:none!important;
+  margin:12px auto 9px!important;
+}
+.hrc-collection .hrc-cafe-name{
+  width:100%!important;
+  align-items:center!important;
+  text-align:center!important;
+}
+.hrc-collection .hrc-street{
+  display:block!important;
+  font-size:clamp(10px,.8vw,12px)!important;
+  line-height:1.35!important;
+  font-style:italic!important;
+  overflow-wrap:anywhere!important;
+}
+.hrc-collection .hrc-status{
+  white-space:normal!important;
+  justify-content:center!important;
+  text-align:center!important;
+  margin-top:13px!important;
+  font-size:clamp(8px,.65vw,10px)!important;
+}
+.hrc-collection .hrc-enamel-pin,
+.hrc-collection .hrc-pin-image{display:none!important}
+.hrc-collection .hrc-stop:hover .hrc-vinyl{transform:translateX(3px) rotate(8deg)!important}
+@media(max-width:1199px){
+  .hrc-collection .hrc-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  .hrc-collection .hrc-city,.hrc-collection .hrc-city--long{font-size:clamp(15px,1.8vw,23px)!important}
+}
+@media(max-width:850px){
+  .hrc-collection .hrc-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .hrc-collection .hrc-city,.hrc-collection .hrc-city--long{font-size:clamp(15px,2.4vw,23px)!important}
+  .hrc-collection .hrc-street{font-size:11px!important}
+}
+@media(max-width:600px){
+  .hrc-collection .hrc-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+  .hrc-collection .hrc-city,.hrc-collection .hrc-city--long{font-size:clamp(15px,3.6vw,22px)!important}
+  .hrc-collection .hrc-street{font-size:11px!important}
+  .hrc-collection .hrc-pass-inner{padding:64px 7px 19px!important}
+}
+@media(max-width:360px){
+  .hrc-collection .hrc-grid{grid-template-columns:1fr!important;max-width:235px;margin-inline:auto!important}
+  .hrc-collection .hrc-city,.hrc-collection .hrc-city--long{font-size:21px!important}
+}
