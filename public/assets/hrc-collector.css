@@ -744,3 +744,56 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
   .hrc-collection .hrc-stop:hover .hrc-vinyl,
   .hrc-collection .hrc-stop:focus-within .hrc-vinyl{animation:none!important}
 }
+
+
+/* HRC24: stationary holder and truly spinning vinyl disc.
+   The outer element only positions the disc. The inner disc rotates about its centre.
+   This avoids translation jumps and CSS rotate/animation conflicts. */
+.hrc-collection .hrc-stop .hrc-vinyl,
+.hrc-collection .hrc-stop:hover .hrc-vinyl,
+.hrc-collection .hrc-stop:focus-within .hrc-vinyl{
+  left:50%!important;
+  right:auto!important;
+  transform:translateX(-50%)!important;
+  rotate:none!important;
+  animation:none!important;
+  transition:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  background:none!important;
+  border-radius:50%!important;
+  padding:0!important;
+}
+.hrc-collection .hrc-vinyl::after{display:none!important;content:none!important}
+.hrc-collection .hrc-vinyl .hrc-record-disc{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  flex:0 0 100%;
+  box-sizing:border-box;
+  border:3px solid #252528;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 31% 24%,#ffffff20 0,transparent 31%),
+    repeating-radial-gradient(circle,#171719 0 3px,#3a3b3e 3.6px 4.1px,#111214 4.7px 8px);
+  box-shadow:0 3px 9px #0008,inset 0 1px 3px #ffffff24;
+  transform:rotate(0deg);
+  transform-origin:50% 50%;
+  animation:none;
+  will-change:transform;
+}
+.hrc-collection .hrc-stop:hover .hrc-record-disc,
+.hrc-collection .hrc-stop:focus-within .hrc-record-disc{
+  animation:hrc24-vinyl-spin 2.2s linear infinite!important;
+}
+@keyframes hrc24-vinyl-spin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+@media(prefers-reduced-motion:reduce){
+  .hrc-collection .hrc-stop:hover .hrc-record-disc,
+  .hrc-collection .hrc-stop:focus-within .hrc-record-disc{animation:none!important}
+}
