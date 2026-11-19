@@ -153,8 +153,8 @@ jobs:
           test -s public/assets/hrc-collector.css
           grep -Fq '.hrc-collection .hrc-flag-ribbon' public/assets/hrc-collector.css
           grep -Fq 'html[data-theme="light"] .hrc-collection' public/assets/hrc-collector.css
-          grep -Fq 'hrc-collector.css?v=20261119-hrc13-locations' public/index.html
-          grep -Fq 'hrc-collector.css?v=20261119-hrc13-locations' public/en/index.html
+          grep -Fq 'hrc-collector.css?v=20261119-hrc14-former-italic' public/index.html
+          grep -Fq 'hrc-collector.css?v=20261119-hrc14-former-italic' public/en/index.html
           test -s scripts/build_hrc_pins.py
           test "$(find public/media/hrc-real-pins -maxdepth 1 -name '*.webp' -type f | wc -l)" -eq 23
           test -s public/media/hrc-real-pins/rome.webp
@@ -165,7 +165,7 @@ jobs:
             test "$(grep -o 'class="hrc-flag-ribbon"' "$page" | wc -l)" -eq 23
             test "$(grep -o 'class="hrc-pin-image"' "$page" | wc -l)" -eq 23
             test "$(grep -o 'hrc-status--closed' "$page" | wc -l)" -eq 3
-            test "$(grep -o 'hrc-status--relocated' "$page" | wc -l)" -eq 1
+            test "$(grep -o 'hrc-status--former' "$page" | wc -l)" -eq 1
             test "$(grep -o 'media/hrc-real-pins/[a-z-]*.webp?v=hrc07' "$page" | wc -l)" -eq 22
             grep -Fq 'media/hrc-real-pins/london-original.webp?v=hrc13-label-fixed' "$page"
             test "$(grep -o 'class="hrc-flag-image"' "$page" | wc -l)" -eq 23
