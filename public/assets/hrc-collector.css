@@ -650,3 +650,53 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
   .hrc-collection .hrc-stop:hover .hrc-vinyl,
   .hrc-collection .hrc-stop:focus-within .hrc-vinyl{animation:none!important}
 }
+
+
+/* HRC21: a fixed disc position with rotation as an independent CSS property.
+   No animation transforms are allowed to change the disc's center. */
+.hrc-collection .hrc-stop .hrc-vinyl{
+  left:50%!important;
+  right:auto!important;
+  transform:translateX(-50%)!important;
+  transform-origin:center!important;
+  rotate:0deg!important;
+  animation:none!important;
+  transition:rotate 900ms ease-in-out!important;
+  border-radius:50%!important;
+}
+.hrc-collection .hrc-stop:hover .hrc-vinyl,
+.hrc-collection .hrc-stop:focus-within .hrc-vinyl{
+  transform:translateX(-50%)!important;
+  rotate:360deg!important;
+  animation:none!important;
+}
+.hrc-collection .hrc-vinyl-label{
+  width:46%!important;
+  height:46%!important;
+  padding:0!important;
+  border-radius:50%!important;
+  overflow:hidden!important;
+}
+.hrc-collection .hrc-vinyl .hrc-flag-ribbon{
+  width:100%!important;
+  height:100%!important;
+  border-radius:50%!important;
+  overflow:hidden!important;
+}
+.hrc-collection .hrc-vinyl .hrc-flag-image{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  aspect-ratio:1!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  max-height:none!important;
+  border-radius:50%!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .hrc-collection .hrc-stop .hrc-vinyl{transition:none!important}
+  .hrc-collection .hrc-stop:hover .hrc-vinyl,
+  .hrc-collection .hrc-stop:focus-within .hrc-vinyl{rotate:0deg!important}
+}
