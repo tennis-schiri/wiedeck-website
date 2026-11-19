@@ -938,13 +938,28 @@ html[data-theme="dark"] .minis-brand-logo .juxilo-horizontal--dark{display:block
 }
 .interest-eisbaeren-stars{
   display:grid;grid-template-columns:repeat(12,minmax(0,1fr));
-  align-items:center;gap:3px;max-width:360px;width:100%;margin-top:auto;
-  padding-top:25px;color:#e5ab29;font-size:clamp(13px,1.3vw,19px);
+  align-items:center;gap:4px;max-width:420px;width:100%;margin-top:auto;
+  padding-top:25px;color:#e5ab29;font-size:clamp(19px,1.8vw,26px);
   text-shadow:0 1px 0 #7c530b,0 2px 7px rgba(230,170,38,.22)
 }
 .interest-eisbaeren-stars span{display:block;line-height:1;text-align:center}
 html[data-theme="dark"] .interest-eisbaeren-stars{color:#ffd365;text-shadow:0 1px 4px rgba(225,166,35,.36)}
 @media(max-width:620px){
   .interest-spotlight--ice .interest-eisbaeren-logo{width:76px;height:76px}
-  .interest-eisbaeren-stars{padding-top:20px;max-width:340px;font-size:clamp(12px,3.5vw,18px)}
+  .interest-eisbaeren-stars{padding-top:20px;max-width:390px;font-size:clamp(17px,4.4vw,23px)}
+}
+
+
+/* Rugby visit marker: match the existing football, tennis and hockey icons. */
+.travel-card .travel-rugby-icon{
+  display:block;width:20px;height:20px;min-width:20px;flex:0 0 20px;
+  object-fit:contain;filter:drop-shadow(0 1px 1px #0003)
+}
+html[data-theme="dark"] .travel-card .travel-rugby-icon{
+  box-sizing:border-box;padding:2px;background:#f9faf7;
+  border:1px solid rgba(17,28,36,.12);border-radius:50%;
+  box-shadow:0 1px 4px rgba(0,0,0,.22);filter:none
+}
+@media(max-width:560px){
+  .travel-card .travel-rugby-icon{width:17px;height:17px;min-width:17px;flex-basis:17px}
 }
