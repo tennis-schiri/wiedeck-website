@@ -659,7 +659,8 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
   right:auto!important;
   transform:translateX(-50%)!important;
   transform-origin:center!important;
-  rotate:0deg!important;
+  /* Normal rotate must not be !important: keyframes need to control it. */
+  rotate:0deg;
   animation:none!important;
   transition:rotate 900ms ease-in-out!important;
   border-radius:50%!important;
@@ -667,7 +668,6 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
 .hrc-collection .hrc-stop:hover .hrc-vinyl,
 .hrc-collection .hrc-stop:focus-within .hrc-vinyl{
   transform:translateX(-50%)!important;
-  rotate:360deg!important;
   animation:none!important;
 }
 .hrc-collection .hrc-vinyl-label{
@@ -705,7 +705,7 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
 /* HRC22 — record-player rotation and four corner rivets. */
 .hrc-collection .hrc-stop .hrc-vinyl{
   transform:translateX(-50%)!important;
-  rotate:0deg!important;
+  rotate:0deg;
   transform-origin:center center!important;
   transition:none!important;
   animation:none!important;
