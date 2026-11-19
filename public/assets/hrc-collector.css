@@ -185,3 +185,33 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
   .hrc-collection .hrc-stop{height:186px!important}
   .hrc-collection .hrc-enamel-pin{top:-2px!important;right:-12px!important;width:132px!important;height:177px!important}
 }
+
+/* HRC13 – verified closures and original-location relocation; vintage ticket styling. */
+.hrc-collection .hrc-status{
+  display:inline-flex;
+  align-items:center;
+  max-width:100%;
+  margin-top:8px;
+  padding:3px 7px 2px;
+  border:1px solid #943a2c;
+  border-radius:2px;
+  background:#f8e8d1;
+  color:#8b2f25;
+  font:700 clamp(9px,.75vw,11px)/1.15 Arial,Helvetica,sans-serif;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  box-shadow:inset 0 0 0 1px #fff7e5;
+}
+.hrc-collection .hrc-status--relocated{
+  color:#674b29;
+  border-color:#9d7844;
+  background:#f6e8c8;
+}
+@media(max-width:440px){
+  .hrc-collection .hrc-status{
+    font-size:9px;
+    margin-top:6px;
+    padding:2px 5px;
+  }
+}
