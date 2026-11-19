@@ -91,6 +91,19 @@ jobs:
           grep -q 'id="unterwegs"' public/en/index.html
           test "$(grep -o '<article class="travel-card' public/index.html | wc -l)" -eq 27
           test "$(grep -o '<article class="travel-card' public/en/index.html | wc -l)" -eq 27
+          # Five geographic sections: 7 repeat visits, then four rows of five.
+          for page in public/index.html public/en/index.html; do
+            test "$(grep -o 'class="travel-group-head"' "$page" | wc -l)" -eq 5
+            test "$(grep -o '<article class="travel-card' "$page" | wc -l)" -eq 27
+          done
+          grep -Fq '<h5>NORDEN & NORDOSTEN</h5><span>05</span>' public/index.html
+          grep -Fq '<h5>WESTEN & ATLANTIK</h5><span>05</span>' public/index.html
+          grep -Fq '<h5>MITTELEUROPA & ALPEN</h5><span>05</span>' public/index.html
+          grep -Fq '<h5>SÜDEN & MITTELMEER</h5><span>05</span>' public/index.html
+          grep -Fq '<h5>NORTH & NORTHEAST</h5><span>05</span>' public/en/index.html
+          grep -Fq '<h5>WEST & ATLANTIC</h5><span>05</span>' public/en/index.html
+          grep -Fq '<h5>CENTRAL EUROPE & ALPS</h5><span>05</span>' public/en/index.html
+          grep -Fq '<h5>SOUTH & MEDITERRANEAN</h5><span>05</span>' public/en/index.html
           test "$(grep -o 'travel-card--repeat' public/index.html | wc -l)" -eq 7
           test "$(grep -o 'travel-card--repeat' public/en/index.html | wc -l)" -eq 7
           grep -q 'Schottland' public/index.html
