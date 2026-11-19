@@ -221,7 +221,8 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
 
 /* HRC15: only the eleven hand-traced pin cutouts require extra clearance.
    Keep the existing ticket, pin illustrations and layout unchanged. */
-.hrc-collection .hrc-stop--traced .hrc-vinyl{display:none!important}
+/* Vinyl records remain visible behind every collector ticket, including traced pins. */
+.hrc-collection .hrc-stop--traced .hrc-vinyl{display:flex!important}
 .hrc-collection .hrc-stop--traced .hrc-enamel-pin{
   top:0!important;
   right:-9px!important;
