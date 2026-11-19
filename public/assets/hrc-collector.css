@@ -571,7 +571,7 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
   top:18px!important;
   left:50%!important;
   right:auto!important;
-  width:min(72%,132px)!important;
+  width:min(68%,112px)!important;
   max-width:none!important;
   height:auto!important;
   aspect-ratio:1!important;
@@ -629,7 +629,7 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
   box-shadow:0 1px 2px #0006!important;
 }
 .hrc-collection .hrc-ticket{z-index:1!important}
-.hrc-collection .hrc-pass-inner{padding:156px 8px 12px!important}
+.hrc-collection .hrc-pass-inner{padding:125px 8px 12px!important}
 .hrc-collection .hrc-stop:hover .hrc-vinyl,
 .hrc-collection .hrc-stop:focus-within .hrc-vinyl{
   animation:hrc-vinyl-turn .95s ease-in-out both!important;
@@ -642,9 +642,9 @@ html[data-theme="light"] .hrc-collection .hrc-footnote{color:#73604b;border-colo
   .hrc-collection .hrc-vinyl,
   .hrc-collection .hrc-stop--traced .hrc-vinyl{
     top:13px!important;
-    width:min(64%,105px)!important;
+    width:min(62%,94px)!important;
   }
-  .hrc-collection .hrc-pass-inner{padding:119px 7px 11px!important}
+  .hrc-collection .hrc-pass-inner{padding:106px 7px 10px!important}
 }
 @media(prefers-reduced-motion:reduce){
   .hrc-collection .hrc-stop:hover .hrc-vinyl,
