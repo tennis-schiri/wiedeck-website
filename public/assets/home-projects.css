@@ -791,3 +791,52 @@ html[data-theme="dark"] .travel-landmark-icon{filter:brightness(0) invert(.85)}
   .travel-card--prague .travel-event-logo--fedcup{height:26px;width:65px}
   .travel-card--prague .travel-prague-final-label{font-size:8px;padding:2px 4px}
 }
+
+
+/* Travel cards: country flag takes the number's top-left position.
+   HRC and sports visit symbols remain grouped at the top right. */
+.travel-card .travel-card-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:6px;
+}
+.travel-card .travel-flag-slot{
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-start;
+  flex:0 0 auto;
+  min-width:0;
+}
+.travel-card .travel-flag-slot .travel-flag-image{
+  display:block;
+  width:30px;
+  height:20px;
+  min-width:30px;
+  max-width:30px;
+  object-fit:cover;
+  border-radius:2px;
+}
+.travel-card .travel-top-badges{
+  margin-left:auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:5px;
+  min-width:0;
+  flex:0 1 auto;
+}
+.travel-card .travel-football-icon{
+  display:block;
+  width:20px;
+  height:20px;
+  min-width:20px;
+  flex:0 0 20px;
+  object-fit:contain;
+  filter:drop-shadow(0 1px 1px #0003);
+}
+@media(max-width:560px){
+  .travel-card .travel-flag-slot .travel-flag-image{width:27px;height:18px;min-width:27px;max-width:27px}
+  .travel-card .travel-top-badges{gap:3px}
+  .travel-card .travel-football-icon{width:17px;height:17px;min-width:17px;flex-basis:17px}
+}
