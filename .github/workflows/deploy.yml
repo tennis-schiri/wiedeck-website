@@ -164,8 +164,8 @@ jobs:
             test "$(grep -o 'class="hrc-stop"' "$page" | wc -l)" -eq 23
             test "$(grep -o 'class="hrc-flag-ribbon"' "$page" | wc -l)" -eq 23
             test "$(grep -o 'class="hrc-pin-image"' "$page" | wc -l)" -eq 23
-            test "$(grep -o 'hrc-status--closed' \"$page\" | wc -l)" -eq 3
-            test "$(grep -o 'hrc-status--relocated' \"$page\" | wc -l)" -eq 1
+            test "$(grep -o 'hrc-status--closed' "$page" | wc -l)" -eq 3
+            test "$(grep -o 'hrc-status--relocated' "$page" | wc -l)" -eq 1
             test "$(grep -o 'media/hrc-real-pins/[a-z-]*.webp?v=hrc07' "$page" | wc -l)" -eq 22
             grep -Fq 'media/hrc-real-pins/london-original.webp?v=hrc13-label-fixed' "$page"
             test "$(grep -o 'class="hrc-flag-image"' "$page" | wc -l)" -eq 23
