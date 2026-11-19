@@ -914,3 +914,15 @@ html[data-theme="dark"] .minis-brand-logo .juxilo-logo-horizontal{
   .index-row--juxilo .project-juxilo-heading{width:min(100%,175px);height:60px}
   .minis-brand-logo{width:min(100%,275px);height:85px;margin:-5px 0 8px}
 }
+
+/* JUXILO horizontal logo: explicit dark-mode variant instead of a dark-purple wordmark. */
+.index-row--juxilo .project-logo--juxilo.juxilo-horizontal--dark,
+.minis-brand-logo .juxilo-horizontal--dark{display:none}
+html[data-theme="dark"] .index-row--juxilo .project-logo--juxilo.juxilo-horizontal--light,
+html[data-theme="dark"] .minis-brand-logo .juxilo-horizontal--light{display:none}
+html[data-theme="dark"] .index-row--juxilo .project-logo--juxilo.juxilo-horizontal--dark,
+html[data-theme="dark"] .minis-brand-logo .juxilo-horizontal--dark{display:block;filter:none}
+.index-row--juxilo .project-juxilo-heading,
+.minis-brand-logo{position:relative}
+.index-row--juxilo .project-logo--juxilo.juxilo-logo-horizontal,
+.minis-brand-logo .juxilo-logo-horizontal{position:absolute;inset:0;width:100%;height:100%}
