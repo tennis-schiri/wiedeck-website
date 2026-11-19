@@ -163,6 +163,11 @@ jobs:
           grep -Fq 'Mad Monkey Room' public/en/index.html
           ! grep -Fq 'Bar92 = 15' public/index.html
           grep -Fq 'Eisbären' public/en/index.html
+          # The Eisbären spotlight includes the club crest and exactly twelve decorative stars.
+          for page in public/index.html public/en/index.html; do
+            grep -Fq 'class="interest-eisbaeren-logo"' "$page"
+            grep -Fq 'class="interest-eisbaeren-stars"' "$page"
+          done
           grep -Fq 'id="hobbys"' public/index.html
           grep -Fq 'id="hobbys"' public/en/index.html
           grep -Fq 'id="genuss"' public/index.html
