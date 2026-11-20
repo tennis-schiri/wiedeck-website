@@ -121,13 +121,22 @@ function db(): PDO {
         status TEXT NOT NULL DEFAULT "draft" CHECK(status IN ("draft","published")),
         published_at TEXT, updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP)');
     $db->exec('CREATE INDEX IF NOT EXISTS comedy_shows_club ON comedy_shows(club_id,show_date DESC,id DESC)');
-    // Seed only missing clubs. Never overwrite user-edited locations or delete records.
-    $comedySeed=json_decode((string)file_get_contents(__DIR__.'/comedy-seed.json'),true);
-    if(is_array($comedySeed)){
-        $addClub=$db->prepare('INSERT OR IGNORE INTO comedy_clubs(id,name,city,category) VALUES(?,?,?,?)');
-        foreach($comedySeed as $row){
-            $addClub->execute([(string)$row['id'],(string)$row['name'],
-                (string)($row['city']??''),(string)($row['category']??'')]);
+    // First-time-only seed. Deleting a club must not resurrect it on later requests.
+    $db->exec('CREATE TABLE IF NOT EXISTS comedy_meta (key TEXT PRIMARY KEY, value TEXT NOT NULL)');
+    $alreadySeeded=$db->query('SELECT 1 FROM comedy_meta WHERE key="initial_seed"')->fetchColumn();
+    if(!$alreadySeeded){
+        $comedySeed=json_decode((string)file_get_contents(__DIR__.'/comedy-seed.json'),true);
+        if(is_array($comedySeed)){
+            $db->beginTransaction();
+            try{
+                $addClub=$db->prepare('INSERT OR IGNORE INTO comedy_clubs(id,name,city,category) VALUES(?,?,?,?)');
+                foreach($comedySeed as $row){
+                    $addClub->execute([(string)$row['id'],(string)$row['name'],
+                        (string)($row['city']??''),(string)($row['category']??'')]);
+                }
+                $db->prepare('INSERT INTO comedy_meta(key,value) VALUES("initial_seed","2026-11-20")')->execute();
+                $db->commit();
+            }catch(Throwable $e){$db->rollBack();throw $e;}
         }
     }
     return $db;
