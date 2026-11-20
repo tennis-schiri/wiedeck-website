@@ -240,6 +240,14 @@ jobs:
           grep -Fq 'html[data-theme="dark"] .manifesto' public/assets/home-projects.css
           grep -q 'class="manifesto-logo-viewport"' public/index.html
           grep -q 'class="manifesto-logo-viewport"' public/en/index.html
+          for page in public/index.html public/en/index.html; do
+            grep -Fq 'class="manifesto-logo-light logo-mode-light"' "$page"
+            grep -Fq 'class="manifesto-logo-dark logo-mode-dark"' "$page"
+            grep -Fq 'logos/mw-symbol-light.png' "$page"
+            grep -Fq 'logos/mw-symbol-dark.png' "$page"
+          done
+          ! grep -Fq 'filter:url("#mw-cutout-light")' public/assets/home-projects.css
+          ! grep -Fq 'filter:url("#mw-cutout-dark")' public/assets/home-projects.css
           test -s public/logos/tennilo-tournament-transparent.png
           test -s public/logos/juxilo-jx04-light.svg
           test -s public/logos/juxilo-jx04-dark.svg
