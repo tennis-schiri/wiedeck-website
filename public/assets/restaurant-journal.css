@@ -47,3 +47,27 @@ a{color:inherit}.shell{width:min(100% - 40px,1120px);margin-inline:auto}.top{pos
 .restaurant-list-entry-main strong{font-weight:700}
 .restaurant-list-entry-status{display:inline-block;color:var(--muted);font-size:9px;font-weight:700;letter-spacing:.045em;white-space:nowrap}
 .restaurant-list-entry:target{outline:1px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+/* Published user-written restaurant reviews, loaded from the private editorial backend. */
+.restaurant-live-count{display:block;text-align:right;margin:4px 0 14px;font-size:11px;color:var(--muted)}
+.restaurant-live-count strong{color:var(--accent)}
+.restaurant-list-entry-status.is-published{color:#4e9c72;font-weight:800}
+html[data-theme="dark"] .restaurant-list-entry-status.is-published{color:#a4dbb9}
+.restaurant-entry-report{display:block!important;margin:6px 0 0;font-size:11px;text-decoration:none;color:var(--accent);font-weight:800}
+.restaurant-entry-report:hover,.restaurant-report-link:hover{text-decoration:underline}
+.restaurant-note-pending{line-height:1.5}
+.public-report{max-width:900px}
+.public-report .page-heading{margin-bottom:26px}
+.public-report-body{max-width:780px;margin:0 auto 45px}
+.public-report-body section{margin:0 0 31px;padding:0 0 26px;border-bottom:1px solid var(--line)}
+.public-report-body h2{font-size:clamp(23px,2.4vw,32px);letter-spacing:-.045em;margin:0 0 10px}
+.public-report-body p{font-size:15px;line-height:1.8;margin:0}
+.public-report-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:10px 0 35px}
+.public-report-photos figure{margin:0}
+.public-report-photos img{display:block;width:100%;height:auto;max-height:420px;aspect-ratio:4/3;object-fit:cover;border-radius:13px}
+.public-report-photos figcaption{color:var(--muted);font-size:11px;padding:7px}
+.public-report-rating .average{font-weight:800;font-size:35px;letter-spacing:-.055em;margin:5px 0 18px}
+.public-report-rating .ratings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.public-report-rating .ratings div{display:flex;justify-content:space-between;gap:12px;padding:13px;background:var(--surface);border-radius:9px;border:1px solid var(--line)}
+.public-report-body .revisit{border-radius:12px;background:var(--surface);border:1px solid var(--line);padding:17px;margin-bottom:24px}
+@media(max-width:580px){.public-report-photos{grid-template-columns:1fr}.public-report-rating .ratings{grid-template-columns:1fr}}
