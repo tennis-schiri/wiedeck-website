@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none" style="color:#426a80" role="img" aria-label="Benissa – Basílica de la Puríssima Xiqueta">
+<title>Benissa – Basílica de la Puríssima Xiqueta, neogotische Fassade mit zwei Türmen</title>
+<g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 113h110" stroke-width="3"/>
+<!-- Distinctive paired square bell towers with peaked pinnacles -->
+<path d="M12 111V35l-3-2 5-17 5 7 6-14 7 13 5-6 5 17-3 2v76M78 111V35l-3-2 5-17 5 7 6-14 7 13 5-6 5 17-3 2v76" stroke-width="2.8"/>
+<path d="M12 35h27M81 35h27M14 16l4 4m13-5 5 5M80 16l4 4m13-5 5 5" stroke-width="2"/>
+<path d="M19 47v-7q5-7 10 0v7zM91 47v-7q5-7 10 0v7zM19 69v-11q5-8 10 0v11zM91 69v-11q5-8 10 0v11z" stroke-width="2"/>
+<!-- Twin clocks -->
+<circle cx="24" cy="82" r="5" stroke-width="2.5"/><circle cx="96" cy="82" r="5" stroke-width="2.5"/>
+<path d="m24 79 0 3 3 2m69-5v3l3 2" stroke-width="1.6"/>
+<!-- Tall central neogothic nave gable with cross -->
+<path d="M40 112V45L60 20l20 25v67M40 45 60 24l20 21M40 53h40M46 38l14-16 14 16" stroke-width="2.8"/>
+<path d="M60 20V9m-4 4h8" stroke-width="2.5"/>
+<path d="M45 49h3m7 0h3m7 0h3m7 0h2M48 56l0 56m24-56v56" stroke-width="1.5"/>
+<!-- Rose window and gothic doorway -->
+<circle cx="60" cy="67" r="10" stroke-width="2.5"/><circle cx="60" cy="67" r="5" stroke-width="1.5"/>
+<path d="M60 57v20M50 67h20m-17-7 14 14m0-14-14 14" stroke-width="1.2"/>
+<path d="M49 112V97q0-11 11-18 11 7 11 18v15M54 112V97l6-11 6 11v15" stroke-width="2.5"/>
+<path d="M44 90h-5m42 0h-5M9 102h30m42 0h30" stroke-width="1.5"/>
+</g></svg>
