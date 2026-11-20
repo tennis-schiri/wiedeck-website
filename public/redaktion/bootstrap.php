@@ -52,12 +52,17 @@ function db(): PDO {
         restaurant_id TEXT NOT NULL REFERENCES restaurants(id) ON DELETE CASCADE,
         visit_date TEXT NOT NULL DEFAULT "",
         occasion TEXT NOT NULL DEFAULT "", companions TEXT NOT NULL DEFAULT "", price TEXT NOT NULL DEFAULT "",
-        impression TEXT NOT NULL DEFAULT "", food_text TEXT NOT NULL DEFAULT "", ambience_text TEXT NOT NULL DEFAULT "",
+        ai_notes TEXT NOT NULL DEFAULT "", impression TEXT NOT NULL DEFAULT "", food_text TEXT NOT NULL DEFAULT "", ambience_text TEXT NOT NULL DEFAULT "",
         service_text TEXT NOT NULL DEFAULT "", value_text TEXT NOT NULL DEFAULT "", highlights TEXT NOT NULL DEFAULT "",
         shortcomings TEXT NOT NULL DEFAULT "", verdict TEXT NOT NULL DEFAULT "", revisit TEXT NOT NULL DEFAULT "",
         score_food INTEGER, score_ambience INTEGER, score_service INTEGER, score_value INTEGER,
         status TEXT NOT NULL DEFAULT "draft" CHECK(status IN ("draft","published")),
         published_at TEXT, updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP)');
+    // Existing live databases get the optional, private notes field without losing visits.
+    $visitColumns=$db->query('PRAGMA table_info(visits)')->fetchAll();
+    if (!in_array('ai_notes',array_column($visitColumns,'name'),true)) {
+        $db->exec('ALTER TABLE visits ADD COLUMN ai_notes TEXT NOT NULL DEFAULT ""');
+    }
     $db->exec('CREATE INDEX IF NOT EXISTS visits_restaurant ON visits(restaurant_id,visit_date DESC,id DESC)');
     $columns=$db->query('PRAGMA table_info(photos)')->fetchAll();
     if (!in_array('visit_id',array_column($columns,'name'),true)) {
