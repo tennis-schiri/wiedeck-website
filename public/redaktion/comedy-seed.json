@@ -1,0 +1,158 @@
+[
+  {
+    "id": "comedy-bar92",
+    "name": "BAR92",
+    "city": "Berlin",
+    "category": "Clubs & kleine Bühnen"
+  },
+  {
+    "id": "comedy-quatsch-comedy-club",
+    "name": "Quatsch Comedy Club",
+    "city": "Berlin",
+    "category": "Clubs & kleine Bühnen"
+  },
+  {
+    "id": "comedy-mad-monkey-room",
+    "name": "Mad Monkey Room",
+    "city": "Berlin",
+    "category": "Clubs & kleine Bühnen"
+  },
+  {
+    "id": "comedy-gore-comedy-club",
+    "name": "GöRE Comedy Club",
+    "city": "Berlin",
+    "category": "Clubs & kleine Bühnen"
+  },
+  {
+    "id": "comedy-tati-goes-underground",
+    "name": "Tati Goes Underground",
+    "city": "Berlin",
+    "category": "Clubs & kleine Bühnen"
+  },
+  {
+    "id": "comedy-tiffany-club",
+    "name": "Tiffany Club",
+    "city": "Berlin",
+    "category": "Clubs & kleine Bühnen"
+  },
+  {
+    "id": "comedy-downstairs-comedy-club",
+    "name": "Downstairs Comedy Club",
+    "city": "Berlin",
+    "category": "Clubs & kleine Bühnen"
+  },
+  {
+    "id": "comedy-the-wall-comedy-club",
+    "name": "The Wall Comedy Club",
+    "city": "Berlin",
+    "category": "Clubs & kleine Bühnen"
+  },
+  {
+    "id": "comedy-mavi-cafe-bar",
+    "name": "MAVI Café & Bar",
+    "city": "Berlin",
+    "category": "Clubs & kleine Bühnen"
+  },
+  {
+    "id": "comedy-oblomov",
+    "name": "Oblomov",
+    "city": "Berlin",
+    "category": "Clubs & kleine Bühnen"
+  },
+  {
+    "id": "comedy-punch-l-ne-club",
+    "name": "PUNCH L!NE Club",
+    "city": "Berlin",
+    "category": "Clubs & kleine Bühnen"
+  },
+  {
+    "id": "comedy-the-floating-lounge",
+    "name": "The Floating Lounge",
+    "city": "Berlin",
+    "category": "Clubs & kleine Bühnen"
+  },
+  {
+    "id": "comedy-atelier-theater-koln",
+    "name": "Atelier Theater Köln",
+    "city": "Köln",
+    "category": "Andere Bühnen & besondere Orte"
+  },
+  {
+    "id": "comedy-hrc-berlin",
+    "name": "HRC Berlin",
+    "city": "Berlin",
+    "category": "Andere Bühnen & besondere Orte"
+  },
+  {
+    "id": "comedy-bar-9",
+    "name": "Bar 9",
+    "city": "Berlin",
+    "category": "Andere Bühnen & besondere Orte"
+  },
+  {
+    "id": "comedy-adina-hotel-hamburg",
+    "name": "Adina Hotel Hamburg",
+    "city": "Hamburg",
+    "category": "Andere Bühnen & besondere Orte"
+  },
+  {
+    "id": "comedy-metro-comedy-club-prag",
+    "name": "Metro Comedy Club Prag",
+    "city": "Prag",
+    "category": "Andere Bühnen & besondere Orte"
+  },
+  {
+    "id": "comedy-emma-pea",
+    "name": "Emma Pea",
+    "city": "Berlin",
+    "category": "Andere Bühnen & besondere Orte"
+  },
+  {
+    "id": "comedy-stra-enbrau-ausschank-2",
+    "name": "Straßenbräu Ausschank 2",
+    "city": "Berlin",
+    "category": "Andere Bühnen & besondere Orte"
+  },
+  {
+    "id": "comedy-kerb-foodhall-pink-room",
+    "name": "KERB Foodhall / Pink Room",
+    "city": "Berlin",
+    "category": "Andere Bühnen & besondere Orte"
+  },
+  {
+    "id": "comedy-die-wuhlmause",
+    "name": "Die Wühlmäuse",
+    "city": "Berlin",
+    "category": "Andere Bühnen & besondere Orte"
+  },
+  {
+    "id": "comedy-kabarett-theater-distel",
+    "name": "Kabarett-Theater DISTEL",
+    "city": "Berlin",
+    "category": "Andere Bühnen & besondere Orte"
+  },
+  {
+    "id": "comedy-monbijou-theater",
+    "name": "Monbijou-Theater",
+    "city": "Berlin",
+    "category": "Andere Bühnen & besondere Orte"
+  },
+  {
+    "id": "comedy-luftschloss-tempelhofer-feld",
+    "name": "Luftschloss Tempelhofer Feld",
+    "city": "Berlin",
+    "category": "Andere Bühnen & besondere Orte"
+  },
+  {
+    "id": "comedy-admiralspalast",
+    "name": "Admiralspalast",
+    "city": "Berlin",
+    "category": "Andere Bühnen & besondere Orte"
+  },
+  {
+    "id": "comedy-ms-audrey",
+    "name": "MS Audrey",
+    "city": "Berlin",
+    "category": "Andere Bühnen & besondere Orte"
+  }
+]
