@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none" style="color:#426a80" role="img" aria-labelledby="title"><title id="title">Świnoujście – Mühlenbake Stawa Młyny mit vier Windmühlenflügeln</title>
+<g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+<!-- Stone breakwater and sea -->
+<path d="M5 109c12-4 23-3 35 0 12-4 26-3 39 0 13-4 22-3 36 0M8 115h104M15 105l12-4 14 3 13-2 13 2 14-3 20 4" stroke-width="2.2"/>
+<!-- Four distinctive open-lattice sails -->
+<g stroke-width="2.1">
+<path d="M59 49 25 13 13 25 49 59M61 49l34-36 12 12-36 34M49 61 13 95l12 12 34-36M71 61l36 34-12 12-34-36"/>
+<path d="m25 13-6 18m12-12-6 19m12-13-6 19m12-13-6 19M95 13l6 18m-12-12 6 19m-12-13 6 19m-12-13 6 19M13 95l18 6m-12-12 19 6m-13-12 19 6m-13-12 19 6M107 95l-18 6m12-12-19 6m13-12-19 6m13-12-19 6" stroke-width="1.1"/>
+</g>
+<!-- Narrow, cylindrical navigational tower in foreground -->
+<path d="M44 105V46c0-10 7-14 16-14s16 4 16 14v59" stroke-width="3" fill="var(--icon-fill,none)"/>
+<path d="M44 46c0-5 7-9 16-9s16 4 16 9M40 37l20-12 20 12-4 4H44z" stroke-width="2.7" stroke-linejoin="round"/>
+<path d="M60 25v-8m-4 2h8M47 45c5-5 21-5 26 0" stroke-width="1.7"/>
+<path d="M56 51v-6q4-4 8 0v6zM58 73h4v8h-4zM54 105V92q6-8 12 0v13" stroke-width="2"/>
+<path d="M44 100h32v7H44zM48 57h2m20 0h2" stroke-width="2.5"/>
+</g></svg>
