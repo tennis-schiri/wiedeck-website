@@ -1046,3 +1046,15 @@ a.websites-reference:hover{transform:translateY(-3px);border-color:var(--persona
 @media(max-width:1050px){.restaurant-note{grid-template-columns:33% minmax(0,1fr)}.restaurant-note-content{padding:21px 17px}.restaurant-note-visual{min-height:280px}}
 @media(max-width:800px){.restaurant-journal-heading{display:block}.restaurant-journal-heading p{margin-top:14px;max-width:610px}.restaurant-journal-grid{grid-template-columns:1fr}.restaurant-note{grid-template-columns:31% minmax(0,1fr)}.restaurant-note-visual{min-height:230px}}
 @media(max-width:450px){.restaurant-journal-grid{gap:11px}.restaurant-note{grid-template-columns:1fr}.restaurant-note-visual{min-height:105px}.restaurant-note-glyph{font-size:70px}.restaurant-note-content{padding:19px}.restaurant-note-content h5{font-size:23px}.restaurant-note-number{top:12px}.restaurant-note-city{bottom:12px}.restaurant-note-pending{margin-top:13px}}
+
+
+/* Home: compact entry point for the separate restaurant journal. */
+.restaurant-journal-teaser{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:20px 23px;margin-bottom:30px;background:var(--personal-surface);border:1px solid var(--personal-edge);border-radius:17px}
+.restaurant-journal-teaser-copy{min-width:0}
+.restaurant-journal-teaser .mini{color:var(--personal-accent)}
+.restaurant-journal-teaser h4{font-size:clamp(23px,2.2vw,30px);line-height:1.15;letter-spacing:-.05em;margin:7px 0 6px}
+.restaurant-journal-teaser h4 em{font-family:Georgia,'Times New Roman',serif;font-weight:400;color:var(--personal-accent)}
+.restaurant-journal-teaser p{font-size:12px;line-height:1.55;color:var(--personal-muted);margin:0}
+.restaurant-journal-teaser-link{flex:none;display:inline-flex;align-items:center;gap:10px;border-radius:100px;background:var(--personal-text);color:var(--personal-surface);text-decoration:none;font-size:10px;font-weight:800;letter-spacing:.07em;padding:13px 16px}
+.restaurant-journal-teaser-link:hover{opacity:.85}
+@media(max-width:720px){.restaurant-journal-teaser{align-items:flex-start;flex-direction:column;gap:15px;padding:18px}.restaurant-journal-teaser-link{align-self:flex-start}}
