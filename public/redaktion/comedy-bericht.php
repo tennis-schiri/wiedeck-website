@@ -11,7 +11,7 @@ $stmt=db()->prepare('SELECT show_date,title,comedians,report_text FROM comedy_sh
 $stmt->execute([$id]);$shows=$stmt->fetchAll();
 if(!$shows){http_response_code(404);exit('Noch keine öffentlich freigegebenen Shows.');}
 $unique=[];
-foreach($shows as $show)foreach(preg_split('/\\r\\n|\\r|\\n/u',$show['comedians']) as $name){
+foreach($shows as $show)foreach(preg_split('/\r\n|\r|\n/u',$show['comedians']) as $name){
     $name=trim($name);if($name!=='')$unique[mb_strtolower($name,'UTF-8')]=$name;
 }
 ?><!doctype html><html lang="de" data-theme="dark"><head>
@@ -31,7 +31,7 @@ foreach($shows as $show)foreach(preg_split('/\\r\\n|\\r|\\n/u',$show['comedians'
 <span class="eyebrow"><?=esc(date('d.m.Y',strtotime($show['show_date'])))?></span>
 <?php if($show['title']!==''):?><h2><?=esc($show['title'])?></h2><?php endif;?></div>
 <?php if(trim($show['comedians'])!==''):?><h3>Aufgetretene Comedians</h3>
-<ul class="comedy-performer-list"><?php foreach(preg_split('/\\r\\n|\\r|\\n/u',$show['comedians']) as $name):if(trim($name)==='')continue;?>
+<ul class="comedy-performer-list"><?php foreach(preg_split('/\r\n|\r|\n/u',$show['comedians']) as $name):if(trim($name)==='')continue;?>
 <li><?=esc(trim($name))?></li><?php endforeach;?></ul><?php endif;?>
 <?php if(trim($show['report_text'])!==''):?><h3>Mein persönlicher Eindruck</h3>
 <p class="comedy-report-text"><?=nl2br(esc($show['report_text']))?></p><?php endif;?>
