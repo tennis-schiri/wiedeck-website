@@ -4,3 +4,16 @@
 .venue-visit-link strong{font-size:17px}.venue-visit-link p{max-width:560px;color:var(--muted);font-size:13px;line-height:1.6;margin:6px 0 0}
 .venue-visit-link .primary{text-align:center;white-space:nowrap}
 @media(max-width:680px){.venue-visit-link{display:block}.venue-visit-link .primary{display:block;margin-top:18px}}
+
+/* Private AI writing assistant: show a preview before applying draft text. */
+[hidden]{display:none!important}
+.ai-fieldset{border-color:#5b8194}
+.ai-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:10px 0 14px}
+.ai-actions #ai-status{font-size:12px;color:var(--muted);line-height:1.5}
+.ai-actions button:disabled{opacity:.6;cursor:progress}
+.ai-preview{padding:17px;border:1px solid var(--line);border-radius:12px;background:var(--panel2);margin-top:12px}
+.ai-preview h3{font-size:17px;margin:0 0 10px}
+.ai-preview section{padding:10px 0;border-top:1px solid var(--line)}
+.ai-preview h4{font-size:12px;color:var(--accent);margin:0 0 4px}
+.ai-preview p{white-space:pre-wrap;font-size:13px;line-height:1.6;margin:0}
+.ai-preview .primary{margin-top:15px}
