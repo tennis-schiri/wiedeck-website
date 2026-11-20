@@ -40,3 +40,10 @@ a{color:inherit}.shell{width:min(100% - 40px,1120px);margin-inline:auto}.top{pos
 .restaurant-city-notice{font-size:11px;color:var(--muted);line-height:1.6;margin:13px 0 0}
 @media(max-width:700px){.restaurant-city-intro{display:block}.restaurant-city-intro p{margin:12px 0 0}.restaurant-city-grid{grid-template-columns:1fr}}
 @media(max-width:430px){.restaurant-city ul{grid-template-columns:1fr}.restaurant-city li:nth-last-child(2){border-bottom:1px solid var(--line)}.restaurant-city summary{padding:13px 15px}}
+
+/* Every listed restaurant has its own compact entry and pending personal report. */
+.restaurant-city li.restaurant-list-entry{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;min-width:0;padding:10px 0}
+.restaurant-list-entry-main{display:block;max-width:100%;overflow-wrap:anywhere}
+.restaurant-list-entry-main strong{font-weight:700}
+.restaurant-list-entry-status{display:inline-block;color:var(--muted);font-size:9px;font-weight:700;letter-spacing:.045em;white-space:nowrap}
+.restaurant-list-entry:target{outline:1px solid var(--accent);outline-offset:3px;border-radius:3px}
