@@ -49,8 +49,11 @@ function db(): PDO {
     if ((int)$db->query('SELECT count(*) FROM restaurants')->fetchColumn() === 0) {
         $seed = json_decode((string)file_get_contents(__DIR__ . '/seed.json'), true);
         if (is_array($seed)) {
-            $stmt = $db->prepare('INSERT OR IGNORE INTO restaurants (id,name,city) VALUES (?,?,?)');
-            foreach ($seed as $row) $stmt->execute([(string)$row['id'],(string)$row['name'],(string)$row['city']]);
+            $stmt = $db->prepare('INSERT OR IGNORE INTO restaurants (id,name,city,address,cuisine,website) VALUES (?,?,?,?,?,?)');
+            foreach ($seed as $row) $stmt->execute([
+                (string)$row['id'],(string)$row['name'],(string)$row['city'],
+                (string)($row['address'] ?? ''),(string)($row['cuisine'] ?? ''),(string)($row['website'] ?? '')
+            ]);
         }
     }
     return $db;
