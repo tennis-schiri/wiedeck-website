@@ -205,6 +205,9 @@ jobs:
           for page in public/restaurants.html public/en/restaurants.html; do
             grep -Fq 'id="restaurant-journal"' "$page"
             test "$(grep -o '<article class="restaurant-note ' "$page" | wc -l)" -eq 4
+            grep -Fq 'class="restaurant-city-index"' "$page"
+            test "$(grep -o '<details class="restaurant-city"' "$page" | wc -l)" -eq 10
+            test "$(grep -o '<li>' "$page" | wc -l)" -eq 46
             for slug in staev-berlin jamie-oliver-kitchen night-kitchen scheers-schnitzel; do
               grep -Fq "id=\"restaurant-$slug\"" "$page"
             done
