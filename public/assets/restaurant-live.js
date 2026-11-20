@@ -52,8 +52,44 @@
       }
       var count=document.querySelector('[data-published-count]');
       if(count)count.textContent=String(data.reports.length);
-      data.reports.forEach(function(r){
-        if(!r||typeof r.id!=='string'||!/^[-a-z0-9]+$/.test(r.id))return;
+      var reports=data.reports.filter(function(r){return r&&typeof r.id==='string'&&/^[a-z0-9-]+$/.test(r.id);});
+      // The feed contains published reports only; each restaurant appears at most once.
+      var featured=document.getElementById('restaurant-journal');
+      var featuredGrid=document.getElementById('restaurant-featured-grid');
+      if(featured && featuredGrid && reports.length){
+        featuredGrid.replaceChildren();
+        reports.slice(0,4).forEach(function(r,index){
+          var article=document.createElement('article');article.className='restaurant-note';
+          article.id='featured-'+r.id;
+          var visual=document.createElement('div');visual.className='restaurant-note-visual';visual.setAttribute('aria-hidden','true');
+          var number=document.createElement('span');number.className='restaurant-note-number';
+          number.textContent=String(index+1).padStart(2,'0')+' / '+String(Math.min(reports.length,4)).padStart(2,'0');
+          var city=document.createElement('span');city.className='restaurant-note-city';city.textContent=String(r.city||'').toLocaleUpperCase();
+          var glyph=document.createElement('span');glyph.className='restaurant-note-glyph';
+          glyph.textContent=String(r.name||'?').trim().charAt(0).toLocaleUpperCase();
+          visual.append(number,city,glyph);
+          var content=document.createElement('div');content.className='restaurant-note-content';
+          var type=document.createElement('span');type.className='restaurant-note-type';
+          type.textContent=String(r.cuisine|| (english?'Personal review':'Persönlicher Bericht'));
+          var title=document.createElement('h5');title.textContent=String(r.name||'');
+          var info=document.createElement('p');
+          var parts=[];
+          if(r.visit_date && /^\\d{4}-\\d{2}-\\d{2}$/.test(r.visit_date)){
+            var a=r.visit_date.split('-');
+            parts.push((english?'Last visit: ':'Letzter Besuch: ')+(english?a.join('-'):a[2]+'.'+a[1]+'.'+a[0]));
+          }
+          if(Number(r.visit_count)>1)parts.push(english?Number(r.visit_count)+' published visits':Number(r.visit_count)+' veröffentlichte Besuche');
+          info.textContent=parts.join(' · ');
+          var actions=document.createElement('div');actions.className='restaurant-note-actions';
+          var link=document.createElement('a');link.href=(english?'../':'')+'redaktion/bericht.php?id='+encodeURIComponent(r.id);
+          link.textContent=english?'Read personal review ↗':'Persönlichen Bericht lesen ↗';
+          actions.append(link);content.append(type,title,info,actions);article.append(visual,content);featuredGrid.append(article);
+        });
+        featured.hidden=false;
+      }else if(featured){
+        featured.hidden=true;
+      }
+      reports.forEach(function(r){
         var url=(english?'../':'')+'redaktion/bericht.php?id='+encodeURIComponent(r.id);
         var entry=document.getElementById(r.id);
         if(entry){
@@ -61,21 +97,9 @@
           if(status){status.textContent=english?'Report online':'Bericht online';status.classList.add('is-published');}
           var main=entry.querySelector('.restaurant-list-entry-main');
           if(main && !main.querySelector('a[href*="bericht.php"]')){
-            var a=document.createElement('a');
-            a.href=url;a.className='restaurant-entry-report';
+            var a=document.createElement('a');a.href=url;a.className='restaurant-entry-report';
             a.textContent=english?'Read personal review ↗':'Persönlichen Bericht lesen ↗';
             main.appendChild(a);
-          }
-        }
-        // The first four restaurants also have existing general-info cards.
-        var maps={'place-berlin-01':'restaurant-staev-berlin','place-berlin-02':'restaurant-jamie-oliver-kitchen','place-berlin-03':'restaurant-night-kitchen','place-berlin-04':'restaurant-scheers-schnitzel'};
-        var feature=document.getElementById(maps[r.id]||'');
-        if(feature){
-          var pending=feature.querySelector('.restaurant-note-pending');
-          if(pending){pending.textContent=english?'PERSONAL REPORT ONLINE':'PERSÖNLICHER BERICHT ONLINE';}
-          var links=feature.querySelector('.restaurant-note-actions');
-          if(links && !links.querySelector('.restaurant-report-link')){
-            var b=document.createElement('a');b.href=url;b.className='restaurant-report-link';b.textContent=english?'Read my report ↗':'Meinen Bericht lesen ↗';links.prepend(b);
           }
         }
       });
