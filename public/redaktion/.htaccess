@@ -1,0 +1,7 @@
+Options -Indexes
+<FilesMatch "^(bootstrap\.php|seed\.json)$">
+  Require all denied
+</FilesMatch>
+<FilesMatch "\.(sqlite|db|bak|log|ini|env)$">
+  Require all denied
+</FilesMatch>
