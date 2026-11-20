@@ -221,6 +221,31 @@ jobs:
           assert len([x for x in seed if x.get('address')]) >= 30, 'Verified venue metadata missing'
           assert all(x.get('id') and x.get('name') and x.get('city') for x in seed)
           PY
+          # Comedy shares the private editorial login, but does not assign comedian ratings.
+          test -s public/comedy.html
+          test -s public/en/comedy.html
+          test -s public/assets/comedy-journal.css
+          test -s public/assets/comedy-live.js
+          test -s public/redaktion/comedy.php
+          test -s public/redaktion/comedy-ai.php
+          test -s public/redaktion/comedy-ai.js
+          test -s public/redaktion/comedy-feed.php
+          test -s public/redaktion/comedy-bericht.php
+          test -s public/redaktion/comedy-seed.json
+          grep -Fq 'CREATE TABLE IF NOT EXISTS comedy_clubs' public/redaktion/bootstrap.php
+          grep -Fq 'CREATE TABLE IF NOT EXISTS comedy_shows' public/redaktion/bootstrap.php
+          grep -Fq 'Comedy-Redaktion öffnen' public/redaktion/index.php
+          grep -Fq 'comedy_clubs' public/redaktion/index.php
+          grep -Fq 'href="comedy.html"' public/index.html
+          grep -Fq 'href="comedy.html"' public/en/index.html
+          grep -Fq 'comedy-featured-grid' public/comedy.html
+          grep -Fq 'comedy-featured-grid' public/en/comedy.html
+          grep -Fq 'comedy-feed.php' public/assets/comedy-live.js
+          python3 - <<'PY'
+          import json
+          c=json.load(open('public/redaktion/comedy-seed.json',encoding='utf-8'))
+          assert len(c)==26 and len({item['id'] for item in c})==26
+          PY
           test -s public/redaktion/admin.css
           test -s public/redaktion/private/.htaccess
           test -s public/redaktion/.htaccess
@@ -353,7 +378,7 @@ jobs:
           # Dadurch landen index.html und favicon.svg direkt im Domain-Verzeichnis.
           # Einzelne FTPS-Verbindungen können vorübergehend blockiert sein.
           # curl versucht bei Netzwerk- und Timeoutfehlern kontrolliert erneut.
-          for file in public/logos/juxilo-jx04-light.svg public/logos/juxilo-jx04-dark.svg public/logos/juxilo-jx04-horizontal.svg public/logos/juxilo-jx04-horizontal-dark.svg public/logos/juxilo-jx04-icon.svg public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/restaurants.html public/restaurants.html public/assets/restaurant-journal.css public/assets/restaurant-live.js public/redaktion/.htaccess public/redaktion/private/.htaccess public/redaktion/bootstrap.php public/redaktion/index.php public/redaktion/visits.php public/redaktion/ai-draft.php public/redaktion/ai-draft.js public/redaktion/feed.php public/redaktion/media.php public/redaktion/bericht.php public/redaktion/seed.json public/redaktion/admin.css public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/tennis-ball.svg public/media/ice-hockey.svg public/media/football.svg public/media/rugby.svg public/media/olympic-rings.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
+          for file in public/logos/juxilo-jx04-light.svg public/logos/juxilo-jx04-dark.svg public/logos/juxilo-jx04-horizontal.svg public/logos/juxilo-jx04-horizontal-dark.svg public/logos/juxilo-jx04-icon.svg public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/restaurants.html public/en/comedy.html public/restaurants.html public/comedy.html public/assets/restaurant-journal.css public/assets/restaurant-live.js public/assets/comedy-journal.css public/assets/comedy-live.js public/redaktion/.htaccess public/redaktion/private/.htaccess public/redaktion/bootstrap.php public/redaktion/index.php public/redaktion/visits.php public/redaktion/comedy.php public/redaktion/comedy-feed.php public/redaktion/comedy-bericht.php public/redaktion/comedy-ai.php public/redaktion/comedy-ai.js public/redaktion/comedy-seed.json public/redaktion/ai-draft.php public/redaktion/ai-draft.js public/redaktion/feed.php public/redaktion/media.php public/redaktion/bericht.php public/redaktion/seed.json public/redaktion/admin.css public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/tennis-ball.svg public/media/ice-hockey.svg public/media/football.svg public/media/rugby.svg public/media/olympic-rings.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
             remote="${file#public/}"
             printf 'FTPS: %s\n' "$remote"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \
