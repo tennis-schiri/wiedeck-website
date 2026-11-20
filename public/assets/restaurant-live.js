@@ -74,7 +74,7 @@
           var title=document.createElement('h5');title.textContent=String(r.name||'');
           var info=document.createElement('p');
           var parts=[];
-          if(r.visit_date && /^\\d{4}-\\d{2}-\\d{2}$/.test(r.visit_date)){
+          if(r.visit_date && /^\d{4}-\d{2}-\d{2}$/.test(r.visit_date)){
             var a=r.visit_date.split('-');
             parts.push((english?'Last visit: ':'Letzter Besuch: ')+(english?a.join('-'):a[2]+'.'+a[1]+'.'+a[0]));
           }
