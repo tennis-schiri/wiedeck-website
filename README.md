@@ -53,3 +53,11 @@ Die freigestellten MW-Hauptlogos besitzen unterschiedliche Rastermaße (hell 745
 ## TENNILO Umpire – Teaser
 
 Auf der Projektübersicht wird **TENNILO Umpire** bewusst ohne Funktionsdetails angekündigt. Das Original-Logo ist der in Google Drive freigegebene Hauptentwurf `00_TENNILO_Umpire_Favorit_4K.png` aus `TENNILO Umpire/Logo`, eingebunden als `public/logos/tennilo-umpire.png`. Der Teaser führt wie TENNILO Score zu tennilo.de.
+
+## Restaurant-Tagebuch (DE / EN)
+
+- `public/restaurants.html` und `public/en/restaurants.html`: Die obere Kartenübersicht wird nur angezeigt, wenn veröffentlichte Besuchsberichte vorhanden sind. Sie enthält höchstens vier Restaurants, nach letztem Veröffentlichungsdatum sortiert. Diese Einträge werden nicht nochmals in der darunterliegenden Städteliste angezeigt.
+- `public/redaktion/`: Passwortgeschütztes Backend für Restaurant-Stammdaten und beliebig viele getrennte Besuche pro Restaurant. 0–10-Sterne-Bewertungen, Fotos und Entwürfe bleiben bestehen.
+- Pro Besuch sind private Stichpunkte (`ai_notes`) speicherbar. `ai-draft.js` zeigt nach einem Klick einen KI-Textvorschlag an; der Redakteur übernimmt ihn manuell in die Standardfelder und entscheidet separat über die Veröffentlichung.
+- Für KI-Entwürfe wird ein eigener OpenAI-API-Schlüssel im GitHub-Actions-Repository-Secret **`OPENAI_API_KEY`** benötigt. Nach dem nächsten Live-Upload wird er als `redaktion/private/openai-key.php` **nur auf dem Webserver** gespeichert. GitHub enthält diesen Schlüssel nicht; das Verzeichnis ist mit `.htaccess` gegen öffentliche Zugriffe gesperrt. Ohne Secret bleiben Redaktionsformular und manuelle Berichte nutzbar, die KI-Schaltfläche gibt einen Einrichtungshinweis.
+- Die Stichpunkte werden erst nach Klick auf die KI-Schaltfläche für einen Textentwurf an die OpenAI API übertragen (`store: false`). Die API-Kosten werden über das separate OpenAI-API-Konto abgerechnet. Keine automatische Veröffentlichung.
