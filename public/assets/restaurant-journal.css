@@ -15,3 +15,28 @@ a{color:inherit}.shell{width:min(100% - 40px,1120px);margin-inline:auto}.top{pos
 @media(max-width:800px){.restaurant-journal-heading{display:block}.restaurant-journal-heading p{margin-top:10px}.restaurant-journal-grid{grid-template-columns:1fr}.restaurant-note{grid-template-columns:116px minmax(0,1fr)}.restaurant-note-visual{min-height:175px}}
 @media(max-width:520px){.shell{width:min(100% - 28px,1120px)}.top-inner{min-height:65px}.header-actions{gap:10px}.back{font-size:11px}.wordmark strong{font-size:13px}.brand-symbol{width:42px}.page-heading{padding:34px 0 24px}.restaurant-note{grid-template-columns:68px minmax(0,1fr)}.restaurant-note-glyph{font-size:47px}.restaurant-note-number,.restaurant-note-city{font-size:8px;left:6px}.restaurant-note-content{padding:13px}.restaurant-note-content h5{font-size:19px}.restaurant-note-content p{font-size:11px}.restaurant-note-visual{min-height:205px}.restaurant-note-actions{gap:8px}.page-footer .shell{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+
+/* Personal restaurant directory: condensed by city, no fabricated visits or ratings. */
+.restaurant-city-index{margin:5px 0 25px}
+.restaurant-city-intro{display:flex;justify-content:space-between;align-items:end;gap:28px;padding:23px 0 20px;border-top:1px solid var(--line)}
+.restaurant-city-intro h2{font-size:clamp(27px,3.2vw,40px);letter-spacing:-.055em;line-height:1.1;margin:9px 0 0}
+.restaurant-city-intro p{color:var(--muted);font-size:12px;line-height:1.65;max-width:430px;margin:0}
+.restaurant-city-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}
+.restaurant-city{min-width:0;border:1px solid var(--line);border-radius:13px;background:var(--surface);overflow:hidden}
+.restaurant-city summary{display:flex;align-items:center;gap:12px;padding:15px 18px;min-height:55px;cursor:pointer;list-style:none}
+.restaurant-city summary::-webkit-details-marker{display:none}
+.restaurant-city summary:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.restaurant-city-name{font-size:16px;font-weight:800;letter-spacing:-.025em}
+.restaurant-city-count{margin-left:auto;color:var(--accent);font:italic 15px Georgia,serif}
+.restaurant-city-chevron{color:var(--muted);font-size:19px;transform-origin:center;transition:transform .2s}
+.restaurant-city[open] .restaurant-city-chevron{transform:rotate(180deg)}
+.restaurant-city ul{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px;margin:0;padding:5px 18px 14px;border-top:1px solid var(--line)}
+.restaurant-city li{min-width:0;line-height:1.3;font-size:12px;color:var(--ink);padding:9px 0;border-bottom:1px solid var(--line)}
+.restaurant-city li:nth-last-child(-n+2){border-bottom:0}
+.restaurant-city li a{text-decoration:none;color:var(--accent);font-weight:800}
+.restaurant-city li a:hover{text-decoration:underline;text-underline-offset:3px}
+.restaurant-city li a span{font-size:10px}
+.restaurant-city-notice{font-size:11px;color:var(--muted);line-height:1.6;margin:13px 0 0}
+@media(max-width:700px){.restaurant-city-intro{display:block}.restaurant-city-intro p{margin:12px 0 0}.restaurant-city-grid{grid-template-columns:1fr}}
+@media(max-width:430px){.restaurant-city ul{grid-template-columns:1fr}.restaurant-city li:nth-last-child(2){border-bottom:1px solid var(--line)}.restaurant-city summary{padding:13px 15px}}
