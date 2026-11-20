@@ -66,8 +66,10 @@ if($ready && ($_GET['action']??'')==='backup'){
     $all=db()->query('SELECT * FROM restaurants ORDER BY city,name')->fetchAll();
     $visits=db()->query('SELECT * FROM visits ORDER BY restaurant_id,visit_date,id')->fetchAll();
     $photos=db()->query('SELECT restaurant_id,visit_id,filename,mime,caption FROM photos')->fetchAll();
+    $comedyClubs=db()->query('SELECT * FROM comedy_clubs ORDER BY category,name')->fetchAll();
+    $comedyShows=db()->query('SELECT * FROM comedy_shows ORDER BY club_id,show_date,id')->fetchAll();
     header('Content-Disposition: attachment; filename="restaurants-'.date('Y-m-d').'.json"');
-    json_output(['exported_at'=>gmdate(DATE_ATOM),'restaurants'=>$all,'visits'=>$visits,'photos_metadata'=>$photos,
+    json_output(['exported_at'=>gmdate(DATE_ATOM),'restaurants'=>$all,'visits'=>$visits,'photos_metadata'=>$photos,'comedy_clubs'=>$comedyClubs,'comedy_shows'=>$comedyShows,
         'note'=>'Die Bilddateien selbst sind nicht in diesem Export enthalten; Server-Backup erforderlich.']);
 }
 $items=[];$selected=null;$visitCounts=[];
@@ -89,10 +91,11 @@ if($ready){
 <?php else:?>
 <?php if(isset($_GET['changed'])):?><p class="success">Passwort geändert.</p><?php endif;?>
 <?php if(isset($_GET['saved'])):?><p class="success">Restaurant-Stammdaten gespeichert.</p><?php endif;?>
+<div class="venue-visit-link"><div><strong>Comedy-Clubs & Auftritte</strong><p>Dieselbe Anmeldung, dieselbe Datensicherung. Auftritte und Comedians zählen, persönliche Berichte optional – ohne Künstlerbewertungen.</p></div><a class="primary" href="comedy.php">Comedy-Redaktion öffnen ↗</a></div>
 <div class="dashboard"><aside class="sidebar"><h1>Meine Restaurants</h1><p><?=count($items)?> Lokale · beliebig viele Besuche pro Lokal</p>
 <form method="post" class="add"><input type="hidden" name="csrf" value="<?=esc(csrf())?>"><input type="hidden" name="action" value="new"><input name="name" placeholder="Neues Restaurant" required><input name="city" placeholder="Stadt" required><button>+ Neues Restaurant</button></form>
 <nav class="restaurant-list"><?php foreach($items as $item):$counts=$visitCounts[$item['id']]??[];?><a href="?id=<?=rawurlencode($item['id'])?>" class="<?=$id===$item['id']?'active':''?>"><strong><?=esc($item['name'])?></strong><small><?=esc($item['city'])?> · <?=((int)($counts['amount']??0))?> Besuche, <?=((int)($counts['online']??0))?> online</small></a><?php endforeach;?></nav>
-<a class="backup" href="?action=backup">Stammdaten + Berichte als JSON sichern ↓</a>
+<a class="backup" href="?action=backup">Restaurants + Comedy als JSON sichern ↓</a>
 <details class="password"><summary>Passwort ändern</summary><form method="post"><input type="hidden" name="csrf" value="<?=esc(csrf())?>"><input type="hidden" name="action" value="password"><input name="current_password" type="password" placeholder="Aktuelles Passwort" required><input name="new_password" type="password" minlength="12" placeholder="Neues Passwort" required><button>Ändern</button></form></details>
 </aside><section class="editor"><?php if($selected):?>
 <div class="editor-title"><div><span class="eyebrow">RESTAURANT-STAMMDATEN</span><h2><?=esc($selected['name'])?></h2><p><?=esc($selected['city'])?></p></div></div>
