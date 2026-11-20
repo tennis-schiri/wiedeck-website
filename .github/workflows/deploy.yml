@@ -204,6 +204,14 @@ jobs:
           done
           test -s public/redaktion/seed.json
           test -s public/redaktion/visits.php
+          # The editorial backend must not contain paid-AI entry points.
+          ! test -e public/redaktion/ai-draft.php
+          ! test -e public/redaktion/comedy-ai.php
+          ! test -e public/redaktion/ai-draft.js
+          ! test -e public/redaktion/comedy-ai.js
+          ! grep -Fq 'ai-draft.js' public/redaktion/visits.php
+          ! grep -Fq 'comedy-ai.js' public/redaktion/comedy.php
+          ! grep -Fq 'OPENAI_API_KEY:' .github/workflows/deploy.yml
           grep -Fq "reports.slice(0,4)" public/assets/restaurant-live.js
           grep -Fq 'CREATE TABLE IF NOT EXISTS visits' public/redaktion/bootstrap.php
           grep -Fq 'visit_id' public/redaktion/media.php
