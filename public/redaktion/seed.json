@@ -1,23 +1,35 @@
 [
   {
     "id": "place-berlin-01",
-    "name": "StäV",
-    "city": "Berlin"
+    "name": "StäV Berlin",
+    "city": "Berlin",
+    "address": "Schiffbauerdamm 8, 10117 Berlin",
+    "cuisine": "Rheinisch & Berliner Küche",
+    "website": "https://www.staev.de/berlin-mitte.html"
   },
   {
     "id": "place-berlin-02",
-    "name": "JOK",
-    "city": "Berlin"
+    "name": "Jamie Oliver Kitchen",
+    "city": "Berlin",
+    "address": "Friedrichstraße 136, 10117 Berlin",
+    "cuisine": "Internationale Küche",
+    "website": "https://www.jamieoliverkitchen.de/DEU/jamie-oliver-kitchen-berlin/"
   },
   {
     "id": "place-berlin-03",
     "name": "Night Kitchen",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Oranienburger Straße 32, 10117 Berlin",
+    "cuisine": "Mediterran & Sharing",
+    "website": "https://www.nightkitchenberlin.com/"
   },
   {
     "id": "place-berlin-04",
     "name": "Scheers Schnitzel",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Warschauer Straße 1, 10245 Berlin",
+    "cuisine": "Schnitzel & deutsche Küche",
+    "website": "https://www.scheers-schnitzel.de/"
   },
   {
     "id": "place-berlin-05",
