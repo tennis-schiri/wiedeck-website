@@ -61,3 +61,12 @@ Auf der Projektübersicht wird **TENNILO Umpire** bewusst ohne Funktionsdetails 
 - Pro Besuch sind private Stichpunkte (`ai_notes`) speicherbar. `ai-draft.js` zeigt nach einem Klick einen KI-Textvorschlag an; der Redakteur übernimmt ihn manuell in die Standardfelder und entscheidet separat über die Veröffentlichung.
 - Für KI-Entwürfe wird ein eigener OpenAI-API-Schlüssel im GitHub-Actions-Repository-Secret **`OPENAI_API_KEY`** benötigt. Nach dem nächsten Live-Upload wird er als `redaktion/private/openai-key.php` **nur auf dem Webserver** gespeichert. GitHub enthält diesen Schlüssel nicht; das Verzeichnis ist mit `.htaccess` gegen öffentliche Zugriffe gesperrt. Ohne Secret bleiben Redaktionsformular und manuelle Berichte nutzbar, die KI-Schaltfläche gibt einen Einrichtungshinweis.
 - Die Stichpunkte werden erst nach Klick auf die KI-Schaltfläche für einen Textentwurf an die OpenAI API übertragen (`store: false`). Die API-Kosten werden über das separate OpenAI-API-Konto abgerechnet. Keine automatische Veröffentlichung.
+
+## Comedy-Clubs im selben Redaktions-Backend
+
+- `/redaktion/` bietet nach dem Login den neuen Bereich `/redaktion/comedy.php`. Dieselbe Sitzung, derselbe geschützte SQLite-Speicher und dieselbe JSON-Datensicherung (Comedy-Clubs und Auftritte inklusive).
+- Clubs und Shows haben eigene Datenbanktabellen. Die 26 bisher auf der Startseite aufgeführten Locations werden einmalig übernommen; manuell gelöschte Clubs werden nicht automatisch neu angelegt.
+- Pro Show: Datum, optionale Bezeichnung, Comedians (ein Name pro Zeile), private Notizen und optional ein freier persönlicher Bericht. **Keine Künstlerbewertungen**. Die Redaktion zählt Besuche und unterschiedliche Comedians.
+- Mit `Privat` bleibt die Show intern; `Öffentlich` erlaubt es, Datum und Lineup auf der Website sowie die Club-Zähler anzuzeigen. Ein Bericht ist dafür **nicht erforderlich**.
+- `/comedy.html` und `/en/comedy.html` zeigen maximal vier Clubs mit veröffentlichten persönlichen Berichten. Die übrigen Clubs bleiben darunter aufgelistet. Die Startseite verlinkt das Comedy-Tagebuch.
+- Optional formuliert `comedy-ai.php` aus eigenen Stichpunkten einen privaten Berichtsentwurf. Dafür verwendet die Funktion denselben serverseitigen `OPENAI_API_KEY` wie die Restaurant-Redaktion. Erst nach Prüfung und manuellem Speichern kann er veröffentlicht werden.
