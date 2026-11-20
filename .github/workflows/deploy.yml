@@ -89,40 +89,40 @@ jobs:
           grep -q 'FAMILY' public/en/index.html
           grep -q 'id="unterwegs"' public/index.html
           grep -q 'id="unterwegs"' public/en/index.html
-          test "$(grep -o '<article class="travel-card' public/index.html | wc -l)" -eq 27
-          test "$(grep -o '<article class="travel-card' public/en/index.html | wc -l)" -eq 27
+          test "$(grep -o '<article class="travel-card' public/index.html | wc -l)" -eq 28
+          test "$(grep -o '<article class="travel-card' public/en/index.html | wc -l)" -eq 28
           # Five geographic sections: 7 repeat visits, then four rows of five.
           for page in public/index.html public/en/index.html; do
             test "$(grep -o 'class="travel-group-head"' "$page" | wc -l)" -eq 5
-            test "$(grep -o '<article class="travel-card' "$page" | wc -l)" -eq 27
+            test "$(grep -o '<article class="travel-card' "$page" | wc -l)" -eq 28
           done
           grep -Fq '<h5>NORDEN & NORDOSTEN</h5><span>05</span>' public/index.html
           grep -Fq '<h5>WESTEN & ATLANTIK</h5><span>05</span>' public/index.html
           grep -Fq '<h5>MITTELEUROPA & ALPEN</h5><span>05</span>' public/index.html
-          grep -Fq '<h5>SÜDEN & MITTELMEER</h5><span>05</span>' public/index.html
+          grep -Fq '<h5>SÜDEN & MITTELMEER</h5><span>06</span>' public/index.html
           grep -Fq '<h5>NORTH & NORTHEAST</h5><span>05</span>' public/en/index.html
           grep -Fq '<h5>WEST & ATLANTIC</h5><span>05</span>' public/en/index.html
           grep -Fq '<h5>CENTRAL EUROPE & ALPS</h5><span>05</span>' public/en/index.html
-          grep -Fq '<h5>SOUTH & MEDITERRANEAN</h5><span>05</span>' public/en/index.html
+          grep -Fq '<h5>SOUTH & MEDITERRANEAN</h5><span>06</span>' public/en/index.html
           test "$(grep -o 'travel-card--repeat' public/index.html | wc -l)" -eq 7
           test "$(grep -o 'travel-card--repeat' public/en/index.html | wc -l)" -eq 7
           grep -q 'Schottland' public/index.html
           grep -q 'Scotland' public/en/index.html
           grep -Fq 'travel-grid' public/assets/home-projects.css
           test "$(find public/media/flags -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 19
-          test "$(grep -o 'class="travel-flag travel-flag-image"' public/index.html | wc -l)" -eq 27
-          test "$(grep -o 'class="travel-flag travel-flag-image"' public/en/index.html | wc -l)" -eq 27
-          test "$(grep -o 'class="travel-flag-slot"' public/index.html | wc -l)" -eq 27
-          test "$(grep -o 'class="travel-flag-slot"' public/en/index.html | wc -l)" -eq 27
+          test "$(grep -o 'class="travel-flag travel-flag-image"' public/index.html | wc -l)" -eq 28
+          test "$(grep -o 'class="travel-flag travel-flag-image"' public/en/index.html | wc -l)" -eq 28
+          test "$(grep -o 'class="travel-flag-slot"' public/index.html | wc -l)" -eq 28
+          test "$(grep -o 'class="travel-flag-slot"' public/en/index.html | wc -l)" -eq 28
           ! grep -Fq 'class="travel-number"' public/index.html
           ! grep -Fq 'class="travel-number"' public/en/index.html
           test "$(grep -o 'class="travel-football-icon"' public/index.html | wc -l)" -eq 4
           test "$(grep -o 'class="travel-football-icon"' public/en/index.html | wc -l)" -eq 4
-          test "$(find public/media/landmarks -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 29
-          test "$(grep -o 'class="travel-landmark-icon"' public/index.html | wc -l)" -eq 27
-          test "$(grep -o 'class="travel-landmark-icon"' public/en/index.html | wc -l)" -eq 27
-          test "$(grep -o 'class="travel-landmark-label"' public/index.html | wc -l)" -eq 27
-          test "$(grep -o 'class="travel-landmark-label"' public/en/index.html | wc -l)" -eq 27
+          test "$(find public/media/landmarks -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 30
+          test "$(grep -o 'class="travel-landmark-icon"' public/index.html | wc -l)" -eq 28
+          test "$(grep -o 'class="travel-landmark-icon"' public/en/index.html | wc -l)" -eq 28
+          test "$(grep -o 'class="travel-landmark-label"' public/index.html | wc -l)" -eq 28
+          test "$(grep -o 'class="travel-landmark-label"' public/en/index.html | wc -l)" -eq 28
           ! grep -Fq 'travel-skyline' public/index.html
           ! grep -Fq 'travel-skyline' public/en/index.html
           test -s public/media/tennis-ball.svg
@@ -132,11 +132,16 @@ jobs:
           test -s public/media/olympic-rings.svg
           test -s public/media/landmarks/cologne.svg
           test -s public/media/landmarks/paris.svg
+          test -s public/media/landmarks/benissa.svg
           test -s public/media/flags/sct.svg
           test -s public/media/flags/gb.svg
           grep -Fq 'media/flags/' public/index.html
           grep -Fq 'media/flags/' public/en/index.html
           grep -Fq 'Eisbären' public/index.html
+          grep -Fq 'media/landmarks/benissa.svg' public/index.html
+          grep -Fq 'media/landmarks/benissa.svg' public/en/index.html
+          grep -Fq '28 ORTE' public/index.html
+          grep -Fq '28 PLACES' public/en/index.html
           grep -Fq 'class="brand" data-scroll-top' public/index.html
           grep -Fq 'class="brand" data-scroll-top' public/en/index.html
           grep -Fq 'id="comedy-locations"' public/index.html
