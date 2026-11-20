@@ -96,8 +96,8 @@ if($club){
 <select name="category"><option>Clubs &amp; kleine Bühnen</option><option>Andere Bühnen &amp; besondere Orte</option></select>
 <button name="action" value="new_club">+ Club hinzufügen</button></form>
 <nav class="restaurant-list"><?php foreach($clubs as $c):?><a class="<?=$clubId===$c['id']?'active':''?>" href="?club=<?=rawurlencode($c['id'])?>">
-<strong><?=esc($c['name'])?></strong><small><?=esc($c['city'])?> · <?=$c['shows']?> Besuche · <?=$c['published']?> freigegeben</small></a><?php endforeach;?></nav>
-<a class="backup" href="index.php?action=backup">Restaurant-Datensicherung ↗</a>
+<strong><?=esc($c['name'])?></strong><small><?=esc($c['city'])?> · <?=$c['shows']?> Besuche · <?=(int)$c['published']?> freigegeben</small></a><?php endforeach;?></nav>
+<a class="backup" href="index.php?action=backup">Gesamtsicherung (Restaurants + Comedy) ↗</a>
 </aside><section class="editor"><?php if($club):?>
 <div class="editor-title"><div><span class="eyebrow">CLUB-STAMMDATEN</span><h2><?=esc($club['name'])?></h2><p><?=esc($club['city'])?></p></div></div>
 <form method="post" class="editor-form"><input type="hidden" name="csrf" value="<?=esc(csrf())?>">
