@@ -8,7 +8,7 @@ $stmt=db()->prepare('SELECT p.filename,p.mime,p.restaurant_id,p.visit_id,v.statu
 $stmt->execute([$id]);$photo=$stmt->fetch();
 $public=$photo && $photo['visit_id']!==null && $photo['status']==='published'
     && $photo['visit_date']!=='' && $photo['food_text']!=='' && $photo['verdict']!=='';
-if(!$photo && !authenticated()){http_response_code(404);exit;}
+if(!$photo){http_response_code(404);exit;}
 if(!$public && !authenticated()){http_response_code(404);exit;}
 $filename=__DIR__.'/private/images/'.$photo['filename'];
 if(!is_file($filename)){http_response_code(404);exit;}
