@@ -193,18 +193,21 @@ jobs:
           grep -Fq 'id="hobbys"' public/en/index.html
           grep -Fq 'id="genuss"' public/index.html
           grep -Fq 'id="genuss"' public/en/index.html
-          # Personal restaurant journal: four factual profiles per language.
+          # Restaurant features moved to compact, separate pages (DE and EN).
+          test -s public/restaurants.html
+          test -s public/en/restaurants.html
+          test -s public/assets/restaurant-journal.css
           for page in public/index.html public/en/index.html; do
+            grep -Fq 'class="restaurant-journal-teaser"' "$page"
+            grep -Fq 'href="restaurants.html"' "$page"
+            ! grep -Fq 'id="restaurant-journal"' "$page"
+          done
+          for page in public/restaurants.html public/en/restaurants.html; do
             grep -Fq 'id="restaurant-journal"' "$page"
             test "$(grep -o '<article class="restaurant-note ' "$page" | wc -l)" -eq 4
-            grep -Fq 'id="restaurant-staev-berlin"' "$page"
-            grep -Fq 'id="restaurant-jamie-oliver-kitchen"' "$page"
-            grep -Fq 'id="restaurant-night-kitchen"' "$page"
-            grep -Fq 'id="restaurant-scheers-schnitzel"' "$page"
-            grep -Fq 'https://www.staev.de/berlin-mitte.html' "$page"
-            grep -Fq 'https://www.jamieoliverkitchen.de/DEU/jamie-oliver-kitchen-berlin/' "$page"
-            grep -Fq 'https://www.nightkitchenberlin.com/' "$page"
-            grep -Fq 'https://www.scheers-schnitzel.de/' "$page"
+            for slug in staev-berlin jamie-oliver-kitchen night-kitchen scheers-schnitzel; do
+              grep -Fq "id=\"restaurant-$slug\"" "$page"
+            done
           done
           test -s public/assets/hrc-collector.css
           grep -Fq '.hrc-collection .hrc-flag-ribbon' public/assets/hrc-collector.css
@@ -311,7 +314,7 @@ jobs:
           # Dadurch landen index.html und favicon.svg direkt im Domain-Verzeichnis.
           # Einzelne FTPS-Verbindungen können vorübergehend blockiert sein.
           # curl versucht bei Netzwerk- und Timeoutfehlern kontrolliert erneut.
-          for file in public/logos/juxilo-jx04-light.svg public/logos/juxilo-jx04-dark.svg public/logos/juxilo-jx04-horizontal.svg public/logos/juxilo-jx04-horizontal-dark.svg public/logos/juxilo-jx04-icon.svg public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/tennis-ball.svg public/media/ice-hockey.svg public/media/football.svg public/media/rugby.svg public/media/olympic-rings.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
+          for file in public/logos/juxilo-jx04-light.svg public/logos/juxilo-jx04-dark.svg public/logos/juxilo-jx04-horizontal.svg public/logos/juxilo-jx04-horizontal-dark.svg public/logos/juxilo-jx04-icon.svg public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/restaurants.html public/restaurants.html public/assets/restaurant-journal.css public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/tennis-ball.svg public/media/ice-hockey.svg public/media/football.svg public/media/rugby.svg public/media/olympic-rings.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
             remote="${file#public/}"
             printf 'FTPS: %s\n' "$remote"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \
