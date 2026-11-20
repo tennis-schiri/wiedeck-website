@@ -77,10 +77,10 @@ html[data-theme="dark"] .manifesto p{color:#bacbd2}
 html[data-theme="dark"] .manifesto-art::before{border-color:rgba(195,215,224,.26);box-shadow:0 0 0 45px rgba(156,198,209,.025),0 0 0 92px rgba(156,198,209,.018)}
 /* Removed the decorative rule across the MW mark: it appeared as an intrusive bar in Firefox. */
 .manifesto-art::after{content:none!important;display:none!important}
-.manifesto-logo-viewport{position:relative;z-index:1;display:block;overflow:hidden;width:min(100%,410px);aspect-ratio:41 / 13;transition:transform .4s}
-.manifesto-logo-viewport img{position:absolute;height:auto;max-width:none;transform:none}
-.manifesto-logo-viewport img.manifesto-logo-light{top:0;left:3.5%;width:93%;filter:url("#mw-cutout-light")}
-.manifesto-logo-viewport img.manifesto-logo-dark{top:-24%;left:0;width:100%;filter:url("#mw-cutout-dark")}
+.manifesto-logo-viewport{position:relative;z-index:1;display:block;overflow:visible;width:min(100%,410px);aspect-ratio:41 / 13;transition:transform .4s}
+.manifesto-logo-viewport img{position:absolute;inset:0;width:100%;height:100%;max-width:100%;object-fit:contain;object-position:center;transform:none;filter:none;clip-path:none}
+.manifesto-logo-viewport img.manifesto-logo-light{top:0;left:0;width:100%;filter:none}
+.manifesto-logo-viewport img.manifesto-logo-dark{top:0;left:0;width:100%;filter:none}
 .manifesto-art .manifesto-logo-dark{display:none}
 html[data-theme="dark"] .manifesto-art .manifesto-logo-light{display:none}
 html[data-theme="dark"] .manifesto-art .manifesto-logo-dark{display:block}
