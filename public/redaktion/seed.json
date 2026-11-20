@@ -1,0 +1,232 @@
+[
+  {
+    "id": "place-berlin-01",
+    "name": "StäV",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-02",
+    "name": "JOK",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-03",
+    "name": "Night Kitchen",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-04",
+    "name": "Scheers Schnitzel",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-05",
+    "name": "Pfefferberg",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-06",
+    "name": "Kan’Koa",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-07",
+    "name": "Manifesto",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-08",
+    "name": "KERB",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-09",
+    "name": "Gaffelhaus Berlin",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-10",
+    "name": "Maximilians",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-11",
+    "name": "Upper Grill & Bar",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-12",
+    "name": "Umspannwerk Ost",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-13",
+    "name": "Frittenwerk ALex",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-14",
+    "name": "Irish Pub Berlin Uber Platz",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-15",
+    "name": "Murphys",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-16",
+    "name": "Sphere",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-17",
+    "name": "Berliner Republik",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-18",
+    "name": "diverse Streetfood Märkte",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-berlin-19",
+    "name": "Biermeisterei",
+    "city": "Berlin"
+  },
+  {
+    "id": "place-hamburg-01",
+    "name": "Ahoi Steffen Henssler",
+    "city": "Hamburg"
+  },
+  {
+    "id": "place-hamburg-02",
+    "name": "Oberhafenkantine",
+    "city": "Hamburg"
+  },
+  {
+    "id": "place-hamburg-03",
+    "name": "Bullion",
+    "city": "Hamburg"
+  },
+  {
+    "id": "place-swinemunde-01",
+    "name": "Neptun",
+    "city": "Swinemünde"
+  },
+  {
+    "id": "place-istanbul-01",
+    "name": "DIVA",
+    "city": "Istanbul"
+  },
+  {
+    "id": "place-istanbul-02",
+    "name": "The Populist",
+    "city": "Istanbul"
+  },
+  {
+    "id": "place-istanbul-03",
+    "name": "Sirin Firin",
+    "city": "Istanbul"
+  },
+  {
+    "id": "place-istanbul-04",
+    "name": "Streetfood",
+    "city": "Istanbul"
+  },
+  {
+    "id": "place-prag-01",
+    "name": "Hooters",
+    "city": "Prag"
+  },
+  {
+    "id": "place-prag-02",
+    "name": "U Fleku",
+    "city": "Prag"
+  },
+  {
+    "id": "place-prag-03",
+    "name": "Benedict",
+    "city": "Prag"
+  },
+  {
+    "id": "place-prag-04",
+    "name": "Beertime Pub",
+    "city": "Prag"
+  },
+  {
+    "id": "place-koln-01",
+    "name": "Hellers",
+    "city": "Köln"
+  },
+  {
+    "id": "place-koln-02",
+    "name": "Peters",
+    "city": "Köln"
+  },
+  {
+    "id": "place-london-01",
+    "name": "Duck & Waffles",
+    "city": "London"
+  },
+  {
+    "id": "place-london-02",
+    "name": "Flat Iron",
+    "city": "London"
+  },
+  {
+    "id": "place-london-03",
+    "name": "Streetfood Camden",
+    "city": "London"
+  },
+  {
+    "id": "place-london-04",
+    "name": "Printhouse",
+    "city": "London"
+  },
+  {
+    "id": "place-wien-01",
+    "name": "Sacher",
+    "city": "Wien"
+  },
+  {
+    "id": "place-wien-02",
+    "name": "Bier & Bierli",
+    "city": "Wien"
+  },
+  {
+    "id": "place-wien-03",
+    "name": "Wiedenbräu",
+    "city": "Wien"
+  },
+  {
+    "id": "place-wien-04",
+    "name": "Figlmüller Wollzeile",
+    "city": "Wien"
+  },
+  {
+    "id": "place-porto-01",
+    "name": "Taberninha do Manel",
+    "city": "Porto"
+  },
+  {
+    "id": "place-porto-02",
+    "name": "Cervejaria Nortada",
+    "city": "Porto"
+  },
+  {
+    "id": "place-lissabon-01",
+    "name": "Cervejaria Antártida Lisboa",
+    "city": "Lissabon"
+  },
+  {
+    "id": "place-lissabon-02",
+    "name": "Cerveja Canil",
+    "city": "Lissabon"
+  },
+  {
+    "id": "place-lissabon-03",
+    "name": "Lost In",
+    "city": "Lissabon"
+  }
+]
