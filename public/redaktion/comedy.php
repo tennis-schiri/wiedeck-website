@@ -51,7 +51,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         $find=db()->prepare('SELECT published_at FROM comedy_shows WHERE id=? AND club_id=?');
         $find->execute([$showId,$clubId]);$found=$find->fetch();
         if(!$found)$error='Auftritt nicht gefunden.';
-        elseif($date!=='' && (!preg_match('/^\\d{4}-\\d{2}-\\d{2}$/',$date) || !checkdate((int)substr($date,5,2),(int)substr($date,8,2),(int)substr($date,0,4))))$error='Datum ungültig.';
+        elseif($date!=='' && (!preg_match('/^\d{4}-\d{2}-\d{2}$/',$date) || !checkdate((int)substr($date,5,2),(int)substr($date,8,2),(int)substr($date,0,4))))$error='Datum ungültig.';
         elseif($status==='published' && ($date===''||($title===''&&$comedians===''&&$report==='')))$error='Zum Freigeben Datum und mindestens einen Namen, Titel oder Bericht angeben.';
         else{
             $publishedAt=$status==='published'?($found['published_at']?:gmdate('Y-m-d H:i:s')):null;
