@@ -204,10 +204,7 @@ jobs:
           done
           test -s public/redaktion/seed.json
           test -s public/redaktion/visits.php
-          test -s public/redaktion/ai-draft.php
-          test -s public/redaktion/ai-draft.js
           grep -Fq "reports.slice(0,4)" public/assets/restaurant-live.js
-          grep -Fq "name=\"ai_notes\"" public/redaktion/visits.php
           grep -Fq 'CREATE TABLE IF NOT EXISTS visits' public/redaktion/bootstrap.php
           grep -Fq 'visit_id' public/redaktion/media.php
           grep -Fq 'Besuche öffnen' public/redaktion/index.php
@@ -227,8 +224,6 @@ jobs:
           test -s public/assets/comedy-journal.css
           test -s public/assets/comedy-live.js
           test -s public/redaktion/comedy.php
-          test -s public/redaktion/comedy-ai.php
-          test -s public/redaktion/comedy-ai.js
           test -s public/redaktion/comedy-feed.php
           test -s public/redaktion/comedy-bericht.php
           test -s public/redaktion/comedy-seed.json
@@ -368,7 +363,6 @@ jobs:
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           REDAKTION_SETUP_TOKEN: ${{ secrets.REDAKTION_SETUP_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           set -euo pipefail
           : "${FTP_HOST:?FTP_HOST fehlt}"
@@ -378,7 +372,7 @@ jobs:
           # Dadurch landen index.html und favicon.svg direkt im Domain-Verzeichnis.
           # Einzelne FTPS-Verbindungen können vorübergehend blockiert sein.
           # curl versucht bei Netzwerk- und Timeoutfehlern kontrolliert erneut.
-          for file in public/logos/juxilo-jx04-light.svg public/logos/juxilo-jx04-dark.svg public/logos/juxilo-jx04-horizontal.svg public/logos/juxilo-jx04-horizontal-dark.svg public/logos/juxilo-jx04-icon.svg public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/restaurants.html public/en/comedy.html public/restaurants.html public/comedy.html public/assets/restaurant-journal.css public/assets/restaurant-live.js public/assets/comedy-journal.css public/assets/comedy-live.js public/redaktion/.htaccess public/redaktion/private/.htaccess public/redaktion/bootstrap.php public/redaktion/index.php public/redaktion/visits.php public/redaktion/comedy.php public/redaktion/comedy-feed.php public/redaktion/comedy-bericht.php public/redaktion/comedy-ai.php public/redaktion/comedy-ai.js public/redaktion/comedy-seed.json public/redaktion/ai-draft.php public/redaktion/ai-draft.js public/redaktion/feed.php public/redaktion/media.php public/redaktion/bericht.php public/redaktion/seed.json public/redaktion/admin.css public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/tennis-ball.svg public/media/ice-hockey.svg public/media/football.svg public/media/rugby.svg public/media/olympic-rings.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
+          for file in public/logos/juxilo-jx04-light.svg public/logos/juxilo-jx04-dark.svg public/logos/juxilo-jx04-horizontal.svg public/logos/juxilo-jx04-horizontal-dark.svg public/logos/juxilo-jx04-icon.svg public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/restaurants.html public/en/comedy.html public/restaurants.html public/comedy.html public/assets/restaurant-journal.css public/assets/restaurant-live.js public/assets/comedy-journal.css public/assets/comedy-live.js public/redaktion/.htaccess public/redaktion/private/.htaccess public/redaktion/bootstrap.php public/redaktion/index.php public/redaktion/visits.php public/redaktion/comedy.php public/redaktion/comedy-feed.php public/redaktion/comedy-bericht.php public/redaktion/comedy-seed.json public/redaktion/feed.php public/redaktion/media.php public/redaktion/bericht.php public/redaktion/seed.json public/redaktion/admin.css public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/tennis-ball.svg public/media/ice-hockey.svg public/media/football.svg public/media/rugby.svg public/media/olympic-rings.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
             remote="${file#public/}"
             printf 'FTPS: %s\n' "$remote"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \
@@ -403,14 +397,24 @@ jobs:
               "ftp://${FTP_HOST}:21/redaktion/private/setup-key.php"
             rm -f "$RUNNER_TEMP/mw-setup-key.php"
           fi
-          # Optional API key stored only on the server, under the denied private/ directory.
-          # Never commit or upload the key in public HTML/JS or as a repository file.
-          if [ -n "${OPENAI_API_KEY:-}" ]; then
-            php -r 'echo "<?php return ".var_export(getenv("OPENAI_API_KEY"), true).";".PHP_EOL;' > "$RUNNER_TEMP/mw-ai-key.php"
+          # Disable legacy paid-AI endpoints from earlier deployments.
+          # An uploaded 410 stub prevents API charges if deletion is disallowed.
+          printf '%s\n' '<?php http_response_code(410); exit("KI-Funktion entfernt.");' > "$RUNNER_TEMP/mw-ai-disabled.php"
+          for remote in redaktion/ai-draft.php redaktion/comedy-ai.php; do
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \
               --connect-timeout 20 --max-time 120 --retry 4 --retry-delay 10 --retry-all-errors \
               --user "${FTP_USER}:${FTP_PASSWORD}" \
-              --upload-file "$RUNNER_TEMP/mw-ai-key.php" \
-              "ftp://${FTP_HOST}:21/redaktion/private/openai-key.php"
-            rm -f "$RUNNER_TEMP/mw-ai-key.php"
-          fi
+              --upload-file "$RUNNER_TEMP/mw-ai-disabled.php" \
+              "ftp://${FTP_HOST}:21/$remote"
+          done
+          for remote in redaktion/ai-draft.php redaktion/comedy-ai.php \
+                        redaktion/ai-draft.js redaktion/comedy-ai.js \
+                        redaktion/private/openai-key.php; do
+            # Missing files or unsupported FTP delete are harmless:
+            # the server-side PHP endpoints were already disabled above.
+            curl --fail --silent --show-error --ssl-reqd --ftp-pasv \
+              --connect-timeout 20 --max-time 120 \
+              --user "${FTP_USER}:${FTP_PASSWORD}" \
+              --quote "DELE $remote" "ftp://${FTP_HOST}:21/" >/dev/null 2>&1 || true
+          done
+          rm -f "$RUNNER_TEMP/mw-ai-disabled.php"
