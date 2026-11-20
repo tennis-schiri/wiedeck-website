@@ -46,6 +46,40 @@ function db(): PDO {
     $db->exec('CREATE TABLE IF NOT EXISTS photos (
         id INTEGER PRIMARY KEY AUTOINCREMENT, restaurant_id TEXT NOT NULL REFERENCES restaurants(id) ON DELETE CASCADE,
         filename TEXT NOT NULL, mime TEXT NOT NULL, caption TEXT NOT NULL DEFAULT "", created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP)');
+    // Separate venue data from each individual visit. Existing reports are migrated only once.
+    $db->exec('CREATE TABLE IF NOT EXISTS visits (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        restaurant_id TEXT NOT NULL REFERENCES restaurants(id) ON DELETE CASCADE,
+        visit_date TEXT NOT NULL DEFAULT "",
+        occasion TEXT NOT NULL DEFAULT "", companions TEXT NOT NULL DEFAULT "", price TEXT NOT NULL DEFAULT "",
+        impression TEXT NOT NULL DEFAULT "", food_text TEXT NOT NULL DEFAULT "", ambience_text TEXT NOT NULL DEFAULT "",
+        service_text TEXT NOT NULL DEFAULT "", value_text TEXT NOT NULL DEFAULT "", highlights TEXT NOT NULL DEFAULT "",
+        shortcomings TEXT NOT NULL DEFAULT "", verdict TEXT NOT NULL DEFAULT "", revisit TEXT NOT NULL DEFAULT "",
+        score_food INTEGER, score_ambience INTEGER, score_service INTEGER, score_value INTEGER,
+        status TEXT NOT NULL DEFAULT "draft" CHECK(status IN ("draft","published")),
+        published_at TEXT, updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP)');
+    $db->exec('CREATE INDEX IF NOT EXISTS visits_restaurant ON visits(restaurant_id,visit_date DESC,id DESC)');
+    $columns=$db->query('PRAGMA table_info(photos)')->fetchAll();
+    if (!in_array('visit_id',array_column($columns,'name'),true)) {
+        $db->exec('ALTER TABLE photos ADD COLUMN visit_id INTEGER REFERENCES visits(id) ON DELETE CASCADE');
+    }
+    // Preserve existing single-visit information, including old attached pictures.
+    // The existence of any visit for a restaurant prevents repeated migration.
+    $legacy=$db->query('SELECT * FROM restaurants WHERE visit_date!="" OR food_text!="" OR verdict!="" OR status="published"')->fetchAll();
+    $countVisits=$db->prepare('SELECT COUNT(*) FROM visits WHERE restaurant_id=?');
+    $migrate=$db->prepare('INSERT INTO visits
+        (restaurant_id,visit_date,occasion,companions,price,impression,food_text,ambience_text,service_text,value_text,highlights,shortcomings,verdict,revisit,
+        score_food,score_ambience,score_service,score_value,status,published_at,updated_at)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+    foreach($legacy as $old) {
+        $countVisits->execute([$old['id']]);
+        if ((int)$countVisits->fetchColumn()>0) continue;
+        $keys=['visit_date','occasion','companions','price','impression','food_text','ambience_text','service_text','value_text','highlights','shortcomings','verdict','revisit',
+            'score_food','score_ambience','score_service','score_value','status','published_at','updated_at'];
+        $migrate->execute(array_merge([$old['id']],array_map(fn($k)=>$old[$k],$keys)));
+        $newId=(int)$db->lastInsertId();
+        $db->prepare('UPDATE photos SET visit_id=? WHERE restaurant_id=? AND visit_id IS NULL')->execute([$newId,$old['id']]);
+    }
     if ((int)$db->query('SELECT count(*) FROM restaurants')->fetchColumn() === 0) {
         $seed = json_decode((string)file_get_contents(__DIR__ . '/seed.json'), true);
         if (is_array($seed)) {
@@ -54,6 +88,18 @@ function db(): PDO {
                 (string)$row['id'],(string)$row['name'],(string)$row['city'],
                 (string)($row['address'] ?? ''),(string)($row['cuisine'] ?? ''),(string)($row['website'] ?? '')
             ]);
+        }
+    }
+    // Refresh missing venue metadata only. Never replace anything already entered by the editor.
+    $seed=json_decode((string)file_get_contents(__DIR__.'/seed.json'),true);
+    if(is_array($seed)){
+        $add=$db->prepare('UPDATE restaurants SET
+            address=CASE WHEN address="" THEN ? ELSE address END,
+            website=CASE WHEN website="" THEN ? ELSE website END,
+            cuisine=CASE WHEN cuisine="" THEN ? ELSE cuisine END
+            WHERE id=?');
+        foreach($seed as $row){
+            $add->execute([(string)($row['address']??''),(string)($row['website']??''),(string)($row['cuisine']??''),(string)$row['id']]);
         }
     }
     return $db;
