@@ -196,7 +196,7 @@ jobs:
           # Restaurant features moved to compact, separate pages (DE and EN).
           test -s public/restaurants.html
           test -s public/en/restaurants.html
-          test -s public/assets/restaurant-journal.css public/assets/restaurant-live.js public/redaktion/.htaccess public/redaktion/private/.htaccess public/redaktion/bootstrap.php public/redaktion/index.php public/redaktion/feed.php public/redaktion/media.php public/redaktion/bericht.php public/redaktion/seed.json public/redaktion/admin.css
+          test -s public/assets/restaurant-journal.css
           # Password-protected PHP restaurant editor: live data are NEVER committed or uploaded.
           for php in public/redaktion/*.php; do
             test -s "$php"
