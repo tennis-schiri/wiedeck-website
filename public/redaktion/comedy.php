@@ -45,7 +45,6 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         $title=mb_substr(trim((string)($_POST['title']??'')),0,200);
         $comedians=mb_substr(trim((string)($_POST['comedians']??'')),0,6000);
         $notes=mb_substr(trim((string)($_POST['notes']??'')),0,12000);
-        $aiNotes=mb_substr(trim((string)($_POST['ai_notes']??'')),0,6000);
         $report=mb_substr(trim((string)($_POST['report_text']??'')),0,12000);
         $status=($_POST['status']??'draft')==='published'?'published':'draft';
         $find=db()->prepare('SELECT published_at FROM comedy_shows WHERE id=? AND club_id=?');
@@ -55,8 +54,8 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         elseif($status==='published' && ($date===''||($title===''&&$comedians===''&&$report==='')))$error='Zum Freigeben Datum und mindestens einen Namen, Titel oder Bericht angeben.';
         else{
             $publishedAt=$status==='published'?($found['published_at']?:gmdate('Y-m-d H:i:s')):null;
-            db()->prepare('UPDATE comedy_shows SET show_date=?,title=?,comedians=?,notes=?,ai_notes=?,report_text=?,status=?,published_at=?,updated_at=CURRENT_TIMESTAMP WHERE id=? AND club_id=?')
-               ->execute([$date,$title,$comedians,$notes,$aiNotes,$report,$status,$publishedAt,$showId,$clubId]);
+            db()->prepare('UPDATE comedy_shows SET show_date=?,title=?,comedians=?,notes=?,report_text=?,status=?,published_at=?,updated_at=CURRENT_TIMESTAMP WHERE id=? AND club_id=?')
+               ->execute([$date,$title,$comedians,$notes,$report,$status,$publishedAt,$showId,$clubId]);
             redirect('comedy.php?club='.rawurlencode($clubId).'&show='.$showId.'&saved=1');
         }
     }
@@ -85,7 +84,7 @@ if($club){
 }
 ?><!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title>Comedy-Redaktion · wiedeck.de</title>
-<link rel="stylesheet" href="admin.css?v=5"><script defer src="comedy-ai.js?v=1"></script></head><body>
+<link rel="stylesheet" href="admin.css?v=6"></head><body>
 <header class="bar"><a href="index.php">← Restaurant-Redaktion</a><strong>MW / Comedy-Redaktion</strong><a href="../comedy.html">Comedy-Seite ↗</a></header>
 <main class="shell"><div class="editor-title"><div><span class="eyebrow">GEMEINSAME REDAKTION</span><h2>Meine Comedy-Clubs</h2><p>Clubs und Auftritte zählen – Comedians erfassen, nicht bewerten. Kein Bericht ist Pflicht.</p></div></div>
 <?php if($error):?><p class="alert" role="alert"><?=esc($error)?></p><?php endif;?>
@@ -126,13 +125,9 @@ if($club){
 <label class="field"><span>Show / Veranstaltungsreihe (optional)</span><input name="title" value="<?=esc($show['title'])?>"></label></div>
 <label class="field"><span>Comedians (ein Name pro Zeile)</span><textarea name="comedians" rows="5" placeholder="Name 1&#10;Name 2&#10;Name 3"><?=esc($show['comedians'])?></textarea></label>
 <label class="field"><span>Private Notizen (nicht öffentlich)</span><textarea name="notes" rows="3"><?=esc($show['notes'])?></textarea></label></fieldset>
-<fieldset class="ai-fieldset"><legend>Optionaler Bericht mit KI</legend>
-<p class="help">Du kannst nur die Show und die Namen eintragen. Ein Bericht ist freiwillig und bewertet keine Comedians.</p>
-<label class="field"><span>Eigene Stichpunkte für den KI-Entwurf</span><textarea name="ai_notes" maxlength="6000" rows="4" placeholder="Wie war der Abend, die Stimmung, die Location?"><?=esc($show['ai_notes'])?></textarea></label>
-<div class="ai-actions"><button class="primary" type="button" id="comedy-ai-generate">Bericht aus Stichpunkten erstellen</button><span id="comedy-ai-status" role="status" aria-live="polite"></span></div>
-<div id="comedy-ai-preview" class="ai-preview" hidden><h3>Vorschlag vor der Übernahme prüfen</h3><p id="comedy-ai-text"></p><button class="primary" type="button" id="comedy-ai-apply">Entwurf übernehmen</button></div>
-<label class="field"><span>Mein persönlicher Bericht (freiwillig)</span><textarea name="report_text" rows="7" maxlength="12000"><?=esc($show['report_text'])?></textarea></label>
-<p class="help">Die KI erhält nur die bewusst eingegebenen Stichpunkte sowie Club und Stadt. Das Generieren veröffentlicht nichts.</p></fieldset>
+<fieldset><legend>Mein persönlicher Bericht (optional)</legend>
+<p class="help">Notiere deine Eindrücke vom Abend, der Atmosphäre und der Location. Du kannst auch einfach nur den Besuch und die auftretenden Comedians festhalten – ohne Bericht und ohne Künstlerbewertungen.</p>
+<label class="field"><span>Persönlicher Bericht</span><textarea name="report_text" rows="7" maxlength="12000"><?=esc($show['report_text'])?></textarea></label></fieldset>
 <div class="publish"><label class="field"><span>Sichtbarkeit</span><select name="status">
 <option value="draft" <?=$show['status']==='draft'?'selected':''?>>Privat – nur für mich zählen</option>
 <option value="published" <?=$show['status']==='published'?'selected':''?>>Öffentlich – Show und Comedians zählen</option>
