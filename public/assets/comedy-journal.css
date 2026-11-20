@@ -1,0 +1,27 @@
+/* MW Comedy Journal – styled to match the Restaurant Journal. */
+[hidden]{display:none!important}
+.restaurant-journal-heading h2{font-size:clamp(26px,3vw,36px);letter-spacing:-.05em;margin:8px 0 0}
+.restaurant-journal-heading h2 em{font-family:Georgia,serif;color:var(--accent);font-weight:400}
+.restaurant-note-visual{background:linear-gradient(145deg,#657686,#273945)}
+.restaurant-note-content{justify-content:center}
+.comedy-directory{margin:18px 0 35px}
+.comedy-directory-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;align-items:start}
+.comedy-group{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:20px;min-width:0}
+.comedy-group h3{margin:0 0 16px;font-size:19px;letter-spacing:-.04em}
+.comedy-group ul{list-style:none;margin:0;padding:0}
+.comedy-place{display:flex;flex-wrap:wrap;align-items:center;column-gap:10px;row-gap:4px;padding:12px 0;border-bottom:1px solid var(--line)}
+.comedy-place:last-child{border-bottom:0}
+.comedy-place strong{font-size:13px;font-weight:750;min-width:150px;flex:1}
+.comedy-place-meta{font-size:11px;color:var(--muted);line-height:1.6}
+.comedy-place-link{font-size:11px;font-weight:750;color:var(--accent);text-decoration:none}
+.comedy-place-link:hover{text-decoration:underline}
+.comedy-public-show{border-radius:16px;border:1px solid var(--line);background:var(--surface);padding:25px;margin:0 0 18px}
+.comedy-public-show h2{font-size:27px;margin:7px 0 18px;letter-spacing:-.04em}
+.comedy-public-show h3{font-size:15px;margin:15px 0 10px}
+.comedy-public-head{margin-bottom:16px}
+.comedy-performer-list{display:flex;gap:7px;flex-wrap:wrap;padding:0;margin:10px 0 18px;list-style:none}
+.comedy-performer-list li{background:var(--chip);border:1px solid var(--line);border-radius:24px;padding:7px 12px;font-size:12px;font-weight:700}
+.comedy-report-text{font-size:15px;line-height:1.8;max-width:800px}
+.comedy-external{margin:28px 0}
+.comedy-external a{color:var(--accent);font-weight:700}
+@media(max-width:750px){.comedy-directory-groups{grid-template-columns:1fr}.comedy-group{padding:16px}}
