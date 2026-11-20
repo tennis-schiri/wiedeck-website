@@ -71,3 +71,10 @@ html[data-theme="dark"] .restaurant-list-entry-status.is-published{color:#a4dbb9
 .public-report-rating .ratings div{display:flex;justify-content:space-between;gap:12px;padding:13px;background:var(--surface);border-radius:9px;border:1px solid var(--line)}
 .public-report-body .revisit{border-radius:12px;background:var(--surface);border:1px solid var(--line);padding:17px;margin-bottom:24px}
 @media(max-width:580px){.public-report-photos{grid-template-columns:1fr}.public-report-rating .ratings{grid-template-columns:1fr}}
+
+/* The featured area appears only when at least one report is published. */
+[hidden]{display:none!important}
+.restaurant-journal{margin-bottom:24px}
+.restaurant-journal-grid .restaurant-note-visual{background:linear-gradient(145deg,#5b7585,#253745)}
+.restaurant-journal-grid .restaurant-note-content{justify-content:center}
+.restaurant-journal-grid .restaurant-note-content p{margin-top:8px}
