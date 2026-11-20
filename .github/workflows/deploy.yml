@@ -60,6 +60,17 @@ jobs:
           test -f public/en/impressum.html
           test -f public/en/datenschutz.html
           test -s public/assets/home-projects.css
+          # Project 06: MW web design and the four explicitly named references.
+          for page in public/index.html public/en/index.html; do
+            grep -Fq 'index-row--websites' "$page"
+            grep -Fq 'class="websites-references"' "$page"
+            grep -Fq 'id="websites"' "$page"
+            grep -Fq 'mw-symbol-light.png' "$page"
+            grep -Fq 'mw-symbol-dark.png' "$page"
+            for name in Tennis-Schiri TENNILO JUXILO "Due Fratelli"; do
+              grep -Fq "$name" "$page"
+            done
+          done
           test -s public/logos/tennilo-score-transparent.png
           grep -Fq 'Theme continuity / MW 2026' public/assets/home-projects.css
           grep -Fq 'var(--mw-social-bg)' public/assets/home-projects.css
