@@ -16,7 +16,7 @@ foreach($shows as $show){
     if(!isset($totals[$id]))$totals[$id]=['shows'=>0,'comedians'=>[]];
     $totals[$id]['shows']++;
     // Names per line; count unique names, regardless of the number of appearances.
-    foreach(preg_split('/\\r\\n|\\r|\\n/u',(string)$show['comedians']) as $name){
+    foreach(preg_split('/\r\n|\r|\n/u',(string)$show['comedians']) as $name){
         $name=trim($name);
         if($name!=='')$totals[$id]['comedians'][mb_strtolower($name,'UTF-8')]=$name;
     }
