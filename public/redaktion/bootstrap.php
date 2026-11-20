@@ -12,7 +12,7 @@ header('X-Content-Type-Options: nosniff');
 header('Referrer-Policy: no-referrer');
 header('X-Frame-Options: DENY');
 header('Cache-Control: private, no-store');
-header("Content-Security-Policy: default-src 'none'; style-src 'self'; img-src 'self' data:; form-action 'self'; base-uri 'none'; frame-ancestors 'none'");
+header("Content-Security-Policy: default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:; form-action 'self'; base-uri 'none'; frame-ancestors 'none'");
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_name('mw_redaktion');
     session_set_cookie_params(['lifetime'=>0,'path'=>'/redaktion/','secure'=>true,'httponly'=>true,'samesite'=>'Strict']);
@@ -65,7 +65,7 @@ function db(): PDO {
     }
     // Preserve existing single-visit information, including old attached pictures.
     // The existence of any visit for a restaurant prevents repeated migration.
-    $legacy=$db->query('SELECT * FROM restaurants WHERE visit_date!="" OR food_text!="" OR verdict!="" OR status="published"')->fetchAll();
+    $legacy=$db->query('SELECT * FROM restaurants WHERE visit_date!="" OR occasion!="" OR companions!="" OR price!="" OR impression!="" OR food_text!="" OR ambience_text!="" OR service_text!="" OR value_text!="" OR highlights!="" OR shortcomings!="" OR verdict!="" OR revisit!="" OR score_food IS NOT NULL OR score_ambience IS NOT NULL OR score_service IS NOT NULL OR score_value IS NOT NULL OR status="published" OR EXISTS (SELECT 1 FROM photos WHERE photos.restaurant_id=restaurants.id)')->fetchAll();
     $countVisits=$db->prepare('SELECT COUNT(*) FROM visits WHERE restaurant_id=?');
     $migrate=$db->prepare('INSERT INTO visits
         (restaurant_id,visit_date,occasion,companions,price,impression,food_text,ambience_text,service_text,value_text,highlights,shortcomings,verdict,revisit,
