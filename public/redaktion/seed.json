@@ -34,67 +34,105 @@
   {
     "id": "place-berlin-05",
     "name": "Pfefferberg",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Schönhauser Allee 176, 10119 Berlin",
+    "website": "https://www.pfefferberg.de/",
+    "cuisine": "Brauerei- und Gastronomiestandort"
   },
   {
     "id": "place-berlin-06",
     "name": "Kan’Koa",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Oranienburger Straße 17, 10178 Berlin",
+    "website": "https://www.kan-koa.de/",
+    "cuisine": "Asiatische Küche"
   },
   {
     "id": "place-berlin-07",
     "name": "Manifesto",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Alte Potsdamer Straße 7, 10785 Berlin",
+    "cuisine": "Internationale Foodhall"
   },
   {
     "id": "place-berlin-08",
     "name": "KERB",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Potsdamer Straße 2, 10785 Berlin",
+    "website": "https://kerbberlin.de/",
+    "cuisine": "Streetfood / Foodhall"
   },
   {
     "id": "place-berlin-09",
     "name": "Gaffelhaus Berlin",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Dorotheenstraße 65, 10117 Berlin",
+    "website": "https://www.gaffel-haus-berlin.de/",
+    "cuisine": "Rheinische Küche / Kölsch"
   },
   {
     "id": "place-berlin-10",
     "name": "Maximilians",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Friedrichstraße 185–190, 10117 Berlin",
+    "website": "https://www.maximilians-berlin.de/",
+    "cuisine": "Bayerische Küche"
   },
   {
     "id": "place-berlin-11",
     "name": "Upper Grill & Bar",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Oranienburger Straße 4, 10178 Berlin",
+    "website": "https://uppergrill.bar/",
+    "cuisine": "Grill & Bar"
   },
   {
     "id": "place-berlin-12",
     "name": "Umspannwerk Ost",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Palisadenstraße 48, 10243 Berlin",
+    "website": "https://www.umspannwerk-ost.de/",
+    "cuisine": "Regionale deutsche Küche"
   },
   {
     "id": "place-berlin-13",
     "name": "Frittenwerk ALex",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Alexanderplatz 8, 10178 Berlin",
+    "website": "https://www.frittenwerk.com/berlin-alexanderplatz.php",
+    "cuisine": "Pommes / Fast Casual"
   },
   {
     "id": "place-berlin-14",
     "name": "Irish Pub Berlin Uber Platz",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Mildred-Harnack-Straße 11, 10243 Berlin",
+    "website": "https://www.theirishpubberlin.de/",
+    "cuisine": "Irish Pub"
   },
   {
     "id": "place-berlin-15",
     "name": "Murphys",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Schiffbauerdamm 1, 10117 Berlin",
+    "website": "https://murphys-berlin.de/",
+    "cuisine": "Irish Pub"
   },
   {
     "id": "place-berlin-16",
     "name": "Sphere",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Panoramastraße 1A, 10178 Berlin",
+    "website": "https://tv-turm.de/",
+    "cuisine": "Drehrestaurant / Panorama"
   },
   {
     "id": "place-berlin-17",
     "name": "Berliner Republik",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Schiffbauerdamm 8, 10117 Berlin",
+    "website": "https://www.die-berliner-republik.de/",
+    "cuisine": "Berliner Küche / Bierbörse"
   },
   {
     "id": "place-berlin-18",
@@ -104,17 +142,26 @@
   {
     "id": "place-berlin-19",
     "name": "Biermeisterei",
-    "city": "Berlin"
+    "city": "Berlin",
+    "address": "Karl-Liebknecht-Straße 13, 10178 Berlin",
+    "website": "https://biermeisterei.lemke.berlin/",
+    "cuisine": "Brauhaus / BBQ"
   },
   {
     "id": "place-hamburg-01",
     "name": "Ahoi Steffen Henssler",
-    "city": "Hamburg"
+    "city": "Hamburg",
+    "address": "Spitalerstraße 12, 20095 Hamburg",
+    "website": "https://www.ahoisteffenhenssler.de/location/hamburg/",
+    "cuisine": "Fisch & internationale Küche"
   },
   {
     "id": "place-hamburg-02",
     "name": "Oberhafenkantine",
-    "city": "Hamburg"
+    "city": "Hamburg",
+    "address": "Stockmeyerstraße 39, 20457 Hamburg",
+    "website": "https://oberhafenkantine-hamburg.de/",
+    "cuisine": "Norddeutsche Küche"
   },
   {
     "id": "place-hamburg-03",
@@ -124,7 +171,10 @@
   {
     "id": "place-swinemunde-01",
     "name": "Neptun",
-    "city": "Swinemünde"
+    "city": "Swinemünde",
+    "address": "ul. Bema 1, 72-600 Świnoujście, Polen",
+    "website": "https://neptun.swinoujscie.pl/",
+    "cuisine": "Polnische Küche"
   },
   {
     "id": "place-istanbul-01",
@@ -134,7 +184,9 @@
   {
     "id": "place-istanbul-02",
     "name": "The Populist",
-    "city": "Istanbul"
+    "city": "Istanbul",
+    "website": "https://www.thepopulist.com.tr/",
+    "cuisine": "Gastropub / Craft Beer"
   },
   {
     "id": "place-istanbul-03",
@@ -149,12 +201,18 @@
   {
     "id": "place-prag-01",
     "name": "Hooters",
-    "city": "Prag"
+    "city": "Prag",
+    "address": "Havelská 25, 110 00 Praha 1, Tschechien",
+    "website": "https://hooters.cz/",
+    "cuisine": "Amerikanische Küche / Sportsbar"
   },
   {
     "id": "place-prag-02",
     "name": "U Fleku",
-    "city": "Prag"
+    "city": "Prag",
+    "address": "Křemencova 11, 110 00 Praha 1, Tschechien",
+    "website": "https://ufleku.cz/",
+    "cuisine": "Tschechische Brauhausküche"
   },
   {
     "id": "place-prag-03",
@@ -164,27 +222,41 @@
   {
     "id": "place-prag-04",
     "name": "Beertime Pub",
-    "city": "Prag"
+    "city": "Prag",
+    "address": "Nádražní 61/116, 150 00 Praha 5, Tschechien",
+    "website": "https://beertime.pub/",
+    "cuisine": "Craft-Beer-Pub"
   },
   {
     "id": "place-koln-01",
     "name": "Hellers",
-    "city": "Köln"
+    "city": "Köln",
+    "address": "Roonstraße 33, 50674 Köln",
+    "website": "https://www.hellers.koeln/",
+    "cuisine": "Kölsches Brauhaus"
   },
   {
     "id": "place-koln-02",
     "name": "Peters",
-    "city": "Köln"
+    "city": "Köln",
+    "address": "Mühlengasse 1, 50667 Köln",
+    "website": "https://peters-brauhaus.de/",
+    "cuisine": "Kölsches Brauhaus"
   },
   {
     "id": "place-london-01",
     "name": "Duck & Waffles",
-    "city": "London"
+    "city": "London",
+    "address": "110 Bishopsgate, London EC2N 4AY, Vereinigtes Königreich",
+    "website": "https://duckandwaffle.com/london/",
+    "cuisine": "Britische & europäische Küche"
   },
   {
     "id": "place-london-02",
     "name": "Flat Iron",
-    "city": "London"
+    "city": "London",
+    "website": "https://flatironsteak.co.uk/",
+    "cuisine": "Steakrestaurant"
   },
   {
     "id": "place-london-03",
@@ -199,46 +271,72 @@
   {
     "id": "place-wien-01",
     "name": "Sacher",
-    "city": "Wien"
+    "city": "Wien",
+    "address": "Philharmonikerstraße 4, 1010 Wien, Österreich",
+    "website": "https://www.sacher.com/",
+    "cuisine": "Wiener Kaffeehaus / Gastronomie"
   },
   {
     "id": "place-wien-02",
     "name": "Bier & Bierli",
-    "city": "Wien"
+    "city": "Wien",
+    "address": "Elisabethstraße 8, 1010 Wien, Österreich",
+    "website": "https://bierundbierli.eatbu.com/",
+    "cuisine": "Österreichische Küche"
   },
   {
     "id": "place-wien-03",
     "name": "Wiedenbräu",
-    "city": "Wien"
+    "city": "Wien",
+    "address": "Waaggasse 5, 1040 Wien, Österreich",
+    "website": "https://wieden-braeu.at/",
+    "cuisine": "Wiener Brauhaus"
   },
   {
     "id": "place-wien-04",
     "name": "Figlmüller Wollzeile",
-    "city": "Wien"
+    "city": "Wien",
+    "address": "Wollzeile 5, 1010 Wien, Österreich",
+    "website": "https://www.figlmueller.at/wollzeile/",
+    "cuisine": "Wiener Schnitzel"
   },
   {
     "id": "place-porto-01",
     "name": "Taberninha do Manel",
-    "city": "Porto"
+    "city": "Porto",
+    "address": "Avenida Diogo Leite 308, 4400-111 Vila Nova de Gaia, Portugal",
+    "website": "https://taberninhadomanel.eatbu.com/",
+    "cuisine": "Portugiesische Küche"
   },
   {
     "id": "place-porto-02",
     "name": "Cervejaria Nortada",
-    "city": "Porto"
+    "city": "Porto",
+    "address": "Rua de Sá da Bandeira 210, 4000-427 Porto, Portugal",
+    "website": "https://cervejaria-nortada.pt/",
+    "cuisine": "Brauerei / Portugiesische Küche"
   },
   {
     "id": "place-lissabon-01",
     "name": "Cervejaria Antártida Lisboa",
-    "city": "Lissabon"
+    "city": "Lissabon",
+    "address": "Praça do Comércio 10 (Ala Poente), Lisboa, Portugal",
+    "website": "https://antartida.pt/",
+    "cuisine": "Fisch, Meeresfrüchte & Grill"
   },
   {
     "id": "place-lissabon-02",
     "name": "Cerveja Canil",
-    "city": "Lissabon"
+    "city": "Lissabon",
+    "website": "https://cervejacanil.eatbu.com/",
+    "cuisine": "Craft Beer / Bar"
   },
   {
     "id": "place-lissabon-03",
     "name": "Lost In",
-    "city": "Lissabon"
+    "city": "Lissabon",
+    "address": "Rua Dom Pedro V 56D, Lisboa, Portugal",
+    "website": "https://lostinrestaurante.com/",
+    "cuisine": "Portugiesisch-indische Küche"
   }
 ]
