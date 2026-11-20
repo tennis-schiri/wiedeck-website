@@ -964,7 +964,8 @@ html[data-theme="dark"] .travel-card .travel-rugby-icon{
   .travel-card .travel-rugby-icon{width:17px;height:17px;min-width:17px;flex-basis:17px}
 }
 
-/* Six southern destinations share one balanced row on large screens. */
+/* Six northern and six southern destinations use matching rows on large screens. */
 @media(min-width:1071px){
+  .travel-groups>.travel-group:nth-child(2) .travel-grid,
   .travel-groups>.travel-group:last-child .travel-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
 }
