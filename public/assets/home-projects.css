@@ -75,7 +75,8 @@ html[data-theme="dark"] .manifesto p{color:#bacbd2}
 .manifesto-art{position:relative;min-height:310px;display:grid;place-items:center}
 .manifesto-art::before{content:"";position:absolute;inset:6% 12%;border-radius:50%;border:1px solid var(--line);box-shadow:0 0 0 45px rgba(156,198,209,.055),0 0 0 92px rgba(156,198,209,.035)}
 html[data-theme="dark"] .manifesto-art::before{border-color:rgba(195,215,224,.26);box-shadow:0 0 0 45px rgba(156,198,209,.025),0 0 0 92px rgba(156,198,209,.018)}
-.manifesto-art::after{content:"";position:absolute;left:6%;right:6%;height:1px;background:linear-gradient(90deg,transparent,var(--violet),transparent);transform:rotate(-17deg)}
+/* Removed the decorative rule across the MW mark: it appeared as an intrusive bar in Firefox. */
+.manifesto-art::after{content:none!important;display:none!important}
 .manifesto-logo-viewport{position:relative;z-index:1;display:block;overflow:hidden;width:min(100%,410px);aspect-ratio:41 / 13;transition:transform .4s}
 .manifesto-logo-viewport img{position:absolute;height:auto;max-width:none;transform:none}
 .manifesto-logo-viewport img.manifesto-logo-light{top:0;left:3.5%;width:93%;filter:url("#mw-cutout-light")}
