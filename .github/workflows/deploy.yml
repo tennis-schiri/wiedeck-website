@@ -203,6 +203,20 @@ jobs:
             php -l "$php"
           done
           test -s public/redaktion/seed.json
+          test -s public/redaktion/visits.php
+          grep -Fq 'CREATE TABLE IF NOT EXISTS visits' public/redaktion/bootstrap.php
+          grep -Fq 'visit_id' public/redaktion/media.php
+          grep -Fq 'Besuche öffnen' public/redaktion/index.php
+          grep -Fq 'Weiteren Besuch anlegen' public/redaktion/visits.php
+          grep -Fq 'JOIN visits' public/redaktion/feed.php
+          grep -Fq 'FROM visits' public/redaktion/bericht.php
+          python3 - <<'PY'
+          import json
+          seed = json.load(open('public/redaktion/seed.json', encoding='utf-8'))
+          assert len(seed) == 46, 'Expected 46 restaurant records'
+          assert len([x for x in seed if x.get('address')]) >= 30, 'Verified venue metadata missing'
+          assert all(x.get('id') and x.get('name') and x.get('city') for x in seed)
+          PY
           test -s public/redaktion/admin.css
           test -s public/redaktion/private/.htaccess
           test -s public/redaktion/.htaccess
@@ -334,7 +348,7 @@ jobs:
           # Dadurch landen index.html und favicon.svg direkt im Domain-Verzeichnis.
           # Einzelne FTPS-Verbindungen können vorübergehend blockiert sein.
           # curl versucht bei Netzwerk- und Timeoutfehlern kontrolliert erneut.
-          for file in public/logos/juxilo-jx04-light.svg public/logos/juxilo-jx04-dark.svg public/logos/juxilo-jx04-horizontal.svg public/logos/juxilo-jx04-horizontal-dark.svg public/logos/juxilo-jx04-icon.svg public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/restaurants.html public/restaurants.html public/assets/restaurant-journal.css public/assets/restaurant-live.js public/redaktion/.htaccess public/redaktion/private/.htaccess public/redaktion/bootstrap.php public/redaktion/index.php public/redaktion/feed.php public/redaktion/media.php public/redaktion/bericht.php public/redaktion/seed.json public/redaktion/admin.css public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/tennis-ball.svg public/media/ice-hockey.svg public/media/football.svg public/media/rugby.svg public/media/olympic-rings.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
+          for file in public/logos/juxilo-jx04-light.svg public/logos/juxilo-jx04-dark.svg public/logos/juxilo-jx04-horizontal.svg public/logos/juxilo-jx04-horizontal-dark.svg public/logos/juxilo-jx04-icon.svg public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/restaurants.html public/restaurants.html public/assets/restaurant-journal.css public/assets/restaurant-live.js public/redaktion/.htaccess public/redaktion/private/.htaccess public/redaktion/bootstrap.php public/redaktion/index.php public/redaktion/visits.php public/redaktion/feed.php public/redaktion/media.php public/redaktion/bericht.php public/redaktion/seed.json public/redaktion/admin.css public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/tennis-ball.svg public/media/ice-hockey.svg public/media/football.svg public/media/rugby.svg public/media/olympic-rings.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
             remote="${file#public/}"
             printf 'FTPS: %s\n' "$remote"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \
