@@ -103,5 +103,21 @@
           }
         }
       });
+      // Featured restaurants are shown above; avoid repeating them in the lower list.
+      if(featured && !featured.hidden){
+        var promotedIds=new Set(reports.slice(0,4).map(function(r){return r.id;}));
+        var directoryGrid=document.querySelector('.restaurant-city-grid');
+        if(directoryGrid){
+          Array.from(directoryGrid.querySelectorAll('li.restaurant-list-entry')).forEach(function(li){
+            if(promotedIds.has(li.id))li.remove();
+          });
+          Array.from(directoryGrid.querySelectorAll('details.restaurant-city')).forEach(function(group){
+            var total=group.querySelectorAll('li.restaurant-list-entry').length;
+            if(!total){group.remove();return;}
+            var count=group.querySelector('.restaurant-city-count');
+            if(count)count.textContent=String(total).padStart(2,'0');
+          });
+        }
+      }
     }).catch(function(){/* General restaurant directory remains fully accessible offline. */});
 })();
