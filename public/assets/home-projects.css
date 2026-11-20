@@ -969,3 +969,19 @@ html[data-theme="dark"] .travel-card .travel-rugby-icon{
   .travel-groups>.travel-group:nth-child(2) .travel-grid,
   .travel-groups>.travel-group:last-child .travel-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
 }
+
+/* Destination names stay on one line, including Swinemünde/Świnoujście. */
+.travel-card .travel-card-bottom{min-width:0}
+.travel-card .travel-card-bottom strong{
+  display:block;min-width:0;white-space:nowrap;overflow-wrap:normal;word-break:normal;
+  font-size:clamp(14px,1.42vw,19px);letter-spacing:-.055em;
+}
+@media(min-width:1071px){
+  .travel-groups>.travel-group:nth-child(2) .travel-card-bottom strong,
+  .travel-groups>.travel-group:last-child .travel-card-bottom strong{
+    font-size:clamp(13px,1.12vw,16px);letter-spacing:-.065em;
+  }
+}
+@media(max-width:620px){
+  .travel-card .travel-card-bottom strong{font-size:clamp(13px,3.7vw,17px)}
+}
