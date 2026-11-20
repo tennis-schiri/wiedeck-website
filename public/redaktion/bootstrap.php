@@ -107,6 +107,29 @@ function db(): PDO {
             $add->execute([(string)($row['address']??''),(string)($row['website']??''),(string)($row['cuisine']??''),(string)$row['id']]);
         }
     }
+    // Comedy shares the same authenticated editorial database, with separate club/show tables.
+    $db->exec('CREATE TABLE IF NOT EXISTS comedy_clubs (
+        id TEXT PRIMARY KEY, name TEXT NOT NULL, city TEXT NOT NULL DEFAULT "",
+        category TEXT NOT NULL DEFAULT "", website TEXT NOT NULL DEFAULT "",
+        updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP)');
+    $db->exec('CREATE TABLE IF NOT EXISTS comedy_shows (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        club_id TEXT NOT NULL REFERENCES comedy_clubs(id) ON DELETE CASCADE,
+        show_date TEXT NOT NULL DEFAULT "", title TEXT NOT NULL DEFAULT "",
+        comedians TEXT NOT NULL DEFAULT "", notes TEXT NOT NULL DEFAULT "",
+        report_text TEXT NOT NULL DEFAULT "", ai_notes TEXT NOT NULL DEFAULT "",
+        status TEXT NOT NULL DEFAULT "draft" CHECK(status IN ("draft","published")),
+        published_at TEXT, updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP)');
+    $db->exec('CREATE INDEX IF NOT EXISTS comedy_shows_club ON comedy_shows(club_id,show_date DESC,id DESC)');
+    // Seed only missing clubs. Never overwrite user-edited locations or delete records.
+    $comedySeed=json_decode((string)file_get_contents(__DIR__.'/comedy-seed.json'),true);
+    if(is_array($comedySeed)){
+        $addClub=$db->prepare('INSERT OR IGNORE INTO comedy_clubs(id,name,city,category) VALUES(?,?,?,?)');
+        foreach($comedySeed as $row){
+            $addClub->execute([(string)$row['id'],(string)$row['name'],
+                (string)($row['city']??''),(string)($row['category']??'')]);
+        }
+    }
     return $db;
 }
 function esc(?string $s): string { return htmlspecialchars($s ?? '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); }
