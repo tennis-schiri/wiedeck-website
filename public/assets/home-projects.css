@@ -985,3 +985,27 @@ html[data-theme="dark"] .travel-card .travel-rugby-icon{
 @media(max-width:620px){
   .travel-card .travel-card-bottom strong{font-size:clamp(13px,3.7vw,17px)}
 }
+
+/* Project 06 – MW website work and selected live references. */
+.index-row--websites .project-mw-symbol{position:relative;display:block;width:90px;height:65px;flex:none}
+.index-row--websites .project-logo-mw{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:left center}
+.index-row--websites .project-logo-mw.logo-mode-dark{display:none}
+html[data-theme="dark"] .index-row--websites .project-logo-mw.logo-mode-light{display:none}
+html[data-theme="dark"] .index-row--websites .project-logo-mw.logo-mode-dark{display:block}
+.websites-section{padding:clamp(32px,4vw,58px) 0 clamp(44px,6vw,84px);scroll-margin-top:108px;border-top:1px solid var(--personal-edge)}
+.websites-heading{display:flex;align-items:end;justify-content:space-between;gap:36px;margin-bottom:24px}
+.websites-heading .mini{color:var(--personal-accent)}
+.websites-heading h3{font-size:clamp(31px,4vw,52px);line-height:1.07;letter-spacing:-.055em;margin:12px 0 0}
+.websites-heading h3 em{font-family:Georgia,'Times New Roman',serif;font-weight:400;color:var(--personal-accent)}
+.websites-heading p{margin:0;max-width:390px;font-size:14px;line-height:1.65;color:var(--personal-muted)}
+.websites-references{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.websites-reference{position:relative;min-height:156px;padding:22px 20px;display:flex;flex-direction:column;gap:7px;background:var(--personal-surface);border:1px solid var(--personal-edge);border-radius:16px;color:var(--personal-text);text-decoration:none;transition:transform .2s ease,border-color .2s ease}
+a.websites-reference:hover{transform:translateY(-3px);border-color:var(--personal-accent)}
+.websites-reference-number{font-size:10px;font-weight:800;letter-spacing:.16em;color:var(--personal-accent)}
+.websites-reference strong{font-size:clamp(18px,1.6vw,23px);letter-spacing:-.045em;line-height:1.14;margin-top:auto}
+.websites-reference small{font-size:11px;line-height:1.4;color:var(--personal-muted)}
+.websites-reference-arrow{position:absolute;top:18px;right:18px;font-size:18px;color:var(--personal-accent)}
+.websites-reference--static{cursor:default}
+@media(max-width:850px){.websites-heading{align-items:start;display:block}.websites-heading p{margin-top:14px}.websites-references{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.index-row--websites .project-mw-symbol{width:70px;height:55px}.websites-references{gap:10px}.websites-reference{padding:17px 15px;min-height:130px}.websites-reference strong{font-size:19px}.websites-reference small{font-size:10px}}
+@media(prefers-reduced-motion:reduce){a.websites-reference{transition:none}}
