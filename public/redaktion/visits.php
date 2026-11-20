@@ -98,7 +98,7 @@ function input_visit(string $name,string $label,?array $v,string $type='text'):v
     else echo '<input type="'.esc($type).'" name="'.esc($name).'" value="'.$value.'">';
     echo '</label>';
 }
-?><!doctype html><html lang="de" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Besuche · <?=esc($restaurant['name'])?></title><link rel="stylesheet" href="admin.css?v=4"><script defer src="ai-draft.js?v=1"></script></head><body>
+?><!doctype html><html lang="de" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Besuche · <?=esc($restaurant['name'])?></title><link rel="stylesheet" href="admin.css?v=4"><script defer src="ai-draft.js?v=2"></script></head><body>
 <header class="bar"><a href="index.php?id=<?=rawurlencode($restaurantId)?>">← Restaurant-Stammdaten</a><strong>MW / Besuche</strong><a href="../restaurants.html">Zur Website ↗</a></header>
 <main class="shell"><div class="editor-title"><div><span class="eyebrow">MEHRFACHE BESUCHE</span><h2><?=esc($restaurant['name'])?></h2><p><?=esc($restaurant['city'])?></p></div></div>
 <?php if($error):?><p class="alert" role="alert"><?=esc($error)?></p><?php endif;?>
