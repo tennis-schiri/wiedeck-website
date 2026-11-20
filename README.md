@@ -58,9 +58,10 @@ Auf der Projektübersicht wird **TENNILO Umpire** bewusst ohne Funktionsdetails 
 
 - `public/restaurants.html` und `public/en/restaurants.html`: Die obere Kartenübersicht wird nur angezeigt, wenn veröffentlichte Besuchsberichte vorhanden sind. Sie enthält höchstens vier Restaurants, nach letztem Veröffentlichungsdatum sortiert. Diese Einträge werden nicht nochmals in der darunterliegenden Städteliste angezeigt.
 - `public/redaktion/`: Passwortgeschütztes Backend für Restaurant-Stammdaten und beliebig viele getrennte Besuche pro Restaurant. 0–10-Sterne-Bewertungen, Fotos und Entwürfe bleiben bestehen.
-- Pro Besuch sind private Stichpunkte (`ai_notes`) speicherbar. `ai-draft.js` zeigt nach einem Klick einen KI-Textvorschlag an; der Redakteur übernimmt ihn manuell in die Standardfelder und entscheidet separat über die Veröffentlichung.
-- Für KI-Entwürfe wird ein eigener OpenAI-API-Schlüssel im GitHub-Actions-Repository-Secret **`OPENAI_API_KEY`** benötigt. Nach dem nächsten Live-Upload wird er als `redaktion/private/openai-key.php` **nur auf dem Webserver** gespeichert. GitHub enthält diesen Schlüssel nicht; das Verzeichnis ist mit `.htaccess` gegen öffentliche Zugriffe gesperrt. Ohne Secret bleiben Redaktionsformular und manuelle Berichte nutzbar, die KI-Schaltfläche gibt einen Einrichtungshinweis.
-- Die Stichpunkte werden erst nach Klick auf die KI-Schaltfläche für einen Textentwurf an die OpenAI API übertragen (`store: false`). Die API-Kosten werden über das separate OpenAI-API-Konto abgerechnet. Keine automatische Veröffentlichung.
+
+## Berichte ohne externe KI-Dienste
+
+Restaurant- und Comedyberichte werden ausschließlich manuell im geschützten Backend geschrieben. Die frühere kostenpflichtige KI-Textgenerierung und die OpenAI-API-Anbindung sind entfernt. Der Live-Upload deaktiviert einmal vorhandene KI-PHP-Endpunkte und versucht, alte Skripte sowie den serverseitigen API-Schlüssel zu löschen. Bereits gespeicherte Restaurant- und Comedybesuche bleiben erhalten.
 
 ## Comedy-Clubs im selben Redaktions-Backend
 
@@ -69,4 +70,3 @@ Auf der Projektübersicht wird **TENNILO Umpire** bewusst ohne Funktionsdetails 
 - Pro Show: Datum, optionale Bezeichnung, Comedians (ein Name pro Zeile), private Notizen und optional ein freier persönlicher Bericht. **Keine Künstlerbewertungen**. Die Redaktion zählt Besuche und unterschiedliche Comedians.
 - Mit `Privat` bleibt die Show intern; `Öffentlich` erlaubt es, Datum und Lineup auf der Website sowie die Club-Zähler anzuzeigen. Ein Bericht ist dafür **nicht erforderlich**.
 - `/comedy.html` und `/en/comedy.html` zeigen maximal vier Clubs mit veröffentlichten persönlichen Berichten. Die übrigen Clubs bleiben darunter aufgelistet. Die Startseite verlinkt das Comedy-Tagebuch.
-- Optional formuliert `comedy-ai.php` aus eigenen Stichpunkten einen privaten Berichtsentwurf. Dafür verwendet die Funktion denselben serverseitigen `OPENAI_API_KEY` wie die Restaurant-Redaktion. Erst nach Prüfung und manuellem Speichern kann er veröffentlicht werden.
