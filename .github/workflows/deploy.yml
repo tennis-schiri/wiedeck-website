@@ -351,7 +351,7 @@ jobs:
               echo "REDAKTION_SETUP_TOKEN muss mindestens 24 Zeichen lang sein" >&2
               exit 1
             fi
-            php -r 'echo "<?php return ".var_export(getenv("REDAKTION_SETUP_TOKEN"), true).";\\n";' > "$RUNNER_TEMP/mw-setup-key.php"
+            php -r 'echo "<?php return ".var_export(getenv("REDAKTION_SETUP_TOKEN"), true).";".PHP_EOL;' > "$RUNNER_TEMP/mw-setup-key.php"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \
               --connect-timeout 20 --max-time 120 --retry 4 --retry-delay 10 --retry-all-errors \
               --user "${FTP_USER}:${FTP_PASSWORD}" \
