@@ -193,6 +193,19 @@ jobs:
           grep -Fq 'id="hobbys"' public/en/index.html
           grep -Fq 'id="genuss"' public/index.html
           grep -Fq 'id="genuss"' public/en/index.html
+          # Personal restaurant journal: four factual profiles per language.
+          for page in public/index.html public/en/index.html; do
+            grep -Fq 'id="restaurant-journal"' "$page"
+            test "$(grep -o '<article class="restaurant-note ' "$page" | wc -l)" -eq 4
+            grep -Fq 'id="restaurant-staev-berlin"' "$page"
+            grep -Fq 'id="restaurant-jamie-oliver-kitchen"' "$page"
+            grep -Fq 'id="restaurant-night-kitchen"' "$page"
+            grep -Fq 'id="restaurant-scheers-schnitzel"' "$page"
+            grep -Fq 'https://www.staev.de/berlin-mitte.html' "$page"
+            grep -Fq 'https://www.jamieoliverkitchen.de/DEU/jamie-oliver-kitchen-berlin/' "$page"
+            grep -Fq 'https://www.nightkitchenberlin.com/' "$page"
+            grep -Fq 'https://www.scheers-schnitzel.de/' "$page"
+          done
           test -s public/assets/hrc-collector.css
           grep -Fq '.hrc-collection .hrc-flag-ribbon' public/assets/hrc-collector.css
           grep -Fq 'html[data-theme="light"] .hrc-collection' public/assets/hrc-collector.css
