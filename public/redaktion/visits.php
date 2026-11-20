@@ -6,7 +6,7 @@ $restaurantId=(string)($_GET['restaurant'] ?? $_POST['restaurant_id'] ?? '');
 $stmt=db()->prepare('SELECT id,name,city FROM restaurants WHERE id=?');$stmt->execute([$restaurantId]);$restaurant=$stmt->fetch();
 if(!$restaurant){http_response_code(404);exit('Restaurant nicht gefunden.');}
 $error='';
-$fields=['visit_date','occasion','companions','price','ai_notes','impression','food_text','ambience_text','service_text',
+$fields=['visit_date','occasion','companions','price','impression','food_text','ambience_text','service_text',
          'value_text','highlights','shortcomings','verdict','revisit'];
 $ratingFields=['score_food','score_ambience','score_service','score_value'];
 if($_SERVER['REQUEST_METHOD']==='POST'){
@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         $data=[];
         foreach($fields as $field){
             $v=trim((string)($_POST[$field]??''));
-            $data[$field]=mb_substr($v,0,in_array($field,['ai_notes','impression','food_text','ambience_text','service_text','value_text','highlights','shortcomings','verdict'],true)?12000:320);
+            $data[$field]=mb_substr($v,0,in_array($field,['impression','food_text','ambience_text','service_text','value_text','highlights','shortcomings','verdict'],true)?12000:320);
         }
         foreach($ratingFields as $field)$data[$field]=rating($_POST[$field]??'');
         $status=(string)($_POST['status']??'draft')==='published'?'published':'draft';
@@ -98,7 +98,7 @@ function input_visit(string $name,string $label,?array $v,string $type='text'):v
     else echo '<input type="'.esc($type).'" name="'.esc($name).'" value="'.$value.'">';
     echo '</label>';
 }
-?><!doctype html><html lang="de" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Besuche · <?=esc($restaurant['name'])?></title><link rel="stylesheet" href="admin.css?v=4"><script defer src="ai-draft.js?v=2"></script></head><body>
+?><!doctype html><html lang="de" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Besuche · <?=esc($restaurant['name'])?></title><link rel="stylesheet" href="admin.css?v=6"></head><body>
 <header class="bar"><a href="index.php?id=<?=rawurlencode($restaurantId)?>">← Restaurant-Stammdaten</a><strong>MW / Besuche</strong><a href="../restaurants.html">Zur Website ↗</a></header>
 <main class="shell"><div class="editor-title"><div><span class="eyebrow">MEHRFACHE BESUCHE</span><h2><?=esc($restaurant['name'])?></h2><p><?=esc($restaurant['city'])?></p></div></div>
 <?php if($error):?><p class="alert" role="alert"><?=esc($error)?></p><?php endif;?>
@@ -111,13 +111,6 @@ function input_visit(string $name,string $label,?array $v,string $type='text'):v
 <form class="editor-form" method="post" enctype="multipart/form-data">
 <input type="hidden" name="csrf" value="<?=esc(csrf())?>"><input type="hidden" name="restaurant_id" value="<?=esc($restaurantId)?>"><input type="hidden" name="visit_id" value="<?=$visitId?>"><input type="hidden" name="action" value="save">
 <fieldset><legend>Dieser Besuch</legend><div class="two"><?php input_visit('visit_date','Besuchsdatum',$v,'date');input_visit('occasion','Anlass',$v);input_visit('companions','Begleitung',$v);input_visit('price','Ausgaben pro Person',$v);?></div></fieldset>
-<fieldset class="ai-fieldset"><legend>KI-Bericht aus Stichpunkten</legend>
-<p class="help">Notiere, was du selbst erlebt hast – etwa Essen, Geschmack, Service, Atmosphäre, Preis-Leistung und Fazit. Du kannst auch ganz ungeordnet schreiben. Die KI formuliert daraus einen persönlichen Entwurf, ohne eigene Erfahrungen zu erfinden.</p>
-<label class="field"><span>Meine Stichpunkte (bleiben privat)</span><textarea name="ai_notes" id="ai-notes" rows="6" maxlength="6000" placeholder="z. B. tolle Vorspeise, Hauptgericht leider lauwarm, netter Service, 28 € pro Person …"><?=esc((string)($v['ai_notes']??''))?></textarea></label>
-<div class="ai-actions"><button type="button" class="primary" id="ai-generate">Aus Stichpunkten Bericht erstellen</button><span id="ai-status" role="status" aria-live="polite"></span></div>
-<p class="help">Beim Klick werden deine Stichpunkte zur Texterstellung an OpenAI übertragen. Es wird nichts automatisch veröffentlicht. Erst nach deiner Prüfung und dem Speichern erscheinen Texte im Entwurf.</p>
-<div id="ai-preview" class="ai-preview" hidden><h3>KI-Vorschlag – erst prüfen, dann übernehmen</h3><div id="ai-preview-fields"></div><button type="button" class="primary" id="ai-apply">Texte in die Berichtsfelder übernehmen</button></div>
-</fieldset>
 <fieldset><legend>Meine Eindrücke</legend><?php input_visit('impression','Erster Eindruck',$v,'textarea');input_visit('food_text','Essen & Trinken',$v,'textarea');input_visit('ambience_text','Atmosphäre',$v,'textarea');input_visit('service_text','Service',$v,'textarea');input_visit('value_text','Preis-Leistung',$v,'textarea');input_visit('highlights','Was besonders gut war',$v,'textarea');input_visit('shortcomings','Was mich gestört hat',$v,'textarea');input_visit('verdict','Mein Fazit',$v,'textarea');?><label class="field"><span>Würde ich wiederkommen?</span><select name="revisit"><option value="">Noch offen</option><?php foreach(['Ja','Vielleicht','Nein'] as $answer):?><option value="<?=$answer?>" <?=$v['revisit']===$answer?'selected':''?>><?=$answer?></option><?php endforeach;?></select></label></fieldset>
 <fieldset><legend>0–10 Sterne je Kategorie</legend><p class="help">Nicht bewertete Kategorien bleiben leer. Jede Bewertung gilt nur für diesen Besuch.</p><div class="two"><?php foreach(['score_food'=>'Essen & Trinken','score_ambience'=>'Atmosphäre','score_service'=>'Service','score_value'=>'Preis-Leistung'] as $key=>$label):?><label class="field"><span><?=$label?></span><select name="<?=$key?>"><option value="">Nicht bewertet</option><?php for($score=0;$score<=10;$score++):?><option value="<?=$score?>" <?=$v[$key]!==null&&(int)$v[$key]===$score?'selected':''?>><?=$score?> / 10 ★</option><?php endfor;?></select></label><?php endforeach;?></div></fieldset>
 <fieldset><legend>Fotos dieses Besuchs</legend><?php input_visit('photo_caption','Bildunterschrift',$v);?><label class="field"><span>Bild auswählen (JPG, PNG, WebP bis 8 MB)</span><input type="file" name="photo" accept="image/jpeg,image/png,image/webp"></label><?php if($photos):?><div class="photo-grid"><?php foreach($photos as $p):?><figure><img loading="lazy" src="media.php?id=<?=$p['id']?>" alt="<?=esc($p['caption'])?>"><figcaption><?=esc($p['caption'])?></figcaption></figure><?php endforeach;?></div><?php endif;?></fieldset>
