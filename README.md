@@ -58,6 +58,9 @@ Auf der Projektübersicht wird **TENNILO Umpire** bewusst ohne Funktionsdetails 
 
 - `public/restaurants.html` und `public/en/restaurants.html`: Die obere Kartenübersicht wird nur angezeigt, wenn veröffentlichte Besuchsberichte vorhanden sind. Sie enthält höchstens vier Restaurants, nach letztem Veröffentlichungsdatum sortiert. Diese Einträge werden nicht nochmals in der darunterliegenden Städteliste angezeigt.
 - `public/redaktion/`: Passwortgeschütztes Backend für Restaurant-Stammdaten und beliebig viele getrennte Besuche pro Restaurant. 0–10-Sterne-Bewertungen, Fotos und Entwürfe bleiben bestehen.
+- **Besuchsformulare:** Nur das Datum ist bei Restaurants und Comedy-Shows Pflicht; auch veröffentlichte Einträge dürfen ohne Bericht, Bewertungen oder Fotos gespeichert werden.
+- Bei Formularfehlern zeigt der Server exakt die gerade eingegebenen Texte, Bewertungen und den Veröffentlichungsstatus erneut an, statt die alten Datenbankwerte zu laden. Das lokale Skript `redaktion/visits-draft.js` hält zusätzlich ungespeicherte Änderungen bis zum Schließen des Browser-Tabs in `sessionStorage` fest; nach erfolgreichem Speichern wird die Zwischensicherung gelöscht. Keine externe Übertragung.
+- Auf `restaurants.html` werden date-only freigegebene Besuche in der Städteliste als „Besuch online“ verlinkt; die oberen maximal vier Karten bleiben Restaurants mit tatsächlich veröffentlichten Textberichten vorbehalten.
 
 ## Berichte ohne externe KI-Dienste
 
