@@ -223,6 +223,8 @@ jobs:
           ! grep -Fq 'OPENAI_API_KEY:' .github/workflows/deploy.yml
           grep -Fq "reports.slice(0,4)" public/assets/restaurant-live.js
           grep -Fq 'CREATE TABLE IF NOT EXISTS visits' public/redaktion/bootstrap.php
+          grep -Fq 'restaurant_imports' public/redaktion/bootstrap.php
+          grep -Fq 'hrc-2026-11' public/redaktion/bootstrap.php
           grep -Fq 'visit_id' public/redaktion/media.php
           grep -Fq 'Besuche öffnen' public/redaktion/index.php
           grep -Fq 'Weiteren Besuch anlegen' public/redaktion/visits.php
@@ -231,9 +233,12 @@ jobs:
           python3 - <<'PY'
           import json
           seed = json.load(open('public/redaktion/seed.json', encoding='utf-8'))
-          assert len(seed) == 46, 'Expected 46 restaurant records'
+          assert len(seed) == 69, 'Expected 69 restaurants, 23 HRC entries'
           assert len([x for x in seed if x.get('address')]) >= 30, 'Verified venue metadata missing'
           assert all(x.get('id') and x.get('name') and x.get('city') for x in seed)
+          assert len({x['id'] for x in seed}) == 69, 'Restaurant IDs are unique'
+          assert sum(x['id'].startswith('place-hrc-') for x in seed) == 23, 'Expected 23 HRC sites'
+          assert len({x['city'] for x in seed}) == 24, 'Expected 24 restaurant cities'
           PY
           # Comedy shares the private editorial login, but does not assign comedian ratings.
           test -s public/comedy.html
@@ -278,9 +283,9 @@ jobs:
             grep -Fq 'id="restaurant-journal" aria-labelledby="restaurant-journal-title" hidden' "$page"
             ! grep -Fq '<article class="restaurant-note ' "$page"
             grep -Fq 'class="restaurant-city-index"' "$page"
-            test "$(grep -o '<details class="restaurant-city"' "$page" | wc -l)" -eq 10
-            test "$(grep -o 'class="restaurant-list-entry"' "$page" | wc -l)" -eq 46
-            test "$(grep -o 'class="restaurant-list-entry-status"' "$page" | wc -l)" -eq 46
+            test "$(grep -o '<details class="restaurant-city"' "$page" | wc -l)" -eq 24
+            test "$(grep -o 'class="restaurant-list-entry"' "$page" | wc -l)" -eq 69
+            test "$(grep -o 'class="restaurant-list-entry-status"' "$page" | wc -l)" -eq 69
             ! grep -Fq 'href="#restaurant-' "$page"
           done
           test -s public/assets/hrc-collector.css
