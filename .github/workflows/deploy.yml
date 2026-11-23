@@ -377,7 +377,8 @@ jobs:
             grep -Fq 'class="project-logo project-logo--juxilo juxilo-logo-horizontal juxilo-horizontal--light"' "$page"
             grep -Fq 'class="project-logo project-logo--juxilo juxilo-logo-horizontal juxilo-horizontal--dark"' "$page"
             # Each JUXILO entry links to the independent site.
-            test "$(grep -o 'href="https://juxilo.de/"' "$page" | wc -l)" -eq 3
+            # The third old reference link moved to /websites.html.
+            test "$(grep -o 'href="https://juxilo.de/"' "$page" | wc -l)" -eq 2
             ! grep -Fq 'id="mini-apps"' "$page"
             ! grep -Fq 'href="#mini-apps"' "$page"
             ! grep -Fq 'class="minis-section"' "$page"
