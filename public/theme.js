@@ -36,7 +36,7 @@
 
   /* Einheitlicher Scroll-Komfort auf Start- und Rechtstextseiten. */
   function initializeScrollControls() {
-    var header = document.querySelector(".header, .top");
+    var header = document.querySelector(".header, .top, .ws-header");
     var button = document.createElement("button");
     button.type = "button";
     button.className = "back-to-top";
