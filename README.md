@@ -74,3 +74,11 @@ Restaurant- und Comedyberichte werden ausschließlich manuell im geschützten Ba
 - Pro Show: Datum, optionale Bezeichnung, Comedians (ein Name pro Zeile), private Notizen und optional ein freier persönlicher Bericht. **Keine Künstlerbewertungen**. Die Redaktion zählt Besuche und unterschiedliche Comedians.
 - Mit `Privat` bleibt die Show intern; `Öffentlich` erlaubt es, Datum und Lineup auf der Website sowie die Club-Zähler anzuzeigen. Ein Bericht ist dafür **nicht erforderlich**.
 - `/comedy.html` und `/en/comedy.html` zeigen maximal vier Clubs mit veröffentlichten persönlichen Berichten. Die übrigen Clubs bleiben darunter aufgelistet. Die Startseite verlinkt das Comedy-Tagebuch.
+
+## Webdesign & Entwicklung (eigene Unterseite)
+
+- Die sechste Projektkarte der Startseite führt auf `/websites.html` bzw. `/en/websites.html`. Die bisherigen vier direkten Referenzlinks wurden von der Startseite entfernt; die Website-Unterseite zeigt jetzt fünf Referenzen einschließlich `wiedeck.de`.
+- Leistungen: Konzeption, Design, Umsetzung, Redaktionssysteme, Formulare, mehrsprachige Seiten, Integrationen, Veröffentlichung und Pflege. **Keine Festpreise** – Umfang und Konditionen werden individuell vereinbart.
+- Zu jeder Referenz gehört ein eigener Screenshot sowie eine zunächst geschlossene, mit HTML-`details` aufklappbare Funktionsübersicht und ein separater Link zur Live-Website.
+- `scripts/capture_website_references.py` erzeugt nach jedem GitHub-Actions-Upload echte Screenshots der fünf öffentlichen Referenz-Websites mit einem Headless-Browser und Pillow unter `public/media/websites/*.webp` und lädt sie anschließend auf den Webspace. Die Bilddateien werden nicht ins Git-Repository geschrieben. Ist eine Website beim Upload nicht erreichbar, wird stattdessen eine **ausdrücklich als nicht verfügbar gekennzeichnete Vorschau** erstellt (kein nachgebildeter Screenshot).
+- Das vorhandene `theme.js` stellt auf der Unterseite Hell-/Dunkelmodus und den animierten Nach-oben-Button bereit; das Layout der neuen Seiten liegt in `public/assets/websites.css`.
