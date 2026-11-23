@@ -9,6 +9,7 @@ on:
       - 'public/**'
       - 'assets/hrc-art/**'
       - 'scripts/build_hrc_pins.py'
+      - 'scripts/capture_website_references.py'
 
 permissions:
   contents: read
@@ -60,17 +61,31 @@ jobs:
           test -f public/en/impressum.html
           test -f public/en/datenschutz.html
           test -s public/assets/home-projects.css
-          # Project 06: MW web design and the four explicitly named references.
+          # Project 06 stays as a homepage teaser; all content lives on its own DE/EN pages.
           for page in public/index.html public/en/index.html; do
             grep -Fq 'index-row--websites' "$page"
-            grep -Fq 'class="websites-references"' "$page"
-            grep -Fq 'id="websites"' "$page"
-            grep -Fq 'mw-symbol-light.png' "$page"
-            grep -Fq 'mw-symbol-dark.png' "$page"
-            for name in Tennis-Schiri TENNILO JUXILO "Due Fratelli"; do
-              grep -Fq "$name" "$page"
-            done
+            grep -Fq 'href="websites.html"' "$page"
+            ! grep -Fq 'class="websites-references"' "$page"
+            ! grep -Fq 'id="websites"' "$page"
           done
+          for page in public/websites.html public/en/websites.html; do
+            test -s "$page"
+            grep -Fq 'id="leistungen"' "$page"
+            grep -Fq 'id="referenzen"' "$page"
+            grep -Fq 'class="ws-references"' "$page"
+            grep -Fq 'class="ws-details"' "$page"
+            grep -Fq 'id="wiedeck"' "$page"
+            grep -Fq 'id="tennis-schiri"' "$page"
+            grep -Fq 'id="tennilo"' "$page"
+            grep -Fq 'id="juxilo"' "$page"
+            grep -Fq 'id="due-fratelli"' "$page"
+            test "$(grep -o 'class="ws-reference"' "$page" | wc -l)" -eq 5
+            test "$(grep -o 'class="ws-details"' "$page" | wc -l)" -eq 5
+            ! grep -Eq '[0-9]+[.,]?[0-9]* *€' "$page"
+          done
+          test -s public/assets/websites.css
+          test -s scripts/capture_website_references.py
+          python3 -m py_compile scripts/capture_website_references.py
           test -s public/logos/tennilo-score-transparent.png
           grep -Fq 'Theme continuity / MW 2026' public/assets/home-projects.css
           grep -Fq 'var(--mw-social-bg)' public/assets/home-projects.css
@@ -394,7 +409,7 @@ jobs:
           # Dadurch landen index.html und favicon.svg direkt im Domain-Verzeichnis.
           # Einzelne FTPS-Verbindungen können vorübergehend blockiert sein.
           # curl versucht bei Netzwerk- und Timeoutfehlern kontrolliert erneut.
-          for file in public/logos/juxilo-jx04-light.svg public/logos/juxilo-jx04-dark.svg public/logos/juxilo-jx04-horizontal.svg public/logos/juxilo-jx04-horizontal-dark.svg public/logos/juxilo-jx04-icon.svg public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/restaurants.html public/en/comedy.html public/restaurants.html public/comedy.html public/assets/restaurant-journal.css public/assets/restaurant-live.js public/assets/comedy-journal.css public/assets/comedy-live.js public/redaktion/.htaccess public/redaktion/private/.htaccess public/redaktion/bootstrap.php public/redaktion/index.php public/redaktion/visits.php public/redaktion/visits-draft.js public/redaktion/comedy.php public/redaktion/comedy-feed.php public/redaktion/comedy-bericht.php public/redaktion/comedy-seed.json public/redaktion/feed.php public/redaktion/media.php public/redaktion/bericht.php public/redaktion/seed.json public/redaktion/admin.css public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/tennis-ball.svg public/media/ice-hockey.svg public/media/football.svg public/media/rugby.svg public/media/olympic-rings.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
+          for file in public/logos/juxilo-jx04-light.svg public/logos/juxilo-jx04-dark.svg public/logos/juxilo-jx04-horizontal.svg public/logos/juxilo-jx04-horizontal-dark.svg public/logos/juxilo-jx04-icon.svg public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/websites.html public/en/restaurants.html public/en/comedy.html public/websites.html public/restaurants.html public/comedy.html public/assets/websites.css public/assets/restaurant-journal.css public/assets/restaurant-live.js public/assets/comedy-journal.css public/assets/comedy-live.js public/redaktion/.htaccess public/redaktion/private/.htaccess public/redaktion/bootstrap.php public/redaktion/index.php public/redaktion/visits.php public/redaktion/visits-draft.js public/redaktion/comedy.php public/redaktion/comedy-feed.php public/redaktion/comedy-bericht.php public/redaktion/comedy-seed.json public/redaktion/feed.php public/redaktion/media.php public/redaktion/bericht.php public/redaktion/seed.json public/redaktion/admin.css public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/tennis-ball.svg public/media/ice-hockey.svg public/media/football.svg public/media/rugby.svg public/media/olympic-rings.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
             remote="${file#public/}"
             printf 'FTPS: %s\n' "$remote"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \
@@ -440,3 +455,24 @@ jobs:
               --quote "DELE $remote" "ftp://${FTP_HOST}:21/" >/dev/null 2>&1 || true
           done
           rm -f "$RUNNER_TEMP/mw-ai-disabled.php"
+
+
+      - name: Echte Website-Screenshots fuer die Referenzen aufnehmen und hochladen
+        shell: bash
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/mw-venv/bin/python" scripts/capture_website_references.py
+          for file in public/media/websites/*.webp; do
+            test -s "$file"
+            remote="${file#public/}"
+            printf 'FTPS Vorschau: %s\n' "$remote"
+            curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \
+              --connect-timeout 20 --max-time 120 --retry 4 --retry-delay 10 --retry-all-errors \
+              --user "${FTP_USER}:${FTP_PASSWORD}" \
+              --upload-file "$file" \
+              "ftp://${FTP_HOST}:21/$remote"
+          done
