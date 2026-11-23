@@ -6,10 +6,10 @@ $stmt=db()->prepare('SELECT id,name,city,address,website,cuisine FROM restaurant
 $stmt->execute([$id]);$restaurant=$stmt->fetch();
 if(!$restaurant){http_response_code(404);exit('Restaurant nicht gefunden.');}
 $stmt=db()->prepare('SELECT * FROM visits
- WHERE restaurant_id=? AND status="published" AND visit_date!="" AND food_text!="" AND verdict!=""
+ WHERE restaurant_id=? AND status="published" AND visit_date!=""
  ORDER BY visit_date DESC,id DESC');
 $stmt->execute([$id]);$visits=$stmt->fetchAll();
-if(!$visits){http_response_code(404);exit('Noch kein persönlicher Bericht veröffentlicht.');}
+if(!$visits){http_response_code(404);exit('Noch kein Besuch veröffentlicht.');}
 $photoQuery=db()->prepare('SELECT id,caption FROM photos WHERE restaurant_id=? AND visit_id=? ORDER BY id');
 $ratingLabels=['score_food'=>'Essen & Trinken','score_ambience'=>'Atmosphäre','score_service'=>'Service','score_value'=>'Preis-Leistung'];
 $sections=['impression'=>'Erster Eindruck','food_text'=>'Essen & Trinken','ambience_text'=>'Atmosphäre',
