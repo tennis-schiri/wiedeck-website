@@ -338,5 +338,166 @@
     "address": "Rua Dom Pedro V 56D, Lisboa, Portugal",
     "website": "https://lostinrestaurante.com/",
     "cuisine": "Portugiesisch-indische Küche"
+  },
+  {
+    "id": "place-hrc-rom",
+    "name": "Hard Rock Cafe",
+    "city": "Rom",
+    "address": "Via Vittorio Veneto",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-london-original",
+    "name": "Hard Rock Cafe – London Original",
+    "city": "London",
+    "address": "Old Park Lane",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-london-piccadilly",
+    "name": "Hard Rock Cafe – London Piccadilly",
+    "city": "London",
+    "address": "Piccadilly Circus",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-dublin",
+    "name": "Hard Rock Cafe",
+    "city": "Dublin",
+    "address": "Fleet Street · Temple Bar",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-amsterdam",
+    "name": "Hard Rock Cafe",
+    "city": "Amsterdam",
+    "address": "Max Euweplein · am Wasser",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-koln",
+    "name": "Hard Rock Cafe",
+    "city": "Köln",
+    "address": "Gürzenichstraße",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-barcelona",
+    "name": "Hard Rock Cafe",
+    "city": "Barcelona",
+    "address": "Plaça de Catalunya",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-prag",
+    "name": "Hard Rock Cafe",
+    "city": "Prag",
+    "address": "Haus V. J. Rott",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-wien",
+    "name": "Hard Rock Cafe",
+    "city": "Wien",
+    "address": "Rotenturmstraße",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-lissabon",
+    "name": "Hard Rock Cafe",
+    "city": "Lissabon",
+    "address": "Ehemaliges Cinema Condes",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-brussel",
+    "name": "Hard Rock Cafe",
+    "city": "Brüssel",
+    "address": "Grand-Place",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-budapest",
+    "name": "Hard Rock Cafe",
+    "city": "Budapest",
+    "address": "Vörösmarty tér",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-hamburg",
+    "name": "Hard Rock Cafe",
+    "city": "Hamburg",
+    "address": "Landungsbrücken",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-warschau",
+    "name": "Hard Rock Cafe",
+    "city": "Warschau",
+    "address": "Złote Tarasy",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-paris",
+    "name": "Hard Rock Cafe",
+    "city": "Paris",
+    "address": "Boulevard Montmartre",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-athen",
+    "name": "Hard Rock Cafe",
+    "city": "Athen",
+    "address": "Adrianou, Monastiraki",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-valencia",
+    "name": "Hard Rock Cafe",
+    "city": "Valencia",
+    "address": "Avenida del Marqués de Sotelo",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-munchen",
+    "name": "Hard Rock Cafe",
+    "city": "München",
+    "address": "Platzl",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-innsbruck",
+    "name": "Hard Rock Cafe",
+    "city": "Innsbruck",
+    "address": "Altstadt · Erker",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-breslau",
+    "name": "Hard Rock Cafe",
+    "city": "Breslau",
+    "address": "Marktplatz",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-berlin",
+    "name": "Hard Rock Cafe",
+    "city": "Berlin",
+    "address": "Kurfürstendamm",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-porto",
+    "name": "Hard Rock Cafe",
+    "city": "Porto",
+    "address": "Rua do Almada",
+    "cuisine": "Hard Rock Cafe"
+  },
+  {
+    "id": "place-hrc-stockholm",
+    "name": "Hard Rock Cafe",
+    "city": "Stockholm",
+    "address": "Sveavägen",
+    "cuisine": "Hard Rock Cafe"
   }
 ]
