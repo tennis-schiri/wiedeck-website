@@ -3,6 +3,7 @@ declare(strict_types=1);
 require __DIR__.'/bootstrap.php';
 guard();
 $error='';
+$submittedShow=null;
 $clubId=(string)($_GET['club']??$_POST['club_id']??'');
 if($_SERVER['REQUEST_METHOD']==='POST'){
     verify_csrf();
@@ -47,11 +48,13 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         $notes=mb_substr(trim((string)($_POST['notes']??'')),0,12000);
         $report=mb_substr(trim((string)($_POST['report_text']??'')),0,12000);
         $status=($_POST['status']??'draft')==='published'?'published':'draft';
+        $submittedShow=['show_date'=>$date,'title'=>$title,'comedians'=>$comedians,'notes'=>$notes,
+            'report_text'=>$report,'status'=>$status]; // Keep POST data when validation fails.
         $find=db()->prepare('SELECT published_at FROM comedy_shows WHERE id=? AND club_id=?');
         $find->execute([$showId,$clubId]);$found=$find->fetch();
         if(!$found)$error='Auftritt nicht gefunden.';
-        elseif($date!=='' && (!preg_match('/^\d{4}-\d{2}-\d{2}$/',$date) || !checkdate((int)substr($date,5,2),(int)substr($date,8,2),(int)substr($date,0,4))))$error='Datum ungültig.';
-        elseif($status==='published' && ($date===''||($title===''&&$comedians===''&&$report==='')))$error='Zum Freigeben Datum und mindestens einen Namen, Titel oder Bericht angeben.';
+        elseif($date==='')$error='Bitte nur das Besuchsdatum eintragen. Alle anderen Felder sind freiwillig; deine bisherigen Eingaben bleiben erhalten.';
+        elseif(!preg_match('/^\d{4}-\d{2}-\d{2}$/',$date) || !checkdate((int)substr($date,5,2),(int)substr($date,8,2),(int)substr($date,0,4)))$error='Datum ungültig. Deine bisherigen Eingaben bleiben erhalten.';
         else{
             $publishedAt=$status==='published'?($found['published_at']?:gmdate('Y-m-d H:i:s')):null;
             db()->prepare('UPDATE comedy_shows SET show_date=?,title=?,comedians=?,notes=?,report_text=?,status=?,published_at=?,updated_at=CURRENT_TIMESTAMP WHERE id=? AND club_id=?')
@@ -81,10 +84,13 @@ if($club){
     $shows=$stmt->fetchAll();
     if($showId===0)$showId=(int)($shows[0]['id']??0);
     foreach($shows as $row){if((int)$row['id']===$showId){$show=$row;break;}}
+    if($show && $submittedShow!==null && $error!=='' && (int)($_POST['show_id']??0)===$showId){
+        $show=array_replace($show,$submittedShow);
+    }
 }
 ?><!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title>Comedy-Redaktion · wiedeck.de</title>
-<link rel="stylesheet" href="admin.css?v=6"></head><body>
+<link rel="stylesheet" href="admin.css?v=6"><script defer src="visits-draft.js?v=2"></script></head><body>
 <header class="bar"><a href="index.php">← Restaurant-Redaktion</a><strong>MW / Comedy-Redaktion</strong><a href="../comedy.html">Comedy-Seite ↗</a></header>
 <main class="shell"><div class="editor-title"><div><span class="eyebrow">GEMEINSAME REDAKTION</span><h2>Meine Comedy-Clubs</h2><p>Clubs und Auftritte zählen – Comedians erfassen, nicht bewerten. Kein Bericht ist Pflicht.</p></div></div>
 <?php if($error):?><p class="alert" role="alert"><?=esc($error)?></p><?php endif;?>
@@ -115,13 +121,13 @@ if($club){
 <?=esc($s['show_date']?:'Datum offen')?> · <?=esc($s['title']?:'Auftritt #'.$s['id'])?>
 <small><?=$s['status']==='published'?'Öffentlich':'Privat'?> <?=$s['report_text']!==''?'· mit Bericht':''?></small></a><?php endforeach;?></nav><?php endif;?>
 <?php if($show):?>
-<form method="post" class="editor-form" id="comedy-editor-form">
+<form method="post" class="editor-form" id="comedy-editor-form" data-validation-error="<?=$error!==''?'1':'0'?>">
 <input type="hidden" name="csrf" value="<?=esc(csrf())?>">
 <input type="hidden" name="club_id" value="<?=esc($clubId)?>">
 <input type="hidden" name="show_id" value="<?=$showId?>">
 <input type="hidden" name="action" value="save_show">
 <fieldset><legend>Show #<?=$showId?></legend>
-<div class="two"><label class="field"><span>Datum</span><input name="show_date" type="date" value="<?=esc($show['show_date'])?>"></label>
+<div class="two"><label class="field"><span>Datum</span><input name="show_date" type="date" value="<?=esc($show['show_date'])?>" required aria-required="true"></label>
 <label class="field"><span>Show / Veranstaltungsreihe (optional)</span><input name="title" value="<?=esc($show['title'])?>"></label></div>
 <label class="field"><span>Comedians (ein Name pro Zeile)</span><textarea name="comedians" rows="5" placeholder="Name 1&#10;Name 2&#10;Name 3"><?=esc($show['comedians'])?></textarea></label>
 <label class="field"><span>Private Notizen (nicht öffentlich)</span><textarea name="notes" rows="3"><?=esc($show['notes'])?></textarea></label></fieldset>
@@ -132,7 +138,7 @@ if($club){
 <option value="draft" <?=$show['status']==='draft'?'selected':''?>>Privat – nur für mich zählen</option>
 <option value="published" <?=$show['status']==='published'?'selected':''?>>Öffentlich – Show und Comedians zählen</option>
 </select></label><button class="primary" type="submit">Besuch speichern</button></div>
-<p class="help">Mit öffentlicher Freigabe erscheint der Besuch in den Zählern und die Besetzung in der Detailansicht. Eine große Berichtskarte oben gibt es nur, wenn zusätzlich ein persönlicher Bericht vorhanden ist.</p>
+<p class="help">Nur das Datum ist Pflicht. Titel, Comedians, Notizen und Bericht sind freiwillig. Nach deiner öffentlichen Freigabe wird der Besuch gezählt; die große Berichtskarte erscheint nur, wenn du einen persönlichen Text veröffentlichst.</p>
 </form>
 <details class="danger-zone"><summary>Diesen Besuch löschen</summary><form method="post">
 <input type="hidden" name="csrf" value="<?=esc(csrf())?>"><input type="hidden" name="club_id" value="<?=esc($clubId)?>">
