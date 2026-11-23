@@ -14,8 +14,16 @@
       !['file','submit','button','hidden'].includes(field.type);});
   var stored=null;
   try{
-    if(new URLSearchParams(location.search).has('saved')){
+    var query=new URLSearchParams(location.search);
+    if(query.has('saved')){
       sessionStorage.removeItem(key);
+      // A successful save clears the old draft once. Remove the marker from
+      // the URL so later unsaved edits survive even if the page is reloaded.
+      query.delete('saved');
+      try{
+        history.replaceState(null,'',location.pathname+
+          (query.toString()?'?'+query.toString():'')+location.hash);
+      }catch(error){/* Safe to continue even if History API is unavailable. */}
     }else if(form.dataset.validationError!=='1'){
       stored=sessionStorage.getItem(key);
     }
