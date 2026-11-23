@@ -103,6 +103,29 @@
           }
         }
       });
+      // Date-only publications are still real public visits.
+      // They remain in the directory rather than occupying a featured report card.
+      var reportIds=new Set(reports.map(function(r){return r.id;}));
+      if(Array.isArray(data.published)){
+        data.published.forEach(function(item){
+          if(!item||typeof item.id!=='string'||!/^[a-z0-9-]+$/.test(item.id)||reportIds.has(item.id))return;
+          var entry=document.getElementById(item.id);
+          if(!entry)return;
+          var status=entry.querySelector('.restaurant-list-entry-status');
+          if(status){
+            status.textContent=english?'Visit online':'Besuch online';
+            status.classList.add('is-published');
+          }
+          var main=entry.querySelector('.restaurant-list-entry-main');
+          if(main&&!main.querySelector('a[href*="bericht.php"]')){
+            var link=document.createElement('a');
+            link.href=(english?'../':'')+'redaktion/bericht.php?id='+encodeURIComponent(item.id);
+            link.className='restaurant-entry-report';
+            link.textContent=english?'View visit ↗':'Besuch ansehen ↗';
+            main.appendChild(link);
+          }
+        });
+      }
       // Featured restaurants are shown above; avoid repeating them in the lower list.
       if(featured && !featured.hidden){
         var promotedIds=new Set(reports.slice(0,4).map(function(r){return r.id;}));
