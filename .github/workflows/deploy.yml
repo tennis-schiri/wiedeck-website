@@ -41,6 +41,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          # Report the failing validation command instead of only a generic exit code.
+          trap 'status=$?; echo "::error title=Website-Pruefung fehlgeschlagen::Bash-Zeile ${LINENO}: ${BASH_COMMAND} (Exit ${status})" >&2' ERR
           test -f public/index.html
           test -s branding/mw-monogram-original.png
           test -f scripts/build_mw_transparent.py
