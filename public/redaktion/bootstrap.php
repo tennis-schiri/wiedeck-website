@@ -90,6 +90,36 @@ function db(): PDO {
             ]);
         }
     }
+    // Import the collector's 23 Hard Rock Cafes into existing installations once.
+    // This is a one-time migration, so deleting a restaurant will not resurrect it.
+    $db->exec('CREATE TABLE IF NOT EXISTS restaurant_imports (name TEXT PRIMARY KEY, imported_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP)');
+    $hrcImported=$db->query('SELECT 1 FROM restaurant_imports WHERE name="hrc-2026-11"')->fetchColumn();
+    if(!$hrcImported){
+        $hrcSeed=json_decode((string)file_get_contents(__DIR__.'/seed.json'),true);
+        if(is_array($hrcSeed)){
+            $db->beginTransaction();
+            try{
+                $existsById=$db->prepare('SELECT 1 FROM restaurants WHERE id=?');
+                $existsByName=$db->prepare('SELECT 1 FROM restaurants WHERE name=? COLLATE NOCASE AND city=? COLLATE NOCASE LIMIT 1');
+                $insertHrc=$db->prepare('INSERT OR IGNORE INTO restaurants(id,name,city,address,cuisine,website) VALUES(?,?,?,?,?,?)');
+                foreach($hrcSeed as $row){
+                    $id=(string)($row['id']??'');
+                    if(!str_starts_with($id,'place-hrc-'))continue;
+                    $name=(string)($row['name']??'');
+                    $city=(string)($row['city']??'');
+                    $existsById->execute([$id]);
+                    if($existsById->fetchColumn())continue;
+                    // Also avoid duplicating an identical club that was manually entered.
+                    $existsByName->execute([$name,$city]);
+                    if($existsByName->fetchColumn())continue;
+                    $insertHrc->execute([$id,$name,$city,(string)($row['address']??''),
+                        (string)($row['cuisine']??''),(string)($row['website']??'')]);
+                }
+                $db->exec('INSERT INTO restaurant_imports(name) VALUES("hrc-2026-11")');
+                $db->commit();
+            }catch(Throwable $e){$db->rollBack();throw $e;}
+        }
+    }
     // Refresh missing venue metadata only. Never replace anything already entered by the editor.
     $seed=json_decode((string)file_get_contents(__DIR__.'/seed.json'),true);
     if(is_array($seed)){
