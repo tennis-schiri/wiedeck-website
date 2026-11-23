@@ -2,14 +2,15 @@
    Drafts live only in sessionStorage (this browser tab), never in a third-party service. */
 (function(){
   'use strict';
-  var form=document.getElementById('restaurant-visit-form');
+  var form=document.getElementById('restaurant-visit-form')||document.getElementById('comedy-editor-form');
   if(!form)return;
-  var id=form.elements.namedItem('visit_id');
-  var restaurant=form.elements.namedItem('restaurant_id');
-  if(!id||!restaurant)return;
-  var key='mw-restaurant-visit-draft-v1:'+restaurant.value+':'+id.value;
+  var isComedy=form.id==='comedy-editor-form';
+  var id=form.elements.namedItem(isComedy?'show_id':'visit_id');
+  var venue=form.elements.namedItem(isComedy?'club_id':'restaurant_id');
+  if(!id||!venue)return;
+  var key='mw-visit-draft-v2:'+(isComedy?'comedy:':'restaurant:')+venue.value+':'+id.value;
   var fields=Array.from(form.querySelectorAll('input[name], textarea[name], select[name]'))
-    .filter(function(field){return !['csrf','restaurant_id','visit_id','action','photo'].includes(field.name) &&
+    .filter(function(field){return !['csrf','restaurant_id','visit_id','club_id','show_id','action','photo'].includes(field.name) &&
       !['file','submit','button','hidden'].includes(field.type);});
   var stored=null;
   try{
