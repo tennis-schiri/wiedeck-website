@@ -235,7 +235,11 @@ jobs:
           ! test -e public/redaktion/comedy-ai.js
           ! grep -Fq 'ai-draft.js' public/redaktion/visits.php
           ! grep -Fq 'comedy-ai.js' public/redaktion/comedy.php
-          ! grep -Fq 'OPENAI_API_KEY:' .github/workflows/deploy.yml
+          # Check only an actual YAML secret declaration (not the text of this check).
+          if grep -Eq '^[[:space:]]+OPENAI_API_KEY[[:space:]]*:' .github/workflows/deploy.yml; then
+            echo "Kostenpflichtige OpenAI-Anbindung ist nicht erlaubt." >&2
+            exit 1
+          fi
           grep -Fq "reports.slice(0,4)" public/assets/restaurant-live.js
           grep -Fq 'CREATE TABLE IF NOT EXISTS visits' public/redaktion/bootstrap.php
           grep -Fq 'restaurant_imports' public/redaktion/bootstrap.php
