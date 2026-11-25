@@ -85,10 +85,27 @@ jobs:
           test -f public/en/impressum.html
           test -f public/en/datenschutz.html
           test -s public/assets/home-projects.css
-          # Project 06 stays as a homepage teaser; all content lives on its own DE/EN pages.
+          # Project 02 (wiedeck.de) links to the dedicated Webdesign references page.
           for page in public/index.html public/en/index.html; do
             grep -Fq 'index-row--websites' "$page"
             grep -Fq 'href="websites.html"' "$page"
+            # Homepage project cards must stay in the explicitly requested order.
+            PAGE="$page" python3 - <<'PY'
+          import os,re
+          page=open(os.environ['PAGE'],encoding='utf-8').read()
+          start=page.index('<div class="index">',page.index('id="projects"' if '/en/' in os.environ['PAGE'] else 'id="projekte"'))
+          end=page.index('</div></section>',start)
+          section=page[start:end]
+          cards=re.findall(r'<a class="index-row[^"]*"[^>]*>[\s\S]*?</a>',section)
+          assert len(cards)==7, f"Expected 7 projects in {os.environ['PAGE']}, got {len(cards)}"
+          ids=['alt="Tennis-Schiri"','index-row--websites','alt="TENNILO Score"',
+               'alt="TENNILO ClubDisplay"','alt="TENNILO Tournament"',
+               'alt="TENNILO Umpire"','index-row--juxilo']
+          for pos,(card,identifier) in enumerate(zip(cards,ids),1):
+              assert identifier in card, f"Wrong project at position {pos}: expected {identifier}"
+              assert f'<span class="index-number">{pos:02d}</span>' in card, f"Wrong project number {pos}"
+          assert 'wiedeck.de · ' in cards[1], 'Project 02 must be wiedeck.de'
+          PY
             ! grep -Fq 'class="websites-references"' "$page"
             ! grep -Fq 'id="websites"' "$page"
           done
