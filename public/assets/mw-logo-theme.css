@@ -1,0 +1,24 @@
+/* Unified MW logo visibility (DE/EN, homepage and Webdesign page).
+   Intentional specificity: previously the section-specific image selectors
+   overrode .logo-mode-light / .logo-mode-dark and caused inconsistent themes.
+   Other brands keep their own colour variants. */
+html:not([data-theme="dark"]) img.mw-theme-light,
+html[data-theme="light"] img.mw-theme-light { display:block!important; }
+html:not([data-theme="dark"]) img.mw-theme-dark,
+html[data-theme="light"] img.mw-theme-dark { display:none!important; }
+html[data-theme="dark"] img.mw-theme-light { display:none!important; }
+html[data-theme="dark"] img.mw-theme-dark { display:block!important; }
+
+/* No old browser colour-keying or clipped 'halo' borders on the wordmark. */
+.hero-mark img.mw-theme-light,
+.hero-mark img.mw-theme-dark { filter:none!important;clip-path:none!important; }
+
+/* Every area uses the same approved MW symbol proportions. */
+.brand-symbol img.mw-theme-light,
+.brand-symbol img.mw-theme-dark,
+.project-mw-symbol img.mw-theme-light,
+.project-mw-symbol img.mw-theme-dark,
+.manifesto-logo-viewport img.mw-theme-light,
+.manifesto-logo-viewport img.mw-theme-dark,
+.ws-mark img.mw-theme-light,
+.ws-mark img.mw-theme-dark { object-fit:contain; }
