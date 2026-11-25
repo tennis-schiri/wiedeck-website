@@ -141,9 +141,9 @@ jobs:
           for pos,(card,identifier) in enumerate(zip(cards,ids),1):
               assert identifier in card, f"Wrong project at position {pos}: expected {identifier}"
               assert f'<span class="index-number">{pos:02d}</span>' in card, f"Wrong project number {pos}"
-            assert '<svg ' in card and '<path d="M6 18 18 6M8 6h10v10"' in card, (
-                f"Project {pos} is missing the iOS-safe SVG arrow"
-            )
+              assert '<svg ' in card and '<path d="M6 18 18 6M8 6h10v10"' in card, (
+                  f"Project {pos} is missing the iOS-safe SVG arrow"
+              )
           assert 'project-logo--clubdisplay' in cards[3], 'ClubDisplay needs a light-theme contrast plate'
           assert '.project-logo--clubdisplay{box-sizing:border-box;background:#102735' in page, (
               'ClubDisplay contrast plate missing in light mode'
