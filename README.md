@@ -42,9 +42,25 @@ Die Website nutzt die metallisch-graue MW-Markenwelt statt der früheren violett
 
 Das von Google Drive übernommene MW-Hauptlogo ist als Original-PNG mit eingebettetem Hintergrund gespeichert. In der Hero-Sektion werden die weißen und dunklen Hintergründe mittels lokal eingebetteter SVG-Farbmatten (`mw-cutout-light`, `mw-cutout-dark`) beim Rendern transparent gesetzt. Originaldateien bleiben unverändert. Der frühere Kartenrahmen, Kartenhintergrund, Innenabstand und Kartenschatten sind in beiden Darstellungsmodi entfernt.
 
-## Header-Icon und Favicon ohne Hintergrund
+## Header-Monogramm und Favicons – echtes freigestelltes Original
 
-Das Header-Monogramm und die Favicons werden **wirklich transparent** erzeugt (RGBA mit Alphakanal); die bisherigen Icon-PNGs mit fest eingebranntem hellem oder schwarzem Hintergrund bleiben nur als historische Quellen erhalten. Ausgangspunkt ist die freigegebene MW-Monogramm-Datei `branding/mw-monogram-original.png`. Die Bilder werden durch `scripts/build_mw_transparent.py` vor dem FTPS-Upload erzeugt. Für die Generierung wird Pillow ausschließlich im CI-Workflow installiert. Die Website lädt die Bilddateien lokal und wechselt ohne Tracker automatisch zwischen den beiden transparenten Varianten. Das Monogramm in Header, Projektübersicht und im persönlichen Intro verwendet genau diese PNGs. Die Freistellung erkennt ausschließlich nahezu weiße Bildbereiche, die mit dem äußeren Hintergrund verbunden sind. Helle silberne Reflexe innerhalb der 3D-Monogrammform bleiben erhalten; die dunkle Variante behält durch eine kontrasttreue Tonwertkurve ihre metallische Tiefenwirkung. Der CI-Upload prüft Alpha-Kanal, helle Reflexe und Kontrast. Versionierte URLs verhindern, dass Browser nach dem Fix die alten, beschädigten Logo-Dateien zwischenspeichern.
+Die Website verwendet das bereits in Google Drive vorhandene, freigestellte
+`MW_Monogramm_transparent.png` aus der originalen MW-Markenserie. Die unveränderte
+Ausgangsdatei ist unter `branding/mw-monogram-transparent.png` hinterlegt.
+Die ältere Datei `branding/mw-monogram-original.png` mit weißem Hintergrund ist
+nur noch historisches Material und **wird nicht mehr freigestellt**.
+
+`scripts/build_mw_transparent.py` entfernt lediglich die leichte Restmatte der
+bereits transparenten Originalgrafik, ohne Silberflächen nach Helligkeit zu löschen,
+und baut damit die Varianten `mw-symbol-light.png`, `mw-symbol-dark.png` und
+die beiden MW-Favicons. Das Monogramm im Header, in Projekt 02 und im persönlichen
+Intro verwendet exakt diese Assets. Die Bildreferenzen besitzen neue Cache-Versionen.
+
+Das unabhängige GitHub-Workflow `.github/workflows/mw-logo-qa.yml` erzeugt
+bei Code- oder Originalbildänderungen **ohne FTP-Upload** zwei Vorschauen auf
+hellem und dunklem Hintergrund, prüft Transparenz, silberne Flächen und
+helle Randartefakte und stellt die Vorschauen als Action-Artefakt bereit.
+Der manuelle FTPS-Upload führt dieselben grundlegenden Prüfungen erneut aus.
 
 ## Einheitliche MW-Logogröße
 
