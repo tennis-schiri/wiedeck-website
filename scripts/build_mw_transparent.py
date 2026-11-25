@@ -22,7 +22,7 @@ def cleaned_alpha(image: Image.Image, edge_floor: int) -> Image.Image:
 
 def metal_tone(source: Image.Image, alpha: Image.Image) -> Image.Image:
     metal = ImageOps.grayscale(source)
-    levels = [min(255, round(90 + 165 * (v / 255) ** 0.72)) for v in range(256)]
+    levels = [min(255, round(65 + 190 * (v / 255) ** 0.50)) for v in range(256)]
     tone = metal.point(levels)
     channels = [tone.point(lambda v, extra=k: min(255, v + extra)) for k in (0, 3, 6)]
     return Image.merge("RGBA", (*channels, alpha))
