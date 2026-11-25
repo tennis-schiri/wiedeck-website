@@ -67,39 +67,36 @@ jobs:
           trap 'status=$?; echo "::error title=Website-Pruefung fehlgeschlagen::Bash-Zeile ${LINENO}: ${BASH_COMMAND} (Exit ${status})" >&2' ERR
           test -f public/index.html
           test -s branding/mw-monogram-original.png
+          test -s branding/mw-monogram-transparent.png
           test -f scripts/build_mw_transparent.py
           test -s public/logos/mw-symbol-light.png
           test -s public/logos/mw-symbol-dark.png
           test -s public/logos/mw-favicon-light.png
           test -s public/logos/mw-favicon-dark.png
-          # Protect the original silver highlights against destructive alpha-keying.
+          # Verify the actual transparent Drive original, not a flawed
+          # brightness-keyed reconstruction from a white background.
           "$RUNNER_TEMP/mw-venv/bin/python" - <<'PY'
-          from pathlib import Path
-          from PIL import Image, ImageOps
-          original=ImageOps.grayscale(Image.open('branding/mw-monogram-original.png').convert('RGB').crop((2,8,327,131)))
+          from PIL import Image
+          source=Image.open('branding/mw-monogram-transparent.png').convert('RGBA')
+          assert source.size==(331,120), 'Unexpected transparent MW source'
+          assert source.getpixel((0,0))[3]==0, 'Transparent source has opaque background'
+          core=[(x,y) for y in range(source.height) for x in range(source.width)
+                if source.getpixel((x,y))[3]>=240]
+          assert len(core)>12000, 'Approved MW source lost its silver ribbons'
           for mode in ('light','dark'):
               symbol=Image.open(f'public/logos/mw-symbol-{mode}.png').convert('RGBA')
-              assert symbol.size==(650,246), f'Unexpected MW size ({mode})'
-              assert symbol.getpixel((0,0))[3]==0, f'MW image has a background ({mode})'
-              points=0
-              preserved=0
-              for y in range(original.height):
-                  for x in range(original.width):
-                      value=original.getpixel((x,y))
-                      if 243<=value<=248:
-                          points+=1
-                          if symbol.getpixel((x*2,y*2))[3]>230:
-                              preserved+=1
-              assert points>50, 'Missing silver highlight sample'
-              # The brightness-only sample includes both silver and pale matte.
-              # Some bright pixels must become transparent, so demanding 90%
-              # opacity from every sample incorrectly rejects correct artwork.
-              # The old global brightness-keying preserved far fewer pixels.
-              assert preserved/points>0.65, f'MW bright image regions lost ({mode}): {preserved}/{points}'
+              assert symbol.size==(662,240), f'Unexpected MW dimensions ({mode})'
+              assert symbol.getpixel((0,0))[3]==0, f'Background not transparent ({mode})'
+              kept=sum(symbol.getpixel((x*2,y*2))[3]>=170 for x,y in core)
+              assert kept/len(core)>.85, f'MW silver surfaces missing ({mode})'
+              # White speckling around the contour must never return.
+              fringe=[pixel for pixel in symbol.getdata() if 20<pixel[3]<180]
+              bright=sum(max(pixel[:3])>240 for pixel in fringe)
+              assert bright<max(100,len(fringe)*.02), f'MW bright edge speckles ({mode}): {bright}'
           dark=Image.open('public/logos/mw-symbol-dark.png').convert('RGBA')
           shades=[r for r,g,b,a in dark.getdata() if a>240]
           assert max(shades)-min(shades)>130, 'MW metallic shading flattened'
-          print('MW transparency, silver highlights and dark metallic contrast validated.')
+          print('MW original, transparency, smooth edges and metal contrast verified.')
           PY
           grep -q 'id="mw-cutout-light"' public/index.html
           grep -q 'id="mw-cutout-dark"' public/index.html
