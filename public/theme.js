@@ -19,7 +19,7 @@
     if (meta) meta.setAttribute("content", theme === "dark" ? "#111920" : "#f4f6f7");
     var favicon = document.querySelector("link[data-theme-favicon]");
     var prefix = root.lang === "en" ? "../" : "";
-    var selectedIcon = prefix + (theme === "dark" ? "logos/mw-favicon-dark.png" : "logos/mw-favicon-light.png") + "?v=20261125-mwmetal02";
+    var selectedIcon = prefix + (theme === "dark" ? "logos/mw-favicon-dark.png" : "logos/mw-favicon-light.png") + "?v=20261125-mwclean04";
     if (favicon) favicon.setAttribute("href", selectedIcon);
     var appleIcon = document.querySelector('link[rel="apple-touch-icon"]');
     if (appleIcon) appleIcon.setAttribute("href", selectedIcon);
