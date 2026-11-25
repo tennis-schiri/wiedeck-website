@@ -42,29 +42,37 @@ Die Website nutzt die metallisch-graue MW-Markenwelt statt der früheren violett
 
 Das von Google Drive übernommene MW-Hauptlogo ist als Original-PNG mit eingebettetem Hintergrund gespeichert. In der Hero-Sektion werden die weißen und dunklen Hintergründe mittels lokal eingebetteter SVG-Farbmatten (`mw-cutout-light`, `mw-cutout-dark`) beim Rendern transparent gesetzt. Originaldateien bleiben unverändert. Der frühere Kartenrahmen, Kartenhintergrund, Innenabstand und Kartenschatten sind in beiden Darstellungsmodi entfernt.
 
-## Header-Monogramm und Favicons – echtes freigestelltes Original
+## Einheitliche MW-Logos in beiden Themes
 
-Die Website verwendet das bereits in Google Drive vorhandene, freigestellte
-`MW_Monogramm_transparent.png` aus der originalen MW-Markenserie. Die unveränderte
-Ausgangsdatei ist unter `branding/mw-monogram-transparent.png` hinterlegt.
-Die ältere Datei `branding/mw-monogram-original.png` mit weißem Hintergrund ist
-nur noch historisches Material und **wird nicht mehr freigestellt**.
+Alle sichtbaren MW-Monogramme auf wiedeck.de verwenden dasselbe, original
+freigestellte `MW_Monogramm_transparent.png` aus Google Drive (im Repository:
+`branding/mw-monogram-transparent.png`). Daraus entstehen automatisch die
+Varianten `mw-symbol-light.png`, `mw-symbol-dark.png` und die beiden Favicons.
 
-`scripts/build_mw_transparent.py` entfernt lediglich die leichte Restmatte der
-bereits transparenten Originalgrafik, ohne Silberflächen nach Helligkeit zu löschen,
-und baut damit die Varianten `mw-symbol-light.png`, `mw-symbol-dark.png` und
-die beiden MW-Favicons. Das Monogramm im Header, in Projekt 02 und im persönlichen
-Intro verwendet exakt diese Assets. Die Bildreferenzen besitzen neue Cache-Versionen.
+Auch die **vollständige Wortmarke mit MICHAEL WIEDECK** in der Startseiten-Hero
+basiert jetzt auf einem echten transparenten Original:
+`branding/mw-hauptlogo-hell-transparent.png` aus Google Drive. Das Build-Skript
+erzeugt daraus die **identisch großen** Varianten
+`mw-hauptlogo-hell-clean.png` und `mw-hauptlogo-dunkel-clean.png`.
+Die dunkle Variante erhält helle silberne Flächen und eine helle Schrift, die
+helle Variante behält die dunklen Original-Silbertöne.
 
-Das unabhängige GitHub-Workflow `.github/workflows/mw-logo-qa.yml` erzeugt
-bei Code- oder Originalbildänderungen **ohne FTP-Upload** zwei Vorschauen auf
-hellem und dunklem Hintergrund, prüft Transparenz, silberne Flächen und
-helle Randartefakte und stellt die Vorschauen als Action-Artefakt bereit.
-Der manuelle FTPS-Upload führt dieselben grundlegenden Prüfungen erneut aus.
+Die alten SVG-Farbmasken `mw-cutout-*` und die alten, hintergrundhaltigen
+Hauptlogo-Dateien werden auf der Startseite nicht mehr verwendet. Die korrekte
+Sichtbarkeit steuert die gemeinsame CSS-Datei
+`public/assets/mw-logo-theme.css`: **Hell zeigt immer `mw-theme-light`,
+Dunkel immer `mw-theme-dark`**, unabhängig von anderen Bild-Stylesheets.
+Das gilt für Header, großes Hauptlogo, Projekt 02, persönliches Intro und
+Webdesign-Unterseite sowie für die Header der Restaurant-, Comedy- und
+Rechtstextseiten, jeweils auf Deutsch und Englisch. Cache-Versionen sind
+einheitlich, der gespeicherte Darstellungsmodus bleibt erhalten.
 
-## Einheitliche MW-Logogröße
-
-Die freigestellten MW-Hauptlogos besitzen unterschiedliche Rastermaße (hell 745×366, dunkel 666×371). Die Hero-Fläche hat deshalb ein festes Seitenverhältnis, und nur die dunkle Variante wird um 8 % vergrößert. Dadurch bleibt die sichtbare Wortmarke beim Hell-/Dunkel-Wechsel gleich groß, ohne Rahmen oder Kartendesign.
+`scripts/check_mw_theme.py` prüft automatisch 12 Seiten, die MW-Logo-Paare,
+die Dateigrößen, dieselbe Bildgeometrie/Transparenz und den unterschiedlichen
+Silberkontrast. Die separate GitHub Action
+`.github/workflows/mw-logo-qa.yml` erzeugt **ohne Live-Upload** vier
+Bildvorschauen in beiden Themes; die manuellen FTPS-Uploads führen denselben
+Regressionscheck aus.
 
 ## TENNILO Umpire – Teaser
 
