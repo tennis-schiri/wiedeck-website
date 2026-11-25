@@ -1,0 +1,67 @@
+name: MW-Monogramm pruefen (kein Upload)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mw-logo-qa.yml'
+      - 'scripts/build_mw_transparent.py'
+      - 'branding/mw-monogram-transparent.png'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-original:
+    name: Freigestelltes MW-Original visuell pruefen
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pillow installieren und korrigierte Monogramme erzeugen
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet 'Pillow>=10,<13'
+          python3 scripts/build_mw_transparent.py
+      - name: PNG-Original, Kanten, Transparenz und Kontrast pruefen
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from PIL import Image, ImageStat
+          src=Image.open('branding/mw-monogram-transparent.png').convert('RGBA')
+          assert src.size==(331,120)
+          assert src.getpixel((0,0))[3]==0
+          core=[(x,y) for y in range(src.height) for x in range(src.width) if src.getpixel((x,y))[3]>=240]
+          assert len(core)>12000
+          for mode in ('light','dark'):
+              path=f'public/logos/mw-symbol-{mode}.png'
+              logo=Image.open(path).convert('RGBA')
+              favicon=Image.open(f'public/logos/mw-favicon-{mode}.png').convert('RGBA')
+              assert logo.size==(662,240) and favicon.size==(256,256)
+              assert logo.getpixel((0,0))[3]==0 and favicon.getpixel((0,0))[3]==0
+              preserved=sum(logo.getpixel((x*2,y*2))[3]>=170 for x,y in core)
+              assert preserved/len(core)>.85, (mode,'Silberflaechen fehlen',preserved,len(core))
+              fringe=[p for p in logo.getdata() if 20<p[3]<180]
+              bright=sum(max(p[:3])>240 for p in fringe)
+              assert bright<max(100,len(fringe)*.02), (mode,'helle Kontur-Fransen',bright)
+              color=(245,247,249,255) if mode=='light' else (19,38,49,255)
+              canvas=Image.new('RGBA',(800,360),color)
+              canvas.alpha_composite(logo,(69,60))
+              canvas.convert('RGB').save(f'mw-vorschau-{mode}.png')
+              print(mode,'core_retention',round(preserved/len(core),3),'bright_fringe',bright)
+          dark=Image.open('public/logos/mw-symbol-dark.png').convert('RGBA')
+          metal=[r for r,g,b,a in dark.getdata() if a>240]
+          assert max(metal)-min(metal)>130, 'Metallverlauf zu flach'
+          print('MW-Monogramm: alle Tests bestanden. Vorschauen auf hell/dunkel erzeugt.')
+          PY
+      - name: Gepruefte Logo-Vorschauen bereitstellen
+        uses: actions/upload-artifact@v4
+        with:
+          name: mw-logo-vorschauen-geprueft
+          path: |
+            mw-vorschau-light.png
+            mw-vorschau-dark.png
+          retention-days: 14
