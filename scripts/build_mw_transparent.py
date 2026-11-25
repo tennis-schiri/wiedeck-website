@@ -61,12 +61,22 @@ out_alpha = alpha.load()
 for y in range(height):
     for x in range(width):
         if background[y * width + x]:
-            # Gentle anti-aliasing at the original edge, not destructive
-            # thresholding across all metallic highlights.
-            out_alpha[x, y] = max(0, min(255, (255 - pixels[x, y]) * 40))
+            # Connected matte pixels are background, *not* semi-transparent
+            # grey. The old (255 - brightness) * 40 formula left a visible
+            # halo and even made near-white corner pixels opaque.
+            out_alpha[x, y] = 0
         else:
             out_alpha[x, y] = 255
+
+# Feather only the silhouette boundary. Keep the outer one-pixel matte
+# completely clear after the blur (the artwork has intentional padding).
 alpha = alpha.filter(ImageFilter.GaussianBlur(0.35))
+for x in range(width):
+    alpha.putpixel((x, 0), 0)
+    alpha.putpixel((x, height - 1), 0)
+for y in range(height):
+    alpha.putpixel((0, y), 0)
+    alpha.putpixel((width - 1, y), 0)
 
 # Light backgrounds: keep the untouched original metal colours.
 light = art.convert('RGBA')
