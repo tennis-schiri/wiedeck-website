@@ -11,7 +11,7 @@ Statische, mobiloptimierte persönliche Startseite mit vier Projektlogos und Lin
 - `public/theme.js` – systemabhängiger und manuell umschaltbarer Darkmode; Wunsch via localStorage gespeichert
 - `public/logos/` – Original-Wortmarken von Tennis-Schiri, TENNILO und TENNILO Score sowie WM04b-App-Symbol. Die jeweils passenden hellen und dunklen Logo-Varianten werden über `html[data-theme]` automatisch angezeigt; für TENNILO wird im Darkmode ein CSS-Farbfilter genutzt; TENNILO Score verwendet dagegen die beiden freigegebenen Originalvarianten aus dem finalen Logo-Set (02/12) ohne Filter.
 - `public/impressum.html`, `public/datenschutz.html`, `public/legal.css` – Rechtliches
-- `.github/workflows/deploy.yml` – manueller FTPS-Upload aller Website-Dateien einschließlich Logos
+- `.github/workflows/deploy.yml` – automatischer FTPS-Live-Upload bei Änderungen auf `main`, zusätzlich manuell startbar
 
 ## Veröffentlichung auf ALL-INKL
 
@@ -19,7 +19,7 @@ Die Domain `wiedeck.de` verwendet das separate Webspace-Verzeichnis **`/wiedeck-
 
 - GitHub-Secrets: `FTP_HOST`, `FTP_USER`, `FTP_PASSWORD`
 - Der FTP-Benutzer **muss mit dem Startverzeichnis `/wiedeck-de/` eingerichtet sein**, da der Workflow die Dateien relativ zum FTP-Startverzeichnis in dessen Wurzel ablegt.
-- Die Veröffentlichung kann unter **Actions → wiedeck.de manuell veröffentlichen → Run workflow** gestartet werden.
+- Ein zusätzlicher manueller Upload kann unter **Actions → wiedeck.de automatisch veröffentlichen → Run workflow** gestartet werden.
 - Änderungen an den Website-Dateien unter `public/` oder am Workflow lösen nach einem Push auf `main` automatisch einen Live-Upload aus. Zusätzlich bleibt der manuelle Upload über GitHub Actions verfügbar.
 - Der Workflow überträgt alle Website-Dateien einschließlich der Logos nach `/wiedeck-de/`; er löscht keine Serverdateien.
 
@@ -71,7 +71,7 @@ einheitlich, der gespeicherte Darstellungsmodus bleibt erhalten.
 die Dateigrößen, dieselbe Bildgeometrie/Transparenz und den unterschiedlichen
 Silberkontrast. Die separate GitHub Action
 `.github/workflows/mw-logo-qa.yml` erzeugt **ohne Live-Upload** vier
-Bildvorschauen in beiden Themes; die manuellen FTPS-Uploads führen denselben
+Bildvorschauen in beiden Themes; die automatischen und manuellen FTPS-Uploads führen denselben
 Regressionscheck aus.
 
 ## TENNILO Umpire – Teaser
