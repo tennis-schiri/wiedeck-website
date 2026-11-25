@@ -28,6 +28,21 @@ def metal_tone(source: Image.Image, alpha: Image.Image) -> Image.Image:
     return Image.merge("RGBA", (*channels, alpha))
 
 
+def suppress_bright_edges(image: Image.Image) -> Image.Image:
+    """Avoid bright single-pixel halos on dark backgrounds, without changing alpha.
+
+    The original artwork has very bright metallic highlights. These belong
+    inside opaque areas, not on the semi-transparent outside edge.
+    """
+    red, green, blue, alpha = image.split()
+    fringe_mask = alpha.point(lambda value: 255 if 0 < value < 210 else 0)
+    channels = tuple(
+        Image.composite(channel.point(lambda value: min(value, 234)), channel, fringe_mask)
+        for channel in (red, green, blue)
+    )
+    return Image.merge("RGBA", (*channels, alpha))
+
+
 def save_logo(image: Image.Image, name: str) -> None:
     assert image.mode == "RGBA" and image.getpixel((0, 0))[3] == 0, f"Opaque corner: {name}"
     image.save(OUTPUT / name, optimize=True)
@@ -45,6 +60,8 @@ for mode in ("light", "dark"):
     symbol = symbol_source.copy() if mode == "light" else metal_tone(symbol_source, symbol_alpha)
     symbol.putalpha(symbol_alpha)
     symbol = symbol.resize((662, 240), Image.Resampling.LANCZOS)
+    if mode == "dark":
+        symbol = suppress_bright_edges(symbol)
     save_logo(symbol, f"mw-symbol-{mode}.png")
 
     favicon = Image.new("RGBA", (256, 256), (0, 0, 0, 0))
@@ -74,6 +91,7 @@ hero_dark = metal_tone(hero_source, hero_alpha)
 draw = ImageDraw.Draw(hero_dark)
 draw.rectangle((0, 263, hero_dark.width - 1, hero_dark.height - 1), fill=(246, 248, 251, 255))
 hero_dark.putalpha(hero_alpha)
+hero_dark = suppress_bright_edges(hero_dark)
 save_logo(hero_dark, "mw-hauptlogo-dunkel-clean.png")
 
 print("MW theme assets built: transparent header, project, intro, wordmark and favicon (light/dark).")
