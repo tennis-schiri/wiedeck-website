@@ -16,6 +16,14 @@ pages = {
     "en/index.html": 4,
     "websites.html": 2,
     "en/websites.html": 2,
+    "impressum.html": 1,
+    "datenschutz.html": 1,
+    "en/impressum.html": 1,
+    "en/datenschutz.html": 1,
+    "restaurants.html": 1,
+    "en/restaurants.html": 1,
+    "comedy.html": 1,
+    "en/comedy.html": 1,
 }
 for name, total in pages.items():
     html = (SITE / name).read_text(encoding="utf-8")
@@ -77,4 +85,4 @@ for mode in ("light", "dark"):
         im = f.convert("RGBA")
         assert im.size == (256, 256) and im.getpixel((0, 0))[3] == 0
 
-print("MW theme consistency validated for all four page variants.")
+print("MW theme consistency validated for all twelve pages.")
