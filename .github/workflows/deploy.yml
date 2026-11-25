@@ -1,4 +1,4 @@
-name: wiedeck.de manuell veröffentlichen
+name: wiedeck.de automatisch veröffentlichen
 
 on:
   workflow_dispatch:
@@ -10,6 +10,9 @@ on:
       - 'assets/hrc-art/**'
       - 'scripts/build_hrc_pins.py'
       - 'scripts/capture_website_references.py'
+      - 'scripts/build_mw_transparent.py'
+      - 'scripts/check_mw_theme.py'
+      - 'branding/**'
 
 permissions:
   contents: read
@@ -20,7 +23,7 @@ concurrency:
 
 jobs:
   deploy:
-    if: (github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[deploy-live]'))) && github.ref == 'refs/heads/main'
+    if: (github.event_name == 'workflow_dispatch' || github.event_name == 'push') && github.ref == 'refs/heads/main'
     name: Landingpage per FTPS hochladen
     runs-on: ubuntu-24.04
     timeout-minutes: 10
