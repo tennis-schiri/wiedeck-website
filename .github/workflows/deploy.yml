@@ -68,11 +68,17 @@ jobs:
           test -f public/index.html
           test -s branding/mw-monogram-original.png
           test -s branding/mw-monogram-transparent.png
+          test -s branding/mw-hauptlogo-hell-transparent.png
+          test -f scripts/check_mw_theme.py
+          test -s public/assets/mw-logo-theme.css
           test -f scripts/build_mw_transparent.py
           test -s public/logos/mw-symbol-light.png
           test -s public/logos/mw-symbol-dark.png
           test -s public/logos/mw-favicon-light.png
           test -s public/logos/mw-favicon-dark.png
+          test -s public/logos/mw-hauptlogo-hell-clean.png
+          test -s public/logos/mw-hauptlogo-dunkel-clean.png
+          "$RUNNER_TEMP/mw-venv/bin/python" scripts/check_mw_theme.py
           # Verify the actual transparent Drive original, not a flawed
           # brightness-keyed reconstruction from a white background.
           "$RUNNER_TEMP/mw-venv/bin/python" - <<'PY'
@@ -98,12 +104,17 @@ jobs:
           assert max(shades)-min(shades)>130, 'MW metallic shading flattened'
           print('MW original, transparency, smooth edges and metal contrast verified.')
           PY
-          grep -q 'id="mw-cutout-light"' public/index.html
-          grep -q 'id="mw-cutout-dark"' public/index.html
+          # Both homepage wordmarks must be truly transparent; never use the
+          # old embedded SVG colour-keying (which caused bright edge artifacts).
+          for page in public/index.html public/en/index.html; do
+            ! grep -Fq 'mw-cutout-light' "$page"
+            ! grep -Fq 'mw-cutout-dark' "$page"
+            ! grep -Fq 'mw-hauptlogo-dunkel.png"' "$page"
+            grep -Fq 'mw-hauptlogo-hell-clean.png' "$page"
+            grep -Fq 'mw-hauptlogo-dunkel-clean.png' "$page"
+          done
           ! grep -q 'hero-logo-card' public/index.html
           grep -q 'aspect-ratio:745 / 366' public/index.html
-          grep -Fq '.hero-mark img.logo-mode-dark{width:100%;filter:url("#mw-cutout-dark");clip-path:inset(10px 0 6px 0)}' public/index.html
-          grep -Fq '.hero-mark img.logo-mode-dark{width:100%;filter:url("#mw-cutout-dark");clip-path:inset(10px 0 6px 0)}' public/en/index.html
           test -f public/favicon.svg
           test -f public/impressum.html
           test -f public/datenschutz.html
@@ -481,7 +492,7 @@ jobs:
           # Dadurch landen index.html und favicon.svg direkt im Domain-Verzeichnis.
           # Einzelne FTPS-Verbindungen können vorübergehend blockiert sein.
           # curl versucht bei Netzwerk- und Timeoutfehlern kontrolliert erneut.
-          for file in public/logos/tennilo-clubdisplay.png public/logos/juxilo-jx04-light.svg public/logos/juxilo-jx04-dark.svg public/logos/juxilo-jx04-horizontal.svg public/logos/juxilo-jx04-horizontal-dark.svg public/logos/juxilo-jx04-icon.svg public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/websites.html public/en/restaurants.html public/en/comedy.html public/websites.html public/restaurants.html public/comedy.html public/assets/websites.css public/assets/restaurant-journal.css public/assets/restaurant-live.js public/assets/comedy-journal.css public/assets/comedy-live.js public/redaktion/.htaccess public/redaktion/private/.htaccess public/redaktion/bootstrap.php public/redaktion/index.php public/redaktion/visits.php public/redaktion/visits-draft.js public/redaktion/comedy.php public/redaktion/comedy-feed.php public/redaktion/comedy-bericht.php public/redaktion/comedy-seed.json public/redaktion/feed.php public/redaktion/media.php public/redaktion/bericht.php public/redaktion/seed.json public/redaktion/admin.css public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/hrc-collector.css public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/tennis-ball.svg public/media/ice-hockey.svg public/media/football.svg public/media/rugby.svg public/media/olympic-rings.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
+          for file in public/logos/tennilo-clubdisplay.png public/logos/juxilo-jx04-light.svg public/logos/juxilo-jx04-dark.svg public/logos/juxilo-jx04-horizontal.svg public/logos/juxilo-jx04-horizontal-dark.svg public/logos/juxilo-jx04-icon.svg public/favicon.svg public/theme.js public/legal.css public/impressum.html public/datenschutz.html public/en/index.html public/en/websites.html public/en/restaurants.html public/en/comedy.html public/websites.html public/restaurants.html public/comedy.html public/assets/websites.css public/assets/restaurant-journal.css public/assets/restaurant-live.js public/assets/comedy-journal.css public/assets/comedy-live.js public/redaktion/.htaccess public/redaktion/private/.htaccess public/redaktion/bootstrap.php public/redaktion/index.php public/redaktion/visits.php public/redaktion/visits-draft.js public/redaktion/comedy.php public/redaktion/comedy-feed.php public/redaktion/comedy-bericht.php public/redaktion/comedy-seed.json public/redaktion/feed.php public/redaktion/media.php public/redaktion/bericht.php public/redaktion/seed.json public/redaktion/admin.css public/en/impressum.html public/en/datenschutz.html public/logos/tennis-schiri.png public/logos/tennis-schiri-on-light.png public/logos/tennilo.png public/logos/tennilo-tournament.png public/logos/tennilo-tournament-transparent.png public/assets/home-projects.css public/assets/mw-logo-theme.css public/assets/hrc-collector.css public/media/score-demo-watch.png public/media/score-demo-watch-cutout.svg public/media/flags/*.svg public/media/landmarks/*.svg public/media/tennis-ball.svg public/media/ice-hockey.svg public/media/football.svg public/media/rugby.svg public/media/olympic-rings.svg public/media/michael-wiedeck-persoenlich.jpg public/media/score-demo-phone.png public/media/score-demo-scoreboard.png public/logos/tennilo-score.png public/logos/tennilo-score-transparent.png public/logos/tennilo-score-dark-original.png public/logos/tennilo-umpire.png public/logos/wer-muss.webp public/logos/mw-hauptlogo-hell.png public/logos/mw-hauptlogo-dunkel.png public/logos/mw-icon-hell.png public/logos/mw-icon-dunkel.png public/logos/mw-symbol-light.png public/logos/mw-symbol-dark.png public/logos/mw-hauptlogo-hell-clean.png public/logos/mw-hauptlogo-dunkel-clean.png public/logos/mw-watermark-original.png public/logos/mw-favicon-light.png public/logos/mw-favicon-dark.png public/index.html; do
             remote="${file#public/}"
             printf 'FTPS: %s\n' "$remote"
             curl --fail --silent --show-error --ssl-reqd --ftp-pasv --ftp-create-dirs \
