@@ -72,6 +72,31 @@ jobs:
           test -s public/logos/mw-symbol-dark.png
           test -s public/logos/mw-favicon-light.png
           test -s public/logos/mw-favicon-dark.png
+          # Protect the original silver highlights against destructive alpha-keying.
+          "$RUNNER_TEMP/mw-venv/bin/python" - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          original=ImageOps.grayscale(Image.open('branding/mw-monogram-original.png').convert('RGB').crop((2,8,327,131)))
+          for mode in ('light','dark'):
+              symbol=Image.open(f'public/logos/mw-symbol-{mode}.png').convert('RGBA')
+              assert symbol.size==(650,246), f'Unexpected MW size ({mode})'
+              assert symbol.getpixel((0,0))[3]==0, f'MW image has a background ({mode})'
+              points=0
+              preserved=0
+              for y in range(original.height):
+                  for x in range(original.width):
+                      value=original.getpixel((x,y))
+                      if 243<=value<=248:
+                          points+=1
+                          if symbol.getpixel((x*2,y*2))[3]>230:
+                              preserved+=1
+              assert points>50, 'Missing silver highlight sample'
+              assert preserved/points>0.9, f'MW silver highlights lost ({mode}): {preserved}/{points}'
+          dark=Image.open('public/logos/mw-symbol-dark.png').convert('RGBA')
+          shades=[r for r,g,b,a in dark.getdata() if a>240]
+          assert max(shades)-min(shades)>130, 'MW metallic shading flattened'
+          print('MW transparency, silver highlights and dark metallic contrast validated.')
+          PY
           grep -q 'id="mw-cutout-light"' public/index.html
           grep -q 'id="mw-cutout-dark"' public/index.html
           ! grep -q 'hero-logo-card' public/index.html
