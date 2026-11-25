@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   deploy:
-    if: github.event_name == 'workflow_dispatch'
+    if: (github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[deploy-live]'))) && github.ref == 'refs/heads/main'
     name: Landingpage per FTPS hochladen
     runs-on: ubuntu-24.04
     timeout-minutes: 10
@@ -425,16 +425,16 @@ jobs:
           grep -q 'id="glimpses"' public/en/index.html
           ! grep -Fq 'score.tennilo.de' public/index.html
           ! grep -Fq 'score.tennilo.de' public/en/index.html
-          grep -q 'class="manifesto-logo-light logo-mode-light"' public/index.html
-          grep -q 'class="manifesto-logo-dark logo-mode-dark"' public/index.html
-          grep -q 'class="manifesto-logo-light logo-mode-light"' public/en/index.html
-          grep -q 'class="manifesto-logo-dark logo-mode-dark"' public/en/index.html
+          grep -q 'class="manifesto-logo-light logo-mode-light mw-theme-light"' public/index.html
+          grep -q 'class="manifesto-logo-dark logo-mode-dark mw-theme-dark"' public/index.html
+          grep -q 'class="manifesto-logo-light logo-mode-light mw-theme-light"' public/en/index.html
+          grep -q 'class="manifesto-logo-dark logo-mode-dark mw-theme-dark"' public/en/index.html
           grep -Fq 'html[data-theme="dark"] .manifesto' public/assets/home-projects.css
           grep -q 'class="manifesto-logo-viewport"' public/index.html
           grep -q 'class="manifesto-logo-viewport"' public/en/index.html
           for page in public/index.html public/en/index.html; do
-            grep -Fq 'class="manifesto-logo-light logo-mode-light"' "$page"
-            grep -Fq 'class="manifesto-logo-dark logo-mode-dark"' "$page"
+            grep -Fq 'class="manifesto-logo-light logo-mode-light mw-theme-light"' "$page"
+            grep -Fq 'class="manifesto-logo-dark logo-mode-dark mw-theme-dark"' "$page"
             grep -Fq 'logos/mw-symbol-light.png' "$page"
             grep -Fq 'logos/mw-symbol-dark.png' "$page"
           done
