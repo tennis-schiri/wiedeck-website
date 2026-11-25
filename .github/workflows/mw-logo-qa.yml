@@ -7,6 +7,13 @@ on:
       - '.github/workflows/mw-logo-qa.yml'
       - 'scripts/build_mw_transparent.py'
       - 'branding/mw-monogram-transparent.png'
+      - 'branding/mw-hauptlogo-hell-transparent.png'
+      - 'scripts/check_mw_theme.py'
+      - 'public/index.html'
+      - 'public/en/index.html'
+      - 'public/websites.html'
+      - 'public/en/websites.html'
+      - 'public/assets/mw-logo-theme.css'
   workflow_dispatch:
 
 permissions:
@@ -25,6 +32,7 @@ jobs:
           set -euo pipefail
           python3 -m pip install --quiet 'Pillow>=10,<13'
           python3 scripts/build_mw_transparent.py
+          python3 scripts/check_mw_theme.py
       - name: PNG-Original, Kanten, Transparenz und Kontrast pruefen
         shell: bash
         run: |
@@ -55,7 +63,22 @@ jobs:
           dark=Image.open('public/logos/mw-symbol-dark.png').convert('RGBA')
           metal=[r for r,g,b,a in dark.getdata() if a>240]
           assert max(metal)-min(metal)>130, 'Metallverlauf zu flach'
-          print('MW-Monogramm: alle Tests bestanden. Vorschauen auf hell/dunkel erzeugt.')
+          # Also render the complete name-and-monogram logo in both modes.
+          variants={'light':'hell','dark':'dunkel'}
+          clean_source=Image.open('branding/mw-hauptlogo-hell-transparent.png').convert('RGBA')
+          assert clean_source.size==(742,366) and clean_source.getpixel((0,0))[3]==0
+          alpha_map=[]
+          for mode,word in variants.items():
+              hero=Image.open(f'public/logos/mw-hauptlogo-{word}-clean.png').convert('RGBA')
+              assert hero.size==(742,366) and hero.getpixel((0,0))[3]==0
+              alpha_map.append(hero.getchannel('A').tobytes())
+              color=(245,247,249,255) if mode=='light' else (19,38,49,255)
+              canvas=Image.new('RGBA',(880,520),color)
+              canvas.alpha_composite(hero,(69,55))
+              canvas.convert('RGB').save(f'mw-hauptlogo-vorschau-{mode}.png')
+          assert alpha_map[0]==alpha_map[1], 'Wordmark geometry differs across modes'
+          print('MW-Monogramm: all four screenshots and both theme variants passed.')
+
           PY
       - name: Gepruefte Logo-Vorschauen bereitstellen
         uses: actions/upload-artifact@v4
@@ -64,4 +87,6 @@ jobs:
           path: |
             mw-vorschau-light.png
             mw-vorschau-dark.png
+            mw-hauptlogo-vorschau-light.png
+            mw-hauptlogo-vorschau-dark.png
           retention-days: 14
