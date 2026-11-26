@@ -95,19 +95,15 @@ h1 .last{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weig
 .project-logo{display:block;max-width:100%;height:auto;object-fit:contain;object-position:left center}
 .project-logo--ts{width:290px}
 .project-logo--tennilo{width:290px}
-.project-logo--score{width:290px;border-radius:7px}
-.project-logo--umpire{width:290px}
-/* ClubDisplay uses a near-white brand logo: show it on a brand-navy plate
-   only in light mode, preserving the original transparent artwork. */
-.project-logo--clubdisplay{box-sizing:border-box;background:#102735;border:1px solid #25485a;border-radius:12px;padding:10px 12px}
-html[data-theme="dark"] .project-logo--clubdisplay{background:transparent;border-color:transparent}
+/* All TENNILO marks come from the same four approved, alpha-cutout product
+   plates on tennilo.de. Identical proportions in light and dark mode. */
+.project-logo--tennilo-badge{width:290px;max-width:100%;height:auto;max-height:104px;aspect-ratio:1361/390;object-fit:contain;object-position:left center;border:0!important;border-radius:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;filter:none!important}
 .index-arrow svg{width:21px;height:21px;display:block;flex:none;stroke:currentColor;pointer-events:none}
 
 .logo-mode-dark{display:none}
 html[data-theme="dark"] .logo-mode-light{display:none}
 html[data-theme="dark"] .logo-mode-dark{display:block}
 html[data-theme="dark"] .project-logo--tennilo{filter:none;background:transparent;padding:0}
-html[data-theme="dark"] .project-logo--score{filter:none;background:transparent;padding:0}
 html[data-theme="dark"] .project-logo--ts{background:transparent;padding:0}
 html[data-theme="dark"] .project-logo--wm{box-shadow:0 0 0 1px #cbb9f5,0 0 22px rgba(170,114,255,.33);border-radius:13px}
 .project-wm-heading{display:flex;align-items:center;gap:12px;min-height:64px;max-width:100%}
@@ -228,8 +224,8 @@ html[data-theme="dark"] .project-logo--wm{box-shadow:0 0 0 1px #cbb9f5,0 0 22px 
         <div class="pulse-feature-watch"><img src="../media/score-demo-watch-cutout.svg" alt="" width="576" height="674" loading="lazy" decoding="async"></div>
       </a>
       <div class="pulse-minis">
-        <a class="pulse-mini" href="https://tennilo.de/#projekte" target="_blank" rel="noopener noreferrer"><div class="pulse-mini-top"><img src="../logos/tennilo-tournament-transparent.png" alt="" width="1361" height="390" loading="lazy"><span class="mini">TOURNAMENT</span></div><strong>Organise tournaments digitally</strong><span class="pulse-mini-bottom">IN DEVELOPMENT<span aria-hidden="true">↗</span></span></a>
-        <a class="pulse-mini" href="https://tennilo.de/#projekte" target="_blank" rel="noopener noreferrer"><div class="pulse-mini-top"><img src="../logos/tennilo-umpire.png" alt="" width="4096" height="1360" loading="lazy"><span class="mini">UMPIRE</span></div><strong>Digital tools for officials</strong><span class="pulse-mini-bottom">IN PLANNING<span aria-hidden="true">↗</span></span></a>
+        <a class="pulse-mini" href="https://tennilo.de/#projekte" target="_blank" rel="noopener noreferrer"><div class="pulse-mini-top"><img src="../logos/tn-overview-tournament.png?v=20261126-tennilo-unified01" alt="" width="1361" height="390" loading="lazy" decoding="async"><span class="mini">TOURNAMENT</span></div><strong>Organise tournaments digitally</strong><span class="pulse-mini-bottom">IN DEVELOPMENT<span aria-hidden="true">↗</span></span></a>
+        <a class="pulse-mini" href="https://tennilo.de/#projekte" target="_blank" rel="noopener noreferrer"><div class="pulse-mini-top"><img src="../logos/tn-overview-umpire.png?v=20261126-tennilo-unified01" alt="" width="1361" height="390" loading="lazy" decoding="async"><span class="mini">UMPIRE</span></div><strong>Digital tools for officials</strong><span class="pulse-mini-bottom">IN PLANNING<span aria-hidden="true">↗</span></span></a>
         <a class="pulse-mini pulse-mini--juxilo" href="https://juxilo.de/" target="_blank" rel="noopener noreferrer"><div class="pulse-mini-top"><img class="pulse-mini-app pulse-mini-juxilo-icon" src="../logos/juxilo-jx04-icon.svg" alt="" width="96" height="96" loading="lazy" decoding="async"><span class="mini">JUXILO</span></div><strong>Six fun apps. One playful home.</strong><span class="pulse-mini-bottom">IN DEVELOPMENT<span aria-hidden="true">↗</span></span></a>
       </div>
     </div>
@@ -252,20 +248,20 @@ html[data-theme="dark"] .project-logo--wm{box-shadow:0 0 0 1px #cbb9f5,0 0 22px 
       </a>
       <a class="index-row" href="https://tennilo.de/#score" target="_blank" rel="noopener noreferrer" aria-label="TENNILO Score – open TENNILO website in a new tab">
         <span class="index-number">03</span>
-        <span class="index-heading"><img class="project-logo project-logo--score logo-mode-light" src="../logos/tennilo-score-transparent.png" alt="TENNILO Score" width="863" height="121" loading="lazy" decoding="async"><img class="project-logo project-logo--score logo-mode-dark" src="../logos/tennilo-score-dark-original.png" alt="TENNILO Score" width="863" height="121" loading="lazy" decoding="async"><span class="index-category">Scorekeeping app · Apple Watch · In development</span></span>
+        <span class="index-heading"><img class="project-logo project-logo--tennilo project-logo--tennilo-badge" src="../logos/tn-overview-score.png?v=20261126-tennilo-unified01" alt="TENNILO Score" width="1361" height="390" loading="lazy" decoding="async"><span class="index-category">Scorekeeping app · Apple Watch · In development</span></span>
         <span class="index-description"><strong>TENNILO Score – keep score right from your wrist.</strong> A tennis scorekeeping app for Apple Watch, with an accompanying iPhone app. Planned beta test: 27 December 2026 at a ranking tournament in Bad Saarow; targeted launch in spring 2027.</span>
         <span class="index-arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span>
       </a>
-      <a class="index-row" href="https://tennilo.de/en/clubdisplay/" target="_blank" rel="noopener noreferrer"><span class="index-number">04</span><span class="index-heading"><img class="project-logo project-logo--tennilo project-logo--clubdisplay" src="../logos/tennilo-clubdisplay.png" alt="TENNILO ClubDisplay" loading="lazy" decoding="async" style="width:290px;max-width:100%;max-height:130px;object-fit:contain;object-position:left center"><span class="index-category">BASIC &amp; PLUS · Pilot</span></span><span class="index-description"><strong>Your club on one display.</strong> Fixtures, events, news, sponsors, dining and weather. Booking integration subject to approval.</span><span class="index-arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+      <a class="index-row" href="https://tennilo.de/en/clubdisplay/" target="_blank" rel="noopener noreferrer"><span class="index-number">04</span><span class="index-heading"><img class="project-logo project-logo--tennilo project-logo--tennilo-badge" src="../logos/tn-overview-clubdisplay.png?v=20261126-tennilo-unified01" alt="TENNILO ClubDisplay" width="1361" height="390" loading="lazy" decoding="async"><span class="index-category">BASIC &amp; PLUS · Pilot</span></span><span class="index-description"><strong>Your club on one display.</strong> Fixtures, events, news, sponsors, dining and weather. Booking integration subject to approval.</span><span class="index-arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
       <a class="index-row" href="https://tennilo.de/#projekte" target="_blank" rel="noopener noreferrer" aria-label="TENNILO Tournament – open product website in a new tab">
         <span class="index-number">05</span>
-        <span class="index-heading"><img class="project-logo project-logo--tennilo" src="../logos/tennilo-tournament-transparent.png?v=tt04-corrected-20261124" alt="TENNILO Tournament" width="1361" height="390" loading="lazy" decoding="async"><span class="index-category">Tournament management · In development</span></span>
+        <span class="index-heading"><img class="project-logo project-logo--tennilo project-logo--tennilo-badge" src="../logos/tn-overview-tournament.png?v=20261126-tennilo-unified01" alt="TENNILO Tournament" width="1361" height="390" loading="lazy" decoding="async"><span class="index-category">Tournament management · In development</span></span>
         <span class="index-description"><strong>TENNILO Tournament – organise tournaments digitally.</strong> A web app under the TENNILO brand for club and organiser events: formats, draws, schedules, results and live score displays.</span>
         <span class="index-arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span>
       </a>
       <a class="index-row" href="https://tennilo.de/#projekte" target="_blank" rel="noopener noreferrer" aria-label="TENNILO Umpire – open TENNILO website in a new tab">
         <span class="index-number">06</span>
-        <span class="index-heading"><img class="project-logo project-logo--umpire" src="../logos/tennilo-umpire.png" alt="TENNILO Umpire" width="4096" height="1360" loading="lazy" decoding="async"><span class="index-category">Umpire app · In planning</span></span>
+        <span class="index-heading"><img class="project-logo project-logo--tennilo project-logo--tennilo-badge" src="../logos/tn-overview-umpire.png?v=20261126-tennilo-unified01" alt="TENNILO Umpire" width="1361" height="390" loading="lazy" decoding="async"><span class="index-category">Umpire app · In planning</span></span>
         <span class="index-description"><strong>TENNILO Umpire – digital tools for tennis officials.</strong> Planned features include a modular interface for officiating matches and sending scores to external scoreboards.</span>
         <span class="index-arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span>
       </a>
